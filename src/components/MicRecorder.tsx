@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { pickRecorderMime, watchVoiceActivity } from "@/lib/audioRecord";
 import { pronunciationScorer, type ScoreResult } from "@/lib/pronunciation";
 import { FeedbackCue } from "./FeedbackCue";
 
@@ -31,16 +32,40 @@ export function MicRecorder({
   const [result, setResult] = useState<ScoreResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [micBlocked, setMicBlocked] = useState(false);
+  const [level, setLevel] = useState(0);
+  const [status, setStatus] = useState<string | null>(null);
+
   const mediaRef = useRef<MediaRecorder | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const startedAt = useRef(0);
+  const vadRef = useRef<{ stop: () => void } | null>(null);
+  const stoppingRef = useRef(false);
+  const mimeRef = useRef<string>("audio/webm");
 
   useEffect(() => {
     return () => {
+      cleanupCapture();
       if (blobUrl) URL.revokeObjectURL(blobUrl);
-      mediaRef.current?.stream.getTracks().forEach((t) => t.stop());
     };
-  }, [blobUrl]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function cleanupCapture() {
+    vadRef.current?.stop();
+    vadRef.current = null;
+    if (mediaRef.current && mediaRef.current.state !== "inactive") {
+      try {
+        mediaRef.current.stop();
+      } catch {
+        /* already stopped */
+      }
+    }
+    mediaRef.current = null;
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+    stoppingRef.current = false;
+  }
 
   async function runScore(durationMs: number) {
     setScoring(true);
@@ -58,14 +83,75 @@ export function MicRecorder({
     }
   }
 
+  async function finishRecording(reason: "silence" | "max" | "no-speech" | "manual") {
+    if (stoppingRef.current) return;
+    stoppingRef.current = true;
+    vadRef.current?.stop();
+    vadRef.current = null;
+    setLevel(0);
+
+    const recorder = mediaRef.current;
+    if (!recorder || recorder.state === "inactive") {
+      setRecording(false);
+      stoppingRef.current = false;
+      return;
+    }
+
+    // Flush final chunk before stop (fixes empty blobs in some browsers)
+    try {
+      recorder.requestData();
+    } catch {
+      /* unsupported */
+    }
+
+    await new Promise<void>((resolve) => {
+      recorder.addEventListener("stop", () => resolve(), { once: true });
+      try {
+        recorder.stop();
+      } catch {
+        resolve();
+      }
+    });
+
+    const durationMs = Date.now() - startedAt.current;
+    const mime = mimeRef.current;
+    const blob = new Blob(chunksRef.current, { type: mime });
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+    mediaRef.current = null;
+    setRecording(false);
+
+    if (reason === "no-speech" || blob.size < 800 || durationMs < 280) {
+      setError("I didn’t catch your voice — speak a little louder, then pause.");
+      setStatus(null);
+      stoppingRef.current = false;
+      return;
+    }
+
+    if (blobUrl) URL.revokeObjectURL(blobUrl);
+    const url = URL.createObjectURL(blob);
+    setBlobUrl(url);
+    setStatus(
+      reason === "silence"
+        ? "Heard you — stopped after silence."
+        : reason === "max"
+          ? "Stopped at max length."
+          : null,
+    );
+    stoppingRef.current = false;
+    await runScore(durationMs);
+  }
+
   async function start() {
     setError(null);
     setResult(null);
+    setStatus(null);
+    setLevel(0);
     if (!listened) {
       setError("Listen to the teacher first — then open the mic.");
       return;
     }
-    if (disabled) return;
+    if (disabled || recording || scoring) return;
 
     if (typeof window !== "undefined" && !window.isSecureContext) {
       setMicBlocked(true);
@@ -73,42 +159,63 @@ export function MicRecorder({
       return;
     }
 
-    if (!navigator.mediaDevices?.getUserMedia) {
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") {
       setMicBlocked(true);
       setError("This browser can’t open the mic. Use a demo practice take below.");
       return;
     }
 
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
+      cleanupCapture();
       chunksRef.current = [];
+      stoppingRef.current = false;
+
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+        },
+      });
+      streamRef.current = stream;
+
+      const mime = pickRecorderMime();
+      mimeRef.current = mime ?? "audio/webm";
+      const recorder = mime
+        ? new MediaRecorder(stream, { mimeType: mime })
+        : new MediaRecorder(stream);
+
       recorder.ondataavailable = (e) => {
-        if (e.data.size > 0) chunksRef.current.push(e.data);
+        if (e.data && e.data.size > 0) chunksRef.current.push(e.data);
       };
-      recorder.onstop = async () => {
-        const durationMs = Date.now() - startedAt.current;
-        const blob = new Blob(chunksRef.current, { type: "audio/webm" });
-        if (blobUrl) URL.revokeObjectURL(blobUrl);
-        const url = URL.createObjectURL(blob);
-        setBlobUrl(url);
-        stream.getTracks().forEach((t) => t.stop());
-        await runScore(durationMs);
+      recorder.onerror = () => {
+        setError("Recording failed — try again or use a demo practice take.");
+        cleanupCapture();
+        setRecording(false);
       };
+
       mediaRef.current = recorder;
       startedAt.current = Date.now();
-      recorder.start();
+      // timeslice keeps chunks flowing so the blob isn’t empty
+      recorder.start(120);
       setRecording(true);
       setMicBlocked(false);
+      setStatus("Listening… speak, then pause — I’ll stop for you.");
+
+      vadRef.current = watchVoiceActivity(
+        stream,
+        (reason) => {
+          void finishRecording(reason);
+        },
+        (lvl) => setLevel(lvl),
+        { silenceMs: 1600, maxMs: 4000, speechThreshold: 0.04 },
+      );
     } catch {
+      cleanupCapture();
       setMicBlocked(true);
+      setRecording(false);
       setError("Mic permission denied. Allow the mic, or use a demo practice take.");
     }
-  }
-
-  function stop() {
-    mediaRef.current?.stop();
-    setRecording(false);
   }
 
   async function simulatePractice() {
@@ -116,47 +223,60 @@ export function MicRecorder({
     setError(null);
     setResult(null);
     setBlobUrl(null);
+    setStatus(null);
     await runScore(1200);
   }
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="relative flex items-center justify-center gap-5 py-2">
-        {recording ? (
-          <span
-            aria-hidden
-            className="absolute h-24 w-24 animate-pulseRing rounded-full border-2 border-coral/50"
-          />
-        ) : null}
+      <div className="relative flex flex-col items-center gap-3 py-2">
+        <div className="relative flex items-center justify-center gap-5">
+          {recording ? (
+            <span
+              aria-hidden
+              className="absolute h-24 w-24 animate-pulseRing rounded-full border-2 border-coral/50"
+            />
+          ) : null}
 
-        {!recording ? (
           <button
             type="button"
             className="circle-btn-primary disabled:opacity-40"
-            disabled={!listened || scoring || disabled}
+            disabled={!listened || scoring || disabled || recording}
             onClick={start}
-            aria-label="Record"
+            aria-label={recording ? "Recording" : "Record"}
           >
             <MicIcon />
           </button>
-        ) : (
-          <button type="button" className="circle-btn-primary" onClick={stop} aria-label="Stop">
-            <StopIcon />
-          </button>
-        )}
 
-        {onReplayLast ? (
-          <button type="button" className="circle-btn" onClick={onReplayLast} aria-label="Replay">
-            <ReplayIcon />
-          </button>
+          {onReplayLast ? (
+            <button type="button" className="circle-btn" onClick={onReplayLast} aria-label="Replay">
+              <ReplayIcon />
+            </button>
+          ) : null}
+        </div>
+
+        {recording ? (
+          <div className="flex w-full max-w-xs flex-col items-center gap-2">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-ink/10" aria-hidden>
+              <div
+                className="h-full rounded-full bg-coral transition-[width] duration-75"
+                style={{ width: `${Math.max(4, Math.round(level * 100))}%` }}
+              />
+            </div>
+            <p className="text-center text-sm text-coral">
+              {level > 0.08 ? "Hearing you…" : "Waiting for your voice…"}
+            </p>
+          </div>
         ) : null}
       </div>
 
       <p className="text-center text-sm text-ink/55">
         {disabled
           ? "Set complete — see your average below."
-          : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound clearly.`}
+          : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound, then pause. No Stop button needed.`}
       </p>
+
+      {status ? <p className="text-center text-sm text-ink/60">{status}</p> : null}
 
       {!listened ? (
         <p className="text-center text-sm text-ink/55">
@@ -208,10 +328,6 @@ function MicIcon() {
       <path d="M12 17v3M9 20h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
-}
-
-function StopIcon() {
-  return <span className="h-5 w-5 rounded-sm bg-paper" />;
 }
 
 function ReplayIcon() {
