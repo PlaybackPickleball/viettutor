@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0f2a24;
+  --jade: #1f6b55;
+  --leaf: #2f8f72;
+  --mist: #d7ebe3;
+  --paper: #f3f7f4;
+  --amber: #c9842a;
+  --soft: #e8f2ed;
+  --background: #eaf3ef;
+  --foreground: #0f2a24;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--foreground);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(47, 143, 114, 0.28), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(201, 132, 42, 0.16), transparent 50%),
+    radial-gradient(800px 700px at 50% 100%, rgba(31, 107, 85, 0.14), transparent 55%),
+    linear-gradient(165deg, #eaf3ef 0%, #dcebe4 45%, #e8efe6 100%);
+  background-attachment: fixed;
+  font-family: var(--font-sans), sans-serif;
+}
+
+@layer utilities {
+  .studio-shell {
+    @apply mx-auto flex min-h-dvh w-full max-w-lg flex-col px-5 pb-10 pt-6;
+  }
+
+  .teacher-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-base font-medium transition;
+  }
+
+  .teacher-btn-primary {
+    @apply teacher-btn bg-jade text-paper shadow-soft hover:bg-leaf active:scale-[0.98];
+  }
+
+  .teacher-btn-secondary {
+    @apply teacher-btn border border-jade/25 bg-paper/70 text-ink hover:bg-soft active:scale-[0.98];
+  }
+
+  .teacher-btn-amber {
+    @apply teacher-btn bg-amber text-ink shadow-soft hover:brightness-105 active:scale-[0.98];
+  }
+
+  .quiet-label {
+    @apply text-xs uppercase tracking-[0.18em] text-ink/45;
+  }
+}
