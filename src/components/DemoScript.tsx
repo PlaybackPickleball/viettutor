@@ -39,7 +39,8 @@ export function DemoScript() {
             <strong>Write:</strong> Play demo / trace / Mark written.
           </li>
           <li>
-            <strong>Link:</strong> shirt for <span lang="vi">áo</span>, then next sound.
+            <strong>Link:</strong> shirt for <span lang="vi">áo</span>, then next sound. Finish a
+            level to unlock the next few letters.
           </li>
         </ol>
       ) : null}

@@ -5,15 +5,23 @@ import { useEffect, useState } from "react";
 import { CelebrateBanner } from "@/components/CelebrateBanner";
 import { SoundObjectScene } from "@/components/SoundObjectScene";
 import { StudioChrome } from "@/components/StudioChrome";
-import { getNextLetter, type LetterLesson } from "@/lib/letters";
+import { getLevel, getNextLetter, type LetterLesson } from "@/lib/letters";
 import { praiseForLetterDone, praiseForStep } from "@/lib/motivation";
-import { isLetterComplete, loadProgress, markObjectSeen } from "@/lib/progress";
+import {
+  isLetterComplete,
+  isLevelComplete,
+  isLevelUnlocked,
+  loadProgress,
+  markObjectSeen,
+} from "@/lib/progress";
 
 export function ObjectClient({ letter }: { letter: LetterLesson }) {
   const next = getNextLetter(letter.id);
   const [justLinked, setJustLinked] = useState(false);
   const [letterDone, setLetterDone] = useState(false);
+  const [levelJustDone, setLevelJustDone] = useState(false);
   const [tick, setTick] = useState(0);
+  const [nextUnlocked, setNextUnlocked] = useState(true);
 
   useEffect(() => {
     const before = loadProgress().letters[letter.id]?.objectSeen;
@@ -21,7 +29,12 @@ export function ObjectClient({ letter }: { letter: LetterLesson }) {
     setTick((t) => t + 1);
     if (!before) setJustLinked(true);
     if (isLetterComplete(nextState.letters[letter.id])) setLetterDone(true);
-  }, [letter.id]);
+    setLevelJustDone(isLevelComplete(nextState, letter.levelId));
+    if (next) setNextUnlocked(isLevelUnlocked(nextState, next.levelId));
+  }, [letter.id, letter.levelId, next]);
+
+  const nextLevel = next ? getLevel(next.levelId) : undefined;
+  const thisLevel = getLevel(letter.levelId);
 
   return (
     <StudioChrome
@@ -31,11 +44,13 @@ export function ObjectClient({ letter }: { letter: LetterLesson }) {
       caption="Link the sound to one picture — meaning after sound, not instead of it."
       progressTick={tick}
     >
-      {letterDone ? (
+      {levelJustDone && letterDone ? (
         <CelebrateBanner
           variant="letter"
-          message={praiseForLetterDone(letter.order)}
+          message={`Level ${letter.levelId} complete${thisLevel ? ` · ${thisLevel.title}` : ""} — next set unlocked.`}
         />
+      ) : letterDone ? (
+        <CelebrateBanner variant="letter" message={praiseForLetterDone(letter.order)} />
       ) : justLinked ? (
         <CelebrateBanner message={praiseForStep("object", letter.order)} />
       ) : null}
@@ -43,13 +58,18 @@ export function ObjectClient({ letter }: { letter: LetterLesson }) {
       <SoundObjectScene letter={letter} />
 
       <div className="mt-auto flex flex-col gap-3 pt-10">
-        {next ? (
+        {next && nextUnlocked ? (
           <Link href={`/studio/${next.id}/hear`} className="teacher-btn-primary w-full text-center">
             Next sound · <span lang="vi">{next.grapheme}</span>
           </Link>
+        ) : next && !nextUnlocked ? (
+          <Link href="/" className="teacher-btn-primary w-full text-center">
+            Unlock Level {next.levelId}
+            {nextLevel ? ` · ${nextLevel.title}` : ""} on Home
+          </Link>
         ) : (
           <Link href="/" className="teacher-btn-primary w-full text-center">
-            Level 1 subset complete — Dashboard
+            Alphabet path complete — Home
           </Link>
         )}
         <Link href="/" className="teacher-btn-secondary w-full text-center">

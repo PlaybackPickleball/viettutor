@@ -4,7 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { DemoScript } from "@/components/DemoScript";
-import { LEVEL1_LETTERS, getLetter } from "@/lib/letters";
+import {
+  LEVELS,
+  getLetter,
+  getLettersForLevel,
+  getLevel,
+} from "@/lib/letters";
 import {
   maxStars,
   motivationLine,
@@ -13,7 +18,10 @@ import {
 } from "@/lib/motivation";
 import {
   continueHref,
+  currentLevelId,
   isLetterComplete,
+  isLevelUnlocked,
+  levelMastery,
   loadProgress,
   masteryCounts,
   practiceStreak,
@@ -43,8 +51,13 @@ export function DashboardClient() {
   const stars = totalStars(progress);
   const starCap = maxStars();
   const streak = practiceStreak(progress);
-  const lessonPct = Math.round((counts.mastered / Math.max(1, counts.total)) * 100);
-  const currentOrder = current?.order ?? 1;
+  const activeLevel = currentLevelId(progress);
+  const activeMeta = getLevel(activeLevel);
+  const activeMastery = levelMastery(progress, activeLevel);
+  const lessonPct =
+    activeMastery.total === 0
+      ? 0
+      : Math.round((activeMastery.mastered / activeMastery.total) * 100);
 
   return (
     <div className="studio-shell scene-wash animate-riseIn">
@@ -68,7 +81,7 @@ export function DashboardClient() {
         <div className="mt-4">
           <div className="mb-1 flex justify-between text-sm text-ink/60">
             <span>
-              Lesson {currentOrder}: Vowels
+              Level {activeLevel}: {activeMeta?.title ?? "Sounds"}
             </span>
             <span>{lessonPct}%</span>
           </div>
@@ -78,6 +91,7 @@ export function DashboardClient() {
               style={{ width: `${lessonPct}%` }}
             />
           </div>
+          <p className="mt-2 text-xs text-ink/45">{activeMeta?.subtitle}</p>
         </div>
         <Link href={href} className="teacher-btn-primary mt-5 w-full">
           Continue Learning
@@ -119,46 +133,77 @@ export function DashboardClient() {
 
       <DemoScript />
 
-      <section className="mb-4 mt-2" aria-labelledby="mastery-heading">
-        <h2 id="mastery-heading" className="quiet-label mb-3">
-          Level 1 sounds
+      <section className="mb-4 mt-2 space-y-5" aria-labelledby="levels-heading">
+        <h2 id="levels-heading" className="quiet-label">
+          Alphabet path · {LEVELS.length} levels
         </h2>
-        <ul className="grid grid-cols-5 gap-2">
-          {LEVEL1_LETTERS.map((letter) => {
-            const p = progress.letters[letter.id];
-            const done = isLetterComplete(p);
-            const started = Boolean(p && (p.heard || p.attempts || p.written || p.objectSeen));
-            const letterStars = starsForLetter(p);
-            return (
-              <li key={letter.id}>
-                <Link
-                  href={`/studio/${letter.id}/hear`}
-                  className={`relative flex aspect-square flex-col items-center justify-center rounded-2xl transition ${
-                    done
-                      ? "bg-coral text-paper"
-                      : started
-                        ? "bg-amber/20 text-ink ring-1 ring-coral/35"
-                        : "bg-paper/80 text-ink/55 hover:bg-soft"
-                  }`}
-                  lang="vi"
-                  aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}`}
-                >
-                  <span className="font-hand text-3xl font-medium leading-none">
-                    {letter.grapheme}
-                  </span>
-                  {letterStars > 0 ? (
-                    <span
-                      className={`mt-1 text-[10px] ${done ? "text-paper/80" : "text-coral"}`}
-                      aria-hidden
-                    >
-                      {"★".repeat(Math.min(4, letterStars))}
-                    </span>
-                  ) : null}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        {LEVELS.map((level) => {
+          const unlocked = isLevelUnlocked(progress, level.id);
+          const letters = getLettersForLevel(level.id);
+          const { mastered, total } = levelMastery(progress, level.id);
+          return (
+            <div
+              key={level.id}
+              className={`ami-card px-4 py-4 ${unlocked ? "" : "opacity-55"}`}
+            >
+              <div className="mb-3 flex items-start justify-between gap-3">
+                <div>
+                  <p className="font-display text-lg text-ink">
+                    Level {level.id} · {level.title}
+                  </p>
+                  <p className="text-xs text-ink/50">{level.subtitle}</p>
+                </div>
+                <p className="text-xs text-ink/45">
+                  {unlocked ? `${mastered}/${total}` : "Locked"}
+                </p>
+              </div>
+              {!unlocked ? (
+                <p className="text-sm text-ink/50">
+                  Finish Level {level.id - 1} to unlock these sounds.
+                </p>
+              ) : (
+                <ul className="grid grid-cols-5 gap-2">
+                  {letters.map((letter) => {
+                    const p = progress.letters[letter.id];
+                    const done = isLetterComplete(p);
+                    const started = Boolean(
+                      p && (p.heard || p.attempts || p.written || p.objectSeen),
+                    );
+                    const letterStars = starsForLetter(p);
+                    return (
+                      <li key={letter.id}>
+                        <Link
+                          href={`/studio/${letter.id}/hear`}
+                          className={`relative flex aspect-square flex-col items-center justify-center rounded-2xl transition ${
+                            done
+                              ? "bg-coral text-paper"
+                              : started
+                                ? "bg-amber/20 text-ink ring-1 ring-coral/35"
+                                : "bg-soft text-ink/55 hover:bg-paper"
+                          }`}
+                          lang="vi"
+                          aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}`}
+                        >
+                          <span className="font-hand text-2xl font-medium leading-none sm:text-3xl">
+                            {letter.grapheme}
+                          </span>
+                          {letterStars > 0 ? (
+                            <span
+                              className={`mt-1 text-[9px] ${done ? "text-paper/80" : "text-coral"}`}
+                              aria-hidden
+                            >
+                              {"★".repeat(Math.min(4, letterStars))}
+                            </span>
+                          ) : null}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </div>
+          );
+        })}
       </section>
 
       <section className="border-t border-[#e0d0bc] pt-6 text-sm text-ink/45">
@@ -167,7 +212,10 @@ export function DashboardClient() {
           Progress saves on this device
           {isSupabaseConfigured() ? " · Supabase connected" : " · Supabase stub ready"}.
         </p>
-        <p className="mt-1">Pronunciation uses Simulated scoring · 10 takes per sound.</p>
+        <p className="mt-1">
+          {counts.total} sounds across {LEVELS.length} levels · 10 takes per sound · Simulated
+          scoring.
+        </p>
       </section>
     </div>
   );

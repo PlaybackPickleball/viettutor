@@ -1,5 +1,10 @@
 import type { LetterId } from "./letters";
-import { LEVEL1_LETTERS, SAY_TARGET_REPS } from "./letters";
+import {
+  ALL_LETTERS,
+  LEVELS,
+  getLettersForLevel,
+  SAY_TARGET_REPS,
+} from "./letters";
 
 export type LetterProgress = {
   heard: boolean;
@@ -45,12 +50,12 @@ function emptyLetter(): LetterProgress {
 
 export function defaultProgress(): ProgressState {
   const letters: Record<string, LetterProgress> = {};
-  for (const l of LEVEL1_LETTERS) {
+  for (const l of ALL_LETTERS) {
     letters[l.id] = emptyLetter();
   }
   return {
     dialect: "southern",
-    currentLetterId: LEVEL1_LETTERS[0].id,
+    currentLetterId: ALL_LETTERS[0].id,
     letters,
     practiceDates: [],
     minutesToday: 0,
@@ -199,15 +204,39 @@ export function isLetterComplete(p: LetterProgress | undefined): boolean {
 }
 
 export function masteryCounts(state: ProgressState) {
-  const total = LEVEL1_LETTERS.length;
+  const total = ALL_LETTERS.length;
   let mastered = 0;
   let inProgress = 0;
-  for (const l of LEVEL1_LETTERS) {
+  for (const l of ALL_LETTERS) {
     const p = state.letters[l.id];
     if (isLetterComplete(p)) mastered += 1;
     else if (p && (p.heard || p.attempts > 0 || p.written || p.objectSeen)) inProgress += 1;
   }
   return { mastered, inProgress, total };
+}
+
+export function isLevelComplete(state: ProgressState, levelId: number): boolean {
+  const letters = getLettersForLevel(levelId);
+  return letters.length > 0 && letters.every((l) => isLetterComplete(state.letters[l.id]));
+}
+
+/** Level 1 always open; later levels unlock when the previous level is fully stamped. */
+export function isLevelUnlocked(state: ProgressState, levelId: number): boolean {
+  if (levelId <= 1) return true;
+  return isLevelComplete(state, levelId - 1);
+}
+
+export function levelMastery(state: ProgressState, levelId: number) {
+  const letters = getLettersForLevel(levelId);
+  const mastered = letters.filter((l) => isLetterComplete(state.letters[l.id])).length;
+  return { mastered, total: letters.length };
+}
+
+export function currentLevelId(state: ProgressState): number {
+  for (const level of LEVELS) {
+    if (!isLevelComplete(state, level.id)) return level.id;
+  }
+  return LEVELS[LEVELS.length - 1]?.id ?? 1;
 }
 
 export function continueHref(state: ProgressState): string {
@@ -217,9 +246,16 @@ export function continueHref(state: ProgressState): string {
   if (!p.sayMastered) return `/studio/${id}/say`;
   if (!p.written) return `/studio/${id}/write`;
   if (!p.objectSeen) return `/studio/${id}/object`;
-  const next = LEVEL1_LETTERS.find(
-    (l) => l.order === (LEVEL1_LETTERS.find((x) => x.id === id)?.order ?? 0) + 1,
+  const next = ALL_LETTERS.find(
+    (l) => l.order === (ALL_LETTERS.find((x) => x.id === id)?.order ?? 0) + 1,
   );
-  if (next) return `/studio/${next.id}/hear`;
+  if (next && isLevelUnlocked(state, next.levelId)) return `/studio/${next.id}/hear`;
+  // Jump to first incomplete letter in the highest unlocked level
+  for (const level of LEVELS) {
+    if (!isLevelUnlocked(state, level.id)) break;
+    for (const l of getLettersForLevel(level.id)) {
+      if (!isLetterComplete(state.letters[l.id])) return `/studio/${l.id}/hear`;
+    }
+  }
   return `/studio/${id}/object`;
 }

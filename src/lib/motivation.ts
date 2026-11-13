@@ -1,5 +1,10 @@
-import { LEVEL1_LETTERS } from "./letters";
-import { isLetterComplete, type LetterProgress, type ProgressState } from "./progress";
+import { ALL_LETTERS, LEVELS } from "./letters";
+import {
+  currentLevelId,
+  isLetterComplete,
+  type LetterProgress,
+  type ProgressState,
+} from "./progress";
 
 export type StepId = "hear" | "say" | "write" | "object";
 
@@ -27,11 +32,11 @@ export function starsForLetter(p: LetterProgress | undefined): number {
 }
 
 export function totalStars(state: ProgressState): number {
-  return LEVEL1_LETTERS.reduce((sum, l) => sum + starsForLetter(state.letters[l.id]), 0);
+  return ALL_LETTERS.reduce((sum, l) => sum + starsForLetter(state.letters[l.id]), 0);
 }
 
 export function maxStars(): number {
-  return LEVEL1_LETTERS.length * 4;
+  return ALL_LETTERS.length * 4;
 }
 
 export function praiseForStep(step: StepId, seed = 0): string {
@@ -45,13 +50,14 @@ export function praiseForLetterDone(seed = 0): string {
 
 export function motivationLine(state: ProgressState): string {
   const stars = totalStars(state);
-  const mastered = LEVEL1_LETTERS.filter((l) => isLetterComplete(state.letters[l.id])).length;
+  const mastered = ALL_LETTERS.filter((l) => isLetterComplete(state.letters[l.id])).length;
+  const level = currentLevelId(state);
   if (stars === 0) return "Collect a star each time you finish Hear, Say, Write, or Link.";
   if (mastered === 0) {
-    return `${stars} star${stars === 1 ? "" : "s"} so far — keep going, one sound at a time.`;
+    return `${stars} star${stars === 1 ? "" : "s"} so far — keep going on Level ${level}.`;
   }
-  if (mastered < LEVEL1_LETTERS.length) {
-    return `${mastered} sound${mastered === 1 ? "" : "s"} stamped · ${stars}/${maxStars()} stars.`;
+  if (mastered < ALL_LETTERS.length) {
+    return `Level ${level} of ${LEVELS.length} · ${mastered} sounds stamped · ${stars}/${maxStars()} stars.`;
   }
-  return `All Level 1 sounds stamped — ${stars} stars. Beautiful work.`;
+  return `Full alphabet path stamped — ${stars} stars. Beautiful work.`;
 }

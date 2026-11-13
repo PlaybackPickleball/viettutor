@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
 import { StepStars } from "./StepStars";
+import { getLetter } from "@/lib/letters";
 import { loadProgress, type LetterProgress } from "@/lib/progress";
 
 type Step = "hear" | "say" | "write" | "object";
@@ -44,7 +45,9 @@ export function StudioChrome({
       <header className="mb-5 flex items-start justify-between gap-4">
         <div>
           <BrandMark />
-          <p className="quiet-label mt-3">One sound · {grapheme}</p>
+          <p className="quiet-label mt-3">
+            Level {getLetter(letterId)?.levelId ?? "—"} · {grapheme}
+          </p>
         </div>
         <Link
           href="/"
