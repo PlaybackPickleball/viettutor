@@ -140,8 +140,8 @@ export function ScanClient() {
       {error ? <p className="mt-3 text-sm text-coral">{error}</p> : null}
 
       <p className="mt-6 text-xs text-ink/40">
-        On-device OCR uses Tesseract (vie). Optional Google Vision via{" "}
-        <code>GOOGLE_CLOUD_VISION_API_KEY</code>. Always correct diacritics before studying.
+        OCR runs on your device with Tesseract (Vietnamese). Always correct diacritics before
+        studying. Cloud Vision is not enabled without authenticated access.
       </p>
 
       <Link href="/" className="teacher-btn-secondary mt-8 w-full text-center">

@@ -1,21 +1,20 @@
 import type { OcrResult } from "./types";
 
 /**
- * Modular OCR:
- * - Browser: Tesseract.js with Vietnamese (`vie`) — works without cloud keys
- * - Server (optional): Google Cloud Vision when GOOGLE_CLOUD_VISION_API_KEY is set
+ * Modular OCR — client-only Tesseract (vie).
+ * Cloud Vision is intentionally not exposed via a public server route
+ * (would spend API quota without auth). Add Vision later behind signed-in users.
  */
 export async function extractVietnameseFromImage(
   image: File | Blob | string,
 ): Promise<OcrResult> {
-  // Prefer client Tesseract for Phase 1 reliability without secrets
   if (typeof window !== "undefined") {
     return extractWithTesseract(image);
   }
   return {
     text: "",
     provider: "demo",
-    note: "OCR must run in the browser (Tesseract) or via /api/ocr with a Vision key.",
+    note: "OCR runs on-device in the browser (Tesseract). No public Vision proxy is shipped.",
   };
 }
 

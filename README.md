@@ -22,7 +22,7 @@ Hear → Say (10 takes + average) → Write (Mali single-storey handwriting) →
 
 ### Scan & Read (Phase 1)
 1. **Scan** — take photo or upload image  
-2. **OCR** — on-device Tesseract (`vie`), or Google Vision if `GOOGLE_CLOUD_VISION_API_KEY` is set  
+2. **OCR** — on-device Tesseract (`vie`) only (no public Vision proxy)  
 3. **Review** — edit/correct diacritics (trusted text)  
 4. **Read** — tap syllables/compounds, listen, see meanings, record practice  
 5. **Vocab** — save expressions for review  
