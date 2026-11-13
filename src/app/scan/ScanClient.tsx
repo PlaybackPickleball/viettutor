@@ -98,26 +98,6 @@ export function ScanClient() {
     }
   }
 
-  function useDemo() {
-    const lesson = {
-      id: `lesson-demo-${Date.now()}`,
-      imageName: "demo",
-      rawOcr: DEMO_READING_TEXT,
-      correctedText: DEMO_READING_TEXT,
-      createdAt: new Date().toISOString(),
-      provider: "demo",
-      translation: "I want to drink coconut water.",
-      aiSegments: [
-        { text: "Tôi", meaningEn: "I" },
-        { text: "muốn", meaningEn: "want" },
-        { text: "uống", meaningEn: "drink" },
-        { text: "nước dừa", meaningEn: "coconut water", note: "Southern everyday drink order" },
-      ],
-    };
-    saveReadingLesson(lesson);
-    router.push("/scan/review");
-  }
-
   return (
     <div className="studio-shell scene-wash animate-riseIn">
       <BrandMark />
@@ -179,9 +159,9 @@ export function ScanClient() {
         {busy ? status || "Scanning…" : "Scan with AI"}
       </button>
 
-      <button type="button" className="teacher-btn-secondary mt-3 w-full" onClick={useDemo}>
+      <Link href="/scan/review?demo=1" className="teacher-btn-secondary mt-3 w-full text-center">
         Try demo sentence (no photo)
-      </button>
+      </Link>
 
       {note ? <p className="mt-3 text-sm text-ink/55">{note}</p> : null}
       {error ? <p className="mt-3 text-sm text-coral">{error}</p> : null}

@@ -1,25 +1,53 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { DEMO_READING_TEXT } from "@/lib/services/ocrService";
 import { loadActiveLesson, saveReadingLesson, type ReadingLessonDraft } from "@/lib/vocab/store";
+
+function seedDemoLesson(): ReadingLessonDraft {
+  const lesson: ReadingLessonDraft = {
+    id: `lesson-demo-${Date.now()}`,
+    imageName: "demo",
+    rawOcr: DEMO_READING_TEXT,
+    correctedText: DEMO_READING_TEXT,
+    createdAt: new Date().toISOString(),
+    provider: "demo",
+    translation: "I want to drink coconut water.",
+    aiSegments: [
+      { text: "Tôi", meaningEn: "I" },
+      { text: "muốn", meaningEn: "want" },
+      { text: "uống", meaningEn: "drink" },
+      { text: "nước dừa", meaningEn: "coconut water", note: "Southern everyday drink order" },
+    ],
+  };
+  saveReadingLesson(lesson);
+  return lesson;
+}
 
 export function ReviewClient() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [lesson, setLesson] = useState<ReadingLessonDraft | null>(null);
   const [text, setText] = useState("");
 
   useEffect(() => {
-    const active = loadActiveLesson();
+    const wantDemo = searchParams.get("demo") === "1";
+    let active = loadActiveLesson();
+    if (!active && wantDemo) {
+      active = seedDemoLesson();
+    } else if (wantDemo) {
+      active = seedDemoLesson();
+    }
     if (!active) {
       router.replace("/scan");
       return;
     }
     setLesson(active);
     setText(active.correctedText);
-  }, [router]);
+  }, [router, searchParams]);
 
   function continueReading() {
     if (!lesson) return;

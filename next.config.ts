@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Allow computer-use / phone-tunnel testing via 127.0.0.1 (not only localhost)
+  allowedDevOrigins: ["127.0.0.1"],
   // cursor/identity.ts uses ESM .js import paths that resolve to .ts siblings
   turbopack: {
     resolveExtensions: [".ts", ".tsx", ".js", ".jsx", ".mjs", ".json"],
