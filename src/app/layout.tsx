@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Fraunces } from "next/font/google";
+import { Be_Vietnam_Pro, Fraunces, Mali } from "next/font/google";
 import "./globals.css";
 
 const display = Fraunces({
@@ -12,6 +12,13 @@ const sans = Be_Vietnam_Pro({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext", "vietnamese"],
   weight: ["400", "500", "600"],
+});
+
+/** Vietnamese-supporting handwritten style for the Write studio */
+const hand = Mali({
+  variable: "--font-hand",
+  subsets: ["latin", "latin-ext", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${sans.variable} antialiased`}>{children}</body>
+      <body className={`${display.variable} ${sans.variable} ${hand.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

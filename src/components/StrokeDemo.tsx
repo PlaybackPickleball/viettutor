@@ -14,7 +14,6 @@ export function StrokeDemo({ strokes, grapheme }: Props) {
   function replay() {
     setPlaying(0);
     setKey((k) => k + 1);
-    // Stagger stroke reveal via CSS animation restarts
     strokes.forEach((_, i) => {
       window.setTimeout(() => setPlaying(i + 1), 700 * (i + 1));
     });
@@ -37,10 +36,12 @@ export function StrokeDemo({ strokes, grapheme }: Props) {
         >
           <text
             x="100"
-            y="210"
+            y="168"
             textAnchor="middle"
-            className="fill-ink/10"
-            style={{ fontSize: 120, fontFamily: "var(--font-display)" }}
+            dominantBaseline="middle"
+            className="fill-ink/15"
+            style={{ fontSize: 128, fontFamily: "var(--font-hand), cursive", fontWeight: 500 }}
+            lang="vi"
           >
             {grapheme}
           </text>

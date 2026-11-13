@@ -2,17 +2,21 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CelebrateBanner } from "@/components/CelebrateBanner";
 import { GraphemeHero } from "@/components/GraphemeHero";
 import { ListenControls } from "@/components/ListenControls";
 import { MicRecorder } from "@/components/MicRecorder";
 import { StudioChrome } from "@/components/StudioChrome";
 import { MASTERY_SAY_STREAK, type LetterLesson } from "@/lib/letters";
+import { praiseForStep } from "@/lib/motivation";
 import type { ScoreResult } from "@/lib/pronunciation";
 import { loadProgress, recordSayAttempt, type ProgressState } from "@/lib/progress";
 
 export function SayClient({ letter }: { letter: LetterLesson }) {
   const [progress, setProgress] = useState<ProgressState | null>(null);
   const [listened, setListened] = useState(false);
+  const [justEarned, setJustEarned] = useState(false);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     const p = loadProgress();
@@ -26,8 +30,15 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
   const attempts = letterProg?.attempts ?? 0;
 
   function onScored(result: ScoreResult) {
-    const next = recordSayAttempt(loadProgress(), letter.id, result.passed && result.dimension === "ok");
+    const before = loadProgress().letters[letter.id]?.sayMastered;
+    const next = recordSayAttempt(
+      loadProgress(),
+      letter.id,
+      result.passed && result.dimension === "ok",
+    );
     setProgress(next);
+    setTick((t) => t + 1);
+    if (!before && next.letters[letter.id]?.sayMastered) setJustEarned(true);
   }
 
   return (
@@ -36,7 +47,9 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       grapheme={letter.grapheme}
       step="say"
       caption="Match the teacher. One tip per try — then try again."
+      progressTick={tick}
     >
+      {justEarned ? <CelebrateBanner message={praiseForStep("say", letter.order)} /> : null}
       <GraphemeHero grapheme={letter.grapheme} hint={letter.soundHint} />
 
       <div className="mb-6">
@@ -53,7 +66,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
 
       <p className="mt-6 text-center text-sm text-ink/50">
         {mastered
-          ? "Sound steadied — you can move to writing."
+          ? "Sound steadied — star earned. You can move to writing."
           : `One solid take unlocks Write (${streak}/${MASTERY_SAY_STREAK}). First miss shows a why-wrong tip.`}
       </p>
 

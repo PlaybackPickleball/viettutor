@@ -6,6 +6,12 @@ import { BrandMark } from "@/components/BrandMark";
 import { DemoScript } from "@/components/DemoScript";
 import { LEVEL1_LETTERS, getLetter } from "@/lib/letters";
 import {
+  maxStars,
+  motivationLine,
+  starsForLetter,
+  totalStars,
+} from "@/lib/motivation";
+import {
   continueHref,
   isLetterComplete,
   loadProgress,
@@ -33,6 +39,8 @@ export function DashboardClient() {
   const counts = masteryCounts(progress);
   const current = getLetter(progress.currentLetterId);
   const href = continueHref(progress);
+  const stars = totalStars(progress);
+  const starCap = maxStars();
 
   return (
     <div className="studio-shell animate-riseIn">
@@ -60,6 +68,33 @@ export function DashboardClient() {
         </Link>
       </div>
 
+      <section
+        className="mb-8 overflow-hidden rounded-2xl border border-amber/30 bg-gradient-to-br from-amber/20 via-paper/80 to-soft px-4 py-4 shadow-soft"
+        aria-labelledby="stars-heading"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p id="stars-heading" className="quiet-label">
+              Teacher stamps
+            </p>
+            <p className="mt-1 font-display text-2xl text-ink">
+              <span className="animate-sparkle text-amber" aria-hidden>
+                ★
+              </span>{" "}
+              {stars}
+              <span className="text-base font-sans font-normal text-ink/45"> / {starCap}</span>
+            </p>
+          </div>
+          <div className="h-2 w-28 overflow-hidden rounded-full bg-ink/10">
+            <div
+              className="h-full rounded-full bg-amber transition-all duration-500"
+              style={{ width: `${Math.min(100, (stars / starCap) * 100)}%` }}
+            />
+          </div>
+        </div>
+        <p className="mt-3 text-sm text-ink/65">{motivationLine(progress)}</p>
+      </section>
+
       <DemoScript />
 
       <section className="mb-10" aria-labelledby="mastery-heading">
@@ -74,11 +109,12 @@ export function DashboardClient() {
             const p = progress.letters[letter.id];
             const done = isLetterComplete(p);
             const started = Boolean(p && (p.heard || p.attempts || p.written || p.objectSeen));
+            const letterStars = starsForLetter(p);
             return (
               <li key={letter.id}>
                 <Link
                   href={`/studio/${letter.id}/hear`}
-                  className={`flex aspect-square items-center justify-center rounded-2xl text-2xl font-display transition ${
+                  className={`relative flex aspect-square flex-col items-center justify-center rounded-2xl transition ${
                     done
                       ? "bg-jade text-paper"
                       : started
@@ -86,9 +122,19 @@ export function DashboardClient() {
                         : "bg-paper/70 text-ink/55 hover:bg-soft"
                   }`}
                   lang="vi"
-                  aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}`}
+                  aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}, ${letterStars} stars`}
                 >
-                  {letter.grapheme}
+                  <span className="font-hand text-3xl font-medium leading-none">
+                    {letter.grapheme}
+                  </span>
+                  {letterStars > 0 ? (
+                    <span
+                      className={`mt-1 text-[10px] tracking-wide ${done ? "text-paper/80" : "text-amber"}`}
+                      aria-hidden
+                    >
+                      {"★".repeat(letterStars)}
+                    </span>
+                  ) : null}
                 </Link>
               </li>
             );

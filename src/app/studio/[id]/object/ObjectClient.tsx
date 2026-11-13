@@ -1,17 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CelebrateBanner } from "@/components/CelebrateBanner";
 import { SoundObjectScene } from "@/components/SoundObjectScene";
 import { StudioChrome } from "@/components/StudioChrome";
 import { getNextLetter, type LetterLesson } from "@/lib/letters";
-import { loadProgress, markObjectSeen } from "@/lib/progress";
+import { praiseForLetterDone, praiseForStep } from "@/lib/motivation";
+import { isLetterComplete, loadProgress, markObjectSeen } from "@/lib/progress";
 
 export function ObjectClient({ letter }: { letter: LetterLesson }) {
   const next = getNextLetter(letter.id);
+  const [justLinked, setJustLinked] = useState(false);
+  const [letterDone, setLetterDone] = useState(false);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    markObjectSeen(loadProgress(), letter.id);
+    const before = loadProgress().letters[letter.id]?.objectSeen;
+    const nextState = markObjectSeen(loadProgress(), letter.id);
+    setTick((t) => t + 1);
+    if (!before) setJustLinked(true);
+    if (isLetterComplete(nextState.letters[letter.id])) setLetterDone(true);
   }, [letter.id]);
 
   return (
@@ -20,7 +29,17 @@ export function ObjectClient({ letter }: { letter: LetterLesson }) {
       grapheme={letter.grapheme}
       step="object"
       caption="Link the sound to one picture — meaning after sound, not instead of it."
+      progressTick={tick}
     >
+      {letterDone ? (
+        <CelebrateBanner
+          variant="letter"
+          message={praiseForLetterDone(letter.order)}
+        />
+      ) : justLinked ? (
+        <CelebrateBanner message={praiseForStep("object", letter.order)} />
+      ) : null}
+
       <SoundObjectScene letter={letter} />
 
       <div className="mt-auto flex flex-col gap-3 pt-10">

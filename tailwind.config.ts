@@ -20,6 +20,7 @@ export default {
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         sans: ["var(--font-sans)", "sans-serif"],
+        hand: ["var(--font-hand)", "cursive"],
       },
       boxShadow: {
         soft: "0 18px 40px -24px rgba(15, 42, 36, 0.45)",
@@ -42,12 +43,23 @@ export default {
           "70%": { transform: "scale(1.15)", opacity: "0" },
           "100%": { transform: "scale(1.15)", opacity: "0" },
         },
+        pop: {
+          "0%": { opacity: "0", transform: "scale(0.86) translateY(6px)" },
+          "70%": { opacity: "1", transform: "scale(1.04) translateY(0)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
+        sparkle: {
+          "0%, 100%": { opacity: "0.35", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.12)" },
+        },
       },
       animation: {
         breathe: "breathe 5s ease-in-out infinite",
         riseIn: "riseIn 0.55s ease-out both",
         strokeDraw: "strokeDraw 1.6s ease-in-out forwards",
         pulseRing: "pulseRing 1.4s ease-out infinite",
+        pop: "pop 0.45s ease-out both",
+        sparkle: "sparkle 1.8s ease-in-out infinite",
       },
     },
   },

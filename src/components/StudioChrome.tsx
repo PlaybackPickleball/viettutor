@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
+import { StepStars } from "./StepStars";
+import { loadProgress, type LetterProgress } from "@/lib/progress";
 
 type Step = "hear" | "say" | "write" | "object";
 
@@ -17,12 +21,28 @@ type Props = {
   step: Step;
   children: ReactNode;
   caption?: string;
+  /** Bump to refresh star trail after local progress changes */
+  progressTick?: number;
 };
 
-export function StudioChrome({ letterId, grapheme, step, children, caption }: Props) {
+export function StudioChrome({
+  letterId,
+  grapheme,
+  step,
+  children,
+  caption,
+  progressTick = 0,
+}: Props) {
+  const [letterProgress, setLetterProgress] = useState<LetterProgress | undefined>();
+
+  useEffect(() => {
+    const p = loadProgress();
+    setLetterProgress(p.letters[letterId]);
+  }, [letterId, progressTick, step]);
+
   return (
     <div className="studio-shell animate-riseIn">
-      <header className="mb-8 flex items-start justify-between gap-4">
+      <header className="mb-6 flex items-start justify-between gap-4">
         <div>
           <BrandMark />
           <p className="quiet-label mt-3">One sound · {grapheme}</p>
@@ -34,6 +54,8 @@ export function StudioChrome({ letterId, grapheme, step, children, caption }: Pr
           Dashboard
         </Link>
       </header>
+
+      <StepStars progress={letterProgress} current={step} />
 
       <nav aria-label="Lesson steps" className="mb-8 flex gap-1">
         {STEPS.map((s) => {
@@ -54,9 +76,7 @@ export function StudioChrome({ letterId, grapheme, step, children, caption }: Pr
         })}
       </nav>
 
-      {caption ? (
-        <p className="mb-6 text-lg text-ink/75">{caption}</p>
-      ) : null}
+      {caption ? <p className="mb-6 text-lg text-ink/75">{caption}</p> : null}
 
       <main className="flex flex-1 flex-col">{children}</main>
     </div>
