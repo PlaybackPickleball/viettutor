@@ -43,8 +43,8 @@ export function LetterTraceCanvas({ strokes, grapheme, onTraceComplete }: Props)
       // Handwritten model letter (Vietnamese notebook style)
       const hand = getComputedStyle(document.documentElement).getPropertyValue("--font-hand").trim();
       ctx.save();
-      ctx.fillStyle = "rgba(31, 107, 85, 0.16)";
-      ctx.font = `600 ${Math.floor(h * 0.62)}px ${hand || "Dancing Script"}, cursive`;
+      ctx.fillStyle = "rgba(224, 122, 74, 0.22)";
+      ctx.font = `600 ${Math.floor(h * 0.62)}px ${hand || "Mali"}, cursive`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(grapheme, w / 2, h * 0.55);

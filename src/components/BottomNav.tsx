@@ -12,8 +12,7 @@ export function BottomNav() {
 
   useEffect(() => {
     const p = loadProgress();
-    const cont = continueHref(p);
-    setLearnHref(cont);
+    setLearnHref(continueHref(p));
     const id = p.currentLetterId || "a";
     setWriteHref(`/studio/${id}/write`);
   }, [path]);
@@ -27,16 +26,16 @@ export function BottomNav() {
       match: (p: string) => p.startsWith("/studio") && !p.includes("/write"),
     },
     {
+      href: "/scan",
+      label: "Scan",
+      icon: ScanIcon,
+      match: (p: string) => p.startsWith("/scan") || p.startsWith("/vocab"),
+    },
+    {
       href: writeHref,
       label: "Write",
       icon: WriteIcon,
       match: (p: string) => p.includes("/write"),
-    },
-    {
-      href: "/#progress",
-      label: "Progress",
-      icon: ProgressIcon,
-      match: () => false,
     },
   ] as const;
 
@@ -53,7 +52,7 @@ export function BottomNav() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex min-w-[4.5rem] flex-col items-center gap-1 rounded-xl px-2 py-1.5 text-[11px] ${
+              className={`flex min-w-[4.25rem] flex-col items-center gap-1 rounded-xl px-2 py-1.5 text-[11px] ${
                 active ? "text-coral" : "text-ink/45 hover:text-ink/70"
               }`}
             >
@@ -94,6 +93,20 @@ function LearnIcon({ active }: { active?: boolean }) {
   );
 }
 
+function ScanIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <path d="M3 12h18" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function WriteIcon({ active }: { active?: boolean }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -104,19 +117,6 @@ function WriteIcon({ active }: { active?: boolean }) {
         strokeLinejoin="round"
       />
       <path d="M13.5 6.5 17.5 10.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
-    </svg>
-  );
-}
-
-function ProgressIcon({ active }: { active?: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M5 19V10M12 19V5M19 19v-7"
-        stroke={active ? "#e07a4a" : "currentColor"}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
     </svg>
   );
 }

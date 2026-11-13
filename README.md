@@ -1,32 +1,38 @@
 # ÁMi Lingua (repo: viettutor)
 
-Level 1 Vietnamese Learning Studio MVP — Southern Vietnamese first. Hear → Say (10 takes + average) → Write → Sound–object.
+Vietnamese Learning Studio + **Scan & Read** companion.
 
-## Run locally
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000 · Live: https://ami-lingua.apps.grok.bot
 
-Live app: https://ami-lingua.apps.grok.bot
+```bash
+npm test
+```
 
-## Demo script — letter **a**
+## Features
 
-1. **Home** → Continue Learning.
-2. **Hear** → Listen → Next.
-3. **Say** → complete **10 takes** (Record or Demo practice take). Each tip is **Simulated scoring**. After 10, read the **AI set average**, then Write unlocks.
-4. **Write** → Play demo / trace / Check.
-5. **Link** → shirt for **áo**, then next sound.
+### Foundations studio
+Hear → Say (10 takes + average) → Write (Mali single-storey handwriting) → Link · 8 alphabet levels.
 
-### Caveats
-- Pronunciation feedback is **Simulated scoring** (mock modular scorer).
-- Reference audio uses browser **Web Speech TTS** (`vi-VN`).
-- Microphone needs HTTPS/localhost + permission; otherwise use demo practice takes.
-- Progress is on-device (`localStorage`) until Supabase secrets are added.
+### Scan & Read (Phase 1)
+1. **Scan** — take photo or upload image  
+2. **OCR** — on-device Tesseract (`vie`), or Google Vision if `GOOGLE_CLOUD_VISION_API_KEY` is set  
+3. **Review** — edit/correct diacritics (trusted text)  
+4. **Read** — tap syllables/compounds, listen, see meanings, record practice  
+5. **Vocab** — save expressions for review  
+
+Pronunciation recording never invents scores. Without Azure keys, the UI reports **Scoring unavailable** and keeps listen/compare/retry.
+
+## Optional env
+
+See `.env.example`.
 
 ## Stack
 
-Next.js (App Router) · TypeScript · Tailwind · 10-rep mock pronunciation average · MediaRecorder · Web Speech TTS
+Next.js · TypeScript · Tailwind · Tesseract.js · modular OCR / speech / tutor services · localStorage (+ Supabase stubs)

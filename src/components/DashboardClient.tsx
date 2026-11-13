@@ -131,6 +131,14 @@ export function DashboardClient() {
         <p className="mt-3 text-sm text-ink/65">{motivationLine(progress)}</p>
       </section>
 
+      <Link href="/scan" className="ami-card mt-6 block px-4 py-4 transition hover:bg-paper">
+        <p className="quiet-label">New</p>
+        <p className="mt-1 font-display text-xl text-ink">Scan & Read</p>
+        <p className="mt-1 text-sm text-ink/60">
+          Photograph a menu or sign, tap words, listen, and save vocabulary.
+        </p>
+      </Link>
+
       <DemoScript />
 
       <section className="mb-4 mt-2 space-y-5" aria-labelledby="levels-heading">

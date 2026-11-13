@@ -42,7 +42,9 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
         <p className="font-hand text-6xl font-medium text-ink" lang="vi">
           {letter.grapheme}
         </p>
-        <p className="mt-2 text-xs text-ink/40">Cursive model · Dancing Script (Vietnamese)</p>
+        <p className="mt-2 text-xs text-ink/40">
+          Handwriting model · Mali (single-storey a, Vietnamese)
+        </p>
       </div>
 
       <StrokeDemo strokes={letter.strokes} grapheme={letter.grapheme} />
