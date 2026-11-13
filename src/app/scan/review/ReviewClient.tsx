@@ -36,10 +36,10 @@ export function ReviewClient() {
   useEffect(() => {
     const wantDemo = searchParams.get("demo") === "1";
     let active = loadActiveLesson();
-    if (!active && wantDemo) {
+    if (wantDemo) {
       active = seedDemoLesson();
-    } else if (wantDemo) {
-      active = seedDemoLesson();
+      // Drop ?demo=1 so refresh / back doesn't keep re-seeding over a real scan
+      router.replace("/scan/review");
     }
     if (!active) {
       router.replace("/scan");
