@@ -49,11 +49,38 @@ function SceneArt({ id, hue }: { id: string; hue: string }) {
   // Simple illustrative SVGs — atmosphere, not emoji stickers
   switch (id) {
     case "a":
+      // áo — shirt (crew neck + short sleeves)
       return (
-        <svg viewBox="0 0 240 180" className="relative z-10 h-44 w-full max-w-xs">
-          <rect x="70" y="50" width="100" height="90" rx="8" fill={hue} opacity="0.85" />
-          <path d="M60 55 L120 20 L180 55" fill="none" stroke="#0f2a24" strokeWidth="6" />
-          <circle cx="145" cy="85" r="8" fill="#f3f7f4" />
+        <svg viewBox="0 0 240 180" className="relative z-10 h-44 w-full max-w-xs" aria-hidden>
+          <path
+            d="M78 48
+               C88 36, 102 32, 120 32
+               C138 32, 152 36, 162 48
+               L188 62 L176 86 L158 76
+               L158 148 C158 156, 150 162, 142 162
+               L98 162 C90 162, 82 156, 82 148
+               L82 76 L64 86 L52 62 Z"
+            fill={hue}
+            opacity="0.9"
+          />
+          <path
+            d="M100 36 C108 48, 132 48, 140 36"
+            fill="none"
+            stroke="#0f2a24"
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+          <path
+            d="M120 58 L120 148"
+            fill="none"
+            stroke="#f3f7f4"
+            strokeWidth="4"
+            strokeLinecap="round"
+            opacity="0.7"
+          />
+          <circle cx="120" cy="72" r="4" fill="#f3f7f4" />
+          <circle cx="120" cy="92" r="4" fill="#f3f7f4" />
+          <circle cx="120" cy="112" r="4" fill="#f3f7f4" />
         </svg>
       );
     case "a-breve":
