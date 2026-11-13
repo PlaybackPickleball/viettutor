@@ -11,7 +11,7 @@ const TIPS: Record<Exclude<ErrorDimension, "ok">, string[]> = {
     "Lift a little at the end — this sound stays level in Southern speech.",
   ],
   vowel: [
-    "The middle sound was too closed — open your mouth a bit more.",
+    "Almost there — open your mouth slightly wider and shorten the sound.",
     "That vowel was a little off — match the teacher’s mouth shape, not English.",
   ],
   final: [
@@ -33,34 +33,47 @@ const OK_TIPS = [
   "Nice work — your mouth shape and timing lined up.",
 ];
 
+/** Varied mock qualities across a 10-take set so averages look realistic. */
+const DEMO_SEQUENCE: { dimension: ErrorDimension; quality: number }[] = [
+  { dimension: "vowel", quality: 58 },
+  { dimension: "timing", quality: 62 },
+  { dimension: "ok", quality: 78 },
+  { dimension: "vowel", quality: 66 },
+  { dimension: "ok", quality: 84 },
+  { dimension: "final", quality: 70 },
+  { dimension: "ok", quality: 88 },
+  { dimension: "tone", quality: 72 },
+  { dimension: "ok", quality: 90 },
+  { dimension: "ok", quality: 86 },
+];
+
 /**
  * Modular mock acoustic diagnosis — separate from any LLM tutoring.
- * Demo-friendly: first attempt shows a why-wrong cue; later attempts pass
- * so Write unlocks after one solid take (see MASTERY_SAY_STREAK).
- * UI must label Simulated scoring.
+ * Scores each take so a 10-rep set can be averaged. Label Simulated scoring in UI.
  */
 export class MockPronunciationScorer implements PronunciationScorer {
   async score(request: ScoreRequest): Promise<ScoreResult> {
-    await new Promise((r) => setTimeout(r, 400 + Math.random() * 300));
+    await new Promise((r) => setTimeout(r, 320 + Math.random() * 280));
 
     if (request.durationMs < 280) {
-      return result("unscoreable", false, request.attemptIndex, "Recording was very short.");
+      return result("unscoreable", false, 35, request.attemptIndex, "Recording was very short.");
     }
     if (request.durationMs > 4500) {
-      return result("timing", false, request.attemptIndex, "Recording ran long.");
+      return result("timing", false, 48, request.attemptIndex, "Recording ran long.");
     }
 
-    // First scored take → actionable tip; next takes → pass for mastery.
-    if (request.attemptIndex === 0) {
-      return result("vowel", false, request.attemptIndex);
-    }
-    return result("ok", true, request.attemptIndex);
+    const step = DEMO_SEQUENCE[request.attemptIndex % DEMO_SEQUENCE.length];
+    const jitter = Math.round((Math.random() - 0.5) * 6);
+    const quality = Math.max(30, Math.min(98, step.quality + jitter));
+    const passed = step.dimension === "ok" && quality >= 75;
+    return result(step.dimension, passed || step.dimension === "ok", quality, request.attemptIndex);
   }
 }
 
 function result(
   dimension: ErrorDimension,
   passed: boolean,
+  quality: number,
   attemptIndex: number,
   evidence?: string,
 ): ScoreResult {
@@ -70,6 +83,7 @@ function result(
       dimension,
       tip: OK_TIPS[attemptIndex % OK_TIPS.length],
       passed: true,
+      quality,
       evidence: evidence ?? "Mock acoustic check: within expected range.",
     };
   }
@@ -79,6 +93,7 @@ function result(
     dimension,
     tip: pool[attemptIndex % pool.length],
     passed,
+    quality,
     evidence,
   };
 }

@@ -16,6 +16,7 @@ import {
   isLetterComplete,
   loadProgress,
   masteryCounts,
+  practiceStreak,
   type ProgressState,
 } from "@/lib/progress";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
@@ -29,7 +30,7 @@ export function DashboardClient() {
 
   if (!progress) {
     return (
-      <div className="studio-shell">
+      <div className="studio-shell scene-wash">
         <BrandMark size="lg" href={undefined} />
         <p className="mt-10 text-ink/50">Loading your place…</p>
       </div>
@@ -41,53 +42,74 @@ export function DashboardClient() {
   const href = continueHref(progress);
   const stars = totalStars(progress);
   const starCap = maxStars();
+  const streak = practiceStreak(progress);
+  const lessonPct = Math.round((counts.mastered / Math.max(1, counts.total)) * 100);
+  const currentOrder = current?.order ?? 1;
 
   return (
-    <div className="studio-shell animate-riseIn">
-      <div className="relative mb-10 overflow-hidden pb-2 pt-4">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-16 -top-10 h-64 w-64 animate-breathe rounded-full bg-leaf/25 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 top-8 h-48 w-48 rounded-full bg-amber/20 blur-3xl"
-        />
+    <div className="studio-shell scene-wash animate-riseIn">
+      <div className="mb-6 flex items-start justify-between gap-3">
         <BrandMark size="lg" href={undefined} />
-        <h1 className="sr-only">ÁMi Lingua</h1>
-        <p className="mt-6 max-w-sm text-lg leading-relaxed text-ink/70">
-          Learn one sound at a time — hear it, say it, write it, then meet its picture.
-        </p>
-        <Link href={href} className="teacher-btn-primary mt-8 inline-flex">
-          {counts.mastered === 0 && counts.inProgress === 0 ? "Begin Level 1" : "Continue"}
+        <button
+          type="button"
+          className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#e0d0bc] bg-paper text-ink/50"
+          aria-label="Notifications"
+        >
+          <BellIcon />
+        </button>
+      </div>
+
+      <p className="font-display text-3xl text-ink">Xin chào, Nicola</p>
+      <p className="mt-1 text-ink/55">Ready for today’s sounds?</p>
+
+      <section className="ami-card mt-6 px-4 py-4" id="learn">
+        <p className="quiet-label">Current course</p>
+        <p className="mt-1 font-display text-xl text-ink">Vietnamese Foundations</p>
+        <div className="mt-4">
+          <div className="mb-1 flex justify-between text-sm text-ink/60">
+            <span>
+              Lesson {currentOrder}: Vowels
+            </span>
+            <span>{lessonPct}%</span>
+          </div>
+          <div className="h-2.5 overflow-hidden rounded-full bg-ink/10">
+            <div
+              className="h-full rounded-full bg-coral transition-all"
+              style={{ width: `${lessonPct}%` }}
+            />
+          </div>
+        </div>
+        <Link href={href} className="teacher-btn-primary mt-5 w-full">
+          Continue Learning
           {current ? (
-            <span className="opacity-80" lang="vi">
+            <span className="opacity-90" lang="vi">
               · {current.grapheme}
             </span>
           ) : null}
         </Link>
-      </div>
+      </section>
 
-      <section
-        className="mb-8 overflow-hidden rounded-2xl border border-amber/30 bg-gradient-to-br from-amber/20 via-paper/80 to-soft px-4 py-4 shadow-soft"
-        aria-labelledby="stars-heading"
-      >
+      <section className="mt-6 grid grid-cols-3 gap-3" id="progress" aria-label="Practice stats">
+        <StatCircle value={String(counts.mastered)} label="Sounds mastered" icon="wave" />
+        <StatCircle value={`${streak} days`} label="Practice streak" icon="flame" />
+        <StatCircle value={`${progress.minutesToday} min`} label="Time today" icon="clock" />
+      </section>
+
+      <section className="ami-card mt-6 px-4 py-4">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <p id="stars-heading" className="quiet-label">
-              Teacher stamps
-            </p>
+            <p className="quiet-label">Teacher stamps</p>
             <p className="mt-1 font-display text-2xl text-ink">
-              <span className="animate-sparkle text-amber" aria-hidden>
+              <span className="text-coral" aria-hidden>
                 ★
               </span>{" "}
               {stars}
               <span className="text-base font-sans font-normal text-ink/45"> / {starCap}</span>
             </p>
           </div>
-          <div className="h-2 w-28 overflow-hidden rounded-full bg-ink/10">
+          <div className="h-2 w-24 overflow-hidden rounded-full bg-ink/10">
             <div
-              className="h-full rounded-full bg-amber transition-all duration-500"
+              className="h-full rounded-full bg-coral"
               style={{ width: `${Math.min(100, (stars / starCap) * 100)}%` }}
             />
           </div>
@@ -97,13 +119,10 @@ export function DashboardClient() {
 
       <DemoScript />
 
-      <section className="mb-10" aria-labelledby="mastery-heading">
+      <section className="mb-4 mt-2" aria-labelledby="mastery-heading">
         <h2 id="mastery-heading" className="quiet-label mb-3">
           Level 1 sounds
         </h2>
-        <p className="mb-4 text-sm text-ink/55">
-          {counts.mastered} mastered · {counts.inProgress} in progress · {counts.total} total
-        </p>
         <ul className="grid grid-cols-5 gap-2">
           {LEVEL1_LETTERS.map((letter) => {
             const p = progress.letters[letter.id];
@@ -116,23 +135,23 @@ export function DashboardClient() {
                   href={`/studio/${letter.id}/hear`}
                   className={`relative flex aspect-square flex-col items-center justify-center rounded-2xl transition ${
                     done
-                      ? "bg-jade text-paper"
+                      ? "bg-coral text-paper"
                       : started
-                        ? "bg-amber/25 text-ink ring-1 ring-amber/40"
-                        : "bg-paper/70 text-ink/55 hover:bg-soft"
+                        ? "bg-amber/20 text-ink ring-1 ring-coral/35"
+                        : "bg-paper/80 text-ink/55 hover:bg-soft"
                   }`}
                   lang="vi"
-                  aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}, ${letterStars} stars`}
+                  aria-label={`Sound ${letter.grapheme}${done ? ", mastered" : ""}`}
                 >
                   <span className="font-hand text-3xl font-medium leading-none">
                     {letter.grapheme}
                   </span>
                   {letterStars > 0 ? (
                     <span
-                      className={`mt-1 text-[10px] tracking-wide ${done ? "text-paper/80" : "text-amber"}`}
+                      className={`mt-1 text-[10px] ${done ? "text-paper/80" : "text-coral"}`}
                       aria-hidden
                     >
-                      {"★".repeat(letterStars)}
+                      {"★".repeat(Math.min(4, letterStars))}
                     </span>
                   ) : null}
                 </Link>
@@ -142,14 +161,48 @@ export function DashboardClient() {
         </ul>
       </section>
 
-      <section className="border-t border-ink/10 pt-6 text-sm text-ink/45">
+      <section className="border-t border-[#e0d0bc] pt-6 text-sm text-ink/45">
         <p>Dialect: Southern Vietnamese (first).</p>
         <p className="mt-1">
           Progress saves on this device
           {isSupabaseConfigured() ? " · Supabase connected" : " · Supabase stub ready"}.
         </p>
-        <p className="mt-1">Pronunciation feedback is labeled Simulated scoring until validated.</p>
+        <p className="mt-1">Pronunciation uses Simulated scoring · 10 takes per sound.</p>
       </section>
     </div>
+  );
+}
+
+function StatCircle({
+  value,
+  label,
+  icon,
+}: {
+  value: string;
+  label: string;
+  icon: "wave" | "flame" | "clock";
+}) {
+  return (
+    <div className="ami-card flex flex-col items-center px-2 py-4 text-center">
+      <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-soft text-coral">
+        {icon === "wave" ? "〰" : icon === "flame" ? "✦" : "◷"}
+      </div>
+      <p className="font-display text-lg leading-tight text-ink">{value}</p>
+      <p className="mt-1 text-[11px] leading-snug text-ink/50">{label}</p>
+    </div>
+  );
+}
+
+function BellIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M6 9a6 6 0 1 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
   );
 }

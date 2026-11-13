@@ -33,9 +33,9 @@ export function StepStars({ progress, current }: Props) {
               title={step}
               className={`inline-flex h-7 w-7 items-center justify-center rounded-lg text-sm transition ${
                 on
-                  ? "bg-amber/90 text-ink shadow-soft animate-pop"
+                  ? "bg-coral text-paper shadow-soft animate-pop"
                   : active
-                    ? "bg-paper text-ink/35 ring-1 ring-jade/35"
+                    ? "bg-paper text-ink/35 ring-1 ring-coral/35"
                     : "bg-paper/60 text-ink/20"
               }`}
               aria-hidden

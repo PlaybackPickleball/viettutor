@@ -3,15 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0f2a24;
-  --jade: #1f6b55;
-  --leaf: #2f8f72;
-  --mist: #d7ebe3;
-  --paper: #f3f7f4;
-  --amber: #c9842a;
-  --soft: #e8f2ed;
-  --background: #eaf3ef;
-  --foreground: #0f2a24;
+  --ink: #3d2e24;
+  --jade: #c45c38;
+  --leaf: #d9784f;
+  --mist: #f3e6d8;
+  --paper: #fffaf3;
+  --amber: #e08a45;
+  --soft: #f7efe4;
+  --cream: #f6efe6;
+  --coral: #e07a4a;
+  --lotus: #c45c38;
+  --background: #f3e8dc;
+  --foreground: #3d2e24;
 }
 
 html,
@@ -22,17 +25,35 @@ body {
 body {
   color: var(--foreground);
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(47, 143, 114, 0.28), transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, rgba(201, 132, 42, 0.16), transparent 50%),
-    radial-gradient(800px 700px at 50% 100%, rgba(31, 107, 85, 0.14), transparent 55%),
-    linear-gradient(165deg, #eaf3ef 0%, #dcebe4 45%, #e8efe6 100%);
+    radial-gradient(900px 520px at 12% -8%, rgba(224, 122, 74, 0.22), transparent 55%),
+    radial-gradient(700px 480px at 100% 8%, rgba(180, 140, 90, 0.18), transparent 50%),
+    radial-gradient(800px 600px at 50% 110%, rgba(120, 150, 130, 0.14), transparent 55%),
+    linear-gradient(180deg, #f8f1e7 0%, #efe4d6 48%, #e8dccb 100%);
   background-attachment: fixed;
   font-family: var(--font-sans), sans-serif;
 }
 
+/* Soft “watercolor landscape” wash behind studio shells */
+.scene-wash::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: auto 0 0 0;
+  height: 42vh;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(90, 140, 120, 0.18), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 78% 70%, rgba(70, 110, 140, 0.12), transparent 65%),
+    linear-gradient(0deg, rgba(120, 150, 130, 0.08), transparent);
+  z-index: -1;
+}
+
 @layer utilities {
   .studio-shell {
-    @apply mx-auto flex min-h-dvh w-full max-w-lg flex-col px-5 pb-10 pt-6;
+    @apply relative mx-auto flex min-h-dvh w-full max-w-lg flex-col px-5 pb-28 pt-6;
+  }
+
+  .ami-card {
+    @apply rounded-[1.75rem] border border-[#e8d9c8] bg-paper/95 shadow-soft;
   }
 
   .teacher-btn {
@@ -40,18 +61,26 @@ body {
   }
 
   .teacher-btn-primary {
-    @apply teacher-btn bg-jade text-paper shadow-soft hover:bg-leaf active:scale-[0.98];
+    @apply teacher-btn bg-coral text-paper shadow-soft hover:bg-leaf active:scale-[0.98];
   }
 
   .teacher-btn-secondary {
-    @apply teacher-btn border border-jade/25 bg-paper/70 text-ink hover:bg-soft active:scale-[0.98];
+    @apply teacher-btn border border-[#e0d0bc] bg-paper/80 text-ink hover:bg-soft active:scale-[0.98];
   }
 
   .teacher-btn-amber {
-    @apply teacher-btn bg-amber text-ink shadow-soft hover:brightness-105 active:scale-[0.98];
+    @apply teacher-btn bg-amber text-paper shadow-soft hover:brightness-105 active:scale-[0.98];
   }
 
   .quiet-label {
     @apply text-xs uppercase tracking-[0.18em] text-ink/45;
+  }
+
+  .circle-btn {
+    @apply flex h-14 w-14 items-center justify-center rounded-full border border-[#e0d0bc] bg-paper text-ink shadow-soft transition active:scale-95;
+  }
+
+  .circle-btn-primary {
+    @apply flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-coral text-paper shadow-soft transition active:scale-95;
   }
 }

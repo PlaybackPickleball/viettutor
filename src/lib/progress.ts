@@ -1,5 +1,5 @@
 import type { LetterId } from "./letters";
-import { LEVEL1_LETTERS, MASTERY_SAY_STREAK } from "./letters";
+import { LEVEL1_LETTERS, SAY_TARGET_REPS } from "./letters";
 
 export type LetterProgress = {
   heard: boolean;
@@ -8,16 +8,27 @@ export type LetterProgress = {
   written: boolean;
   objectSeen: boolean;
   attempts: number;
+  /** Qualities from the current 10-take set (0–100) */
+  sayQualities: number[];
+  /** Average after completing SAY_TARGET_REPS */
+  sayAverage: number | null;
 };
 
 export type ProgressState = {
   dialect: "southern";
   currentLetterId: LetterId;
   letters: Record<string, LetterProgress>;
+  practiceDates: string[];
+  minutesToday: number;
+  minutesDate: string;
   updatedAt: string;
 };
 
-const STORAGE_KEY = "ami-lingua.progress.v1";
+const STORAGE_KEY = "ami-lingua.progress.v2";
+
+function todayKey(): string {
+  return new Date().toISOString().slice(0, 10);
+}
 
 function emptyLetter(): LetterProgress {
   return {
@@ -27,6 +38,8 @@ function emptyLetter(): LetterProgress {
     written: false,
     objectSeen: false,
     attempts: 0,
+    sayQualities: [],
+    sayAverage: null,
   };
 }
 
@@ -39,6 +52,9 @@ export function defaultProgress(): ProgressState {
     dialect: "southern",
     currentLetterId: LEVEL1_LETTERS[0].id,
     letters,
+    practiceDates: [],
+    minutesToday: 0,
+    minutesDate: todayKey(),
     updatedAt: new Date().toISOString(),
   };
 }
@@ -46,15 +62,25 @@ export function defaultProgress(): ProgressState {
 export function loadProgress(): ProgressState {
   if (typeof window === "undefined") return defaultProgress();
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem("ami-lingua.progress.v1");
     if (!raw) return defaultProgress();
-    const parsed = JSON.parse(raw) as ProgressState;
-    // Merge new letters if curriculum grows
+    const parsed = JSON.parse(raw) as Partial<ProgressState>;
     const base = defaultProgress();
+    const letters: Record<string, LetterProgress> = { ...base.letters };
+    for (const [id, p] of Object.entries(parsed.letters ?? {})) {
+      letters[id] = { ...emptyLetter(), ...p, sayQualities: p.sayQualities ?? [] };
+    }
+    const minutesDate = parsed.minutesDate ?? todayKey();
     return {
       ...base,
       ...parsed,
-      letters: { ...base.letters, ...parsed.letters },
+      letters,
+      practiceDates: parsed.practiceDates ?? [],
+      minutesToday: minutesDate === todayKey() ? (parsed.minutesToday ?? 0) : 0,
+      minutesDate: todayKey(),
+      dialect: "southern",
+      currentLetterId: (parsed.currentLetterId as LetterId) ?? base.currentLetterId,
+      updatedAt: parsed.updatedAt ?? base.updatedAt,
     };
   } catch {
     return defaultProgress();
@@ -67,13 +93,36 @@ export function saveProgress(state: ProgressState) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
 
+function touchPractice(state: ProgressState): ProgressState {
+  const day = todayKey();
+  const dates = state.practiceDates.includes(day)
+    ? state.practiceDates
+    : [...state.practiceDates, day].slice(-60);
+  const minutesToday =
+    state.minutesDate === day ? state.minutesToday + 1 : 1;
+  return { ...state, practiceDates: dates, minutesToday, minutesDate: day };
+}
+
+export function practiceStreak(state: ProgressState): number {
+  const set = new Set(state.practiceDates);
+  let streak = 0;
+  const cursor = new Date();
+  for (;;) {
+    const key = cursor.toISOString().slice(0, 10);
+    if (!set.has(key)) break;
+    streak += 1;
+    cursor.setUTCDate(cursor.getUTCDate() - 1);
+  }
+  return streak;
+}
+
 export function markHeard(state: ProgressState, id: string): ProgressState {
   const letter = { ...(state.letters[id] ?? emptyLetter()), heard: true };
-  const next = {
+  const next = touchPractice({
     ...state,
     currentLetterId: id as LetterId,
     letters: { ...state.letters, [id]: letter },
-  };
+  });
   saveProgress(next);
   return next;
 }
@@ -82,41 +131,64 @@ export function recordSayAttempt(
   state: ProgressState,
   id: string,
   passed: boolean,
+  quality: number,
 ): ProgressState {
   const prev = state.letters[id] ?? emptyLetter();
+  const qualities = [...prev.sayQualities, quality].slice(-SAY_TARGET_REPS);
+  const attempts = prev.attempts + 1;
+  const complete = qualities.length >= SAY_TARGET_REPS;
+  const sayAverage = complete
+    ? Math.round(qualities.reduce((a, b) => a + b, 0) / qualities.length)
+    : prev.sayAverage;
   const sayStreak = passed ? prev.sayStreak + 1 : 0;
-  const sayMastered = prev.sayMastered || sayStreak >= MASTERY_SAY_STREAK;
+  const sayMastered = prev.sayMastered || complete;
   const letter: LetterProgress = {
     ...prev,
-    attempts: prev.attempts + 1,
+    attempts,
+    sayQualities: qualities,
+    sayAverage,
     sayStreak,
     sayMastered,
   };
-  const next = {
+  const next = touchPractice({
     ...state,
     currentLetterId: id as LetterId,
     letters: { ...state.letters, [id]: letter },
+  });
+  saveProgress(next);
+  return next;
+}
+
+export function resetSaySet(state: ProgressState, id: string): ProgressState {
+  const prev = state.letters[id] ?? emptyLetter();
+  const letter: LetterProgress = {
+    ...prev,
+    sayQualities: [],
+    sayAverage: null,
+    sayMastered: false,
+    sayStreak: 0,
   };
+  const next = { ...state, letters: { ...state.letters, [id]: letter } };
   saveProgress(next);
   return next;
 }
 
 export function markWritten(state: ProgressState, id: string): ProgressState {
   const letter = { ...(state.letters[id] ?? emptyLetter()), written: true };
-  const next = {
+  const next = touchPractice({
     ...state,
     letters: { ...state.letters, [id]: letter },
-  };
+  });
   saveProgress(next);
   return next;
 }
 
 export function markObjectSeen(state: ProgressState, id: string): ProgressState {
   const letter = { ...(state.letters[id] ?? emptyLetter()), objectSeen: true };
-  const next = {
+  const next = touchPractice({
     ...state,
     letters: { ...state.letters, [id]: letter },
-  };
+  });
   saveProgress(next);
   return next;
 }
@@ -145,7 +217,9 @@ export function continueHref(state: ProgressState): string {
   if (!p.sayMastered) return `/studio/${id}/say`;
   if (!p.written) return `/studio/${id}/write`;
   if (!p.objectSeen) return `/studio/${id}/object`;
-  const next = LEVEL1_LETTERS.find((l) => l.order === (LEVEL1_LETTERS.find((x) => x.id === id)?.order ?? 0) + 1);
+  const next = LEVEL1_LETTERS.find(
+    (l) => l.order === (LEVEL1_LETTERS.find((x) => x.id === id)?.order ?? 0) + 1,
+  );
   if (next) return `/studio/${next.id}/hear`;
   return `/studio/${id}/object`;
 }

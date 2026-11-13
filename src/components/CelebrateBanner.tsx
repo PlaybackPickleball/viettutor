@@ -11,8 +11,8 @@ export function CelebrateBanner({ message, variant = "step" }: Props) {
       role="status"
       className={`animate-pop mb-4 overflow-hidden rounded-2xl px-4 py-3 ${
         variant === "letter"
-          ? "bg-gradient-to-r from-jade to-leaf text-paper shadow-soft"
-          : "border border-amber/40 bg-amber/15 text-ink"
+          ? "bg-gradient-to-r from-coral to-amber text-paper shadow-soft"
+          : "border border-coral/35 bg-coral/10 text-ink"
       }`}
     >
       <p className="text-sm font-medium leading-snug">

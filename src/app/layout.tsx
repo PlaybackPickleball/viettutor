@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Dancing_Script, Fraunces } from "next/font/google";
+import { BottomNav } from "@/components/BottomNav";
 import "./globals.css";
 
 const display = Fraunces({
@@ -14,7 +15,6 @@ const sans = Be_Vietnam_Pro({
   weight: ["400", "500", "600"],
 });
 
-/** Vietnamese-supporting cursive handwriting for the Write studio */
 const hand = Dancing_Script({
   variable: "--font-hand",
   subsets: ["latin", "latin-ext", "vietnamese"],
@@ -36,6 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${display.variable} ${sans.variable} ${hand.variable} antialiased`}>
         {children}
+        <BottomNav />
       </body>
     </html>
   );

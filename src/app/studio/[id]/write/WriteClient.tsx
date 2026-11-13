@@ -33,26 +33,36 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="write"
-      caption="Trace in notebook handwriting. Watch the stroke demo, then write on the lines."
+      caption="Practice the letter shape — notebook cursive with stroke guidance."
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("write", letter.order)} /> : null}
 
-      <p
-        className="mb-2 text-center font-hand text-6xl font-medium tracking-wide text-ink/85"
-        lang="vi"
-      >
-        {letter.grapheme}
-      </p>
-      <p className="mb-4 text-center text-xs text-ink/40">
-        Cursive handwriting model · Dancing Script (Vietnamese)
-      </p>
+      <div className="ami-card mb-5 px-4 py-6 text-center">
+        <p className="font-hand text-6xl font-medium text-ink" lang="vi">
+          {letter.grapheme}
+        </p>
+        <p className="mt-2 text-xs text-ink/40">Cursive model · Dancing Script (Vietnamese)</p>
+      </div>
+
       <StrokeDemo strokes={letter.strokes} grapheme={letter.grapheme} />
       <LetterTraceCanvas
         strokes={letter.strokes}
         grapheme={letter.grapheme}
         onTraceComplete={completeWrite}
       />
+
+      <div className="mt-4 grid grid-cols-3 gap-2">
+        <button type="button" className="teacher-btn-secondary py-3 text-sm" onClick={completeWrite}>
+          Trace ✓
+        </button>
+        <Link href={`/studio/${letter.id}/write`} className="teacher-btn-secondary py-3 text-center text-sm">
+          Clear
+        </Link>
+        <button type="button" className="teacher-btn-primary py-3 text-sm" onClick={completeWrite}>
+          Check
+        </button>
+      </div>
 
       <div className="mt-auto flex flex-col gap-3 pt-8">
         <Link
@@ -64,9 +74,6 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
         >
           Next: Sound & picture
         </Link>
-        <button type="button" className="teacher-btn-secondary w-full" onClick={completeWrite}>
-          Mark written & continue
-        </button>
       </div>
     </StudioChrome>
   );

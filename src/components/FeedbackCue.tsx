@@ -11,16 +11,16 @@ const DIMENSION_LABEL: Record<ScoreResult["dimension"], string> = {
 
 type Props = {
   result: ScoreResult;
+  takeNumber?: number;
+  takeTotal?: number;
 };
 
-export function FeedbackCue({ result }: Props) {
+export function FeedbackCue({ result, takeNumber, takeTotal }: Props) {
   const good = result.passed && result.dimension === "ok";
   return (
     <div
-      className={`animate-riseIn rounded-2xl border px-4 py-4 ${
-        good
-          ? "border-leaf/40 bg-leaf/10"
-          : "border-amber/35 bg-amber/10"
+      className={`animate-riseIn ami-card px-4 py-4 ${
+        good ? "border-emerald-200/80" : "border-coral/35"
       }`}
       role="status"
     >
@@ -29,6 +29,12 @@ export function FeedbackCue({ result }: Props) {
         <span className="rounded-md bg-ink/80 px-2 py-0.5 text-[10px] uppercase tracking-wider text-paper">
           Simulated scoring
         </span>
+        {takeNumber != null && takeTotal != null ? (
+          <span className="text-xs text-ink/45">
+            Take {takeNumber}/{takeTotal}
+          </span>
+        ) : null}
+        <span className="ml-auto font-display text-lg text-coral">{result.quality}</span>
       </div>
       <p className="text-base leading-relaxed text-ink">{result.tip}</p>
       {result.evidence ? (

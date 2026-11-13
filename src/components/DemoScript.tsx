@@ -1,21 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { SAY_TARGET_REPS } from "@/lib/letters";
 
-/** Compact 60–90s walkthrough for live demos (Nicola). */
+/** Compact walkthrough for live demos (Nicola). */
 export function DemoScript() {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="mb-8 rounded-2xl border border-jade/25 bg-paper/75 px-4 py-4 shadow-soft">
+    <section className="ami-card mb-8 mt-8 px-4 py-4">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="quiet-label">Demo script · ~75s</p>
+          <p className="quiet-label">Demo script</p>
           <h2 className="mt-1 font-display text-xl text-ink">Letter a live path</h2>
         </div>
         <button
           type="button"
-          className="text-sm text-jade underline-offset-2 hover:underline"
+          className="text-sm text-coral underline-offset-2 hover:underline"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? "Hide" : "Show"}
@@ -24,22 +25,21 @@ export function DemoScript() {
       {open ? (
         <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-ink/75">
           <li>
-            Tap <strong>Begin Level 1 · a</strong>.
+            Tap <strong>Continue Learning</strong>.
           </li>
           <li>
-            <strong>Hear:</strong> tap Listen (say “a” with the teacher), then <strong>Next: Say it</strong>.
+            <strong>Hear:</strong> Listen, then Next.
           </li>
           <li>
-            <strong>Say:</strong> Listen once. Record ~1s saying “a”, or use{" "}
-            <em>Demo practice take</em> if mic is blocked. First tip = why-wrong (Simulated). Second
-            take unlocks Write.
+            <strong>Say:</strong> complete <strong>{SAY_TARGET_REPS} takes</strong> (Record or Demo
+            practice take). Each tip is Simulated scoring; after {SAY_TARGET_REPS}, read the{" "}
+            <em>AI set average</em>, then Write unlocks.
           </li>
           <li>
-            <strong>Write:</strong> Play demo, optionally trace, or <strong>Mark written & continue</strong>.
+            <strong>Write:</strong> Play demo / trace / Mark written.
           </li>
           <li>
-            <strong>Link:</strong> show the shirt for <span lang="vi">áo</span>, tap to re-hear, then
-            Next sound.
+            <strong>Link:</strong> shirt for <span lang="vi">áo</span>, then next sound.
           </li>
         </ol>
       ) : null}

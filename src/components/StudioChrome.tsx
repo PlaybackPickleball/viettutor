@@ -21,7 +21,6 @@ type Props = {
   step: Step;
   children: ReactNode;
   caption?: string;
-  /** Bump to refresh star trail after local progress changes */
   progressTick?: number;
 };
 
@@ -41,23 +40,23 @@ export function StudioChrome({
   }, [letterId, progressTick, step]);
 
   return (
-    <div className="studio-shell animate-riseIn">
-      <header className="mb-6 flex items-start justify-between gap-4">
+    <div className="studio-shell scene-wash animate-riseIn">
+      <header className="mb-5 flex items-start justify-between gap-4">
         <div>
           <BrandMark />
           <p className="quiet-label mt-3">One sound · {grapheme}</p>
         </div>
         <Link
           href="/"
-          className="rounded-full border border-ink/10 bg-paper/60 px-3 py-1.5 text-sm text-ink/70 hover:bg-soft"
+          className="rounded-full border border-[#e0d0bc] bg-paper/80 px-3 py-1.5 text-sm text-ink/70 hover:bg-soft"
         >
-          Dashboard
+          Home
         </Link>
       </header>
 
       <StepStars progress={letterProgress} current={step} />
 
-      <nav aria-label="Lesson steps" className="mb-8 flex gap-1">
+      <nav aria-label="Lesson steps" className="mb-6 flex gap-1">
         {STEPS.map((s) => {
           const active = s.id === step;
           return (
@@ -67,7 +66,7 @@ export function StudioChrome({
               className={`flex-1 rounded-xl py-2 text-center text-sm transition ${
                 active
                   ? "bg-ink text-paper"
-                  : "bg-paper/50 text-ink/45 hover:bg-soft hover:text-ink/70"
+                  : "bg-paper/70 text-ink/45 hover:bg-soft hover:text-ink/70"
               }`}
             >
               {s.label}
@@ -76,7 +75,7 @@ export function StudioChrome({
         })}
       </nav>
 
-      {caption ? <p className="mb-6 text-lg text-ink/75">{caption}</p> : null}
+      {caption ? <p className="mb-5 text-base text-ink/70">{caption}</p> : null}
 
       <main className="flex flex-1 flex-col">{children}</main>
     </div>

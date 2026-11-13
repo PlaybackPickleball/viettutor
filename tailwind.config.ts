@@ -9,13 +9,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#0f2a24",
-        jade: "#1f6b55",
-        mist: "#d7ebe3",
-        paper: "#f3f7f4",
-        amber: "#c9842a",
-        leaf: "#2f8f72",
-        soft: "#e8f2ed",
+        ink: "#3d2e24",
+        jade: "#c45c38",
+        mist: "#f3e6d8",
+        paper: "#fffaf3",
+        amber: "#e08a45",
+        leaf: "#d9784f",
+        soft: "#f7efe4",
+        cream: "#f6efe6",
+        coral: "#e07a4a",
+        lotus: "#c45c38",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
@@ -23,7 +26,7 @@ export default {
         hand: ["var(--font-hand)", "cursive"],
       },
       boxShadow: {
-        soft: "0 18px 40px -24px rgba(15, 42, 36, 0.45)",
+        soft: "0 16px 36px -20px rgba(61, 46, 36, 0.35)",
       },
       keyframes: {
         breathe: {
