@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { analyzeImageWithAi } from "@/lib/services/analyzeClient";
+import { fileToCompressedDataUrl } from "@/lib/services/imageCompress";
 import { DEMO_READING_TEXT, extractVietnameseFromImage } from "@/lib/services/ocrService";
 import { saveReadingLesson } from "@/lib/vocab/store";
 
@@ -14,12 +16,15 @@ export function ScanClient() {
   const [preview, setPreview] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
 
   function onPick(f: File | null) {
     if (!f) return;
     setError(null);
+    setNote(null);
+    setStatus(null);
     setFile(f);
     if (preview) URL.revokeObjectURL(preview);
     setPreview(URL.createObjectURL(f));
@@ -33,7 +38,41 @@ export function ScanClient() {
     setBusy(true);
     setError(null);
     setNote(null);
+    setStatus("Preparing photo…");
     try {
+      const dataUrl = await fileToCompressedDataUrl(file);
+
+      setStatus("AI reading Vietnamese…");
+      const ai = await analyzeImageWithAi(dataUrl);
+
+      if (ai.ok) {
+        const lesson = {
+          id: `lesson-${Date.now()}`,
+          imageName: file.name,
+          rawOcr: ai.data.text,
+          correctedText: ai.data.text,
+          createdAt: new Date().toISOString(),
+          provider: ai.data.provider,
+          translation: ai.data.translation,
+          aiSegments: ai.data.segments,
+        };
+        saveReadingLesson(lesson);
+        router.push("/scan/review");
+        return;
+      }
+
+      // Soft fallbacks: unconfigured / unsigned-in / no text → on-device OCR
+      if (ai.status === 401 || ai.status === 403) {
+        setNote("Sign in on the published app for AI analysis. Falling back to on-device OCR…");
+      } else if (ai.code === "ai_unconfigured") {
+        setNote("AI key not bound yet — using on-device OCR. Add the key to unlock Vision analysis.");
+      } else if (ai.code === "no_text") {
+        setNote(ai.message);
+      } else {
+        setNote(`AI unavailable (${ai.message}). Using on-device OCR…`);
+      }
+
+      setStatus("On-device OCR (Tesseract)…");
       const result = await extractVietnameseFromImage(file);
       const text = result.text.trim() || DEMO_READING_TEXT;
       if (!result.text.trim()) {
@@ -52,9 +91,10 @@ export function ScanClient() {
       saveReadingLesson(lesson);
       router.push("/scan/review");
     } catch (e) {
-      setError(e instanceof Error ? e.message : "OCR failed. Try a clearer photo.");
+      setError(e instanceof Error ? e.message : "Scan failed. Try a clearer photo.");
     } finally {
       setBusy(false);
+      setStatus(null);
     }
   }
 
@@ -66,6 +106,13 @@ export function ScanClient() {
       correctedText: DEMO_READING_TEXT,
       createdAt: new Date().toISOString(),
       provider: "demo",
+      translation: "I want to drink coconut water.",
+      aiSegments: [
+        { text: "Tôi", meaningEn: "I" },
+        { text: "muốn", meaningEn: "want" },
+        { text: "uống", meaningEn: "drink" },
+        { text: "nước dừa", meaningEn: "coconut water", note: "Southern everyday drink order" },
+      ],
     };
     saveReadingLesson(lesson);
     router.push("/scan/review");
@@ -76,13 +123,13 @@ export function ScanClient() {
       <BrandMark />
       <h1 className="mt-6 font-display text-3xl text-ink">Scan & Read</h1>
       <p className="mt-2 text-ink/60">
-        Photograph Vietnamese around you — menus, signs, books — then learn word by word.
+        Photograph Vietnamese around you — menus, signs, books — then learn word by word with AI.
       </p>
 
       <div className="ami-card mt-6 overflow-hidden">
         {preview ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={preview} alt="Selected for OCR" className="max-h-64 w-full object-cover" />
+          <img src={preview} alt="Selected for scan" className="max-h-64 w-full object-cover" />
         ) : (
           <div className="flex h-48 items-center justify-center bg-soft px-4 text-center text-sm text-ink/45">
             Camera preview or uploaded image appears here
@@ -129,7 +176,7 @@ export function ScanClient() {
         disabled={!file || busy}
         onClick={scan}
       >
-        {busy ? "Scanning Vietnamese text…" : "Scan text"}
+        {busy ? status || "Scanning…" : "Scan with AI"}
       </button>
 
       <button type="button" className="teacher-btn-secondary mt-3 w-full" onClick={useDemo}>
@@ -140,8 +187,8 @@ export function ScanClient() {
       {error ? <p className="mt-3 text-sm text-coral">{error}</p> : null}
 
       <p className="mt-6 text-xs text-ink/40">
-        OCR runs on your device with Tesseract (Vietnamese). Always correct diacritics before
-        studying. Cloud Vision is not enabled without authenticated access.
+        On the published app (signed in), AI Vision extracts text and beginner meanings. If AI is
+        unavailable, on-device Tesseract OCR still works — always correct diacritics before studying.
       </p>
 
       <Link href="/" className="teacher-btn-secondary mt-8 w-full text-center">

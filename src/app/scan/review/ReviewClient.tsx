@@ -59,7 +59,12 @@ export function ReviewClient() {
       <p className="mt-2 text-xs text-ink/40">
         Provider: {lesson.provider}
         {lesson.imageName ? ` · ${lesson.imageName}` : ""}
+        {lesson.translation ? " · translation ready" : ""}
+        {lesson.aiSegments?.length ? ` · ${lesson.aiSegments.length} AI words` : ""}
       </p>
+      {lesson.translation ? (
+        <p className="mt-3 text-sm text-ink/55 italic">{lesson.translation}</p>
+      ) : null}
 
       <button type="button" className="teacher-btn-primary mt-6 w-full" onClick={continueReading}>
         Start reading lesson

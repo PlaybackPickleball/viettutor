@@ -7,11 +7,13 @@ import { BrandMark } from "@/components/BrandMark";
 import { ReadingPracticeMic } from "@/components/ReadingPracticeMic";
 import { WordLearningCard } from "@/components/WordLearningCard";
 import { speakVietnamese } from "@/lib/audio";
+import { analyzeTextWithAi } from "@/lib/services/analyzeClient";
 import {
   segmentVietnamese,
   sentenceTranslationHint,
 } from "@/lib/services/segmentationService";
 import { explainExpression } from "@/lib/services/tutorService";
+import type { TextSegment, TutorExplanation } from "@/lib/services/types";
 import {
   loadActiveLesson,
   loadVocab,
@@ -19,12 +21,46 @@ import {
   type ReadingLessonDraft,
 } from "@/lib/vocab/store";
 
+function segmentsFromAi(
+  text: string,
+  aiSegments: { text: string; meaningEn: string; note?: string }[],
+): TextSegment[] {
+  if (!aiSegments.length) return segmentVietnamese(text);
+  const out: TextSegment[] = [];
+  let cursor = 0;
+  let id = 0;
+  const lower = text.toLowerCase();
+
+  for (const seg of aiSegments) {
+    const needle = seg.text.trim();
+    if (!needle) continue;
+    const idx = lower.indexOf(needle.toLowerCase(), cursor);
+    if (idx === -1) continue;
+    // Skip gaps as plain syllables via lexicon segmenter later if needed
+    const slice = text.slice(idx, idx + needle.length);
+    out.push({
+      id: `ai-${id++}`,
+      text: slice,
+      kind: needle.includes(" ") ? "word" : "syllable",
+      expression: slice,
+      start: idx,
+      end: idx + needle.length,
+    });
+    cursor = idx + needle.length;
+  }
+
+  return out.length ? out : segmentVietnamese(text);
+}
+
 export function ReadClient() {
   const router = useRouter();
   const [lesson, setLesson] = useState<ReadingLessonDraft | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
   const [showPractice, setShowPractice] = useState(false);
+  const [explanation, setExplanation] = useState<TutorExplanation | null>(null);
+  const [aiBusy, setAiBusy] = useState(false);
+  const [sentenceTranslation, setSentenceTranslation] = useState<string | null>(null);
 
   useEffect(() => {
     const active = loadActiveLesson();
@@ -35,19 +71,81 @@ export function ReadClient() {
     setLesson(active);
     const vocab = loadVocab();
     setSavedIds(new Set(vocab.map((v) => v.expression.toLowerCase())));
+
+    const localHint =
+      active.translation || sentenceTranslationHint(active.correctedText) || null;
+    setSentenceTranslation(localHint);
+
+    // Enrich full-sentence translation via AI when signed in
+    void (async () => {
+      const ai = await analyzeTextWithAi({
+        sentence: active.correctedText,
+        wantSentenceTranslation: true,
+      });
+      if (ai?.sentenceTranslation) {
+        setSentenceTranslation(ai.sentenceTranslation);
+      }
+    })();
   }, [router]);
 
   const segments = useMemo(
-    () => (lesson ? segmentVietnamese(lesson.correctedText) : []),
+    () =>
+      lesson
+        ? segmentsFromAi(lesson.correctedText, lesson.aiSegments ?? [])
+        : [],
     [lesson],
   );
 
-  const selected = segments.find((s) => s.id === selectedId) ?? null;
-  const explanation = selected
-    ? explainExpression(selected.expression, lesson?.correctedText)
-    : null;
+  const meaningMap = useMemo(() => {
+    const map = new Map<string, { meaningEn: string; note?: string }>();
+    for (const s of lesson?.aiSegments ?? []) {
+      map.set(s.text.toLowerCase(), { meaningEn: s.meaningEn, note: s.note });
+    }
+    return map;
+  }, [lesson]);
 
-  const translation = lesson ? sentenceTranslationHint(lesson.correctedText) : null;
+  const selected = segments.find((s) => s.id === selectedId) ?? null;
+  const selectedExpression = selected?.expression ?? null;
+
+  useEffect(() => {
+    if (!selectedExpression || !lesson) {
+      setExplanation(null);
+      return;
+    }
+
+    const cached = meaningMap.get(selectedExpression.toLowerCase());
+    const local = explainExpression(selectedExpression, lesson.correctedText);
+    if (cached) {
+      setExplanation({
+        expression: selectedExpression,
+        meaningEn: cached.meaningEn,
+        note: cached.note || local.note,
+        toneHint: local.toneHint,
+        inContext: local.inContext,
+        source: "llm",
+      });
+    } else {
+      setExplanation(local);
+    }
+
+    let cancelled = false;
+    setAiBusy(true);
+    void (async () => {
+      const ai = await analyzeTextWithAi({
+        expression: selectedExpression,
+        sentence: lesson.correctedText,
+      });
+      if (cancelled) return;
+      setAiBusy(false);
+      if (ai?.expression?.meaningEn && ai.expression.source !== "fallback") {
+        setExplanation(ai.expression);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedExpression, lesson, meaningMap]);
 
   async function readAll() {
     if (!lesson) return;
@@ -89,11 +187,11 @@ export function ReadClient() {
       <p className="quiet-label mt-6">Interactive reading</p>
       <h1 className="mt-1 font-display text-2xl text-ink">Tap a word to learn</h1>
 
-      {translation ? (
-        <p className="mt-2 text-ink/55 italic">{translation}</p>
+      {sentenceTranslation ? (
+        <p className="mt-2 text-ink/55 italic">{sentenceTranslation}</p>
       ) : (
         <p className="mt-2 text-sm text-ink/45">
-          Full-sentence translation available for known demo patterns; tap words for meanings.
+          Tap words for meanings. AI fills sentence translation when available.
         </p>
       )}
 
@@ -153,6 +251,9 @@ export function ReadClient() {
             saved={savedIds.has(explanation.expression.toLowerCase())}
             onPractice={() => setShowPractice(true)}
           />
+          {aiBusy ? (
+            <p className="mt-2 text-xs text-ink/40">Refreshing meaning with AI…</p>
+          ) : null}
         </div>
       ) : (
         <p className="mt-5 text-sm text-ink/50">Select a word to see its meaning.</p>

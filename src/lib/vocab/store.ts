@@ -16,6 +16,10 @@ export type ReadingLessonDraft = {
   correctedText: string;
   createdAt: string;
   provider: string;
+  /** AI or demo sentence translation when available */
+  translation?: string | null;
+  /** AI-suggested tap segments with meanings */
+  aiSegments?: { text: string; meaningEn: string; note?: string }[];
 };
 
 const VOCAB_KEY = "ami-lingua.vocab.v1";

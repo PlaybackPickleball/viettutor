@@ -2,9 +2,11 @@ export type Dialect = "southern" | "northern";
 
 export type OcrResult = {
   text: string;
-  provider: "tesseract" | "google-vision" | "demo";
+  provider: "tesseract" | "google-vision" | "openai-vision" | "demo";
   confidence?: number;
   note?: string;
+  translation?: string | null;
+  segments?: { text: string; meaningEn: string; note?: string }[];
 };
 
 export type SegmentKind = "word" | "syllable" | "punct";
