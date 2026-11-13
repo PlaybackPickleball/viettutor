@@ -45,18 +45,26 @@ export async function POST(request: Request) {
 
     const result = await chatJson({
       system: `You are ÁMi Lingua, a patient Southern-Vietnamese tutor for beginners.
-Extract ONLY Vietnamese text visible in the image. Preserve diacritics and tone marks.
-Do not invent text that is not visible. If unclear, omit that part.
+Extract ONLY the Vietnamese words/phrases that are the main subject of the photo
+(signs, menus, book titles, posters). Preserve diacritics and tone marks exactly.
+
+IGNORE and never copy: browser tabs, address bars, Google Search UI, app chrome,
+English navigation, watermarks, timestamps, random Latin gibberish, or UI labels
+like "ÁMi Lingua", "Samples", "Typography", "Search".
+
+Do not invent text that is not clearly visible. If the crop has no readable
+Vietnamese, return {"text":"","translation":null,"segments":[],"confidence":0}.
+
 Return JSON with:
 {
-  "text": "full Vietnamese text, line breaks ok",
-  "translation": "plain English of the whole text or null",
+  "text": "Vietnamese only, line breaks ok",
+  "translation": "plain English of that Vietnamese or null",
   "segments": [ { "text": "syllable or compound", "meaningEn": "short English", "note": "optional beginner tip" } ],
   "confidence": 0-1
 }
-Prefer multi-syllable compounds when they are one expression (e.g. nước dừa, cà phê).
-Keep segments useful for tapping — not every punctuation mark.`,
-      user: "Extract Vietnamese from this photo for a beginner reading lesson.",
+Prefer multi-syllable compounds when they are one expression (e.g. nước dừa, cơm nhà, xứ Quảng).
+Keep segments useful for tapping — not punctuation.`,
+      user: "Read only the Vietnamese text inside this cropped photo for a beginner lesson.",
       imageDataUrl: imageBase64,
       maxTokens: 1600,
     });
@@ -81,7 +89,19 @@ Keep segments useful for tapping — not every punctuation mark.`,
         {
           ok: false,
           code: "no_text",
-          message: "No clear Vietnamese text found. Try a sharper, closer photo.",
+          message:
+            "No clear Vietnamese text in this selection. Drag the box onto the words and try again.",
+        },
+        { status: 422, headers: { "cache-control": "private, no-store" } },
+      );
+    }
+    if (looksLikeUiNoise(text)) {
+      return NextResponse.json(
+        {
+          ok: false,
+          code: "noisy_text",
+          message:
+            "That selection looks like browser or app UI, not Vietnamese. Crop tighter onto the sign or menu text.",
         },
         { status: 422, headers: { "cache-control": "private, no-store" } },
       );
@@ -119,4 +139,30 @@ Keep segments useful for tapping — not every punctuation mark.`,
 function imageDataUrlOk(value?: string): boolean {
   if (!value) return false;
   return /^data:image\/(jpeg|jpg|png|webp);base64,/i.test(value);
+}
+
+/** Reject OCR that is mostly English chrome / gibberish instead of Vietnamese. */
+function looksLikeUiNoise(text: string): boolean {
+  const lower = text.toLowerCase();
+  const chromeHints = [
+    "ami lingua",
+    "ámi lingua",
+    "google search",
+    "level 1 learning",
+    "typography",
+    "samples |",
+    "http://",
+    "https://",
+  ];
+  if (chromeHints.some((h) => lower.includes(h))) return true;
+
+  const letters = text.replace(/\s+/g, "");
+  if (letters.length < 2) return true;
+  const viet = (text.match(/[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/gi) || [])
+    .length;
+  const latin = (text.match(/[A-Za-z]/g) || []).length;
+  // Real Vietnamese almost always has diacritics; pure ASCII UI dumps do not.
+  if (latin > 24 && viet === 0) return true;
+  if (latin > 0 && viet / Math.max(1, latin) < 0.08 && latin > 40) return true;
+  return false;
 }
