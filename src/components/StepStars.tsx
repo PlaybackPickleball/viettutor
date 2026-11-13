@@ -35,12 +35,12 @@ export function StepStars({ progress, current }: Props) {
                 on
                   ? "bg-amber/90 text-ink shadow-soft animate-pop"
                   : active
-                    ? "bg-soft text-amber ring-1 ring-amber/50"
-                    : "bg-paper/60 text-ink/25"
+                    ? "bg-paper text-ink/35 ring-1 ring-jade/35"
+                    : "bg-paper/60 text-ink/20"
               }`}
               aria-hidden
             >
-              ★
+              {on ? "★" : "☆"}
             </span>
           );
         })}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Fraunces, Mali } from "next/font/google";
+import { Be_Vietnam_Pro, Dancing_Script, Fraunces } from "next/font/google";
 import "./globals.css";
 
 const display = Fraunces({
@@ -14,8 +14,8 @@ const sans = Be_Vietnam_Pro({
   weight: ["400", "500", "600"],
 });
 
-/** Vietnamese-supporting handwritten style for the Write studio */
-const hand = Mali({
+/** Vietnamese-supporting cursive handwriting for the Write studio */
+const hand = Dancing_Script({
   variable: "--font-hand",
   subsets: ["latin", "latin-ext", "vietnamese"],
   weight: ["400", "500", "600", "700"],

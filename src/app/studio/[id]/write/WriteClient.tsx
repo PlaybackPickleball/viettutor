@@ -44,7 +44,9 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
       >
         {letter.grapheme}
       </p>
-      <p className="mb-4 text-center text-xs text-ink/40">Handwriting model · Mali (Vietnamese)</p>
+      <p className="mb-4 text-center text-xs text-ink/40">
+        Cursive handwriting model · Dancing Script (Vietnamese)
+      </p>
       <StrokeDemo strokes={letter.strokes} grapheme={letter.grapheme} />
       <LetterTraceCanvas
         strokes={letter.strokes}
