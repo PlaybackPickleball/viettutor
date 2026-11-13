@@ -91,11 +91,14 @@ export function ReviewClient() {
         {lesson.aiSegments?.length ? ` · ${lesson.aiSegments.length} AI words` : ""}
       </p>
       {lesson.translation ? (
-        <p className="mt-3 text-sm text-ink/55 italic">{lesson.translation}</p>
+        <div className="ami-card mt-4 px-4 py-3">
+          <p className="quiet-label">English subtitle</p>
+          <p className="mt-1 text-lg text-ink/65">{lesson.translation}</p>
+        </div>
       ) : null}
 
       <button type="button" className="teacher-btn-primary mt-6 w-full" onClick={continueReading}>
-        Start reading lesson
+        Continue — tap words to hear
       </button>
       <Link href="/scan" className="teacher-btn-secondary mt-3 w-full text-center">
         Scan again

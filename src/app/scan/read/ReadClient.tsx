@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ReadingPracticeMic } from "@/components/ReadingPracticeMic";
-import { WordLearningCard } from "@/components/WordLearningCard";
-import { speakVietnamese } from "@/lib/audio";
+import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import { analyzeTextWithAi } from "@/lib/services/analyzeClient";
+import { DEMO_READING_TEXT } from "@/lib/services/ocrService";
 import {
   segmentVietnamese,
   sentenceTranslationHint,
@@ -17,9 +17,30 @@ import type { TextSegment, TutorExplanation } from "@/lib/services/types";
 import {
   loadActiveLesson,
   loadVocab,
+  saveReadingLesson,
   saveVocabItem,
   type ReadingLessonDraft,
 } from "@/lib/vocab/store";
+
+function seedDemoLesson(): ReadingLessonDraft {
+  const lesson: ReadingLessonDraft = {
+    id: `lesson-demo-${Date.now()}`,
+    imageName: "demo",
+    rawOcr: DEMO_READING_TEXT,
+    correctedText: DEMO_READING_TEXT,
+    createdAt: new Date().toISOString(),
+    provider: "demo",
+    translation: "I want to drink coconut water.",
+    aiSegments: [
+      { text: "Tôi", meaningEn: "I" },
+      { text: "muốn", meaningEn: "want" },
+      { text: "uống", meaningEn: "drink" },
+      { text: "nước dừa", meaningEn: "coconut water", note: "Southern everyday drink order" },
+    ],
+  };
+  saveReadingLesson(lesson);
+  return lesson;
+}
 
 function segmentsFromAi(
   text: string,
@@ -36,7 +57,12 @@ function segmentsFromAi(
     if (!needle) continue;
     const idx = lower.indexOf(needle.toLowerCase(), cursor);
     if (idx === -1) continue;
-    // Skip gaps as plain syllables via lexicon segmenter later if needed
+    if (idx > cursor) {
+      const gap = text.slice(cursor, idx);
+      for (const g of segmentVietnamese(gap)) {
+        out.push({ ...g, id: `gap-${id++}` });
+      }
+    }
     const slice = text.slice(idx, idx + needle.length);
     out.push({
       id: `ai-${id++}`,
@@ -49,21 +75,35 @@ function segmentsFromAi(
     cursor = idx + needle.length;
   }
 
+  if (cursor < text.length) {
+    for (const g of segmentVietnamese(text.slice(cursor))) {
+      out.push({ ...g, id: `tail-${id++}` });
+    }
+  }
+
   return out.length ? out : segmentVietnamese(text);
 }
 
 export function ReadClient() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [lesson, setLesson] = useState<ReadingLessonDraft | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
   const [showPractice, setShowPractice] = useState(false);
   const [explanation, setExplanation] = useState<TutorExplanation | null>(null);
   const [aiBusy, setAiBusy] = useState(false);
+  const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [sentenceTranslation, setSentenceTranslation] = useState<string | null>(null);
+  const [translationBusy, setTranslationBusy] = useState(false);
 
   useEffect(() => {
-    const active = loadActiveLesson();
+    const wantDemo = searchParams.get("demo") === "1";
+    let active = loadActiveLesson();
+    if (wantDemo) {
+      active = seedDemoLesson();
+      router.replace("/scan/read");
+    }
     if (!active?.correctedText) {
       router.replace("/scan");
       return;
@@ -76,23 +116,24 @@ export function ReadClient() {
       active.translation || sentenceTranslationHint(active.correctedText) || null;
     setSentenceTranslation(localHint);
 
-    // Enrich full-sentence translation via AI when signed in
+    setTranslationBusy(!localHint);
     void (async () => {
       const ai = await analyzeTextWithAi({
         sentence: active.correctedText,
         wantSentenceTranslation: true,
       });
+      setTranslationBusy(false);
       if (ai?.sentenceTranslation) {
         setSentenceTranslation(ai.sentenceTranslation);
       }
     })();
-  }, [router]);
+
+    return () => stopSpeaking();
+  }, [router, searchParams]);
 
   const segments = useMemo(
     () =>
-      lesson
-        ? segmentsFromAi(lesson.correctedText, lesson.aiSegments ?? [])
-        : [],
+      lesson ? segmentsFromAi(lesson.correctedText, lesson.aiSegments ?? []) : [],
     [lesson],
   );
 
@@ -147,12 +188,32 @@ export function ReadClient() {
     };
   }, [selectedExpression, lesson, meaningMap]);
 
+  async function speakWord(seg: TextSegment) {
+    setSpeakingId(seg.id);
+    try {
+      await speakVietnamese(seg.expression);
+    } catch {
+      /* TTS optional on some browsers */
+    } finally {
+      setSpeakingId((id) => (id === seg.id ? null : id));
+    }
+  }
+
+  async function onTapWord(seg: TextSegment) {
+    setSelectedId(seg.id);
+    setShowPractice(false);
+    await speakWord(seg);
+  }
+
   async function readAll() {
     if (!lesson) return;
+    setSpeakingId("all");
     try {
       await speakVietnamese(lesson.correctedText);
     } catch {
       /* */
+    } finally {
+      setSpeakingId(null);
     }
   }
 
@@ -184,40 +245,35 @@ export function ReadClient() {
         </Link>
       </div>
 
-      <p className="quiet-label mt-6">Interactive reading</p>
-      <h1 className="mt-1 font-display text-2xl text-ink">Tap a word to learn</h1>
+      <p className="quiet-label mt-6">Scan reading</p>
+      <h1 className="mt-1 font-display text-3xl text-ink">Tap a word to hear it</h1>
+      <p className="mt-2 text-ink/55">English sits under the Vietnamese as a subtitle.</p>
 
-      {sentenceTranslation ? (
-        <p className="mt-2 text-ink/55 italic">{sentenceTranslation}</p>
-      ) : (
-        <p className="mt-2 text-sm text-ink/45">
-          Tap words for meanings. AI fills sentence translation when available.
-        </p>
-      )}
-
-      <div className="ami-card mt-5 px-3 py-4">
-        <div className="flex flex-wrap gap-2" lang="vi">
+      {/* Main reading stage */}
+      <section className="ami-card mt-6 px-4 py-6">
+        <div className="flex flex-wrap items-center gap-2" lang="vi">
           {segments.map((seg) => {
             if (seg.kind === "punct") {
               return (
-                <span key={seg.id} className="px-0.5 text-xl text-ink/70">
+                <span key={seg.id} className="px-0.5 text-2xl leading-snug text-ink/65">
                   {seg.text}
                 </span>
               );
             }
             const active = seg.id === selectedId;
+            const speaking = speakingId === seg.id;
             return (
               <button
                 key={seg.id}
                 type="button"
-                onClick={() => {
-                  setSelectedId(seg.id);
-                  setShowPractice(false);
-                }}
-                className={`rounded-xl px-3 py-2 text-lg transition ${
+                onClick={() => void onTapWord(seg)}
+                aria-label={`Hear ${seg.text}`}
+                className={`rounded-2xl px-3.5 py-2.5 text-2xl font-medium leading-snug transition active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-paper ring-2 ring-coral"
-                    : "bg-soft text-ink hover:bg-paper"
+                    ? "bg-coral text-paper shadow-soft"
+                    : speaking
+                      ? "bg-amber/90 text-paper"
+                      : "bg-soft text-ink hover:bg-paper"
                 }`}
               >
                 {seg.text}
@@ -225,55 +281,114 @@ export function ReadClient() {
             );
           })}
         </div>
-      </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        <button type="button" className="teacher-btn-secondary py-2 text-sm" onClick={readAll}>
-          Read entire sentence
-        </button>
+        <div className="mt-5 border-t border-[#e8d9c8] pt-4">
+          <p className="quiet-label">English subtitle</p>
+          {sentenceTranslation ? (
+            <p className="mt-2 text-xl leading-relaxed text-ink/70">{sentenceTranslation}</p>
+          ) : (
+            <p className="mt-2 text-base text-ink/40">
+              {translationBusy ? "Translating…" : "Translation will appear here when ready."}
+            </p>
+          )}
+        </div>
+
         <button
           type="button"
-          className="teacher-btn-secondary py-2 text-sm"
-          onClick={() => setShowPractice(true)}
+          className="teacher-btn-primary mt-5 w-full"
+          onClick={() => void readAll()}
+          disabled={speakingId === "all"}
         >
-          Practice pronunciation
+          {speakingId === "all" ? "Reading…" : "Hear full sentence"}
         </button>
-        <Link href="/scan/review" className="teacher-btn-secondary py-2 text-sm">
-          Edit text
-        </Link>
-      </div>
+      </section>
 
-      {explanation ? (
-        <div className="mt-5">
-          <WordLearningCard
-            explanation={explanation}
-            onSave={saveWord}
-            saved={savedIds.has(explanation.expression.toLowerCase())}
-            onPractice={() => setShowPractice(true)}
-          />
-          {aiBusy ? (
-            <p className="mt-2 text-xs text-ink/40">Refreshing meaning with AI…</p>
+      {/* Word detail */}
+      {explanation && selected ? (
+        <section className="ami-card mt-4 animate-pop px-4 py-5">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="quiet-label">Selected word</p>
+              <p className="mt-1 font-display text-4xl text-ink" lang="vi">
+                {explanation.expression}
+              </p>
+              <p className="mt-2 text-xl text-ink/65">{explanation.meaningEn}</p>
+            </div>
+            <button
+              type="button"
+              className="circle-btn-primary shrink-0"
+              onClick={() => void speakWord(selected)}
+              aria-label="Hear word again"
+            >
+              <SpeakerIcon />
+            </button>
+          </div>
+
+          {explanation.note ? (
+            <p className="mt-3 text-sm leading-relaxed text-ink/60">{explanation.note}</p>
           ) : null}
-        </div>
+          {aiBusy ? <p className="mt-2 text-xs text-ink/40">Updating meaning…</p> : null}
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button
+              type="button"
+              className="teacher-btn-secondary py-2 text-sm"
+              onClick={() => void speakVietnamese(explanation.expression, { slow: true })}
+            >
+              Hear slow
+            </button>
+            <button
+              type="button"
+              className="teacher-btn-secondary py-2 text-sm"
+              onClick={() => setShowPractice((v) => !v)}
+            >
+              {showPractice ? "Hide practice" : "Practice saying it"}
+            </button>
+            <button type="button" className="teacher-btn-amber py-2 text-sm" onClick={saveWord}>
+              {savedIds.has(explanation.expression.toLowerCase()) ? "Saved ✓" : "Save word"}
+            </button>
+          </div>
+        </section>
       ) : (
-        <p className="mt-5 text-sm text-ink/50">Select a word to see its meaning.</p>
+        <p className="mt-5 text-center text-sm text-ink/45">
+          Tap any Vietnamese word above — it will play out loud.
+        </p>
       )}
 
-      {showPractice ? (
-        <div className="mt-5">
+      {showPractice && selected ? (
+        <div className="mt-4">
           <ReadingPracticeMic
-            expectedText={selected?.expression || lesson.correctedText}
+            expectedText={selected.expression}
             lessonId={lesson.id}
           />
         </div>
       ) : null}
 
-      <Link href="/scan" className="teacher-btn-secondary mt-8 w-full text-center">
-        Scan another
-      </Link>
+      <div className="mt-8 grid grid-cols-2 gap-3">
+        <Link href="/scan/review" className="teacher-btn-secondary text-center text-sm">
+          Edit text
+        </Link>
+        <Link href="/scan" className="teacher-btn-secondary text-center text-sm">
+          Scan another
+        </Link>
+      </div>
       <Link href="/" className="mt-3 text-center text-sm text-ink/45">
         Home
       </Link>
     </div>
+  );
+}
+
+function SpeakerIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 10v4h3l5 4V6L7 10H4Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path d="M16 9a4 4 0 0 1 0 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
   );
 }

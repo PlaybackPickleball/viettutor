@@ -64,7 +64,7 @@ export function ScanClient() {
           aiSegments: ai.data.segments,
         };
         saveReadingLesson(lesson);
-        router.push("/scan/review");
+        router.push("/scan/read");
         return;
       }
 
@@ -96,7 +96,7 @@ export function ScanClient() {
         provider: result.provider,
       };
       saveReadingLesson(lesson);
-      router.push("/scan/review");
+      router.push("/scan/read");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Scan failed. Try a clearer crop of the text.");
     } finally {
@@ -192,7 +192,7 @@ export function ScanClient() {
         {busy ? status || "Scanning…" : "Scan selected text"}
       </button>
 
-      <Link href="/scan/review?demo=1" className="teacher-btn-secondary mt-3 w-full text-center">
+      <Link href="/scan/read?demo=1" className="teacher-btn-secondary mt-3 w-full text-center">
         Try demo sentence (no photo)
       </Link>
 
