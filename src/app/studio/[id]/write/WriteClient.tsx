@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
 import { StrokeDemo } from "@/components/StrokeDemo";
 import { StudioChrome } from "@/components/StudioChrome";
@@ -11,7 +11,17 @@ import { loadProgress, markWritten } from "@/lib/progress";
 export function WriteClient({ letter }: { letter: LetterLesson }) {
   const [done, setDone] = useState(false);
 
+  useEffect(() => {
+    const p = loadProgress();
+    if (p.letters[letter.id]?.written) setDone(true);
+  }, [letter.id]);
+
   function onTraceComplete() {
+    markWritten(loadProgress(), letter.id);
+    setDone(true);
+  }
+
+  function markAndContinue() {
     markWritten(loadProgress(), letter.id);
     setDone(true);
   }
@@ -39,14 +49,7 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
         >
           Next: Sound & picture
         </Link>
-        <button
-          type="button"
-          className="teacher-btn-secondary w-full"
-          onClick={() => {
-            markWritten(loadProgress(), letter.id);
-            setDone(true);
-          }}
-        >
+        <button type="button" className="teacher-btn-secondary w-full" onClick={markAndContinue}>
           Mark written & continue
         </button>
       </div>

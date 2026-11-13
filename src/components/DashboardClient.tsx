@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { DemoScript } from "@/components/DemoScript";
 import { LEVEL1_LETTERS, getLetter } from "@/lib/letters";
 import {
   continueHref,
@@ -58,6 +59,8 @@ export function DashboardClient() {
           ) : null}
         </Link>
       </div>
+
+      <DemoScript />
 
       <section className="mb-10" aria-labelledby="mastery-heading">
         <h2 id="mastery-heading" className="quiet-label mb-3">

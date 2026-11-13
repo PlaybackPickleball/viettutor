@@ -35,13 +35,13 @@ const OK_TIPS = [
 
 /**
  * Modular mock acoustic diagnosis — separate from any LLM tutoring.
- * Cycles dimensions by attempt so demos show real “why wrong” cues.
- * Clearly not production ASR; UI must label Simulated scoring.
+ * Demo-friendly: first attempt shows a why-wrong cue; later attempts pass
+ * so Write unlocks after one solid take (see MASTERY_SAY_STREAK).
+ * UI must label Simulated scoring.
  */
 export class MockPronunciationScorer implements PronunciationScorer {
   async score(request: ScoreRequest): Promise<ScoreResult> {
-    // Simulate network / processing latency
-    await new Promise((r) => setTimeout(r, 450 + Math.random() * 350));
+    await new Promise((r) => setTimeout(r, 400 + Math.random() * 300));
 
     if (request.durationMs < 280) {
       return result("unscoreable", false, request.attemptIndex, "Recording was very short.");
@@ -50,13 +50,9 @@ export class MockPronunciationScorer implements PronunciationScorer {
       return result("timing", false, request.attemptIndex, "Recording ran long.");
     }
 
-    // Pattern: miss → miss → pass → pass… so mastery (2 streak) is reachable
-    const phase = request.attemptIndex % 4;
-    if (phase === 0) {
+    // First scored take → actionable tip; next takes → pass for mastery.
+    if (request.attemptIndex === 0) {
       return result("vowel", false, request.attemptIndex);
-    }
-    if (phase === 1) {
-      return result("timing", false, request.attemptIndex);
     }
     return result("ok", true, request.attemptIndex);
   }

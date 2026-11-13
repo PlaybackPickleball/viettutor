@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GraphemeHero } from "@/components/GraphemeHero";
 import { ListenControls } from "@/components/ListenControls";
 import { StudioChrome } from "@/components/StudioChrome";
@@ -11,9 +11,13 @@ import { loadProgress, markHeard } from "@/lib/progress";
 export function HearClient({ letter }: { letter: LetterLesson }) {
   const [ready, setReady] = useState(false);
 
+  useEffect(() => {
+    const p = loadProgress();
+    if (p.letters[letter.id]?.heard) setReady(true);
+  }, [letter.id]);
+
   function onListened() {
-    const next = markHeard(loadProgress(), letter.id);
-    void next;
+    markHeard(loadProgress(), letter.id);
     setReady(true);
   }
 
@@ -35,7 +39,9 @@ export function HearClient({ letter }: { letter: LetterLesson }) {
           Next: Say it
         </Link>
         {!ready ? (
-          <p className="mt-3 text-center text-sm text-ink/45">Press Listen at least once to continue.</p>
+          <p className="mt-3 text-center text-sm text-ink/45">
+            Press Listen at least once to continue (works even if speech audio fails).
+          </p>
         ) : null}
       </div>
     </StudioChrome>

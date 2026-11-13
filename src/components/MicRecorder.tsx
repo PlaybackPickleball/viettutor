@@ -24,6 +24,7 @@ export function MicRecorder({
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [result, setResult] = useState<ScoreResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [micBlocked, setMicBlocked] = useState(false);
   const mediaRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const startedAt = useRef(0);
@@ -35,6 +36,22 @@ export function MicRecorder({
     };
   }, [blobUrl]);
 
+  async function runScore(durationMs: number) {
+    setScoring(true);
+    try {
+      const scored = await pronunciationScorer.score({
+        letterId,
+        grapheme,
+        durationMs,
+        attemptIndex,
+      });
+      setResult(scored);
+      onScored(scored);
+    } finally {
+      setScoring(false);
+    }
+  }
+
   async function start() {
     setError(null);
     setResult(null);
@@ -42,6 +59,21 @@ export function MicRecorder({
       setError("Listen to the teacher first — then open the mic.");
       return;
     }
+
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setMicBlocked(true);
+      setError(
+        "Microphone needs a secure context (HTTPS or localhost). Use the demo practice take below.",
+      );
+      return;
+    }
+
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setMicBlocked(true);
+      setError("This browser can’t open the mic. Use the demo practice take below.");
+      return;
+    }
+
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const recorder = new MediaRecorder(stream);
@@ -56,32 +88,33 @@ export function MicRecorder({
         const url = URL.createObjectURL(blob);
         setBlobUrl(url);
         stream.getTracks().forEach((t) => t.stop());
-        setScoring(true);
-        try {
-          const scored = await pronunciationScorer.score({
-            letterId,
-            grapheme,
-            durationMs,
-            attemptIndex,
-          });
-          setResult(scored);
-          onScored(scored);
-        } finally {
-          setScoring(false);
-        }
+        await runScore(durationMs);
       };
       mediaRef.current = recorder;
       startedAt.current = Date.now();
       recorder.start();
       setRecording(true);
+      setMicBlocked(false);
     } catch {
-      setError("Microphone permission needed to practice saying the sound.");
+      setMicBlocked(true);
+      setError(
+        "Mic permission denied or unavailable. Allow the mic, or use a demo practice take.",
+      );
     }
   }
 
   function stop() {
     mediaRef.current?.stop();
     setRecording(false);
+  }
+
+  async function simulatePractice() {
+    if (!listened || scoring || recording) return;
+    setError(null);
+    setResult(null);
+    setBlobUrl(null);
+    // ~1.2s take so the mock doesn’t treat it as unscoreable
+    await runScore(1200);
   }
 
   return (
@@ -112,6 +145,24 @@ export function MicRecorder({
       {!listened ? (
         <p className="text-center text-sm text-ink/55">
           Mic stays closed until you’ve heard the reference.
+        </p>
+      ) : null}
+
+      {(micBlocked || listened) && !recording ? (
+        <button
+          type="button"
+          className="teacher-btn-secondary w-full text-sm"
+          disabled={!listened || scoring}
+          onClick={simulatePractice}
+        >
+          {micBlocked ? "Demo practice take (no mic)" : "Demo practice take (optional)"}
+        </button>
+      ) : null}
+
+      {micBlocked ? (
+        <p className="text-center text-xs text-ink/45">
+          Mic needs HTTPS (or localhost) and browser permission. Demo take still shows simulated
+          why-wrong feedback.
         </p>
       ) : null}
 

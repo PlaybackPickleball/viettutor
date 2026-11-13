@@ -54,7 +54,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       <p className="mt-6 text-center text-sm text-ink/50">
         {mastered
           ? "Sound steadied — you can move to writing."
-          : `Steady streak ${streak}/${MASTERY_SAY_STREAK} before Write unlocks.`}
+          : `One solid take unlocks Write (${streak}/${MASTERY_SAY_STREAK}). First miss shows a why-wrong tip.`}
       </p>
 
       <div className="mt-auto flex flex-col gap-3 pt-8">

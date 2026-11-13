@@ -190,4 +190,5 @@ export function getNextLetter(id: string): LetterLesson | undefined {
   return LEVEL1_LETTERS.find((l) => l.order === current.order + 1);
 }
 
-export const MASTERY_SAY_STREAK = 2;
+/** One solid pass unlocks Write — short enough for a live demo; still shows a why-wrong tip on the first miss. */
+export const MASTERY_SAY_STREAK = 1;

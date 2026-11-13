@@ -16,10 +16,18 @@ export function ListenControls({ text, onListened }: Props) {
     setError(null);
     setBusy(true);
     try {
-      await speakVietnamese(text, { slow });
+      await Promise.race([
+        speakVietnamese(text, { slow }),
+        new Promise<void>((_, reject) =>
+          setTimeout(() => reject(new Error("TTS timeout")), 4500),
+        ),
+      ]);
       onListened?.();
     } catch {
-      setError("Audio placeholder — enable browser speech, or use a bundled sample later.");
+      stopSpeaking();
+      setError(
+        "Browser speech unavailable or timed out — continue anyway (TTS is a placeholder).",
+      );
       onListened?.();
     } finally {
       setBusy(false);
@@ -45,16 +53,13 @@ export function ListenControls({ text, onListened }: Props) {
         >
           Slow
         </button>
-        <button
-          type="button"
-          className="teacher-btn-secondary"
-          onClick={() => stopSpeaking()}
-        >
+        <button type="button" className="teacher-btn-secondary" onClick={() => stopSpeaking()}>
           Stop
         </button>
       </div>
       <p className="text-xs text-ink/40">
-        Reference audio via Web Speech TTS (vi-VN). Bundled native samples can replace this later.
+        Reference audio via Web Speech TTS (vi-VN). Dialect may vary by browser voice — Southern
+        is preferred when available.
       </p>
       {error ? <p className="text-sm text-amber">{error}</p> : null}
     </div>
