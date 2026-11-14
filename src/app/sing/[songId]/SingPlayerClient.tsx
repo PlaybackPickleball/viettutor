@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { BilingualKaraokePlayer } from "@/components/karaoke/BilingualKaraokePlayer";
 import { KaraokePlayer, formatKaraokeTime } from "@/components/KaraokePlayer";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { LocalMp3Importer } from "@/components/LocalMp3Importer";
 import { LyricTimingEditor } from "@/components/LyricTimingEditor";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
+import { getKaraokeSong } from "@/lib/karaoke/catalog";
 import { getSong } from "@/lib/sing/catalog";
 import { isLocalAssetSong, isSingDevMode } from "@/lib/sing/devMode";
 import { getLocalLyrics, type LocalLyricDraft } from "@/lib/sing/localLyrics";
@@ -46,6 +48,7 @@ const SPEEDS = [0.75, 1, 1.25] as const;
 export function SingPlayerClient({ songId }: { songId: string }) {
   const router = useRouter();
   const song = useMemo(() => getSong(songId), [songId]);
+  const karaokeDoc = useMemo(() => getKaraokeSong(songId), [songId]);
 
   const [mode, setMode] = useState<SingMode>("listen");
   const [playing, setPlaying] = useState(false);
@@ -163,6 +166,35 @@ export function SingPlayerClient({ songId }: { songId: string }) {
         </h1>
         <p className="mt-3 text-sm text-ink/60">{song.rights.note}</p>
         <Link href="/sing" className="teacher-btn-secondary mt-6 w-full text-center">
+          Back to library
+        </Link>
+      </div>
+    );
+  }
+
+  // Approved bilingual karaoke document → modular Learn / Sing / Practice engine
+  if (karaokeDoc) {
+    return (
+      <div className="studio-shell scene-wash animate-riseIn">
+        <div className="flex items-start justify-between gap-3">
+          <BrandMark />
+          <Link href="/sing" className="text-sm text-coral underline-offset-2 hover:underline">
+            Library
+          </Link>
+        </div>
+        <p className="quiet-label mt-5">ÁMi Sing · Bilingual karaoke</p>
+        <h1 className="mt-1 font-display text-2xl text-ink" lang="vi">
+          {karaokeDoc.title}
+        </h1>
+        <p className="text-sm text-ink/55">{karaokeDoc.artist}</p>
+        <BilingualKaraokePlayer song={karaokeDoc} />
+        <p className="mt-6 text-[11px] leading-relaxed text-ink/35">
+          Preprocessed approved timings — AI alignment is not re-run during playback.{" "}
+          <Link href={`/sing/admin/align/${karaokeDoc.id}`} className="text-coral underline-offset-2 hover:underline">
+            Admin alignment
+          </Link>
+        </p>
+        <Link href="/sing" className="teacher-btn-secondary mt-4 w-full text-center">
           Back to library
         </Link>
       </div>

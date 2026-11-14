@@ -166,3 +166,68 @@ alter table public.song_rights enable row level security;
 alter table public.lyric_segments enable row level security;
 alter table public.user_song_progress enable row level security;
 alter table public.singing_attempts enable row level security;
+
+-- Bilingual karaoke engine (approved docs; AI runs offline)
+
+create table if not exists public.karaoke_songs (
+  id text primary key references public.songs (id) on delete cascade,
+  audio_url text,
+  duration_ms int not null default 0,
+  publish_status text not null default 'draft',
+  pipeline_version text,
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists public.karaoke_lyric_lines (
+  id text primary key,
+  song_id text not null references public.karaoke_songs (id) on delete cascade,
+  text_vi text not null,
+  translation_en text not null default '',
+  start_ms int not null,
+  end_ms int not null,
+  display_order int not null default 0,
+  alignment_confidence real,
+  review_status text not null default 'draft'
+);
+
+create table if not exists public.karaoke_lyric_tokens (
+  id text primary key,
+  line_id text not null references public.karaoke_lyric_lines (id) on delete cascade,
+  text text not null,
+  start_ms int not null,
+  end_ms int not null,
+  contextual_english text not null default '',
+  tone_label text,
+  tone_note text,
+  phrase_group_id text,
+  alignment_confidence real,
+  review_status text not null default 'draft'
+);
+
+create table if not exists public.karaoke_translations (
+  id uuid primary key default gen_random_uuid(),
+  song_id text not null references public.karaoke_songs (id) on delete cascade,
+  line_id text,
+  token_id text,
+  kind text not null,
+  text_en text not null,
+  explanation text,
+  review_status text not null default 'draft'
+);
+
+create table if not exists public.karaoke_alignment_reviews (
+  id uuid primary key default gen_random_uuid(),
+  song_id text not null references public.karaoke_songs (id) on delete cascade,
+  target_type text not null,
+  target_id text not null,
+  flag text not null,
+  note text,
+  status text not null default 'needs_review',
+  created_at timestamptz not null default now()
+);
+
+alter table public.karaoke_songs enable row level security;
+alter table public.karaoke_lyric_lines enable row level security;
+alter table public.karaoke_lyric_tokens enable row level security;
+alter table public.karaoke_translations enable row level security;
+alter table public.karaoke_alignment_reviews enable row level security;

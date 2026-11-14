@@ -94,6 +94,20 @@ export function SingAdminClient() {
       </p>
 
       <section className="ami-card mt-6 px-4 py-5">
+        <h2 className="font-display text-xl text-ink">Bilingual karaoke alignment</h2>
+        <p className="mt-2 text-sm text-ink/55">
+          Edit ms boundaries, translations, and preview Learn/Sing/Practice. AI (Demucs / WhisperX /
+          LLM) stays offline — playback uses approved JSON only.
+        </p>
+        <Link
+          href="/sing/admin/align/xin-chao-moi-ngay"
+          className="teacher-btn-primary mt-4 block w-full text-center"
+        >
+          Open Xin chào mỗi ngày alignment
+        </Link>
+      </section>
+
+      <section className="ami-card mt-5 px-4 py-5">
         <h2 className="font-display text-xl text-ink">Catalog rights</h2>
         <ul className="mt-3 space-y-3">
           {songs.map((s) => (
