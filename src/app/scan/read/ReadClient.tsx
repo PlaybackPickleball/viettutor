@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ReadingPracticeMic } from "@/components/ReadingPracticeMic";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
@@ -96,38 +96,43 @@ export function ReadClient() {
   const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [sentenceTranslation, setSentenceTranslation] = useState<string | null>(null);
   const [translationBusy, setTranslationBusy] = useState(false);
+  const lessonBooted = useRef(false);
 
   useEffect(() => {
     const wantDemo = searchParams.get("demo") === "1";
-    let active = loadActiveLesson();
+    // Seed demo once, then drop ?demo=1 without re-booting the lesson on every param change
+    if (!lessonBooted.current) {
+      let active = loadActiveLesson();
+      if (wantDemo) {
+        active = seedDemoLesson();
+      }
+      if (!active?.correctedText) {
+        router.replace("/scan");
+        return;
+      }
+      lessonBooted.current = true;
+      setLesson(active);
+      const vocab = loadVocab();
+      setSavedIds(new Set(vocab.map((v) => v.expression.toLowerCase())));
+
+      const localHint =
+        active.translation || sentenceTranslationHint(active.correctedText) || null;
+      setSentenceTranslation(localHint);
+      setTranslationBusy(!localHint);
+      void (async () => {
+        const ai = await analyzeTextWithAi({
+          sentence: active!.correctedText,
+          wantSentenceTranslation: true,
+        });
+        setTranslationBusy(false);
+        if (ai?.sentenceTranslation) {
+          setSentenceTranslation(ai.sentenceTranslation);
+        }
+      })();
+    }
     if (wantDemo) {
-      active = seedDemoLesson();
       router.replace("/scan/read");
     }
-    if (!active?.correctedText) {
-      router.replace("/scan");
-      return;
-    }
-    setLesson(active);
-    const vocab = loadVocab();
-    setSavedIds(new Set(vocab.map((v) => v.expression.toLowerCase())));
-
-    const localHint =
-      active.translation || sentenceTranslationHint(active.correctedText) || null;
-    setSentenceTranslation(localHint);
-
-    setTranslationBusy(!localHint);
-    void (async () => {
-      const ai = await analyzeTextWithAi({
-        sentence: active.correctedText,
-        wantSentenceTranslation: true,
-      });
-      setTranslationBusy(false);
-      if (ai?.sentenceTranslation) {
-        setSentenceTranslation(ai.sentenceTranslation);
-      }
-    })();
-
     return () => stopSpeaking();
   }, [router, searchParams]);
 
@@ -188,6 +193,22 @@ export function ReadClient() {
     };
   }, [selectedExpression, lesson, meaningMap]);
 
+  function meaningFor(expression: string, active: ReadingLessonDraft): TutorExplanation {
+    const cached = meaningMap.get(expression.toLowerCase());
+    const local = explainExpression(expression, active.correctedText);
+    if (cached) {
+      return {
+        expression,
+        meaningEn: cached.meaningEn,
+        note: cached.note || local.note,
+        toneHint: local.toneHint,
+        inContext: local.inContext,
+        source: "llm",
+      };
+    }
+    return local;
+  }
+
   async function speakWord(seg: TextSegment) {
     setSpeakingId(seg.id);
     try {
@@ -199,10 +220,13 @@ export function ReadClient() {
     }
   }
 
-  async function onTapWord(seg: TextSegment) {
+  function onTapWord(seg: TextSegment) {
+    if (!lesson) return;
+    // Update selection + meaning synchronously so the panel appears on the same tap
     setSelectedId(seg.id);
     setShowPractice(false);
-    await speakWord(seg);
+    setExplanation(meaningFor(seg.expression, lesson));
+    void speakWord(seg);
   }
 
   async function readAll() {
@@ -266,11 +290,13 @@ export function ReadClient() {
               <button
                 key={seg.id}
                 type="button"
-                onClick={() => void onTapWord(seg)}
+                data-word-chip={seg.expression}
+                onClick={() => onTapWord(seg)}
+                aria-pressed={active}
                 aria-label={`Hear ${seg.text}`}
-                className={`rounded-2xl px-3.5 py-2.5 text-2xl font-medium leading-snug transition active:scale-[0.97] ${
+                className={`relative z-10 cursor-pointer rounded-2xl px-3.5 py-2.5 text-2xl font-medium leading-snug transition active:scale-[0.97] ${
                   active
-                    ? "bg-coral text-paper shadow-soft"
+                    ? "bg-coral text-paper shadow-soft ring-2 ring-coral/40"
                     : speaking
                       ? "bg-amber/90 text-paper"
                       : "bg-soft text-ink hover:bg-paper"
@@ -303,16 +329,23 @@ export function ReadClient() {
         </button>
       </section>
 
-      {/* Word detail */}
-      {explanation && selected ? (
-        <section className="ami-card mt-4 animate-pop px-4 py-5">
+      {/* Word detail — show as soon as a chip is selected */}
+      {selected ? (
+        <section
+          className="ami-card mt-4 animate-pop px-4 py-5"
+          data-selected-word={selected.expression}
+        >
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="quiet-label">Selected word</p>
               <p className="mt-1 font-display text-4xl text-ink" lang="vi">
-                {explanation.expression}
+                {explanation?.expression ?? selected.expression}
               </p>
-              <p className="mt-2 text-xl text-ink/65">{explanation.meaningEn}</p>
+              <p className="mt-2 text-xl text-ink/65">
+                {explanation?.meaningEn ??
+                  meaningMap.get(selected.expression.toLowerCase())?.meaningEn ??
+                  "…"}
+              </p>
             </div>
             <button
               type="button"
@@ -324,7 +357,7 @@ export function ReadClient() {
             </button>
           </div>
 
-          {explanation.note ? (
+          {explanation?.note ? (
             <p className="mt-3 text-sm leading-relaxed text-ink/60">{explanation.note}</p>
           ) : null}
           {aiBusy ? <p className="mt-2 text-xs text-ink/40">Updating meaning…</p> : null}
@@ -333,7 +366,11 @@ export function ReadClient() {
             <button
               type="button"
               className="teacher-btn-secondary py-2 text-sm"
-              onClick={() => void speakVietnamese(explanation.expression, { slow: true })}
+              onClick={() =>
+                void speakVietnamese(explanation?.expression ?? selected.expression, {
+                  slow: true,
+                })
+              }
             >
               Hear slow
             </button>
@@ -345,7 +382,11 @@ export function ReadClient() {
               {showPractice ? "Hide practice" : "Practice saying it"}
             </button>
             <button type="button" className="teacher-btn-amber py-2 text-sm" onClick={saveWord}>
-              {savedIds.has(explanation.expression.toLowerCase()) ? "Saved ✓" : "Save word"}
+              {savedIds.has(
+                (explanation?.expression ?? selected.expression).toLowerCase(),
+              )
+                ? "Saved ✓"
+                : "Save word"}
             </button>
           </div>
         </section>
