@@ -9,7 +9,7 @@
     {
       "id": "l0",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hạt mưa vương vấn em giờ đây đang nơi đâu",
+      "textVi": "Hạt mưa vương vấn anh giờ đây đang nơi đâu",
       "translationEn": "Lingering raindrops — where are you now",
       "startMs": 31340,
       "endMs": 38340,
@@ -69,7 +69,7 @@
         {
           "id": "t0-4",
           "lineId": "l0",
-          "text": "em",
+          "text": "anh",
           "startMs": 33640,
           "endMs": 34790,
           "contextualEnglish": "you",
@@ -137,7 +137,7 @@
           "text": "đâu",
           "startMs": 37390,
           "endMs": 38340,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
@@ -152,7 +152,7 @@
     {
       "id": "l1",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Một mình anh trong đêm thâu xóa tan nỗi sầu",
+      "textVi": "Một mình em trong đêm thâu xóa tan nỗi sầu",
       "translationEn": "Alone through the long night dissolving sorrow",
       "startMs": 38340,
       "endMs": 45340,
@@ -186,7 +186,7 @@
         {
           "id": "t1-2",
           "lineId": "l1",
-          "text": "anh",
+          "text": "em",
           "startMs": 39590,
           "endMs": 40040,
           "contextualEnglish": "I",
@@ -295,7 +295,7 @@
     {
       "id": "l2",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hòa cùng yêu dấu nỗi buồn anh đang chôn sâu",
+      "textVi": "Hòa cùng yêu dấu nỗi buồn em đang chôn sâu",
       "translationEn": "Together with dear love, the sorrow I bury deep",
       "startMs": 45340,
       "endMs": 52160,
@@ -318,8 +318,8 @@
           "lineId": "l2",
           "text": "cùng",
           "startMs": 45540,
-          "endMs": 45860,
-          "contextualEnglish": "along",
+          "endMs": 45880,
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
@@ -330,7 +330,7 @@
           "id": "t2-2",
           "lineId": "l2",
           "text": "yêu",
-          "startMs": 45860,
+          "startMs": 45880,
           "endMs": 46320,
           "contextualEnglish": "love",
           "toneMetadata": {
@@ -381,27 +381,27 @@
         {
           "id": "t2-6",
           "lineId": "l2",
-          "text": "anh",
+          "text": "em",
           "startMs": 49760,
-          "endMs": 49980,
+          "endMs": 50060,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.0005847050924785435,
+          "alignmentConfidence": 0.35279539227485657,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t2-7",
           "lineId": "l2",
           "text": "đang",
-          "startMs": 49980,
+          "startMs": 50060,
           "endMs": 50600,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3096511662006378,
+          "alignmentConfidence": 0.2997874319553375,
           "reviewStatus": "needs_review"
         },
         {
@@ -414,7 +414,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3962659239768982,
+          "alignmentConfidence": 0.4108270835131407,
           "reviewStatus": "needs_review"
         },
         {
@@ -427,12 +427,12 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5998906493186951,
+          "alignmentConfidence": 0.6308685541152954,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 2,
-      "alignmentConfidence": 0.3243253655421237,
+      "alignmentConfidence": 0.36311396726911577,
       "reviewStatus": "approved"
     },
     {
@@ -441,7 +441,7 @@
       "textVi": "Theo cùng hạt mưa tan mau trôi về đâu",
       "translationEn": "Following raindrops that melt and drift away",
       "startMs": 52620,
-      "endMs": 58520,
+      "endMs": 58540,
       "tokens": [
         {
           "id": "t3-0",
@@ -453,7 +453,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3851081430912018,
+          "alignmentConfidence": 0.4517519772052765,
           "reviewStatus": "needs_review"
         },
         {
@@ -462,11 +462,11 @@
           "text": "cùng",
           "startMs": 52820,
           "endMs": 53420,
-          "contextualEnglish": "along",
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.7091096043586731,
+          "alignmentConfidence": 0.7359541058540344,
           "reviewStatus": "needs_review"
         },
         {
@@ -479,7 +479,7 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.29363339580595493,
+          "alignmentConfidence": 0.30663673765957355,
           "reviewStatus": "needs_review"
         },
         {
@@ -492,7 +492,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.39578690752387047,
+          "alignmentConfidence": 0.3982887603342533,
           "reviewStatus": "needs_review"
         },
         {
@@ -500,69 +500,69 @@
           "lineId": "l3",
           "text": "tan",
           "startMs": 54400,
-          "endMs": 55040,
+          "endMs": 55060,
           "contextualEnglish": "dissolve",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.23408553004264832,
+          "alignmentConfidence": 0.2520765960216522,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t3-5",
           "lineId": "l3",
           "text": "mau",
-          "startMs": 55040,
+          "startMs": 55060,
           "endMs": 55860,
           "contextualEnglish": "quickly",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.2647942304611206,
+          "alignmentConfidence": 0.26223817467689514,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t3-6",
           "lineId": "l3",
           "text": "trôi",
-          "startMs": 57180,
-          "endMs": 57240,
+          "startMs": 57200,
+          "endMs": 57640,
           "contextualEnglish": "drift",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.015569305782264564,
+          "alignmentConfidence": 0.02056598925992148,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t3-7",
           "lineId": "l3",
           "text": "về",
-          "startMs": 57240,
-          "endMs": 57580,
+          "startMs": 57640,
+          "endMs": 57690,
           "contextualEnglish": "toward",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.05395229533314705,
+          "alignmentConfidence": 0.012994413264095783,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t3-8",
           "lineId": "l3",
           "text": "đâu",
-          "startMs": 57580,
-          "endMs": 58520,
-          "contextualEnglish": "not",
+          "startMs": 57640,
+          "endMs": 58540,
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.08588497340679169,
+          "alignmentConfidence": 0.10528703033924103,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 3,
-      "alignmentConfidence": 0.2708804873117414,
+      "alignmentConfidence": 0.28286597606832703,
       "reviewStatus": "approved"
     },
     {
@@ -570,20 +570,20 @@
       "songId": "hat-mua-vuong-van",
       "textVi": "Có những nỗi nhớ khuất sâu trong đêm",
       "translationEn": "There are longings buried deep in the night",
-      "startMs": 60220,
+      "startMs": 60480,
       "endMs": 64540,
       "tokens": [
         {
           "id": "t4-0",
           "lineId": "l4",
           "text": "Có",
-          "startMs": 60220,
+          "startMs": 60480,
           "endMs": 61660,
           "contextualEnglish": "there are",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.09394155442714691,
+          "alignmentConfidence": 0.10057669132947922,
           "reviewStatus": "needs_review"
         },
         {
@@ -596,7 +596,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.8926185965538025,
+          "alignmentConfidence": 0.8897848725318909,
           "reviewStatus": "approved"
         },
         {
@@ -609,7 +609,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.47854258120059967,
+          "alignmentConfidence": 0.4781360626220703,
           "reviewStatus": "needs_review"
         },
         {
@@ -622,7 +622,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.8068645894527435,
+          "alignmentConfidence": 0.813701331615448,
           "reviewStatus": "approved"
         },
         {
@@ -635,7 +635,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.3821906993786494,
+          "alignmentConfidence": 0.3809428537885348,
           "reviewStatus": "needs_review"
         },
         {
@@ -648,7 +648,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.43673762679100037,
+          "alignmentConfidence": 0.4408983439207077,
           "reviewStatus": "needs_review"
         },
         {
@@ -661,7 +661,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8905419707298279,
+          "alignmentConfidence": 0.8951447010040283,
           "reviewStatus": "approved"
         },
         {
@@ -674,12 +674,12 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8225898742675781,
+          "alignmentConfidence": 0.8214611113071442,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 4,
-      "alignmentConfidence": 0.6005034366001685,
+      "alignmentConfidence": 0.6025807460149128,
       "reviewStatus": "approved"
     },
     {
@@ -700,7 +700,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.13593069557100534,
+          "alignmentConfidence": 0.13110200688242912,
           "reviewStatus": "needs_review"
         },
         {
@@ -713,7 +713,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.05363412946462631,
+          "alignmentConfidence": 0.06628819555044174,
           "reviewStatus": "needs_review"
         },
         {
@@ -726,7 +726,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9822928309440613,
+          "alignmentConfidence": 0.9833821654319763,
           "reviewStatus": "approved"
         },
         {
@@ -739,7 +739,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.25400102138519287,
+          "alignmentConfidence": 0.25282062217593193,
           "reviewStatus": "needs_review"
         },
         {
@@ -747,25 +747,25 @@
           "lineId": "l5",
           "text": "ức",
           "startMs": 66060,
-          "endMs": 66440,
+          "endMs": 66420,
           "contextualEnglish": "memory",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.4940396174788475,
+          "alignmentConfidence": 0.49390866979956627,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t5-5",
           "lineId": "l5",
           "text": "đã",
-          "startMs": 66440,
+          "startMs": 66420,
           "endMs": 66760,
           "contextualEnglish": "already",
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9285374879837036,
+          "alignmentConfidence": 0.9257299900054932,
           "reviewStatus": "approved"
         },
         {
@@ -778,7 +778,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.18803167343139648,
+          "alignmentConfidence": 0.17452111840248108,
           "reviewStatus": "needs_review"
         },
         {
@@ -791,7 +791,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.7745446562767029,
+          "alignmentConfidence": 0.7774490118026733,
           "reviewStatus": "approved"
         },
         {
@@ -804,7 +804,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.39685140643268824,
+          "alignmentConfidence": 0.39267521002329886,
           "reviewStatus": "needs_review"
         },
         {
@@ -817,18 +817,18 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.8084497849146525,
+          "alignmentConfidence": 0.8207229375839233,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 5,
-      "alignmentConfidence": 0.5016313303882878,
+      "alignmentConfidence": 0.5018599927658215,
       "reviewStatus": "approved"
     },
     {
       "id": "l6",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Em đâu hay anh mang chua cay",
+      "textVi": "Anh đâu hay em mang chua cay",
       "translationEn": "You don't know I carry this bitterness",
       "startMs": 69400,
       "endMs": 74520,
@@ -836,14 +836,14 @@
         {
           "id": "t6-0",
           "lineId": "l6",
-          "text": "Em",
+          "text": "Anh",
           "startMs": 69400,
           "endMs": 69600,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.01107005774974823,
+          "alignmentConfidence": 0.6521590948104858,
           "reviewStatus": "needs_review"
         },
         {
@@ -851,64 +851,64 @@
           "lineId": "l6",
           "text": "đâu",
           "startMs": 69600,
-          "endMs": 70080,
-          "contextualEnglish": "not",
+          "endMs": 70060,
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.43057364225387573,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.7550671696662903,
+          "reviewStatus": "approved"
         },
         {
           "id": "t6-2",
           "lineId": "l6",
           "text": "hay",
-          "startMs": 70080,
-          "endMs": 70740,
+          "startMs": 70060,
+          "endMs": 70720,
           "contextualEnglish": "know",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9383107423782349,
+          "alignmentConfidence": 0.9440599679946899,
           "reviewStatus": "approved"
         },
         {
           "id": "t6-3",
           "lineId": "l6",
-          "text": "anh",
-          "startMs": 70740,
-          "endMs": 72820,
+          "text": "em",
+          "startMs": 70720,
+          "endMs": 72860,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.0004132873145863414,
+          "alignmentConfidence": 0.07944274693727493,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t6-4",
           "lineId": "l6",
           "text": "mang",
-          "startMs": 72820,
-          "endMs": 73260,
+          "startMs": 72860,
+          "endMs": 73340,
           "contextualEnglish": "carry",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4282567799091339,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.819918692111969,
+          "reviewStatus": "approved"
         },
         {
           "id": "t6-5",
           "lineId": "l6",
           "text": "chua",
-          "startMs": 73260,
+          "startMs": 73340,
           "endMs": 73880,
           "contextualEnglish": "bitter",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5291985273361206,
+          "alignmentConfidence": 0.5047592967748642,
           "reviewStatus": "needs_review"
         },
         {
@@ -921,18 +921,18 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.293586790561676,
+          "alignmentConfidence": 0.26365676522254944,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 6,
-      "alignmentConfidence": 0.3759156896433394,
+      "alignmentConfidence": 0.5741519619311605,
       "reviewStatus": "approved"
     },
     {
       "id": "l7",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hãy nói những ước muốn trong em hôm nào",
+      "textVi": "Hãy nói những ước muốn trong anh hôm nào",
       "translationEn": "Please speak the wishes that were once in you",
       "startMs": 76040,
       "endMs": 79440,
@@ -947,7 +947,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.8407679200172424,
+          "alignmentConfidence": 0.8344577848911285,
           "reviewStatus": "approved"
         },
         {
@@ -960,7 +960,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.9984357953071594,
+          "alignmentConfidence": 0.9982553124427795,
           "reviewStatus": "approved"
         },
         {
@@ -973,7 +973,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9086618423461914,
+          "alignmentConfidence": 0.9138670563697815,
           "reviewStatus": "approved"
         },
         {
@@ -986,7 +986,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.40517965448088944,
+          "alignmentConfidence": 0.4037229046225548,
           "reviewStatus": "needs_review"
         },
         {
@@ -999,7 +999,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.4451996088027954,
+          "alignmentConfidence": 0.3913533091545105,
           "reviewStatus": "needs_review"
         },
         {
@@ -1007,65 +1007,65 @@
           "lineId": "l7",
           "text": "trong",
           "startMs": 77500,
-          "endMs": 77900,
+          "endMs": 77920,
           "contextualEnglish": "in",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.7841765880584717,
+          "alignmentConfidence": 0.7634445428848267,
           "reviewStatus": "approved"
         },
         {
           "id": "t7-6",
           "lineId": "l7",
-          "text": "em",
-          "startMs": 77900,
+          "text": "anh",
+          "startMs": 77920,
           "endMs": 78500,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.006874546874314547,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.8624324798583984,
+          "reviewStatus": "approved"
         },
         {
           "id": "t7-7",
           "lineId": "l7",
           "text": "hôm",
           "startMs": 78500,
-          "endMs": 78940,
+          "endMs": 78920,
           "contextualEnglish": "day",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.2964740893803537,
+          "alignmentConfidence": 0.4069713382050395,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t7-8",
           "lineId": "l7",
           "text": "nào",
-          "startMs": 78940,
+          "startMs": 78920,
           "endMs": 79440,
           "contextualEnglish": "which",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9632512927055359,
+          "alignmentConfidence": 0.960649311542511,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 7,
-      "alignmentConfidence": 0.6276690375525504,
+      "alignmentConfidence": 0.7261282266635034,
       "reviewStatus": "approved"
     },
     {
       "id": "l8",
       "songId": "hat-mua-vuong-van",
       "textVi": "Để xóa những kí ức trong anh cồn cào",
-      "translationEn": "To erase the memories burning in me",
+      "translationEn": "To erase the memories burning in you",
       "startMs": 79680,
-      "endMs": 83200,
+      "endMs": 83180,
       "tokens": [
         {
           "id": "t8-0",
@@ -1077,7 +1077,7 @@
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.7159752994775772,
+          "alignmentConfidence": 0.683233231306076,
           "reviewStatus": "needs_review"
         },
         {
@@ -1090,7 +1090,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.42383114869395894,
+          "alignmentConfidence": 0.4121763234337171,
           "reviewStatus": "needs_review"
         },
         {
@@ -1103,7 +1103,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9862706661224365,
+          "alignmentConfidence": 0.9870657920837402,
           "reviewStatus": "approved"
         },
         {
@@ -1116,7 +1116,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.8220435380935669,
+          "alignmentConfidence": 0.8159127533435822,
           "reviewStatus": "approved"
         },
         {
@@ -1124,25 +1124,25 @@
           "lineId": "l8",
           "text": "ức",
           "startMs": 80940,
-          "endMs": 81300,
+          "endMs": 81280,
           "contextualEnglish": "memory",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.7491551637649536,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.7613612413406372,
+          "reviewStatus": "approved"
         },
         {
           "id": "t8-5",
           "lineId": "l8",
           "text": "trong",
-          "startMs": 81300,
+          "startMs": 81280,
           "endMs": 81680,
           "contextualEnglish": "in",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9789217710494995,
+          "alignmentConfidence": 0.9796683192253113,
           "reviewStatus": "approved"
         },
         {
@@ -1151,48 +1151,48 @@
           "text": "anh",
           "startMs": 81680,
           "endMs": 82200,
-          "contextualEnglish": "I",
+          "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4333580732345581,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.8833589553833008,
+          "reviewStatus": "approved"
         },
         {
           "id": "t8-7",
           "lineId": "l8",
           "text": "cồn",
           "startMs": 82200,
-          "endMs": 82800,
+          "endMs": 82780,
           "contextualEnglish": "burn",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.2026118718398114,
+          "alignmentConfidence": 0.19608012858467797,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t8-8",
           "lineId": "l8",
           "text": "cào",
-          "startMs": 82800,
-          "endMs": 83200,
+          "startMs": 82780,
+          "endMs": 83180,
           "contextualEnglish": "scratch",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.037489888025447726,
+          "alignmentConfidence": 0.0362408256623894,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 8,
-      "alignmentConfidence": 0.5944063800335344,
+      "alignmentConfidence": 0.6394552855959369,
       "reviewStatus": "approved"
     },
     {
       "id": "l9",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Mà em đâu hay anh đang nơi đây",
+      "textVi": "Mà anh đâu hay em đang nơi đây",
       "translationEn": "But you don't know I'm still here",
       "startMs": 83420,
       "endMs": 89420,
@@ -1202,90 +1202,90 @@
           "lineId": "l9",
           "text": "Mà",
           "startMs": 83420,
-          "endMs": 83580,
+          "endMs": 83560,
           "contextualEnglish": "but",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.32696203887462616,
+          "alignmentConfidence": 0.30846722424030304,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t9-1",
           "lineId": "l9",
-          "text": "em",
+          "text": "anh",
           "startMs": 84260,
-          "endMs": 84520,
+          "endMs": 84500,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.014746187254786491,
+          "alignmentConfidence": 0.6357927322387695,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t9-2",
           "lineId": "l9",
           "text": "đâu",
-          "startMs": 84520,
-          "endMs": 84940,
-          "contextualEnglish": "not",
+          "startMs": 84500,
+          "endMs": 84960,
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9923607707023621,
+          "alignmentConfidence": 0.9955503940582275,
           "reviewStatus": "approved"
         },
         {
           "id": "t9-3",
           "lineId": "l9",
           "text": "hay",
-          "startMs": 84940,
-          "endMs": 85640,
+          "startMs": 84960,
+          "endMs": 85680,
           "contextualEnglish": "know",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9975168704986572,
+          "alignmentConfidence": 0.9979593753814697,
           "reviewStatus": "approved"
         },
         {
           "id": "t9-4",
           "lineId": "l9",
-          "text": "anh",
-          "startMs": 85640,
-          "endMs": 86620,
+          "text": "em",
+          "startMs": 87480,
+          "endMs": 87760,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.06468302756547928,
+          "alignmentConfidence": 0.05327456817030907,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t9-5",
           "lineId": "l9",
           "text": "đang",
-          "startMs": 87780,
-          "endMs": 88160,
+          "startMs": 87760,
+          "endMs": 88200,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.002046035137027502,
+          "alignmentConfidence": 0.4807112216949463,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t9-6",
           "lineId": "l9",
           "text": "nơi",
-          "startMs": 88160,
+          "startMs": 88200,
           "endMs": 88920,
           "contextualEnglish": "place",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.7853346467018127,
+          "alignmentConfidence": 0.8467625379562378,
           "reviewStatus": "approved"
         },
         {
@@ -1298,18 +1298,18 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3289077877998352,
+          "alignmentConfidence": 0.35992997884750366,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 9,
-      "alignmentConfidence": 0.43906967056682333,
+      "alignmentConfidence": 0.5848060040734708,
       "reviewStatus": "approved"
     },
     {
       "id": "l10",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hạt mưa vương vấn em giờ đây đang nơi đâu",
+      "textVi": "Hạt mưa vương vấn anh giờ đây đang nơi đâu",
       "translationEn": "Lingering raindrops — where are you now",
       "startMs": 89920,
       "endMs": 96800,
@@ -1324,7 +1324,7 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.12290194816887379,
+          "alignmentConfidence": 0.13482429273426533,
           "reviewStatus": "needs_review"
         },
         {
@@ -1337,7 +1337,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5364742577075958,
+          "alignmentConfidence": 0.5593880414962769,
           "reviewStatus": "needs_review"
         },
         {
@@ -1345,78 +1345,78 @@
           "lineId": "l10",
           "text": "vương",
           "startMs": 90620,
-          "endMs": 91100,
+          "endMs": 91120,
           "contextualEnglish": "linger",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6374213397502899,
+          "alignmentConfidence": 0.6226499080657959,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t10-3",
           "lineId": "l10",
           "text": "vấn",
-          "startMs": 91100,
-          "endMs": 91540,
+          "startMs": 91120,
+          "endMs": 91560,
           "contextualEnglish": "cling",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.010505117024877109,
+          "alignmentConfidence": 0.01154636080173077,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t10-4",
           "lineId": "l10",
-          "text": "em",
-          "startMs": 93440,
-          "endMs": 93540,
+          "text": "anh",
+          "startMs": 91560,
+          "endMs": 93680,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.01785062812268734,
+          "alignmentConfidence": 0.041679807007312775,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t10-5",
           "lineId": "l10",
           "text": "giờ",
-          "startMs": 93540,
-          "endMs": 94120,
+          "startMs": 93680,
+          "endMs": 94260,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.000036974259273847565,
+          "alignmentConfidence": 0.023550625890493393,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t10-6",
           "lineId": "l10",
           "text": "đây",
-          "startMs": 94120,
-          "endMs": 94700,
+          "startMs": 94260,
+          "endMs": 94660,
           "contextualEnglish": "here",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4559530019760132,
+          "alignmentConfidence": 0.5881597399711609,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t10-7",
           "lineId": "l10",
           "text": "đang",
-          "startMs": 94700,
+          "startMs": 94660,
           "endMs": 95300,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6504188776016235,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.7577879428863525,
+          "reviewStatus": "approved"
         },
         {
           "id": "t10-8",
@@ -1428,7 +1428,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.976569652557373,
+          "alignmentConfidence": 0.9812277853488922,
           "reviewStatus": "approved"
         },
         {
@@ -1437,37 +1437,37 @@
           "text": "đâu",
           "startMs": 96220,
           "endMs": 96800,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8667470812797546,
+          "alignmentConfidence": 0.8999626636505127,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 10,
-      "alignmentConfidence": 0.4274878878448362,
+      "alignmentConfidence": 0.4620777167852793,
       "reviewStatus": "approved"
     },
     {
       "id": "l11",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Một mình anh trong đêm thâu xóa tan nỗi sầu",
+      "textVi": "Một mình em trong đêm thâu xóa tan nỗi sầu",
       "translationEn": "Alone through the long night dissolving sorrow",
-      "startMs": 97360,
-      "endMs": 103460,
+      "startMs": 97340,
+      "endMs": 103440,
       "tokens": [
         {
           "id": "t11-0",
           "lineId": "l11",
           "text": "Một",
-          "startMs": 97360,
+          "startMs": 97340,
           "endMs": 97560,
           "contextualEnglish": "one",
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.5112666543573141,
+          "alignmentConfidence": 0.5188992992043495,
           "reviewStatus": "needs_review"
         },
         {
@@ -1480,59 +1480,59 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9194434881210327,
+          "alignmentConfidence": 0.9335527420043945,
           "reviewStatus": "approved"
         },
         {
           "id": "t11-2",
           "lineId": "l11",
-          "text": "anh",
+          "text": "em",
           "startMs": 97940,
           "endMs": 98440,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.165540874004364,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.7554314136505127,
+          "reviewStatus": "approved"
         },
         {
           "id": "t11-3",
           "lineId": "l11",
           "text": "trong",
           "startMs": 98440,
-          "endMs": 98980,
+          "endMs": 99000,
           "contextualEnglish": "in",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.020308105275034904,
+          "alignmentConfidence": 0.03441379591822624,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t11-4",
           "lineId": "l11",
           "text": "đêm",
-          "startMs": 98980,
-          "endMs": 99860,
+          "startMs": 99000,
+          "endMs": 99780,
           "contextualEnglish": "night",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4836418926715851,
+          "alignmentConfidence": 0.5075897946953773,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t11-5",
           "lineId": "l11",
           "text": "thâu",
-          "startMs": 99860,
+          "startMs": 99780,
           "endMs": 100500,
           "contextualEnglish": "throughout",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3141344338655472,
+          "alignmentConfidence": 0.34487321972846985,
           "reviewStatus": "needs_review"
         },
         {
@@ -1545,7 +1545,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.326743100459377,
+          "alignmentConfidence": 0.3323396605749925,
           "reviewStatus": "needs_review"
         },
         {
@@ -1558,7 +1558,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.39371612668037415,
+          "alignmentConfidence": 0.36838987469673157,
           "reviewStatus": "needs_review"
         },
         {
@@ -1571,7 +1571,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.39637472690083086,
+          "alignmentConfidence": 0.3934653887990862,
           "reviewStatus": "needs_review"
         },
         {
@@ -1579,23 +1579,23 @@
           "lineId": "l11",
           "text": "sầu",
           "startMs": 102480,
-          "endMs": 103460,
+          "endMs": 103440,
           "contextualEnglish": "sorrow",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.33584944903850555,
+          "alignmentConfidence": 0.33613645285367966,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 11,
-      "alignmentConfidence": 0.38670188513739656,
+      "alignmentConfidence": 0.4525091642125821,
       "reviewStatus": "approved"
     },
     {
       "id": "l12",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hòa cùng yêu dấu nỗi buồn anh đang chôn sâu",
+      "textVi": "Hòa cùng yêu dấu nỗi buồn em đang chôn sâu",
       "translationEn": "Together with dear love, the sorrow I bury deep",
       "startMs": 104540,
       "endMs": 111640,
@@ -1605,25 +1605,25 @@
           "lineId": "l12",
           "text": "Hòa",
           "startMs": 104540,
-          "endMs": 105220,
+          "endMs": 105200,
           "contextualEnglish": "blend",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.6686367516716322,
+          "alignmentConfidence": 0.6858927210172018,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t12-1",
           "lineId": "l12",
           "text": "cùng",
-          "startMs": 105220,
+          "startMs": 105200,
           "endMs": 105420,
-          "contextualEnglish": "along",
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.2984836995601654,
+          "alignmentConfidence": 0.30054327845573425,
           "reviewStatus": "needs_review"
         },
         {
@@ -1636,7 +1636,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.621884286403656,
+          "alignmentConfidence": 0.5898951292037964,
           "reviewStatus": "needs_review"
         },
         {
@@ -1649,7 +1649,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.0396849662065506,
+          "alignmentConfidence": 0.04095574747771025,
           "reviewStatus": "needs_review"
         },
         {
@@ -1662,7 +1662,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.5365742072463036,
+          "alignmentConfidence": 0.5275276973843575,
           "reviewStatus": "needs_review"
         },
         {
@@ -1675,64 +1675,64 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.8179495731989542,
+          "alignmentConfidence": 0.8087966442108154,
           "reviewStatus": "approved"
         },
         {
           "id": "t12-6",
           "lineId": "l12",
-          "text": "anh",
+          "text": "em",
           "startMs": 109200,
-          "endMs": 109560,
+          "endMs": 109580,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.14133460819721222,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.9327066540718079,
+          "reviewStatus": "approved"
         },
         {
           "id": "t12-7",
           "lineId": "l12",
           "text": "đang",
-          "startMs": 109560,
-          "endMs": 110160,
+          "startMs": 109580,
+          "endMs": 110140,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8724888563156128,
-          "reviewStatus": "approved"
+          "alignmentConfidence": 0.6487669348716736,
+          "reviewStatus": "needs_review"
         },
         {
           "id": "t12-8",
           "lineId": "l12",
           "text": "chôn",
-          "startMs": 110160,
-          "endMs": 110840,
+          "startMs": 110140,
+          "endMs": 110860,
           "contextualEnglish": "bury",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3606197461485863,
+          "alignmentConfidence": 0.3765171952545643,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t12-9",
           "lineId": "l12",
           "text": "sâu",
-          "startMs": 110840,
+          "startMs": 110860,
           "endMs": 111640,
           "contextualEnglish": "deep",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6363314986228943,
+          "alignmentConfidence": 0.6524563133716583,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 12,
-      "alignmentConfidence": 0.49939881935715674,
+      "alignmentConfidence": 0.556405831531932,
       "reviewStatus": "approved"
     },
     {
@@ -1753,7 +1753,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6512578129768372,
+          "alignmentConfidence": 0.7229454517364502,
           "reviewStatus": "needs_review"
         },
         {
@@ -1762,11 +1762,11 @@
           "text": "cùng",
           "startMs": 112360,
           "endMs": 112820,
-          "contextualEnglish": "along",
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.884284257888794,
+          "alignmentConfidence": 0.8983334302902222,
           "reviewStatus": "approved"
         },
         {
@@ -1779,7 +1779,7 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.7841552197933197,
+          "alignmentConfidence": 0.794755756855011,
           "reviewStatus": "approved"
         },
         {
@@ -1792,7 +1792,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9795092642307281,
+          "alignmentConfidence": 0.9811631143093109,
           "reviewStatus": "approved"
         },
         {
@@ -1805,7 +1805,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.941634476184845,
+          "alignmentConfidence": 0.9271713495254517,
           "reviewStatus": "approved"
         },
         {
@@ -1818,7 +1818,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.03750059753656387,
+          "alignmentConfidence": 0.030159413814544678,
           "reviewStatus": "needs_review"
         },
         {
@@ -1853,7 +1853,7 @@
           "text": "đâu",
           "startMs": 117160,
           "endMs": 118240,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
@@ -1862,7 +1862,7 @@
         }
       ],
       "displayOrder": 13,
-      "alignmentConfidence": 0.5220719685118335,
+      "alignmentConfidence": 0.5305371782807116,
       "reviewStatus": "approved"
     },
     {
@@ -1985,7 +1985,7 @@
     {
       "id": "l15",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Anh chẳng phải là người mau đổi thay",
+      "textVi": "Em chẳng phải là người mau đổi thay",
       "translationEn": "I am not someone who changes quickly",
       "startMs": 128180,
       "endMs": 133100,
@@ -1993,14 +1993,14 @@
         {
           "id": "t15-0",
           "lineId": "l15",
-          "text": "Anh",
+          "text": "Em",
           "startMs": 128180,
           "endMs": 128340,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.010993611067533493,
+          "alignmentConfidence": 0.7352221608161926,
           "reviewStatus": "needs_review"
         },
         {
@@ -2013,7 +2013,7 @@
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.8518988341093063,
+          "alignmentConfidence": 0.8283585011959076,
           "reviewStatus": "approved"
         },
         {
@@ -2026,7 +2026,7 @@
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.9183520674705505,
+          "alignmentConfidence": 0.9277657270431519,
           "reviewStatus": "approved"
         },
         {
@@ -2039,7 +2039,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.027025580406188965,
+          "alignmentConfidence": 0.029705680906772614,
           "reviewStatus": "needs_review"
         },
         {
@@ -2052,7 +2052,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9153299331665039,
+          "alignmentConfidence": 0.9123744368553162,
           "reviewStatus": "approved"
         },
         {
@@ -2065,7 +2065,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.004693576600402594,
+          "alignmentConfidence": 0.004957601893693209,
           "reviewStatus": "needs_review"
         },
         {
@@ -2078,7 +2078,7 @@
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.36268564127385616,
+          "alignmentConfidence": 0.3524079769849777,
           "reviewStatus": "needs_review"
         },
         {
@@ -2091,12 +2091,12 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4201827049255371,
+          "alignmentConfidence": 0.42176516354084015,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 15,
-      "alignmentConfidence": 0.4388952436274849,
+      "alignmentConfidence": 0.5265696561546065,
       "reviewStatus": "approved"
     },
     {
@@ -2117,7 +2117,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.4578818731630842,
+          "alignmentConfidence": 0.4611619838202993,
           "reviewStatus": "needs_review"
         },
         {
@@ -2130,7 +2130,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.9680668711662292,
+          "alignmentConfidence": 0.9677751064300537,
           "reviewStatus": "approved"
         },
         {
@@ -2143,7 +2143,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.8546740412712097,
+          "alignmentConfidence": 0.8561623096466064,
           "reviewStatus": "approved"
         },
         {
@@ -2156,7 +2156,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.6074910163879395,
+          "alignmentConfidence": 0.6082064509391785,
           "reviewStatus": "needs_review"
         },
         {
@@ -2169,7 +2169,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9431435465812683,
+          "alignmentConfidence": 0.9435169100761414,
           "reviewStatus": "approved"
         },
         {
@@ -2182,7 +2182,7 @@
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.3972390927374363,
+          "alignmentConfidence": 0.3977571874856949,
           "reviewStatus": "needs_review"
         },
         {
@@ -2195,12 +2195,12 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.9937530159950256,
+          "alignmentConfidence": 0.9937399625778198,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 16,
-      "alignmentConfidence": 0.7460356367574562,
+      "alignmentConfidence": 0.7469028444251135,
       "reviewStatus": "approved"
     },
     {
@@ -2221,7 +2221,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.6297810971736908,
+          "alignmentConfidence": 0.6153521686792374,
           "reviewStatus": "needs_review"
         },
         {
@@ -2230,11 +2230,11 @@
           "text": "để",
           "startMs": 139560,
           "endMs": 139740,
-          "contextualEnglish": "to",
+          "contextualEnglish": "Let that love fade away",
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.334429532289505,
+          "alignmentConfidence": 0.3426845669746399,
           "reviewStatus": "needs_review"
         },
         {
@@ -2247,7 +2247,7 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.7216545939445496,
+          "alignmentConfidence": 0.726219654083252,
           "reviewStatus": "needs_review"
         },
         {
@@ -2260,7 +2260,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9283218085765839,
+          "alignmentConfidence": 0.9282117486000061,
           "reviewStatus": "approved"
         },
         {
@@ -2273,7 +2273,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.640132874250412,
+          "alignmentConfidence": 0.6411472856998444,
           "reviewStatus": "needs_review"
         },
         {
@@ -2286,7 +2286,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.5511804670095444,
+          "alignmentConfidence": 0.5499695092439651,
           "reviewStatus": "needs_review"
         },
         {
@@ -2299,12 +2299,12 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4029875099658966,
+          "alignmentConfidence": 0.4011485427618027,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 17,
-      "alignmentConfidence": 0.6012125547443118,
+      "alignmentConfidence": 0.6006762108632496,
       "reviewStatus": "approved"
     },
     {
@@ -2320,25 +2320,25 @@
           "lineId": "l18",
           "text": "Sẽ",
           "startMs": 142880,
-          "endMs": 143180,
+          "endMs": 143200,
           "contextualEnglish": "will",
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.2562640383839607,
+          "alignmentConfidence": 0.2567347437143326,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t18-1",
           "lineId": "l18",
           "text": "chẳng",
-          "startMs": 143180,
+          "startMs": 143200,
           "endMs": 143620,
           "contextualEnglish": "not",
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.8558479696512222,
+          "alignmentConfidence": 0.8528737723827362,
           "reviewStatus": "approved"
         },
         {
@@ -2351,7 +2351,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.8515509366989136,
+          "alignmentConfidence": 0.8554924130439758,
           "reviewStatus": "approved"
         },
         {
@@ -2364,7 +2364,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9343588352203369,
+          "alignmentConfidence": 0.9348855018615723,
           "reviewStatus": "approved"
         },
         {
@@ -2377,7 +2377,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.15921613958198577,
+          "alignmentConfidence": 0.15901277179364115,
           "reviewStatus": "needs_review"
         },
         {
@@ -2390,7 +2390,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.591482400894165,
+          "alignmentConfidence": 0.5874145030975342,
           "reviewStatus": "needs_review"
         },
         {
@@ -2447,7 +2447,7 @@
         }
       ],
       "displayOrder": 18,
-      "alignmentConfidence": 0.5485254652609001,
+      "alignmentConfidence": 0.5482948038072208,
       "reviewStatus": "approved"
     },
     {
@@ -2713,36 +2713,36 @@
     {
       "id": "l21",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Em đâu hay anh mang chua cay",
+      "textVi": "Anh đâu hay em mang chua cay",
       "translationEn": "You don't know I carry this bitterness",
       "startMs": 158700,
-      "endMs": 163800,
+      "endMs": 163780,
       "tokens": [
         {
           "id": "t21-0",
           "lineId": "l21",
-          "text": "Em",
+          "text": "Anh",
           "startMs": 158700,
-          "endMs": 158920,
+          "endMs": 158900,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.006684228777885437,
+          "alignmentConfidence": 0.41067197918891907,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t21-1",
           "lineId": "l21",
           "text": "đâu",
-          "startMs": 158920,
+          "startMs": 158900,
           "endMs": 159380,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4212605953216553,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.8858693838119507,
+          "reviewStatus": "approved"
         },
         {
           "id": "t21-2",
@@ -2754,46 +2754,46 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8995011448860168,
+          "alignmentConfidence": 0.8916975259780884,
           "reviewStatus": "approved"
         },
         {
           "id": "t21-3",
           "lineId": "l21",
-          "text": "anh",
+          "text": "em",
           "startMs": 160000,
-          "endMs": 160640,
+          "endMs": 162120,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.0033000882249325514,
+          "alignmentConfidence": 0.1107650101184845,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t21-4",
           "lineId": "l21",
           "text": "mang",
-          "startMs": 160640,
-          "endMs": 162500,
+          "startMs": 162120,
+          "endMs": 162620,
           "contextualEnglish": "carry",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.00020567812316585332,
+          "alignmentConfidence": 0.7060531377792358,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t21-5",
           "lineId": "l21",
           "text": "chua",
-          "startMs": 162500,
+          "startMs": 162620,
           "endMs": 163220,
           "contextualEnglish": "bitter",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5852477550506592,
+          "alignmentConfidence": 0.5698090642690659,
           "reviewStatus": "needs_review"
         },
         {
@@ -2801,23 +2801,23 @@
           "lineId": "l21",
           "text": "cay",
           "startMs": 163220,
-          "endMs": 163800,
+          "endMs": 163780,
           "contextualEnglish": "pungent",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.20128870010375977,
+          "alignmentConfidence": 0.20213882625102997,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 21,
-      "alignmentConfidence": 0.30249831292686785,
+      "alignmentConfidence": 0.5395721324852535,
       "reviewStatus": "approved"
     },
     {
       "id": "l22",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hãy nói những ước muốn trong em hôm nào",
+      "textVi": "Hãy nói những ước muốn trong anh hôm nào",
       "translationEn": "Please speak the wishes that were once in you",
       "startMs": 165340,
       "endMs": 168720,
@@ -2832,7 +2832,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.7344083189964294,
+          "alignmentConfidence": 0.749895840883255,
           "reviewStatus": "needs_review"
         },
         {
@@ -2840,25 +2840,25 @@
           "lineId": "l22",
           "text": "nói",
           "startMs": 165580,
-          "endMs": 165840,
+          "endMs": 165860,
           "contextualEnglish": "speak",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.9964445233345032,
+          "alignmentConfidence": 0.9967436790466309,
           "reviewStatus": "approved"
         },
         {
           "id": "t22-2",
           "lineId": "l22",
           "text": "những",
-          "startMs": 165840,
+          "startMs": 165860,
           "endMs": 166220,
           "contextualEnglish": "those",
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9760968089103699,
+          "alignmentConfidence": 0.9761507511138916,
           "reviewStatus": "approved"
         },
         {
@@ -2871,7 +2871,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.36688011046499014,
+          "alignmentConfidence": 0.3635177416726947,
           "reviewStatus": "needs_review"
         },
         {
@@ -2884,7 +2884,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.33755242824554443,
+          "alignmentConfidence": 0.33670201897621155,
           "reviewStatus": "needs_review"
         },
         {
@@ -2897,58 +2897,58 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4564461410045624,
+          "alignmentConfidence": 0.45014679431915283,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t22-6",
           "lineId": "l22",
-          "text": "em",
+          "text": "anh",
           "startMs": 167200,
-          "endMs": 167780,
+          "endMs": 167800,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.00944573525339365,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.7785002589225769,
+          "reviewStatus": "approved"
         },
         {
           "id": "t22-7",
           "lineId": "l22",
           "text": "hôm",
-          "startMs": 167780,
-          "endMs": 168220,
+          "startMs": 167800,
+          "endMs": 168180,
           "contextualEnglish": "day",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.17535124416463077,
+          "alignmentConfidence": 0.2855732701718807,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t22-8",
           "lineId": "l22",
           "text": "nào",
-          "startMs": 168220,
+          "startMs": 168180,
           "endMs": 168720,
           "contextualEnglish": "which",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9719393253326416,
+          "alignmentConfidence": 0.970740795135498,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 22,
-      "alignmentConfidence": 0.5582849595230073,
+      "alignmentConfidence": 0.6564412389157547,
       "reviewStatus": "approved"
     },
     {
       "id": "l23",
       "songId": "hat-mua-vuong-van",
       "textVi": "Để xóa những kí ức trong anh cồn cào",
-      "translationEn": "To erase the memories burning in me",
+      "translationEn": "To erase the memories burning in you",
       "startMs": 168980,
       "endMs": 172500,
       "tokens": [
@@ -2957,25 +2957,25 @@
           "lineId": "l23",
           "text": "Để",
           "startMs": 168980,
-          "endMs": 169100,
+          "endMs": 169120,
           "contextualEnglish": "to",
           "toneMetadata": {
             "label": "hỏi"
           },
-          "alignmentConfidence": 0.6945875585079193,
+          "alignmentConfidence": 0.6598164588212967,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t23-1",
           "lineId": "l23",
           "text": "xóa",
-          "startMs": 169100,
+          "startMs": 169120,
           "endMs": 169720,
           "contextualEnglish": "erase",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.3794378812114398,
+          "alignmentConfidence": 0.37827785561482113,
           "reviewStatus": "needs_review"
         },
         {
@@ -2988,7 +2988,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.9689469933509827,
+          "alignmentConfidence": 0.9662562608718872,
           "reviewStatus": "approved"
         },
         {
@@ -3001,7 +3001,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.9120373129844666,
+          "alignmentConfidence": 0.914995551109314,
           "reviewStatus": "approved"
         },
         {
@@ -3009,25 +3009,25 @@
           "lineId": "l23",
           "text": "ức",
           "startMs": 170260,
-          "endMs": 170600,
+          "endMs": 170580,
           "contextualEnglish": "memory",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.7725915908813477,
+          "alignmentConfidence": 0.7735594213008881,
           "reviewStatus": "approved"
         },
         {
           "id": "t23-5",
           "lineId": "l23",
           "text": "trong",
-          "startMs": 170600,
+          "startMs": 170580,
           "endMs": 170960,
           "contextualEnglish": "in",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9681968092918396,
+          "alignmentConfidence": 0.9718049764633179,
           "reviewStatus": "approved"
         },
         {
@@ -3035,25 +3035,25 @@
           "lineId": "l23",
           "text": "anh",
           "startMs": 170960,
-          "endMs": 171500,
-          "contextualEnglish": "I",
+          "endMs": 171520,
+          "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5050172805786133,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.9132221937179565,
+          "reviewStatus": "approved"
         },
         {
           "id": "t23-7",
           "lineId": "l23",
           "text": "cồn",
-          "startMs": 171500,
+          "startMs": 171520,
           "endMs": 172080,
           "contextualEnglish": "burn",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.18567465814218545,
+          "alignmentConfidence": 0.19320631657804674,
           "reviewStatus": "needs_review"
         },
         {
@@ -3066,18 +3066,18 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.022420665714889765,
+          "alignmentConfidence": 0.022879885334987193,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 23,
-      "alignmentConfidence": 0.600990083407076,
+      "alignmentConfidence": 0.6437798799791684,
       "reviewStatus": "approved"
     },
     {
       "id": "l24",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Mà em đâu hay anh đang nơi đây",
+      "textVi": "Mà anh đâu hay em đang nơi đây",
       "translationEn": "But you don't know I'm still here",
       "startMs": 172720,
       "endMs": 178660,
@@ -3092,20 +3092,20 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.32094329595565796,
+          "alignmentConfidence": 0.3164399564266205,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t24-1",
           "lineId": "l24",
-          "text": "em",
+          "text": "anh",
           "startMs": 172840,
           "endMs": 173820,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.006361321080476046,
+          "alignmentConfidence": 0.6328877210617065,
           "reviewStatus": "needs_review"
         },
         {
@@ -3114,11 +3114,11 @@
           "text": "đâu",
           "startMs": 173820,
           "endMs": 174260,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9895428419113159,
+          "alignmentConfidence": 0.9939994812011719,
           "reviewStatus": "approved"
         },
         {
@@ -3131,46 +3131,46 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9897106289863586,
+          "alignmentConfidence": 0.991540253162384,
           "reviewStatus": "approved"
         },
         {
           "id": "t24-4",
           "lineId": "l24",
-          "text": "anh",
+          "text": "em",
           "startMs": 176020,
-          "endMs": 177040,
+          "endMs": 177000,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.010575762018561363,
+          "alignmentConfidence": 0.03534501791000366,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t24-5",
           "lineId": "l24",
           "text": "đang",
-          "startMs": 177040,
-          "endMs": 177420,
+          "startMs": 177000,
+          "endMs": 177480,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.0023956988006830215,
+          "alignmentConfidence": 0.30951806902885437,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t24-6",
           "lineId": "l24",
           "text": "nơi",
-          "startMs": 177420,
+          "startMs": 177480,
           "endMs": 178180,
           "contextualEnglish": "place",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6655177026987076,
+          "alignmentConfidence": 0.7238962948322296,
           "reviewStatus": "needs_review"
         },
         {
@@ -3183,33 +3183,33 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6350659728050232,
+          "alignmentConfidence": 0.6599408388137817,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 24,
-      "alignmentConfidence": 0.45251415303209797,
+      "alignmentConfidence": 0.582945954054594,
       "reviewStatus": "approved"
     },
     {
       "id": "l25",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hạt mưa vương vấn em giờ đây đang nơi đâu",
+      "textVi": "Hạt mưa vương vấn anh giờ đây đang nơi đâu",
       "translationEn": "Lingering raindrops — where are you now",
-      "startMs": 179220,
+      "startMs": 179240,
       "endMs": 186100,
       "tokens": [
         {
           "id": "t25-0",
           "lineId": "l25",
           "text": "Hạt",
-          "startMs": 179220,
+          "startMs": 179240,
           "endMs": 179440,
           "contextualEnglish": "drop",
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.14333660528063774,
+          "alignmentConfidence": 0.1633066227659583,
           "reviewStatus": "needs_review"
         },
         {
@@ -3217,25 +3217,25 @@
           "lineId": "l25",
           "text": "mưa",
           "startMs": 179440,
-          "endMs": 179900,
+          "endMs": 179880,
           "contextualEnglish": "rain",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6379171758890152,
+          "alignmentConfidence": 0.6422490775585175,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t25-2",
           "lineId": "l25",
           "text": "vương",
-          "startMs": 179900,
+          "startMs": 179880,
           "endMs": 180400,
           "contextualEnglish": "linger",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6724382042884827,
+          "alignmentConfidence": 0.6697302609682083,
           "reviewStatus": "needs_review"
         },
         {
@@ -3243,25 +3243,25 @@
           "lineId": "l25",
           "text": "vấn",
           "startMs": 180400,
-          "endMs": 181040,
+          "endMs": 181220,
           "contextualEnglish": "cling",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.249935534899123,
+          "alignmentConfidence": 0.23517227615229785,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t25-4",
           "lineId": "l25",
-          "text": "em",
-          "startMs": 181040,
+          "text": "anh",
+          "startMs": 181220,
           "endMs": 183040,
           "contextualEnglish": "you",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.003642729949206114,
+          "alignmentConfidence": 0.13565441966056824,
           "reviewStatus": "needs_review"
         },
         {
@@ -3269,51 +3269,51 @@
           "lineId": "l25",
           "text": "giờ",
           "startMs": 183040,
-          "endMs": 183480,
+          "endMs": 183560,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.002641027793288231,
+          "alignmentConfidence": 0.07592423260211945,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t25-6",
           "lineId": "l25",
           "text": "đây",
-          "startMs": 183480,
-          "endMs": 184000,
+          "startMs": 183560,
+          "endMs": 183980,
           "contextualEnglish": "here",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.3955897092819214,
+          "alignmentConfidence": 0.5173694491386414,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t25-7",
           "lineId": "l25",
           "text": "đang",
-          "startMs": 184000,
-          "endMs": 184620,
+          "startMs": 183980,
+          "endMs": 184580,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.5948688983917236,
+          "alignmentConfidence": 0.7159825563430786,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t25-8",
           "lineId": "l25",
           "text": "nơi",
-          "startMs": 184620,
+          "startMs": 184580,
           "endMs": 185540,
           "contextualEnglish": "place",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9430366158485413,
+          "alignmentConfidence": 0.9560787975788116,
           "reviewStatus": "approved"
         },
         {
@@ -3322,22 +3322,22 @@
           "text": "đâu",
           "startMs": 185540,
           "endMs": 186100,
-          "contextualEnglish": "not",
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8657034039497375,
+          "alignmentConfidence": 0.8933701515197754,
           "reviewStatus": "approved"
         }
       ],
       "displayOrder": 25,
-      "alignmentConfidence": 0.45091099055716766,
+      "alignmentConfidence": 0.5004837844287977,
       "reviewStatus": "approved"
     },
     {
       "id": "l26",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Một mình anh trong đêm thâu xóa tan nỗi sầu",
+      "textVi": "Một mình em trong đêm thâu xóa tan nỗi sầu",
       "translationEn": "Alone through the long night dissolving sorrow",
       "startMs": 186780,
       "endMs": 192640,
@@ -3352,7 +3352,7 @@
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.5279583595693111,
+          "alignmentConfidence": 0.5366008169949055,
           "reviewStatus": "needs_review"
         },
         {
@@ -3360,25 +3360,25 @@
           "lineId": "l26",
           "text": "mình",
           "startMs": 186880,
-          "endMs": 187240,
+          "endMs": 187220,
           "contextualEnglish": "alone",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.9025779366493225,
+          "alignmentConfidence": 0.909086287021637,
           "reviewStatus": "approved"
         },
         {
           "id": "t26-2",
           "lineId": "l26",
-          "text": "anh",
-          "startMs": 187240,
+          "text": "em",
+          "startMs": 187220,
           "endMs": 187740,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.22642534971237183,
+          "alignmentConfidence": 0.501842737197876,
           "reviewStatus": "needs_review"
         },
         {
@@ -3386,38 +3386,38 @@
           "lineId": "l26",
           "text": "trong",
           "startMs": 187740,
-          "endMs": 188300,
+          "endMs": 188260,
           "contextualEnglish": "in",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.016763798892498016,
+          "alignmentConfidence": 0.01702113263309002,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t26-4",
           "lineId": "l26",
           "text": "đêm",
-          "startMs": 188300,
-          "endMs": 189060,
+          "startMs": 188260,
+          "endMs": 189040,
           "contextualEnglish": "night",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6630480289459229,
+          "alignmentConfidence": 0.675225555896759,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t26-5",
           "lineId": "l26",
           "text": "thâu",
-          "startMs": 189060,
+          "startMs": 189040,
           "endMs": 189820,
           "contextualEnglish": "throughout",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.46475526690483093,
+          "alignmentConfidence": 0.45918008685112,
           "reviewStatus": "needs_review"
         },
         {
@@ -3430,7 +3430,7 @@
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.3118713463967045,
+          "alignmentConfidence": 0.3165320698171854,
           "reviewStatus": "needs_review"
         },
         {
@@ -3443,7 +3443,7 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.26238033175468445,
+          "alignmentConfidence": 0.2478090226650238,
           "reviewStatus": "needs_review"
         },
         {
@@ -3456,7 +3456,7 @@
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.30269285198301077,
+          "alignmentConfidence": 0.2978403001616243,
           "reviewStatus": "needs_review"
         },
         {
@@ -3469,18 +3469,18 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.25945795327425003,
+          "alignmentConfidence": 0.2636513039469719,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 26,
-      "alignmentConfidence": 0.39379312240829073,
+      "alignmentConfidence": 0.4224789313186193,
       "reviewStatus": "approved"
     },
     {
       "id": "l27",
       "songId": "hat-mua-vuong-van",
-      "textVi": "Hòa cùng yêu dấu nỗi buồn anh đang chôn sâu",
+      "textVi": "Hòa cùng yêu dấu nỗi buồn em đang chôn sâu",
       "translationEn": "Together with dear love, the sorrow I bury deep",
       "startMs": 193700,
       "endMs": 200980,
@@ -3495,7 +3495,7 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.7049814263979594,
+          "alignmentConfidence": 0.7198088417450587,
           "reviewStatus": "needs_review"
         },
         {
@@ -3503,25 +3503,25 @@
           "lineId": "l27",
           "text": "cùng",
           "startMs": 194500,
-          "endMs": 194720,
-          "contextualEnglish": "along",
+          "endMs": 194700,
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.39617452025413513,
+          "alignmentConfidence": 0.4048061966896057,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t27-2",
           "lineId": "l27",
           "text": "yêu",
-          "startMs": 194720,
+          "startMs": 194700,
           "endMs": 195140,
           "contextualEnglish": "love",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.4181128740310669,
+          "alignmentConfidence": 0.4208684265613556,
           "reviewStatus": "needs_review"
         },
         {
@@ -3529,25 +3529,25 @@
           "lineId": "l27",
           "text": "dấu",
           "startMs": 195140,
-          "endMs": 196220,
+          "endMs": 196200,
           "contextualEnglish": "dear",
           "toneMetadata": {
             "label": "sắc"
           },
-          "alignmentConfidence": 0.11448197066783905,
+          "alignmentConfidence": 0.11336887627840042,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t27-4",
           "lineId": "l27",
           "text": "nỗi",
-          "startMs": 196220,
+          "startMs": 196200,
           "endMs": 198080,
           "contextualEnglish": "feeling",
           "toneMetadata": {
             "label": "ngã"
           },
-          "alignmentConfidence": 0.4859377108514309,
+          "alignmentConfidence": 0.48410511761903763,
           "reviewStatus": "needs_review"
         },
         {
@@ -3560,46 +3560,46 @@
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.6443501934409142,
+          "alignmentConfidence": 0.6448650918900967,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t27-6",
           "lineId": "l27",
-          "text": "anh",
+          "text": "em",
           "startMs": 198500,
-          "endMs": 198860,
+          "endMs": 198900,
           "contextualEnglish": "I",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.023028450086712837,
-          "reviewStatus": "needs_review"
+          "alignmentConfidence": 0.8960251212120056,
+          "reviewStatus": "approved"
         },
         {
           "id": "t27-7",
           "lineId": "l27",
           "text": "đang",
-          "startMs": 198860,
-          "endMs": 199440,
+          "startMs": 198900,
+          "endMs": 199400,
           "contextualEnglish": "now",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.8685856461524963,
-          "reviewStatus": "approved"
+          "alignmentConfidence": 0.4533401429653168,
+          "reviewStatus": "needs_review"
         },
         {
           "id": "t27-8",
           "lineId": "l27",
           "text": "chôn",
-          "startMs": 199440,
+          "startMs": 199400,
           "endMs": 200180,
           "contextualEnglish": "bury",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.28043232299387455,
+          "alignmentConfidence": 0.2937706969678402,
           "reviewStatus": "needs_review"
         },
         {
@@ -3612,12 +3612,12 @@
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.566208004951477,
+          "alignmentConfidence": 0.5807375311851501,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 27,
-      "alignmentConfidence": 0.4502293119827906,
+      "alignmentConfidence": 0.5011696043113867,
       "reviewStatus": "approved"
     },
     {
@@ -3625,714 +3625,129 @@
       "songId": "hat-mua-vuong-van",
       "textVi": "Theo cùng hạt mưa tan mau trôi về đâu",
       "translationEn": "Following raindrops that melt and drift away",
-      "startMs": 201560,
-      "endMs": 212700,
+      "startMs": 201230,
+      "endMs": 207480,
       "tokens": [
         {
           "id": "t28-0",
           "lineId": "l28",
           "text": "Theo",
-          "startMs": 201560,
-          "endMs": 201660,
+          "startMs": 201230,
+          "endMs": 202030,
           "contextualEnglish": "follow",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.6860824227333069,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t28-1",
           "lineId": "l28",
           "text": "cùng",
-          "startMs": 201660,
-          "endMs": 202120,
-          "contextualEnglish": "along",
+          "startMs": 202030,
+          "endMs": 202630,
+          "contextualEnglish": "with",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.8511561155319214,
-          "reviewStatus": "approved"
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
         },
         {
           "id": "t28-2",
           "lineId": "l28",
           "text": "hạt",
-          "startMs": 202120,
-          "endMs": 202660,
+          "startMs": 202630,
+          "endMs": 203180,
           "contextualEnglish": "drop",
           "toneMetadata": {
             "label": "nặng"
           },
-          "alignmentConfidence": 0.8624115884304047,
-          "reviewStatus": "approved"
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
         },
         {
           "id": "t28-3",
           "lineId": "l28",
           "text": "mưa",
-          "startMs": 202660,
-          "endMs": 203180,
+          "startMs": 203180,
+          "endMs": 203780,
           "contextualEnglish": "rain",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.9809445142745972,
-          "reviewStatus": "approved"
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
         },
         {
           "id": "t28-4",
           "lineId": "l28",
           "text": "tan",
-          "startMs": 203180,
-          "endMs": 203820,
+          "startMs": 203780,
+          "endMs": 204380,
           "contextualEnglish": "dissolve",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.600762128829956,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t28-5",
           "lineId": "l28",
           "text": "mau",
-          "startMs": 203820,
-          "endMs": 204640,
+          "startMs": 204380,
+          "endMs": 205630,
           "contextualEnglish": "quickly",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.06449747085571289,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t28-6",
           "lineId": "l28",
           "text": "trôi",
-          "startMs": 204640,
-          "endMs": 205920,
+          "startMs": 205630,
+          "endMs": 206330,
           "contextualEnglish": "drift",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.41318707913160324,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t28-7",
           "lineId": "l28",
           "text": "về",
-          "startMs": 206060,
-          "endMs": 206420,
+          "startMs": 206330,
+          "endMs": 206980,
           "contextualEnglish": "toward",
           "toneMetadata": {
             "label": "huyền"
           },
-          "alignmentConfidence": 0.01558062992990017,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         },
         {
           "id": "t28-8",
           "lineId": "l28",
           "text": "đâu",
-          "startMs": 209260,
-          "endMs": 212700,
-          "contextualEnglish": "not",
+          "startMs": 206980,
+          "endMs": 207480,
+          "contextualEnglish": "where",
           "toneMetadata": {
             "label": "ngang"
           },
-          "alignmentConfidence": 0.000055102078476920724,
+          "alignmentConfidence": 0.62,
           "reviewStatus": "needs_review"
         }
       ],
       "displayOrder": 28,
-      "alignmentConfidence": 0.497186339088431,
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "l29",
-      "songId": "hat-mua-vuong-van",
-      "textVi": "Một ngày người trở về trong cơn say",
-      "translationEn": "One day you return in a drunken haze",
-      "startMs": 216280,
-      "endMs": 219660,
-      "tokens": [
-        {
-          "id": "t29-0",
-          "lineId": "l29",
-          "text": "Một",
-          "startMs": 216280,
-          "endMs": 216580,
-          "contextualEnglish": "one",
-          "toneMetadata": {
-            "label": "nặng"
-          },
-          "alignmentConfidence": 0.4529004357755184,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-1",
-          "lineId": "l29",
-          "text": "ngày",
-          "startMs": 216580,
-          "endMs": 216960,
-          "contextualEnglish": "day",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.0004883828805759549,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-2",
-          "lineId": "l29",
-          "text": "người",
-          "startMs": 216960,
-          "endMs": 217420,
-          "contextualEnglish": "person",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.00294229737482965,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-3",
-          "lineId": "l29",
-          "text": "trở",
-          "startMs": 217420,
-          "endMs": 218040,
-          "contextualEnglish": "return",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.015584702254272997,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-4",
-          "lineId": "l29",
-          "text": "về",
-          "startMs": 218040,
-          "endMs": 218500,
-          "contextualEnglish": "toward",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.08644960820674896,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-5",
-          "lineId": "l29",
-          "text": "trong",
-          "startMs": 218500,
-          "endMs": 218550,
-          "contextualEnglish": "in",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.0074907937087118626,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-6",
-          "lineId": "l29",
-          "text": "cơn",
-          "startMs": 218500,
-          "endMs": 219340,
-          "contextualEnglish": "bout",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.00962325040018186,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t29-7",
-          "lineId": "l29",
-          "text": "say",
-          "startMs": 219340,
-          "endMs": 219660,
-          "contextualEnglish": "drunk",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.00003376518361619674,
-          "reviewStatus": "needs_review"
-        }
-      ],
-      "displayOrder": 29,
-      "alignmentConfidence": 0.07193915447305699,
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "l30",
-      "songId": "hat-mua-vuong-van",
-      "textVi": "Anh chẳng phải là người mau đổi thay",
-      "translationEn": "I am not someone who changes quickly",
-      "startMs": 227140,
-      "endMs": 233740,
-      "tokens": [
-        {
-          "id": "t30-0",
-          "lineId": "l30",
-          "text": "Anh",
-          "startMs": 227140,
-          "endMs": 227760,
-          "contextualEnglish": "I",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.00022688631725031883,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-1",
-          "lineId": "l30",
-          "text": "chẳng",
-          "startMs": 227760,
-          "endMs": 228240,
-          "contextualEnglish": "not",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.5195127390325069,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-2",
-          "lineId": "l30",
-          "text": "phải",
-          "startMs": 228240,
-          "endMs": 228290,
-          "contextualEnglish": "is",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.010262181982398033,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-3",
-          "lineId": "l30",
-          "text": "là",
-          "startMs": 228240,
-          "endMs": 229020,
-          "contextualEnglish": "is",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.013924864120781422,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-4",
-          "lineId": "l30",
-          "text": "người",
-          "startMs": 229020,
-          "endMs": 230980,
-          "contextualEnglish": "person",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.03385201469063759,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-5",
-          "lineId": "l30",
-          "text": "mau",
-          "startMs": 231740,
-          "endMs": 232020,
-          "contextualEnglish": "quickly",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.000008854029147187248,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-6",
-          "lineId": "l30",
-          "text": "đổi",
-          "startMs": 232020,
-          "endMs": 233280,
-          "contextualEnglish": "change",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.014087722753174603,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t30-7",
-          "lineId": "l30",
-          "text": "thay",
-          "startMs": 233280,
-          "endMs": 233740,
-          "contextualEnglish": "replace",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.1503368392586708,
-          "reviewStatus": "needs_review"
-        }
-      ],
-      "displayOrder": 30,
-      "alignmentConfidence": 0.09277651277307086,
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "l31",
-      "songId": "hat-mua-vuong-van",
-      "textVi": "Dẫu biết rằng người không trở lại",
-      "translationEn": "Though I know you will not return",
-      "startMs": 254500,
-      "endMs": 257760,
-      "tokens": [
-        {
-          "id": "t31-0",
-          "lineId": "l31",
-          "text": "Dẫu",
-          "startMs": 254500,
-          "endMs": 254780,
-          "contextualEnglish": "though",
-          "toneMetadata": {
-            "label": "ngã"
-          },
-          "alignmentConfidence": 0.10967805482020292,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-1",
-          "lineId": "l31",
-          "text": "biết",
-          "startMs": 254780,
-          "endMs": 255080,
-          "contextualEnglish": "know",
-          "toneMetadata": {
-            "label": "sắc"
-          },
-          "alignmentConfidence": 0.017337294295430183,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-2",
-          "lineId": "l31",
-          "text": "rằng",
-          "startMs": 255200,
-          "endMs": 255640,
-          "contextualEnglish": "that",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.0460127592086792,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-3",
-          "lineId": "l31",
-          "text": "người",
-          "startMs": 255640,
-          "endMs": 256120,
-          "contextualEnglish": "person",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.13906505703926086,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-4",
-          "lineId": "l31",
-          "text": "không",
-          "startMs": 256120,
-          "endMs": 256400,
-          "contextualEnglish": "not",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.10900204628705978,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-5",
-          "lineId": "l31",
-          "text": "trở",
-          "startMs": 256400,
-          "endMs": 257020,
-          "contextualEnglish": "return",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.2933373600244522,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t31-6",
-          "lineId": "l31",
-          "text": "lại",
-          "startMs": 257020,
-          "endMs": 257760,
-          "contextualEnglish": "again",
-          "toneMetadata": {
-            "label": "nặng"
-          },
-          "alignmentConfidence": 0.8692530393600464,
-          "reviewStatus": "approved"
-        }
-      ],
-      "displayOrder": 31,
-      "alignmentConfidence": 0.22624080157644738,
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "l32",
-      "songId": "hat-mua-vuong-van",
-      "textVi": "Hãy để cuộc tình kia tàn phai",
-      "translationEn": "Let that love fade away",
-      "startMs": 258380,
-      "endMs": 261380,
-      "tokens": [
-        {
-          "id": "t32-0",
-          "lineId": "l32",
-          "text": "Hãy",
-          "startMs": 258380,
-          "endMs": 258620,
-          "contextualEnglish": "please",
-          "toneMetadata": {
-            "label": "ngã"
-          },
-          "alignmentConfidence": 0.4037490747869015,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-1",
-          "lineId": "l32",
-          "text": "để",
-          "startMs": 258620,
-          "endMs": 258860,
-          "contextualEnglish": "to",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.4413195848464966,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-2",
-          "lineId": "l32",
-          "text": "cuộc",
-          "startMs": 258860,
-          "endMs": 259180,
-          "contextualEnglish": "affair",
-          "toneMetadata": {
-            "label": "nặng"
-          },
-          "alignmentConfidence": 0.0232535470277071,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-3",
-          "lineId": "l32",
-          "text": "tình",
-          "startMs": 259180,
-          "endMs": 259540,
-          "contextualEnglish": "love",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.5208020508289337,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-4",
-          "lineId": "l32",
-          "text": "kia",
-          "startMs": 259540,
-          "endMs": 260200,
-          "contextualEnglish": "that",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.4487151578068733,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-5",
-          "lineId": "l32",
-          "text": "tàn",
-          "startMs": 260460,
-          "endMs": 260760,
-          "contextualEnglish": "fade",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.34963470324873924,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t32-6",
-          "lineId": "l32",
-          "text": "phai",
-          "startMs": 260760,
-          "endMs": 261380,
-          "contextualEnglish": "wither",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.33421820402145386,
-          "reviewStatus": "needs_review"
-        }
-      ],
-      "displayOrder": 32,
-      "alignmentConfidence": 0.36024176036672934,
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "l33",
-      "songId": "hat-mua-vuong-van",
-      "textVi": "Sẽ chẳng còn gì quanh ta giờ không còn ai",
-      "translationEn": "Nothing left around us — no one left now",
-      "startMs": 261960,
-      "endMs": 267320,
-      "tokens": [
-        {
-          "id": "t33-0",
-          "lineId": "l33",
-          "text": "Sẽ",
-          "startMs": 261960,
-          "endMs": 262300,
-          "contextualEnglish": "will",
-          "toneMetadata": {
-            "label": "ngã"
-          },
-          "alignmentConfidence": 0.019478098023682833,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-1",
-          "lineId": "l33",
-          "text": "chẳng",
-          "startMs": 262300,
-          "endMs": 262740,
-          "contextualEnglish": "not",
-          "toneMetadata": {
-            "label": "hỏi"
-          },
-          "alignmentConfidence": 0.6331631541252136,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-2",
-          "lineId": "l33",
-          "text": "còn",
-          "startMs": 262740,
-          "endMs": 262920,
-          "contextualEnglish": "remain",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.01657712459564209,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-3",
-          "lineId": "l33",
-          "text": "gì",
-          "startMs": 262920,
-          "endMs": 263260,
-          "contextualEnglish": "anything",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.19450519979000092,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-4",
-          "lineId": "l33",
-          "text": "quanh",
-          "startMs": 263320,
-          "endMs": 264060,
-          "contextualEnglish": "around",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.10452805063687265,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-5",
-          "lineId": "l33",
-          "text": "ta",
-          "startMs": 264060,
-          "endMs": 264240,
-          "contextualEnglish": "us",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.066044382750988,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-6",
-          "lineId": "l33",
-          "text": "giờ",
-          "startMs": 264240,
-          "endMs": 265220,
-          "contextualEnglish": "now",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.0006517950096167624,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-7",
-          "lineId": "l33",
-          "text": "không",
-          "startMs": 265220,
-          "endMs": 265760,
-          "contextualEnglish": "not",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.062053192406892776,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-8",
-          "lineId": "l33",
-          "text": "còn",
-          "startMs": 265760,
-          "endMs": 266440,
-          "contextualEnglish": "remain",
-          "toneMetadata": {
-            "label": "huyền"
-          },
-          "alignmentConfidence": 0.33186644315719604,
-          "reviewStatus": "needs_review"
-        },
-        {
-          "id": "t33-9",
-          "lineId": "l33",
-          "text": "ai",
-          "startMs": 266440,
-          "endMs": 267320,
-          "contextualEnglish": "anyone",
-          "toneMetadata": {
-            "label": "ngang"
-          },
-          "alignmentConfidence": 0.8615136742591858,
-          "reviewStatus": "approved"
-        }
-      ],
-      "displayOrder": 33,
-      "alignmentConfidence": 0.22903811147552916,
+      "alignmentConfidence": 0.62,
       "reviewStatus": "approved"
     }
   ],
@@ -4341,5 +3756,5 @@
   "publishStatus": "approved",
   "pipelineVersion": "demucs-stable-whisper-align-v1",
   "globalOffsetMs": 0,
-  "approvedAt": "2026-11-14T02:28:14.590Z"
+  "approvedAt": "2026-11-14T03:03:09.643Z"
 }
