@@ -377,6 +377,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
                   seedText={saySeed || selected?.text || ""}
                   suggestions={practiceLine.tokens.map((t) => t.text)}
                   onSpeakingChange={(busy) => {
+                    setTtsBusy(busy);
                     if (busy) {
                       setPlaying(false);
                       setDuckUntil(Date.now() + 8000);
@@ -490,6 +491,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
               seedText={saySeed || selected?.text || ""}
               suggestions={(activeLine ?? practiceLine)?.tokens.map((t) => t.text) ?? []}
               onSpeakingChange={(busy) => {
+                setTtsBusy(busy);
                 if (busy) {
                   setPlaying(false);
                   setDuckUntil(Date.now() + 8000);
