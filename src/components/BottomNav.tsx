@@ -32,6 +32,12 @@ export function BottomNav() {
       match: (p: string) => p.startsWith("/scan") || p.startsWith("/vocab"),
     },
     {
+      href: "/sing",
+      label: "Sing",
+      icon: SingIcon,
+      match: (p: string) => p.startsWith("/sing"),
+    },
+    {
       href: writeHref,
       label: "Write",
       icon: WriteIcon,
@@ -44,7 +50,7 @@ export function BottomNav() {
       aria-label="Primary"
       className="fixed bottom-0 left-0 right-0 z-40 border-t border-[#e8d9c8] bg-paper/95 backdrop-blur-md"
     >
-      <div className="mx-auto flex max-w-lg items-stretch justify-around px-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2">
+      <div className="mx-auto flex max-w-lg items-stretch justify-around px-1 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2">
         {items.map((item) => {
           const active = item.match(path);
           const Icon = item.icon;
@@ -52,7 +58,7 @@ export function BottomNav() {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex min-w-[4.25rem] flex-col items-center gap-1 rounded-xl px-2 py-1.5 text-[11px] ${
+              className={`flex min-w-[3.5rem] flex-col items-center gap-1 rounded-xl px-1.5 py-1.5 text-[10px] sm:min-w-[4.25rem] sm:px-2 sm:text-[11px] ${
                 active ? "text-coral" : "text-ink/45 hover:text-ink/70"
               }`}
             >
@@ -117,6 +123,22 @@ function WriteIcon({ active }: { active?: boolean }) {
         strokeLinejoin="round"
       />
       <path d="M13.5 6.5 17.5 10.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+function SingIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M9 18V6l10-2v12"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="7" cy="18" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+      <circle cx="17" cy="16" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
     </svg>
   );
 }

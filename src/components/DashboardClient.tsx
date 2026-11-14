@@ -131,13 +131,22 @@ export function DashboardClient() {
         <p className="mt-3 text-sm text-ink/65">{motivationLine(progress)}</p>
       </section>
 
-      <Link href="/scan" className="ami-card mt-6 block px-4 py-4 transition hover:bg-paper">
-        <p className="quiet-label">New</p>
-        <p className="mt-1 font-display text-xl text-ink">Scan & Read</p>
-        <p className="mt-1 text-sm text-ink/60">
-          Photograph a menu or sign, tap words, listen, and save vocabulary.
-        </p>
-      </Link>
+      <div className="mt-6 grid grid-cols-1 gap-3">
+        <Link href="/scan" className="ami-card block px-4 py-4 transition hover:bg-paper">
+          <p className="quiet-label">Scan & Read</p>
+          <p className="mt-1 font-display text-xl text-ink">Photograph Vietnamese</p>
+          <p className="mt-1 text-sm text-ink/60">
+            Crop a sign or menu, tap words, listen, and save vocabulary.
+          </p>
+        </Link>
+        <Link href="/sing" className="ami-card block px-4 py-4 transition hover:bg-paper">
+          <p className="quiet-label">New · ÁMi Sing</p>
+          <p className="mt-1 font-display text-xl text-ink">Learn through karaoke</p>
+          <p className="mt-1 text-sm text-ink/60">
+            Listen & understand, sing along, then Speak & Master with clear speech feedback.
+          </p>
+        </Link>
+      </div>
 
       <DemoScript />
 
