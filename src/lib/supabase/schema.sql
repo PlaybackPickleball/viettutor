@@ -86,3 +86,83 @@ alter table public.reading_lessons enable row level security;
 alter table public.reading_segments enable row level security;
 alter table public.saved_vocabulary enable row level security;
 alter table public.learning_progress enable row level security;
+
+-- ÁMi Sing tables (apply when Supabase is wired; client uses localStorage until then)
+
+create table if not exists public.songs (
+  id text primary key,
+  title text not null,
+  artist text not null,
+  songwriter text,
+  language text not null default 'vi',
+  genre text,
+  difficulty text,
+  vocal_type text,
+  status text not null default 'draft',
+  created_at timestamptz not null default now(),
+  published_at timestamptz
+);
+
+create table if not exists public.song_assets (
+  id uuid primary key default gen_random_uuid(),
+  song_id text not null references public.songs (id) on delete cascade,
+  asset_type text not null,
+  storage_path text,
+  duration_ms int,
+  dialect text,
+  version text,
+  status text not null default 'pending'
+);
+
+create table if not exists public.song_rights (
+  id uuid primary key default gen_random_uuid(),
+  song_id text not null references public.songs (id) on delete cascade,
+  asset_id uuid references public.song_assets (id) on delete set null,
+  rights_type text,
+  rights_holder text,
+  license_status text not null default 'pending',
+  territory text default 'WW',
+  allowed_uses text[] not null default '{}',
+  effective_date date,
+  expiration_date date,
+  documentation_path text
+);
+
+create table if not exists public.lyric_segments (
+  id uuid primary key default gen_random_uuid(),
+  song_id text not null references public.songs (id) on delete cascade,
+  start_ms int not null,
+  end_ms int not null,
+  text_vi text not null,
+  text_en text,
+  token_timing_json jsonb,
+  display_order int not null default 0
+);
+
+create table if not exists public.user_song_progress (
+  user_id uuid not null references public.profiles (id) on delete cascade,
+  song_id text not null references public.songs (id) on delete cascade,
+  learning_mode text,
+  completed_sections jsonb,
+  last_position_ms int,
+  updated_at timestamptz not null default now(),
+  primary key (user_id, song_id)
+);
+
+create table if not exists public.singing_attempts (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references public.profiles (id) on delete set null,
+  song_id text not null references public.songs (id) on delete cascade,
+  lyric_segment_id uuid references public.lyric_segments (id) on delete set null,
+  recording_path text,
+  created_at timestamptz not null default now(),
+  consent_status text not null default 'temporary',
+  feedback_json jsonb
+);
+
+alter table public.songs enable row level security;
+alter table public.song_assets enable row level security;
+alter table public.song_rights enable row level security;
+alter table public.lyric_segments enable row level security;
+alter table public.user_song_progress enable row level security;
+alter table public.singing_attempts enable row level security;

@@ -1,6 +1,8 @@
-import type { SingMode, SingProgress } from "./types";
+import type { PracticeHistoryEntry, SingMode, SingProgress } from "./types";
 
 const KEY = "ami-lingua.sing-progress.v1";
+const HISTORY_KEY = "ami-lingua.sing-history.v1";
+const SAVED_KEY = "ami-lingua.sing-saved.v1";
 
 export function loadSingProgress(): Record<string, SingProgress> {
   if (typeof window === "undefined") return {};
@@ -43,3 +45,43 @@ export function bumpSingVocab(songId: string) {
     vocabSaved: (prev?.vocabSaved ?? 0) + 1,
   });
 }
+
+export function saveSongFavorite(songId: string, saved: boolean) {
+  if (typeof window === "undefined") return;
+  const ids = new Set(loadSavedSongIds());
+  if (saved) ids.add(songId);
+  else ids.delete(songId);
+  localStorage.setItem(SAVED_KEY, JSON.stringify([...ids]));
+  markSingMode(songId, getSongProgress(songId)?.lastMode ?? "listen", { saved });
+}
+
+export function loadSavedSongIds(): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(SAVED_KEY) || "[]") as string[];
+  } catch {
+    return [];
+  }
+}
+
+export function pushPracticeHistory(entry: Omit<PracticeHistoryEntry, "id" | "at">) {
+  if (typeof window === "undefined") return;
+  const list = loadPracticeHistory();
+  list.unshift({
+    ...entry,
+    id: `ph-${Date.now()}`,
+    at: new Date().toISOString(),
+  });
+  localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, 40)));
+}
+
+export function loadPracticeHistory(): PracticeHistoryEntry[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]") as PracticeHistoryEntry[];
+  } catch {
+    return [];
+  }
+}
+
+export const MODE_COUNT = 5;
