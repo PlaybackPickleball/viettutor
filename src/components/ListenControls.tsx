@@ -58,7 +58,7 @@ export function ListenControls({ text, onListened }: Props) {
         </button>
       </div>
       <p className="text-xs text-ink/40">
-        Reference audio via Web Speech TTS (vi-VN). Dialect may vary by browser voice — Southern
+        Natural Southern Vietnamese voice when AI TTS is available; otherwise browser speech —
         is preferred when available.
       </p>
       {error ? <p className="text-sm text-amber">{error}</p> : null}
