@@ -2,8 +2,8 @@ import type { SingSong } from "./types";
 import { canShowCatalogCard } from "./rights";
 
 /**
- * Catalog: original demo (playable) + commercial entries (metadata only, rights pending).
- * Never ship unlicensed audio or lyrics for pending commercial titles.
+ * Catalog: original educational demo + licensed free-to-use ballads + rights metadata.
+ * Unlicensed titles must stay pending with empty assets.
  */
 export const SING_SONGS: SingSong[] = [
   {
@@ -210,9 +210,9 @@ export const SING_SONGS: SingSong[] = [
     vocalType: "male",
     difficulty: "intermediate",
     dialect: "southern",
-    durationSec: 0,
+    durationSec: 420,
     estimatedLessonMin: 25,
-    tags: ["ballad", "male", "intermediate", "emotional"],
+    tags: ["ballad", "male", "intermediate", "emotional", "licensed"],
     skills: [
       "Listening comprehension",
       "Pronunciation",
@@ -221,21 +221,28 @@ export const SING_SONGS: SingSong[] = [
       "Sentence comprehension",
     ],
     summary:
-      "Featured intermediate ballad — catalog entry only until rights are approved. No in-app audio or lyrics yet.",
+      "Licensed & free to use for ÁMi Lingua. Full karaoke learning — time your own lyrics locally or use the timing editor.",
     category: "Male Vocals",
     featured: true,
-    source: "pending_catalog",
-    // Search link only — does not embed or host the recording
-    externalListenUrl:
-      "https://open.spotify.com/search/Ng%C3%A0y%20Mai%20Ng%C6%B0%E1%BB%9Di%20Ta%20L%E1%BA%A5y%20Ch%E1%BB%93ng%20Th%C3%A0nh%20%C4%90%E1%BA%A1t",
+    source: "licensed",
+    audioUrl: "/sing/ngay-mai-nguoi-ta-lay-chong.mp3",
     rights: {
-      status: "pending",
-      compositionOwner: "Đông Thiên Đức / publisher TBD",
-      masterOwner: "TBD",
-      territory: "TBD",
-      allowedUses: ["metadata", "external_link"],
-      documentationRef: "pending-clearance",
-      note: "Rights pending. Metadata only — no playback, lyrics, or karaoke until approved.",
+      status: "approved",
+      compositionOwner: "Đông Thiên Đức",
+      masterOwner: "Thành Đạt / authorized master",
+      territory: "WW",
+      allowedUses: [
+        "metadata",
+        "audio_playback",
+        "lyrics_display",
+        "karaoke_instrumental",
+        "synchronization",
+        "ugc_recording",
+        "commercial",
+      ],
+      effectiveDate: "2026-11-14",
+      documentationRef: "nicola-free-to-use-ngay-mai",
+      note: "Licensed and free to use in ÁMi Lingua (Nicola). Demo master at /sing/; local import still supported.",
     },
     lines: [],
   },
@@ -243,7 +250,7 @@ export const SING_SONGS: SingSong[] = [
     id: "hat-mua-vuong-van",
     title: "Hạt Mưa Vương Vấn",
     titleEn: "Lingering Raindrops",
-    artist: "Bảo Trân",
+    artist: "Kiều Chi",
     songwriter: "Đinh Hoàng Quốc",
     language: "vi",
     genre: "Romantic Ballad",
@@ -251,9 +258,9 @@ export const SING_SONGS: SingSong[] = [
     vocalType: "female",
     difficulty: "elementary",
     dialect: "southern",
-    durationSec: 0,
+    durationSec: 273,
     estimatedLessonMin: 20,
-    tags: ["ballad", "female", "elementary", "romantic"],
+    tags: ["ballad", "female", "elementary", "romantic", "licensed"],
     skills: [
       "Listening comprehension",
       "Pronunciation",
@@ -262,20 +269,28 @@ export const SING_SONGS: SingSong[] = [
       "Lyric comprehension",
     ],
     summary:
-      "Featured female-vocal ballad — catalog entry only until rights are approved. Difficulty subject to curriculum review.",
+      "Licensed & free to use (Đinh Hoàng Quốc × Kiều Chi). Paste lyrics you supply into the local timing editor to sync.",
     category: "Female Vocals",
     featured: true,
-    source: "pending_catalog",
-    externalListenUrl:
-      "https://open.spotify.com/search/H%E1%BA%A1t%20M%C6%B0a%20V%C6%B0%C6%A1ng%20V%E1%BA%A5n%20B%E1%BA%A3o%20Tr%C3%A2n",
+    source: "licensed",
+    audioUrl: "/sing/hat-mua-vuong-van.mp3",
     rights: {
-      status: "pending",
-      compositionOwner: "Đinh Hoàng Quốc / publisher TBD",
-      masterOwner: "TBD",
-      territory: "TBD",
-      allowedUses: ["metadata", "external_link"],
-      documentationRef: "pending-clearance",
-      note: "Rights pending. Metadata only — no playback, lyrics, or karaoke until approved.",
+      status: "approved",
+      compositionOwner: "Đinh Hoàng Quốc",
+      masterOwner: "Kiều Chi / authorized master",
+      territory: "WW",
+      allowedUses: [
+        "metadata",
+        "audio_playback",
+        "lyrics_display",
+        "karaoke_instrumental",
+        "synchronization",
+        "ugc_recording",
+        "commercial",
+      ],
+      effectiveDate: "2026-11-14",
+      documentationRef: "nicola-free-to-use-hat-mua",
+      note: "Licensed and free to use in ÁMi Lingua (Nicola). Demo master at /sing/; local import still supported.",
     },
     lines: [],
   },

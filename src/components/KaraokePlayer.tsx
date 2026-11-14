@@ -1,37 +1,40 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { SingSong } from "@/lib/sing/types";
-import { clampTime } from "@/lib/sing/timing";
 
 export type KaraokeLoop = { start: number; end: number } | null;
 
 type Props = {
-  song: SingSong;
+  /** Stable id for effect deps (song catalog id) */
+  trackId: string;
   audioUrl: string;
+  /** Soft ceiling for seeks; 0 = use media duration */
+  durationSec: number;
   playing: boolean;
   speed: number;
   loop: KaraokeLoop;
   onTime: (t: number) => void;
   onPlayingChange: (playing: boolean) => void;
+  onDuration?: (sec: number) => void;
   onEnded?: () => void;
-  /** Imperative seek target. Bump `seekNonce` when seeking to the same second again. */
   seekTo?: number | null;
   seekNonce?: number;
 };
 
 /**
  * Reusable karaoke engine: HTMLAudioElement + rAF visual clock.
- * Audio.currentTime is the source of truth; rAF only samples it while playing.
+ * Audio.currentTime is the source of truth. Works with blob: (Dev Mode) or https.
  */
 export function KaraokePlayer({
-  song,
+  trackId,
   audioUrl,
+  durationSec,
   playing,
   speed,
   loop,
   onTime,
   onPlayingChange,
+  onDuration,
   onEnded,
   seekTo,
   seekNonce = 0,
@@ -39,7 +42,9 @@ export function KaraokePlayer({
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const loopRef = useRef(loop);
+  const durationRef = useRef(durationSec);
   loopRef.current = loop;
+  durationRef.current = durationSec;
 
   useEffect(() => {
     const audio = new Audio(audioUrl);
@@ -79,6 +84,12 @@ export function KaraokePlayer({
       onTime(audio.currentTime);
     };
     const onSeeked = () => onTime(audio.currentTime);
+    const onMeta = () => {
+      if (Number.isFinite(audio.duration) && audio.duration > 0) {
+        onDuration?.(audio.duration);
+        durationRef.current = audio.duration;
+      }
+    };
     const onEnd = () => {
       onPlayingChange(false);
       onEnded?.();
@@ -87,6 +98,7 @@ export function KaraokePlayer({
     audio.addEventListener("play", onPlay);
     audio.addEventListener("pause", onPause);
     audio.addEventListener("seeked", onSeeked);
+    audio.addEventListener("loadedmetadata", onMeta);
     audio.addEventListener("ended", onEnd);
 
     return () => {
@@ -95,12 +107,12 @@ export function KaraokePlayer({
       audio.removeEventListener("play", onPlay);
       audio.removeEventListener("pause", onPause);
       audio.removeEventListener("seeked", onSeeked);
+      audio.removeEventListener("loadedmetadata", onMeta);
       audio.removeEventListener("ended", onEnd);
       audioRef.current = null;
     };
-    // Recreate only when the authorized URL changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [audioUrl, song.id]);
+  }, [audioUrl, trackId]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -122,11 +134,11 @@ export function KaraokePlayer({
     if (seekTo == null || Number.isNaN(seekTo)) return;
     const audio = audioRef.current;
     if (!audio) return;
-    audio.currentTime = clampTime(song, seekTo);
+    const max = durationRef.current || audio.duration || 0;
+    audio.currentTime = Math.max(0, max > 0 ? Math.min(max, seekTo) : seekTo);
     onTime(audio.currentTime);
-    // seekNonce allows re-seeking the same timestamp
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [seekTo, seekNonce, song.id]);
+  }, [seekTo, seekNonce, trackId]);
 
   return null;
 }

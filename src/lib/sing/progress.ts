@@ -1,3 +1,4 @@
+import { normalizeStoredMode } from "./modes";
 import type { PracticeHistoryEntry, SingMode, SingProgress } from "./types";
 
 const KEY = "ami-lingua.sing-progress.v1";
@@ -7,7 +8,14 @@ const SAVED_KEY = "ami-lingua.sing-saved.v1";
 export function loadSingProgress(): Record<string, SingProgress> {
   if (typeof window === "undefined") return {};
   try {
-    return JSON.parse(localStorage.getItem(KEY) || "{}") as Record<string, SingProgress>;
+    const raw = JSON.parse(localStorage.getItem(KEY) || "{}") as Record<string, SingProgress>;
+    for (const p of Object.values(raw)) {
+      p.modesCompleted = (p.modesCompleted || [])
+        .map((m) => normalizeStoredMode(m)!)
+        .filter(Boolean) as SingMode[];
+      if (p.lastMode) p.lastMode = normalizeStoredMode(p.lastMode);
+    }
+    return raw;
   } catch {
     return {};
   }

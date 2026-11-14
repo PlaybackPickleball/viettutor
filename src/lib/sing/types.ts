@@ -1,6 +1,7 @@
 /** ÁMi Sing — shared types */
 
-export type SingMode = "listen" | "words" | "sing" | "speak" | "vocab";
+/** Listen → Understand → Sing → Speak → Improve */
+export type SingMode = "listen" | "understand" | "sing" | "speak" | "improve";
 
 export type LicenseStatus =
   | "pending"

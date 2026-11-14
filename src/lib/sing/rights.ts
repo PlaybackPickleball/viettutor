@@ -27,12 +27,23 @@ export function canShowCatalogCard(song: SingSong): boolean {
   return allowsUse(song.rights, "metadata");
 }
 
+/** Rights permit playback (hosted URL and/or device-local licensed import). */
+export function rightsAllowPlayback(song: SingSong): boolean {
+  return allowsUse(song.rights, "audio_playback");
+}
+
+/** Hosted audio URL is approved for serving via the asset gate. */
 export function canPlayAudio(song: SingSong): boolean {
-  return Boolean(song.audioUrl) && allowsUse(song.rights, "audio_playback");
+  return Boolean(song.audioUrl) && rightsAllowPlayback(song);
+}
+
+/** Rights permit showing lyrics (catalog lines and/or user-timed local draft). */
+export function rightsAllowLyrics(song: SingSong): boolean {
+  return allowsUse(song.rights, "lyrics_display");
 }
 
 export function canShowLyrics(song: SingSong): boolean {
-  return song.lines.length > 0 && allowsUse(song.rights, "lyrics_display");
+  return song.lines.length > 0 && rightsAllowLyrics(song);
 }
 
 export function canUseInstrumental(song: SingSong): boolean {
@@ -46,11 +57,14 @@ export function canRecordUgc(song: SingSong): boolean {
 export function availabilityLabel(song: SingSong): string {
   const s = song.rights.status;
   if (canPlayAudio(song) && canShowLyrics(song)) return "Ready to learn";
+  if (s === "approved" && rightsAllowPlayback(song) && !song.audioUrl) {
+    return "Licensed · import audio";
+  }
+  if (s === "approved") return "Licensed";
   if (s === "pending") return "Rights pending";
   if (s === "under_review") return "Under review";
   if (s === "expired") return "License expired";
   if (s === "rejected") return "Unavailable";
-  if (s === "approved" && !song.audioUrl) return "Assets pending upload";
   return "Unavailable";
 }
 

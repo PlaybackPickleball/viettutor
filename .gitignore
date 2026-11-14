@@ -41,3 +41,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 vie.traineddata
+
+# ÁMi Sing — keep scratch / private copies out of git
+/private-media/
+/local-media/
+/sing-local/
+public/sing/private/
+
+# Ignore MP3s by default; allow only licensed demo masters we intentionally ship
+*.mp3
+*.MP3
+!public/sing/*.wav
+!public/sing/ngay-mai-nguoi-ta-lay-chong.mp3
+!public/sing/hat-mua-vuong-van.mp3

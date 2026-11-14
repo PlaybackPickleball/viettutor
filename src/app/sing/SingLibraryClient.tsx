@@ -173,6 +173,10 @@ export function SingLibraryClient() {
 
       <h1 className="mt-6 font-display text-3xl text-ink">ÁMi Sing</h1>
       <p className="mt-2 text-ink/60">Learn Vietnamese Through Music</p>
+      <p className="mt-2 text-xs leading-relaxed text-ink/45">
+        Flow: Listen → Understand → Sing → Speak → Improve. Licensed songs play in Production Mode;
+        use the on-device importer or timing editor when you need local assets.
+      </p>
 
       <label className="quiet-label mt-6 block" htmlFor="sing-search">
         Search songs
@@ -277,9 +281,9 @@ export function SingLibraryClient() {
       ) : null}
 
       <p className="mt-8 text-xs leading-relaxed text-ink/40">
-        Commercial titles appear as catalog cards with rights status{" "}
-        <code className="text-ink/50">pending</code> until clearance. We never host unlicensed audio
-        or lyrics. Singing pitch is never used as a pronunciation score.
+        Rights are enforced on the server asset gate. Unlicensed titles stay disabled. Singing pitch
+        is never used as a pronunciation score. See{" "}
+        <code className="text-ink/50">docs/ami-sing-local-import.md</code> for local MP3 import.
       </p>
 
       <Link href="/" className="teacher-btn-secondary mt-6 w-full text-center">
