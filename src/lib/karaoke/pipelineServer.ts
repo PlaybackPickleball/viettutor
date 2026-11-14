@@ -9,7 +9,8 @@ import {
   type PipelineInput,
   type PipelineJob,
 } from "./pipeline";
-import { ALIGN_DIR, ensureKaraokeDirs } from "./store";
+import { assertSafeSongId } from "./safeId";
+import { alignArtifactPath, ensureKaraokeDirs } from "./store";
 
 function runPython(args: string[]): Promise<{ code: number; stdout: string; stderr: string }> {
   return new Promise((resolve) => {
@@ -31,13 +32,14 @@ function runPython(args: string[]): Promise<{ code: number; stdout: string; stde
 
 /** Execute Demucs + stable-whisper forced alignment (CPU; may take minutes). Server-only. */
 export async function runForcedAlignmentJob(input: PipelineInput): Promise<PipelineJob> {
+  const songId = assertSafeSongId(input.songId);
   await ensureKaraokeDirs();
   const jobId = `job-${Date.now()}`;
-  const lyricsPath = path.join(ALIGN_DIR, `${input.songId}.${jobId}.lyrics.txt`);
-  const outPath = path.join(ALIGN_DIR, `${input.songId}.${jobId}.align.json`);
+  const lyricsPath = alignArtifactPath(songId, `${jobId}.lyrics.txt`);
+  const outPath = alignArtifactPath(songId, `${jobId}.align.json`);
   await fs.writeFile(lyricsPath, input.verifiedLyricsVi.join("\n") + "\n", "utf8");
 
-  const script = path.join(process.cwd(), "scripts", "karaoke_align.py");
+  const script = path.join(/* turbopackIgnore: true */ process.cwd(), "scripts", "karaoke_align.py");
   const args = [
     script,
     "--audio",
@@ -47,7 +49,7 @@ export async function runForcedAlignmentJob(input: PipelineInput): Promise<Pipel
     "--out",
     outPath,
     "--song-id",
-    input.songId,
+    songId,
     "--model",
     input.model ?? "base",
     "--language",
@@ -80,7 +82,7 @@ export async function runForcedAlignmentJob(input: PipelineInput): Promise<Pipel
   };
 
   const song = buildKaraokeSongFromAlign({
-    id: input.songId,
+    id: songId,
     title: input.title,
     artist: input.artist,
     audioUrl: input.audioUrl ?? `/api/sing/asset/${input.songId}`,
