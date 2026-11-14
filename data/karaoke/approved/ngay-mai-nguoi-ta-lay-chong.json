@@ -1,0 +1,6672 @@
+{
+  "id": "ngay-mai-nguoi-ta-lay-chong",
+  "title": "Ngày Mai Người Ta Lấy Chồng",
+  "artist": "Nguyễn Thành Đạt",
+  "language": "vi",
+  "audioUrl": "/sing/ngay-mai-nguoi-ta-lay-chong.mp3",
+  "durationMs": 420362,
+  "lines": [
+    {
+      "id": "l0",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai tìm ai trên phố vắng ngược lối cơn mưa chiều giăng giăng",
+      "translationEn": "Who seeks whom on empty streets against the afternoon rain",
+      "startMs": 41800,
+      "endMs": 47920,
+      "tokens": [
+        {
+          "id": "t0-0",
+          "lineId": "l0",
+          "text": "Ai",
+          "startMs": 41800,
+          "endMs": 41960,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10375658422708511,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-1",
+          "lineId": "l0",
+          "text": "tìm",
+          "startMs": 41960,
+          "endMs": 42680,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7067329039176306,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-2",
+          "lineId": "l0",
+          "text": "ai",
+          "startMs": 42680,
+          "endMs": 42900,
+          "contextualEnglish": "whom",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.02080141007900238,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-3",
+          "lineId": "l0",
+          "text": "trên",
+          "startMs": 42900,
+          "endMs": 43240,
+          "contextualEnglish": "on",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7001604437828064,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-4",
+          "lineId": "l0",
+          "text": "phố",
+          "startMs": 43240,
+          "endMs": 43800,
+          "contextualEnglish": "street",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.8369533717632294,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t0-5",
+          "lineId": "l0",
+          "text": "vắng",
+          "startMs": 44080,
+          "endMs": 44420,
+          "contextualEnglish": "empty",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.40556641668081284,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-6",
+          "lineId": "l0",
+          "text": "ngược",
+          "startMs": 44420,
+          "endMs": 45340,
+          "contextualEnglish": "against",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.364763043820858,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-7",
+          "lineId": "l0",
+          "text": "lối",
+          "startMs": 45340,
+          "endMs": 45700,
+          "contextualEnglish": "path",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5100018046796322,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-8",
+          "lineId": "l0",
+          "text": "cơn",
+          "startMs": 45700,
+          "endMs": 46040,
+          "contextualEnglish": "bout",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.4333365857601166,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-9",
+          "lineId": "l0",
+          "text": "mưa",
+          "startMs": 46040,
+          "endMs": 46380,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7079108357429504,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-10",
+          "lineId": "l0",
+          "text": "chiều",
+          "startMs": 46380,
+          "endMs": 46860,
+          "contextualEnglish": "afternoon",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6740678697824478,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-11",
+          "lineId": "l0",
+          "text": "giăng",
+          "startMs": 46860,
+          "endMs": 47400,
+          "contextualEnglish": "spread",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.20818550139665604,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-12",
+          "lineId": "l0",
+          "text": "giăng",
+          "startMs": 47400,
+          "endMs": 47920,
+          "contextualEnglish": "spread",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.49060339853167534,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 0,
+      "alignmentConfidence": 0.47406462847422337,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l1",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai tìm ai dưới trăng nghiêng bóng ngõ dài vằng vặc",
+      "translationEn": "Who seeks whom under the slanted moon on a long bright alley",
+      "startMs": 48980,
+      "endMs": 54800,
+      "tokens": [
+        {
+          "id": "t1-0",
+          "lineId": "l1",
+          "text": "Ai",
+          "startMs": 48980,
+          "endMs": 49200,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7280880212783813,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-1",
+          "lineId": "l1",
+          "text": "tìm",
+          "startMs": 49200,
+          "endMs": 49760,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9940496683120728,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t1-2",
+          "lineId": "l1",
+          "text": "ai",
+          "startMs": 49760,
+          "endMs": 50040,
+          "contextualEnglish": "whom",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9816261529922485,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t1-3",
+          "lineId": "l1",
+          "text": "dưới",
+          "startMs": 50040,
+          "endMs": 50440,
+          "contextualEnglish": "under",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7437741359074911,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-4",
+          "lineId": "l1",
+          "text": "trăng",
+          "startMs": 50440,
+          "endMs": 51240,
+          "contextualEnglish": "moon",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2668766975402832,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-5",
+          "lineId": "l1",
+          "text": "nghiêng",
+          "startMs": 52420,
+          "endMs": 52680,
+          "contextualEnglish": "slanted",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.38945222708086175,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-6",
+          "lineId": "l1",
+          "text": "bóng",
+          "startMs": 52680,
+          "endMs": 53140,
+          "contextualEnglish": "shadow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.8877866665522257,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t1-7",
+          "lineId": "l1",
+          "text": "ngõ",
+          "startMs": 53140,
+          "endMs": 53340,
+          "contextualEnglish": "alley",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.08488844719249755,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-8",
+          "lineId": "l1",
+          "text": "dài",
+          "startMs": 53340,
+          "endMs": 53740,
+          "contextualEnglish": "long",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7123425006866455,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-9",
+          "lineId": "l1",
+          "text": "vằng",
+          "startMs": 53740,
+          "endMs": 54160,
+          "contextualEnglish": "bright",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.18192170560359955,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-10",
+          "lineId": "l1",
+          "text": "vặc",
+          "startMs": 54160,
+          "endMs": 54800,
+          "contextualEnglish": "clear",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.10034235890270793,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 1,
+      "alignmentConfidence": 0.5519225983680923,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l2",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai đặt tên cho ký ức là nỗi đau của ngày hôm qua",
+      "translationEn": "Who named memory the pain of yesterday",
+      "startMs": 56260,
+      "endMs": 62420,
+      "tokens": [
+        {
+          "id": "t2-0",
+          "lineId": "l2",
+          "text": "Ai",
+          "startMs": 56260,
+          "endMs": 56480,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6687195897102356,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-1",
+          "lineId": "l2",
+          "text": "đặt",
+          "startMs": 56480,
+          "endMs": 56960,
+          "contextualEnglish": "place",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.15635303035378456,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-2",
+          "lineId": "l2",
+          "text": "tên",
+          "startMs": 57000,
+          "endMs": 57240,
+          "contextualEnglish": "name",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.674573540687561,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-3",
+          "lineId": "l2",
+          "text": "cho",
+          "startMs": 57240,
+          "endMs": 57620,
+          "contextualEnglish": "for",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8599007725715637,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t2-4",
+          "lineId": "l2",
+          "text": "ký",
+          "startMs": 57620,
+          "endMs": 58360,
+          "contextualEnglish": "memory",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.693381741642952,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-5",
+          "lineId": "l2",
+          "text": "ức",
+          "startMs": 58760,
+          "endMs": 59740,
+          "contextualEnglish": "memory",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.005535883596166968,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-6",
+          "lineId": "l2",
+          "text": "là",
+          "startMs": 59740,
+          "endMs": 59790,
+          "contextualEnglish": "is",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.06651470065116882,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-7",
+          "lineId": "l2",
+          "text": "nỗi",
+          "startMs": 59740,
+          "endMs": 60120,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.5390177294611931,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-8",
+          "lineId": "l2",
+          "text": "đau",
+          "startMs": 60120,
+          "endMs": 60460,
+          "contextualEnglish": "pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8756761848926544,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t2-9",
+          "lineId": "l2",
+          "text": "của",
+          "startMs": 60460,
+          "endMs": 60760,
+          "contextualEnglish": "of",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.16258735954761505,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-10",
+          "lineId": "l2",
+          "text": "ngày",
+          "startMs": 60760,
+          "endMs": 61260,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8872199654579163,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t2-11",
+          "lineId": "l2",
+          "text": "hôm",
+          "startMs": 61260,
+          "endMs": 61780,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8611902892589569,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t2-12",
+          "lineId": "l2",
+          "text": "qua",
+          "startMs": 61780,
+          "endMs": 62420,
+          "contextualEnglish": "past",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.975945770740509,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 2,
+      "alignmentConfidence": 0.5712781968132521,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l3",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai đặt tên chúng ta là người lạ",
+      "translationEn": "Who named us strangers",
+      "startMs": 63620,
+      "endMs": 68100,
+      "tokens": [
+        {
+          "id": "t3-0",
+          "lineId": "l3",
+          "text": "Ai",
+          "startMs": 63620,
+          "endMs": 63900,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.02369697019457817,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-1",
+          "lineId": "l3",
+          "text": "đặt",
+          "startMs": 63900,
+          "endMs": 64240,
+          "contextualEnglish": "place",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.2302704956382513,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-2",
+          "lineId": "l3",
+          "text": "tên",
+          "startMs": 64360,
+          "endMs": 64620,
+          "contextualEnglish": "name",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6107394322752953,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-3",
+          "lineId": "l3",
+          "text": "chúng",
+          "startMs": 64620,
+          "endMs": 64900,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7868497371673584,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t3-4",
+          "lineId": "l3",
+          "text": "ta",
+          "startMs": 64900,
+          "endMs": 65640,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9965572357177734,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t3-5",
+          "lineId": "l3",
+          "text": "là",
+          "startMs": 65640,
+          "endMs": 67080,
+          "contextualEnglish": "is",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.5993236899375916,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-6",
+          "lineId": "l3",
+          "text": "người",
+          "startMs": 67080,
+          "endMs": 67420,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8759644627571106,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t3-7",
+          "lineId": "l3",
+          "text": "lạ",
+          "startMs": 67420,
+          "endMs": 68100,
+          "contextualEnglish": "strange",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.30760814156383276,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 3,
+      "alignmentConfidence": 0.5538762706564739,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l4",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Có phải đêm qua thức trắng để gấp con tim làm hai ngăn",
+      "translationEn": "Was last night spent folding the heart into two compartments",
+      "startMs": 70780,
+      "endMs": 77180,
+      "tokens": [
+        {
+          "id": "t4-0",
+          "lineId": "l4",
+          "text": "Có",
+          "startMs": 70780,
+          "endMs": 71000,
+          "contextualEnglish": "is it",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.09178120642900467,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-1",
+          "lineId": "l4",
+          "text": "phải",
+          "startMs": 71000,
+          "endMs": 71420,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9301876425743103,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t4-2",
+          "lineId": "l4",
+          "text": "đêm",
+          "startMs": 71420,
+          "endMs": 71840,
+          "contextualEnglish": "night",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.47111915051937103,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-3",
+          "lineId": "l4",
+          "text": "qua",
+          "startMs": 71840,
+          "endMs": 72240,
+          "contextualEnglish": "past",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7469398379325867,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-4",
+          "lineId": "l4",
+          "text": "thức",
+          "startMs": 72240,
+          "endMs": 72840,
+          "contextualEnglish": "stay awake",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.691803514957428,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-5",
+          "lineId": "l4",
+          "text": "trắng",
+          "startMs": 72840,
+          "endMs": 73580,
+          "contextualEnglish": "white/all night",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.20015352219343185,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-6",
+          "lineId": "l4",
+          "text": "để",
+          "startMs": 73580,
+          "endMs": 74320,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.07998137921094894,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-7",
+          "lineId": "l4",
+          "text": "gấp",
+          "startMs": 74320,
+          "endMs": 74640,
+          "contextualEnglish": "fold",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.19301427155733109,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-8",
+          "lineId": "l4",
+          "text": "con",
+          "startMs": 74640,
+          "endMs": 75000,
+          "contextualEnglish": "classifier",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8488706946372986,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t4-9",
+          "lineId": "l4",
+          "text": "tim",
+          "startMs": 75000,
+          "endMs": 75360,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.05805939808487892,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-10",
+          "lineId": "l4",
+          "text": "làm",
+          "startMs": 75360,
+          "endMs": 75800,
+          "contextualEnglish": "make",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9808705449104309,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t4-11",
+          "lineId": "l4",
+          "text": "hai",
+          "startMs": 75800,
+          "endMs": 76360,
+          "contextualEnglish": "two",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.1918475478887558,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-12",
+          "lineId": "l4",
+          "text": "ngăn",
+          "startMs": 76360,
+          "endMs": 77180,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.38424666598439217,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 4,
+      "alignmentConfidence": 0.4514519520677053,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l5",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngăn phải ôm nỗi đau còn ngăn trái chứa hạt nhiệm màu",
+      "translationEn": "The right holds the pain; the left holds a miracle seed",
+      "startMs": 78080,
+      "endMs": 84460,
+      "tokens": [
+        {
+          "id": "t5-0",
+          "lineId": "l5",
+          "text": "Ngăn",
+          "startMs": 78080,
+          "endMs": 78340,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.16445275954902172,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-1",
+          "lineId": "l5",
+          "text": "phải",
+          "startMs": 78340,
+          "endMs": 78760,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9905117154121399,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t5-2",
+          "lineId": "l5",
+          "text": "ôm",
+          "startMs": 78760,
+          "endMs": 79300,
+          "contextualEnglish": "embrace",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5623060464859009,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-3",
+          "lineId": "l5",
+          "text": "nỗi",
+          "startMs": 79300,
+          "endMs": 79620,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.8753437995910645,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t5-4",
+          "lineId": "l5",
+          "text": "đau",
+          "startMs": 79620,
+          "endMs": 80160,
+          "contextualEnglish": "pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9322887063026428,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t5-5",
+          "lineId": "l5",
+          "text": "còn",
+          "startMs": 80160,
+          "endMs": 81020,
+          "contextualEnglish": "while",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.16606257855892181,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-6",
+          "lineId": "l5",
+          "text": "ngăn",
+          "startMs": 81020,
+          "endMs": 81400,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7583185732364655,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t5-7",
+          "lineId": "l5",
+          "text": "trái",
+          "startMs": 81400,
+          "endMs": 82060,
+          "contextualEnglish": "left",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6588660776615143,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-8",
+          "lineId": "l5",
+          "text": "chứa",
+          "startMs": 82060,
+          "endMs": 83000,
+          "contextualEnglish": "hold",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.3155531094719966,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-9",
+          "lineId": "l5",
+          "text": "hạt",
+          "startMs": 83100,
+          "endMs": 83200,
+          "contextualEnglish": "seed",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.7127109169960022,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-10",
+          "lineId": "l5",
+          "text": "nhiệm",
+          "startMs": 83200,
+          "endMs": 83820,
+          "contextualEnglish": "miracle",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.530780461927255,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-11",
+          "lineId": "l5",
+          "text": "màu",
+          "startMs": 83820,
+          "endMs": 84460,
+          "contextualEnglish": "color",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.09290892258286476,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 5,
+      "alignmentConfidence": 0.5633419723146491,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l6",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Kịp sáng mang đến làm quà cô dâu sợ mai kia sương phai hoa úa áo nhàu",
+      "translationEn": "By dawn, a bridal gift — fearing tomorrow frost fades flowers and wrinkles the dress",
+      "startMs": 85120,
+      "endMs": 92080,
+      "tokens": [
+        {
+          "id": "t6-0",
+          "lineId": "l6",
+          "text": "Kịp",
+          "startMs": 85120,
+          "endMs": 85260,
+          "contextualEnglish": "in time",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.7827755808830261,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t6-1",
+          "lineId": "l6",
+          "text": "sáng",
+          "startMs": 85260,
+          "endMs": 85640,
+          "contextualEnglish": "morning",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.8042093813419342,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t6-2",
+          "lineId": "l6",
+          "text": "mang",
+          "startMs": 85640,
+          "endMs": 85920,
+          "contextualEnglish": "bring",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9001060724258423,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t6-3",
+          "lineId": "l6",
+          "text": "đến",
+          "startMs": 85920,
+          "endMs": 86240,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.291457861661911,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-4",
+          "lineId": "l6",
+          "text": "làm",
+          "startMs": 86240,
+          "endMs": 86700,
+          "contextualEnglish": "make",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.978675901889801,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t6-5",
+          "lineId": "l6",
+          "text": "quà",
+          "startMs": 86700,
+          "endMs": 87280,
+          "contextualEnglish": "gift",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.5089570134878159,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-6",
+          "lineId": "l6",
+          "text": "cô",
+          "startMs": 87280,
+          "endMs": 87600,
+          "contextualEnglish": "bride",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10291746258735657,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-7",
+          "lineId": "l6",
+          "text": "dâu",
+          "startMs": 87600,
+          "endMs": 88240,
+          "contextualEnglish": "bride",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.22703604213893414,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-8",
+          "lineId": "l6",
+          "text": "sợ",
+          "startMs": 88920,
+          "endMs": 88970,
+          "contextualEnglish": "fear",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.01818051643203944,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-9",
+          "lineId": "l6",
+          "text": "mai",
+          "startMs": 88920,
+          "endMs": 89160,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.005130872596055269,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-10",
+          "lineId": "l6",
+          "text": "kia",
+          "startMs": 89160,
+          "endMs": 89520,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7209769487380981,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-11",
+          "lineId": "l6",
+          "text": "sương",
+          "startMs": 89520,
+          "endMs": 89860,
+          "contextualEnglish": "dew",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.060782930289860815,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-12",
+          "lineId": "l6",
+          "text": "phai",
+          "startMs": 89860,
+          "endMs": 90320,
+          "contextualEnglish": "fade",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.38469796627759933,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-13",
+          "lineId": "l6",
+          "text": "hoa",
+          "startMs": 90320,
+          "endMs": 90840,
+          "contextualEnglish": "flower",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2905755378305912,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-14",
+          "lineId": "l6",
+          "text": "úa",
+          "startMs": 90840,
+          "endMs": 91240,
+          "contextualEnglish": "wither",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.3729914465220645,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-15",
+          "lineId": "l6",
+          "text": "áo",
+          "startMs": 91240,
+          "endMs": 91580,
+          "contextualEnglish": "dress",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.3950582295656204,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-16",
+          "lineId": "l6",
+          "text": "nhàu",
+          "startMs": 91580,
+          "endMs": 92080,
+          "contextualEnglish": "wrinkled",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.04200637713074684,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 6,
+      "alignmentConfidence": 0.4050903612823116,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l7",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh đợi em anh chọn ngăn nỗi đau",
+      "translationEn": "I wait for you; I choose the compartment of pain",
+      "startMs": 92660,
+      "endMs": 98160,
+      "tokens": [
+        {
+          "id": "t7-0",
+          "lineId": "l7",
+          "text": "Anh",
+          "startMs": 92660,
+          "endMs": 92840,
+          "contextualEnglish": "I",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0049386885948479176,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-1",
+          "lineId": "l7",
+          "text": "đợi",
+          "startMs": 92840,
+          "endMs": 93360,
+          "contextualEnglish": "wait",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.8803052504857382,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t7-2",
+          "lineId": "l7",
+          "text": "em",
+          "startMs": 93440,
+          "endMs": 93800,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9461595416069031,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t7-3",
+          "lineId": "l7",
+          "text": "anh",
+          "startMs": 93800,
+          "endMs": 94660,
+          "contextualEnglish": "I wait for you; I choose the compartment of pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.33893832564353943,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-4",
+          "lineId": "l7",
+          "text": "chọn",
+          "startMs": 94660,
+          "endMs": 95040,
+          "contextualEnglish": "choose",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.7009395062923431,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-5",
+          "lineId": "l7",
+          "text": "ngăn",
+          "startMs": 95040,
+          "endMs": 95520,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5387355238199234,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-6",
+          "lineId": "l7",
+          "text": "nỗi",
+          "startMs": 95520,
+          "endMs": 96560,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.5453121140599251,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-7",
+          "lineId": "l7",
+          "text": "đau",
+          "startMs": 96560,
+          "endMs": 98160,
+          "contextualEnglish": "pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7709473967552185,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 7,
+      "alignmentConfidence": 0.5907845434073049,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l8",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "translationEn": "That day you left in the rain but forgot to lock your heart",
+      "startMs": 99400,
+      "endMs": 106140,
+      "tokens": [
+        {
+          "id": "t8-0",
+          "lineId": "l8",
+          "text": "Ngày",
+          "startMs": 99400,
+          "endMs": 99620,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.5130659639835358,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-1",
+          "lineId": "l8",
+          "text": "hôm",
+          "startMs": 99620,
+          "endMs": 99860,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7289338409900665,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-2",
+          "lineId": "l8",
+          "text": "ấy",
+          "startMs": 99860,
+          "endMs": 100120,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.002185644581913948,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-3",
+          "lineId": "l8",
+          "text": "em",
+          "startMs": 100120,
+          "endMs": 100580,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9249411821365356,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-4",
+          "lineId": "l8",
+          "text": "đi",
+          "startMs": 100580,
+          "endMs": 100780,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9879012107849121,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-5",
+          "lineId": "l8",
+          "text": "trong",
+          "startMs": 100780,
+          "endMs": 101280,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8797225952148438,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-6",
+          "lineId": "l8",
+          "text": "mưa",
+          "startMs": 101280,
+          "endMs": 101860,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7808716595172882,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-7",
+          "lineId": "l8",
+          "text": "thế",
+          "startMs": 101860,
+          "endMs": 102380,
+          "contextualEnglish": "so",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.4644235670566559,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-8",
+          "lineId": "l8",
+          "text": "nhưng",
+          "startMs": 102380,
+          "endMs": 102800,
+          "contextualEnglish": "but",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9319930076599121,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-9",
+          "lineId": "l8",
+          "text": "lại",
+          "startMs": 102800,
+          "endMs": 103320,
+          "contextualEnglish": "again",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.9868345856666565,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-10",
+          "lineId": "l8",
+          "text": "quên",
+          "startMs": 103320,
+          "endMs": 103760,
+          "contextualEnglish": "forget",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6398063004016876,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-11",
+          "lineId": "l8",
+          "text": "tim",
+          "startMs": 103760,
+          "endMs": 104100,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5282943248748779,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-12",
+          "lineId": "l8",
+          "text": "không",
+          "startMs": 104100,
+          "endMs": 104460,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9483588933944702,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t8-13",
+          "lineId": "l8",
+          "text": "khoá",
+          "startMs": 104460,
+          "endMs": 105280,
+          "contextualEnglish": "lock",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.27515289932489395,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-14",
+          "lineId": "l8",
+          "text": "cửa",
+          "startMs": 105280,
+          "endMs": 106140,
+          "contextualEnglish": "door",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.6232488999764124,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 8,
+      "alignmentConfidence": 0.6810489717043108,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l9",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "translationEn": "So the rain slipped in and stole the hundred-year vow",
+      "startMs": 106720,
+      "endMs": 113080,
+      "tokens": [
+        {
+          "id": "t9-0",
+          "lineId": "l9",
+          "text": "Để",
+          "startMs": 106720,
+          "endMs": 106860,
+          "contextualEnglish": "so that",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.5135443136096001,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-1",
+          "lineId": "l9",
+          "text": "cho",
+          "startMs": 106860,
+          "endMs": 107060,
+          "contextualEnglish": "for",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5088510513305664,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-2",
+          "lineId": "l9",
+          "text": "mưa",
+          "startMs": 107060,
+          "endMs": 107520,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9665671288967133,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t9-3",
+          "lineId": "l9",
+          "text": "lân",
+          "startMs": 107520,
+          "endMs": 107800,
+          "contextualEnglish": "linger",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10087558871600777,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-4",
+          "lineId": "l9",
+          "text": "la",
+          "startMs": 107800,
+          "endMs": 108120,
+          "contextualEnglish": "about",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2565286457538605,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-5",
+          "lineId": "l9",
+          "text": "hỏi",
+          "startMs": 108120,
+          "endMs": 108620,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.4040210694074631,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-6",
+          "lineId": "l9",
+          "text": "thăm",
+          "startMs": 108620,
+          "endMs": 109120,
+          "contextualEnglish": "visit",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.48811602278146893,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-7",
+          "lineId": "l9",
+          "text": "lẻn",
+          "startMs": 109120,
+          "endMs": 109880,
+          "contextualEnglish": "sneak",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.2918706837420662,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-8",
+          "lineId": "l9",
+          "text": "vào",
+          "startMs": 109880,
+          "endMs": 110040,
+          "contextualEnglish": "into",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8677733540534973,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t9-9",
+          "lineId": "l9",
+          "text": "trộm",
+          "startMs": 110040,
+          "endMs": 110840,
+          "contextualEnglish": "steal",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.34622240252792835,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-10",
+          "lineId": "l9",
+          "text": "đi",
+          "startMs": 110840,
+          "endMs": 111040,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8830034732818604,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t9-11",
+          "lineId": "l9",
+          "text": "khế",
+          "startMs": 111040,
+          "endMs": 111540,
+          "contextualEnglish": "contract",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.07543044909834862,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-12",
+          "lineId": "l9",
+          "text": "ước",
+          "startMs": 111540,
+          "endMs": 111940,
+          "contextualEnglish": "vow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5615188479423523,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-13",
+          "lineId": "l9",
+          "text": "trăm",
+          "startMs": 111940,
+          "endMs": 112880,
+          "contextualEnglish": "hundred",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.38434578105807304,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-14",
+          "lineId": "l9",
+          "text": "năm",
+          "startMs": 112880,
+          "endMs": 113080,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.22580499947071075,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 9,
+      "alignmentConfidence": 0.4582982541113678,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l10",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "translationEn": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+      "startMs": 114020,
+      "endMs": 120700,
+      "tokens": [
+        {
+          "id": "t10-0",
+          "lineId": "l10",
+          "text": "Ngày",
+          "startMs": 114020,
+          "endMs": 114140,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7024806588888168,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-1",
+          "lineId": "l10",
+          "text": "em",
+          "startMs": 114140,
+          "endMs": 114440,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9860000014305115,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t10-2",
+          "lineId": "l10",
+          "text": "đi",
+          "startMs": 114440,
+          "endMs": 114660,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.998927652835846,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t10-3",
+          "lineId": "l10",
+          "text": "theo",
+          "startMs": 114660,
+          "endMs": 115040,
+          "contextualEnglish": "follow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5530090928077698,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-4",
+          "lineId": "l10",
+          "text": "cơn",
+          "startMs": 115040,
+          "endMs": 115440,
+          "contextualEnglish": "bout",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.48004649579524994,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-5",
+          "lineId": "l10",
+          "text": "mưa",
+          "startMs": 115440,
+          "endMs": 115900,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9453705549240112,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t10-6",
+          "lineId": "l10",
+          "text": "ngâu",
+          "startMs": 115900,
+          "endMs": 116340,
+          "contextualEnglish": "Ngâu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5566454529762268,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-7",
+          "lineId": "l10",
+          "text": "bầy",
+          "startMs": 116800,
+          "endMs": 116900,
+          "contextualEnglish": "flock",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.3097339142113924,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-8",
+          "lineId": "l10",
+          "text": "chim",
+          "startMs": 116900,
+          "endMs": 117200,
+          "contextualEnglish": "bird",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.04928611218929291,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-9",
+          "lineId": "l10",
+          "text": "lạc",
+          "startMs": 117200,
+          "endMs": 117880,
+          "contextualEnglish": "lost",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.4850233594576518,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-10",
+          "lineId": "l10",
+          "text": "cánh",
+          "startMs": 117880,
+          "endMs": 118380,
+          "contextualEnglish": "wing",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.47263526543974876,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-11",
+          "lineId": "l10",
+          "text": "khóc",
+          "startMs": 118380,
+          "endMs": 118700,
+          "contextualEnglish": "cry",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.19692503660917282,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-12",
+          "lineId": "l10",
+          "text": "hoảng",
+          "startMs": 118700,
+          "endMs": 119100,
+          "contextualEnglish": "panic",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.17595152789726853,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-13",
+          "lineId": "l10",
+          "text": "tìm",
+          "startMs": 119100,
+          "endMs": 119580,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8173828125,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t10-14",
+          "lineId": "l10",
+          "text": "nhau",
+          "startMs": 119580,
+          "endMs": 120700,
+          "contextualEnglish": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9614043831825256,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 10,
+      "alignmentConfidence": 0.5793881547430324,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l11",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu",
+      "translationEn": "Who can measure or count all the drops of sorrow",
+      "startMs": 121420,
+      "endMs": 126620,
+      "tokens": [
+        {
+          "id": "t11-0",
+          "lineId": "l11",
+          "text": "Ai",
+          "startMs": 121420,
+          "endMs": 121600,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.013231060467660427,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-1",
+          "lineId": "l11",
+          "text": "đong",
+          "startMs": 121600,
+          "endMs": 121920,
+          "contextualEnglish": "measure",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.366255538770929,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-2",
+          "lineId": "l11",
+          "text": "ai",
+          "startMs": 121920,
+          "endMs": 122260,
+          "contextualEnglish": "whom",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5270597338676453,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-3",
+          "lineId": "l11",
+          "text": "đếm",
+          "startMs": 122260,
+          "endMs": 122840,
+          "contextualEnglish": "count",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6389430913453301,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-4",
+          "lineId": "l11",
+          "text": "hết",
+          "startMs": 122840,
+          "endMs": 123200,
+          "contextualEnglish": "all",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9844041466712952,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t11-5",
+          "lineId": "l11",
+          "text": "bao",
+          "startMs": 123200,
+          "endMs": 123620,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0475652851164341,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-6",
+          "lineId": "l11",
+          "text": "giọt",
+          "startMs": 123620,
+          "endMs": 125400,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.5151474500695864,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-7",
+          "lineId": "l11",
+          "text": "sầu",
+          "startMs": 125400,
+          "endMs": 126620,
+          "contextualEnglish": "sorrow",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.13042543455958366,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 11,
+      "alignmentConfidence": 0.402878967608558,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l12",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "translationEn": "Ask drifting autumn — how many gold leaves fall each year",
+      "startMs": 128520,
+      "endMs": 135200,
+      "tokens": [
+        {
+          "id": "t12-0",
+          "lineId": "l12",
+          "text": "Hỏi",
+          "startMs": 128520,
+          "endMs": 128700,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.3209633156657219,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-1",
+          "lineId": "l12",
+          "text": "mùa",
+          "startMs": 128700,
+          "endMs": 128960,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.533535418411096,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-2",
+          "lineId": "l12",
+          "text": "thu",
+          "startMs": 128960,
+          "endMs": 129160,
+          "contextualEnglish": "autumn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.3074229955673218,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-3",
+          "lineId": "l12",
+          "text": "đang",
+          "startMs": 129160,
+          "endMs": 129580,
+          "contextualEnglish": "currently",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5857446193695068,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-4",
+          "lineId": "l12",
+          "text": "ru",
+          "startMs": 129580,
+          "endMs": 129860,
+          "contextualEnglish": "lull",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.00576393585652113,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-5",
+          "lineId": "l12",
+          "text": "miên",
+          "startMs": 129860,
+          "endMs": 130420,
+          "contextualEnglish": "drifting",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2229897603392601,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-6",
+          "lineId": "l12",
+          "text": "man",
+          "startMs": 130420,
+          "endMs": 130880,
+          "contextualEnglish": "on",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.18439553678035736,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-7",
+          "lineId": "l12",
+          "text": "mỗi",
+          "startMs": 130880,
+          "endMs": 131500,
+          "contextualEnglish": "each",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.4110070466995239,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-8",
+          "lineId": "l12",
+          "text": "năm",
+          "startMs": 131500,
+          "endMs": 131880,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9652611613273621,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t12-9",
+          "lineId": "l12",
+          "text": "mùa",
+          "startMs": 131880,
+          "endMs": 132520,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7286600371201833,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-10",
+          "lineId": "l12",
+          "text": "rơi",
+          "startMs": 132520,
+          "endMs": 132940,
+          "contextualEnglish": "fall",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.23875321447849274,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-11",
+          "lineId": "l12",
+          "text": "bao",
+          "startMs": 132940,
+          "endMs": 133240,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8620505928993225,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t12-12",
+          "lineId": "l12",
+          "text": "chiếc",
+          "startMs": 133240,
+          "endMs": 133700,
+          "contextualEnglish": "classifier",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.900720496972402,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t12-13",
+          "lineId": "l12",
+          "text": "lá",
+          "startMs": 133700,
+          "endMs": 134040,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.29791226983070374,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-14",
+          "lineId": "l12",
+          "text": "vàng",
+          "startMs": 134040,
+          "endMs": 135200,
+          "contextualEnglish": "gold",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.14031740464270115,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 12,
+      "alignmentConfidence": 0.4470331870640318,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l13",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "translationEn": "Is there anywhere without a leaf like the diêu bông leaf",
+      "startMs": 135800,
+      "endMs": 142400,
+      "tokens": [
+        {
+          "id": "t13-0",
+          "lineId": "l13",
+          "text": "Liệu",
+          "startMs": 135800,
+          "endMs": 135940,
+          "contextualEnglish": "whether",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.1867699697613716,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-1",
+          "lineId": "l13",
+          "text": "có",
+          "startMs": 135940,
+          "endMs": 136180,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9651659727096558,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-2",
+          "lineId": "l13",
+          "text": "biết",
+          "startMs": 136180,
+          "endMs": 136440,
+          "contextualEnglish": "know",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.359588623046875,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-3",
+          "lineId": "l13",
+          "text": "ở",
+          "startMs": 136440,
+          "endMs": 136840,
+          "contextualEnglish": "at",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.0007075134781189263,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-4",
+          "lineId": "l13",
+          "text": "nơi",
+          "startMs": 136840,
+          "endMs": 137220,
+          "contextualEnglish": "place",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8915813565254211,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-5",
+          "lineId": "l13",
+          "text": "nào",
+          "startMs": 137220,
+          "endMs": 137580,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9682535529136658,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-6",
+          "lineId": "l13",
+          "text": "không",
+          "startMs": 137580,
+          "endMs": 138120,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9562560319900513,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-7",
+          "lineId": "l13",
+          "text": "có",
+          "startMs": 138120,
+          "endMs": 138700,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.2730777859687805,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-8",
+          "lineId": "l13",
+          "text": "lá",
+          "startMs": 138700,
+          "endMs": 139140,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.022992150858044624,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-9",
+          "lineId": "l13",
+          "text": "nào",
+          "startMs": 139140,
+          "endMs": 139700,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9302896857261658,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-10",
+          "lineId": "l13",
+          "text": "trông",
+          "startMs": 139700,
+          "endMs": 140140,
+          "contextualEnglish": "look",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.23732762783765793,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-11",
+          "lineId": "l13",
+          "text": "như",
+          "startMs": 140140,
+          "endMs": 140480,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9859012961387634,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-12",
+          "lineId": "l13",
+          "text": "lá",
+          "startMs": 140480,
+          "endMs": 141000,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7816269397735596,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t13-13",
+          "lineId": "l13",
+          "text": "diêu",
+          "startMs": 141000,
+          "endMs": 141960,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2560138222761452,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-14",
+          "lineId": "l13",
+          "text": "bông",
+          "startMs": 141960,
+          "endMs": 142400,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.648525282740593,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 13,
+      "alignmentConfidence": 0.5642718407829913,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l14",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "translationEn": "O diêu bông leaf, before dawn breaks I must find you",
+      "startMs": 143100,
+      "endMs": 150080,
+      "tokens": [
+        {
+          "id": "t14-0",
+          "lineId": "l14",
+          "text": "Hỡi",
+          "startMs": 143100,
+          "endMs": 143320,
+          "contextualEnglish": "o",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.49045250518247485,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-1",
+          "lineId": "l14",
+          "text": "diêu",
+          "startMs": 143320,
+          "endMs": 143520,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8355187475681305,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-2",
+          "lineId": "l14",
+          "text": "bông",
+          "startMs": 143520,
+          "endMs": 143820,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9860663414001465,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-3",
+          "lineId": "l14",
+          "text": "ơi",
+          "startMs": 143820,
+          "endMs": 144180,
+          "contextualEnglish": "oh",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.02964821271598339,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-4",
+          "lineId": "l14",
+          "text": "hỡi",
+          "startMs": 144180,
+          "endMs": 144600,
+          "contextualEnglish": "O diêu bông leaf, before dawn breaks I must find you",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.6447883062064648,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-5",
+          "lineId": "l14",
+          "text": "diêu",
+          "startMs": 144600,
+          "endMs": 145020,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9619638323783875,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-6",
+          "lineId": "l14",
+          "text": "bông",
+          "startMs": 145020,
+          "endMs": 145480,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.11335542309097946,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-7",
+          "lineId": "l14",
+          "text": "bình",
+          "startMs": 145480,
+          "endMs": 146000,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7543237805366516,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-8",
+          "lineId": "l14",
+          "text": "minh",
+          "startMs": 146000,
+          "endMs": 146540,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5766228213906288,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-9",
+          "lineId": "l14",
+          "text": "chưa",
+          "startMs": 146540,
+          "endMs": 146680,
+          "contextualEnglish": "not yet",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.22936156392097473,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-10",
+          "lineId": "l14",
+          "text": "hé",
+          "startMs": 146680,
+          "endMs": 147800,
+          "contextualEnglish": "open",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.0506148487329483,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-11",
+          "lineId": "l14",
+          "text": "tôi",
+          "startMs": 147800,
+          "endMs": 148240,
+          "contextualEnglish": "I",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10904444009065628,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-12",
+          "lineId": "l14",
+          "text": "phải",
+          "startMs": 148240,
+          "endMs": 148620,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9886323809623718,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-13",
+          "lineId": "l14",
+          "text": "tìm",
+          "startMs": 148620,
+          "endMs": 149180,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7659697035948435,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t14-14",
+          "lineId": "l14",
+          "text": "xong",
+          "startMs": 149180,
+          "endMs": 150080,
+          "contextualEnglish": "done",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.18537985906004906,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 14,
+      "alignmentConfidence": 0.5147828511221128,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l15",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "translationEn": "Because tomorrow they go to get married",
+      "startMs": 150580,
+      "endMs": 155980,
+      "tokens": [
+        {
+          "id": "t15-0",
+          "lineId": "l15",
+          "text": "Vì",
+          "startMs": 150580,
+          "endMs": 150720,
+          "contextualEnglish": "because",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.29402617644518614,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-1",
+          "lineId": "l15",
+          "text": "mai",
+          "startMs": 150720,
+          "endMs": 151040,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.17272578179836273,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-2",
+          "lineId": "l15",
+          "text": "người",
+          "startMs": 151040,
+          "endMs": 151400,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.911652684211731,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t15-3",
+          "lineId": "l15",
+          "text": "ta",
+          "startMs": 151400,
+          "endMs": 151700,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9874387383460999,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t15-4",
+          "lineId": "l15",
+          "text": "đã",
+          "startMs": 151700,
+          "endMs": 152220,
+          "contextualEnglish": "already",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.9677647352218628,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t15-5",
+          "lineId": "l15",
+          "text": "đi",
+          "startMs": 152220,
+          "endMs": 152760,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9854366183280945,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t15-6",
+          "lineId": "l15",
+          "text": "lấy",
+          "startMs": 152760,
+          "endMs": 154580,
+          "contextualEnglish": "get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5738686323165894,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-7",
+          "lineId": "l15",
+          "text": "chồng",
+          "startMs": 154580,
+          "endMs": 155980,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.1503521326230839,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 15,
+      "alignmentConfidence": 0.6304081874113763,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l16",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Có phải đêm qua thức trắng để gấp con tim làm hai ngăn",
+      "translationEn": "Was last night spent folding the heart into two compartments",
+      "startMs": 187320,
+      "endMs": 193480,
+      "tokens": [
+        {
+          "id": "t16-0",
+          "lineId": "l16",
+          "text": "Có",
+          "startMs": 187320,
+          "endMs": 187370,
+          "contextualEnglish": "is it",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.021155085414648056,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-1",
+          "lineId": "l16",
+          "text": "phải",
+          "startMs": 187320,
+          "endMs": 187780,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9675728678703308,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t16-2",
+          "lineId": "l16",
+          "text": "đêm",
+          "startMs": 187780,
+          "endMs": 188180,
+          "contextualEnglish": "night",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5375664532184601,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-3",
+          "lineId": "l16",
+          "text": "qua",
+          "startMs": 188180,
+          "endMs": 188540,
+          "contextualEnglish": "past",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8852304816246033,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t16-4",
+          "lineId": "l16",
+          "text": "thức",
+          "startMs": 188540,
+          "endMs": 189000,
+          "contextualEnglish": "stay awake",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.554087683558464,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-5",
+          "lineId": "l16",
+          "text": "trắng",
+          "startMs": 189020,
+          "endMs": 189820,
+          "contextualEnglish": "white/all night",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.25843242183327675,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-6",
+          "lineId": "l16",
+          "text": "để",
+          "startMs": 190560,
+          "endMs": 190660,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.09592226892709732,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-7",
+          "lineId": "l16",
+          "text": "gấp",
+          "startMs": 190660,
+          "endMs": 190980,
+          "contextualEnglish": "fold",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.226993128657341,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-8",
+          "lineId": "l16",
+          "text": "con",
+          "startMs": 190980,
+          "endMs": 191340,
+          "contextualEnglish": "classifier",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7642947435379028,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t16-9",
+          "lineId": "l16",
+          "text": "tim",
+          "startMs": 191340,
+          "endMs": 191680,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8572587966918945,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t16-10",
+          "lineId": "l16",
+          "text": "làm",
+          "startMs": 191680,
+          "endMs": 192080,
+          "contextualEnglish": "make",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9604408144950867,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t16-11",
+          "lineId": "l16",
+          "text": "hai",
+          "startMs": 192080,
+          "endMs": 192680,
+          "contextualEnglish": "two",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.19756805896759033,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-12",
+          "lineId": "l16",
+          "text": "ngăn",
+          "startMs": 192680,
+          "endMs": 193480,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.25189559906721115,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 16,
+      "alignmentConfidence": 0.5060321849126083,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l17",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngăn phải ôm nỗi đau còn ngăn trái chứa hạt nhiệm màu",
+      "translationEn": "The right holds the pain; the left holds a miracle seed",
+      "startMs": 194420,
+      "endMs": 201000,
+      "tokens": [
+        {
+          "id": "t17-0",
+          "lineId": "l17",
+          "text": "Ngăn",
+          "startMs": 194420,
+          "endMs": 194680,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.27590636909008026,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-1",
+          "lineId": "l17",
+          "text": "phải",
+          "startMs": 194680,
+          "endMs": 195100,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9427857995033264,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t17-2",
+          "lineId": "l17",
+          "text": "ôm",
+          "startMs": 195100,
+          "endMs": 195600,
+          "contextualEnglish": "embrace",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5945460498332977,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-3",
+          "lineId": "l17",
+          "text": "nỗi",
+          "startMs": 195600,
+          "endMs": 195840,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.672583669424057,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-4",
+          "lineId": "l17",
+          "text": "đau",
+          "startMs": 195840,
+          "endMs": 196540,
+          "contextualEnglish": "pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.810218095779419,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t17-5",
+          "lineId": "l17",
+          "text": "còn",
+          "startMs": 196540,
+          "endMs": 197260,
+          "contextualEnglish": "while",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.1608518809080124,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-6",
+          "lineId": "l17",
+          "text": "ngăn",
+          "startMs": 197260,
+          "endMs": 197700,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8182586431503296,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t17-7",
+          "lineId": "l17",
+          "text": "trái",
+          "startMs": 197700,
+          "endMs": 198380,
+          "contextualEnglish": "left",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7315462529659271,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-8",
+          "lineId": "l17",
+          "text": "chứa",
+          "startMs": 198380,
+          "endMs": 199320,
+          "contextualEnglish": "hold",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.4963737328847249,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-9",
+          "lineId": "l17",
+          "text": "hạt",
+          "startMs": 199320,
+          "endMs": 199580,
+          "contextualEnglish": "seed",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.6184560358524323,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-10",
+          "lineId": "l17",
+          "text": "nhiệm",
+          "startMs": 199600,
+          "endMs": 200120,
+          "contextualEnglish": "miracle",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.6595194588104883,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-11",
+          "lineId": "l17",
+          "text": "màu",
+          "startMs": 200120,
+          "endMs": 201000,
+          "contextualEnglish": "color",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.529585923999548,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 17,
+      "alignmentConfidence": 0.6092193260168036,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l18",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Kịp sáng mang đến làm quà cô dâu sợ mai kia sương phai hoa úa áo nhàu",
+      "translationEn": "By dawn, a bridal gift — fearing tomorrow frost fades flowers and wrinkles the dress",
+      "startMs": 201460,
+      "endMs": 208560,
+      "tokens": [
+        {
+          "id": "t18-0",
+          "lineId": "l18",
+          "text": "Kịp",
+          "startMs": 201460,
+          "endMs": 201600,
+          "contextualEnglish": "in time",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.6911928951740265,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-1",
+          "lineId": "l18",
+          "text": "sáng",
+          "startMs": 201600,
+          "endMs": 202000,
+          "contextualEnglish": "morning",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6829393953084946,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-2",
+          "lineId": "l18",
+          "text": "mang",
+          "startMs": 202000,
+          "endMs": 202300,
+          "contextualEnglish": "bring",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.711434006690979,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-3",
+          "lineId": "l18",
+          "text": "đến",
+          "startMs": 202300,
+          "endMs": 202620,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.01040627621114254,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-4",
+          "lineId": "l18",
+          "text": "làm",
+          "startMs": 202620,
+          "endMs": 203360,
+          "contextualEnglish": "make",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.011266826651990414,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-5",
+          "lineId": "l18",
+          "text": "quà",
+          "startMs": 203360,
+          "endMs": 203800,
+          "contextualEnglish": "gift",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.3909875676035881,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-6",
+          "lineId": "l18",
+          "text": "cô",
+          "startMs": 203800,
+          "endMs": 204100,
+          "contextualEnglish": "bride",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2508535385131836,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-7",
+          "lineId": "l18",
+          "text": "dâu",
+          "startMs": 204100,
+          "endMs": 204620,
+          "contextualEnglish": "bride",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.11783783510327339,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-8",
+          "lineId": "l18",
+          "text": "sợ",
+          "startMs": 204620,
+          "endMs": 205260,
+          "contextualEnglish": "fear",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.2381727322936058,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-9",
+          "lineId": "l18",
+          "text": "mai",
+          "startMs": 205260,
+          "endMs": 205500,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.07248805463314056,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-10",
+          "lineId": "l18",
+          "text": "kia",
+          "startMs": 205500,
+          "endMs": 205840,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.49610310327261686,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-11",
+          "lineId": "l18",
+          "text": "sương",
+          "startMs": 205840,
+          "endMs": 206160,
+          "contextualEnglish": "dew",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.23742100596427917,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-12",
+          "lineId": "l18",
+          "text": "phai",
+          "startMs": 206160,
+          "endMs": 206600,
+          "contextualEnglish": "fade",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.22104046493768692,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-13",
+          "lineId": "l18",
+          "text": "hoa",
+          "startMs": 206600,
+          "endMs": 207180,
+          "contextualEnglish": "flower",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5916713774204254,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-14",
+          "lineId": "l18",
+          "text": "úa",
+          "startMs": 207180,
+          "endMs": 207560,
+          "contextualEnglish": "wither",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.2903968393802643,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-15",
+          "lineId": "l18",
+          "text": "áo",
+          "startMs": 207560,
+          "endMs": 207840,
+          "contextualEnglish": "dress",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5419217795133591,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-16",
+          "lineId": "l18",
+          "text": "nhàu",
+          "startMs": 207840,
+          "endMs": 208560,
+          "contextualEnglish": "wrinkled",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.048828915838385,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 18,
+      "alignmentConfidence": 0.32970368320649657,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l19",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh đợi em anh chọn ngăn nỗi đau",
+      "translationEn": "I wait for you; I choose the compartment of pain",
+      "startMs": 208960,
+      "endMs": 213900,
+      "tokens": [
+        {
+          "id": "t19-0",
+          "lineId": "l19",
+          "text": "Anh",
+          "startMs": 208960,
+          "endMs": 209140,
+          "contextualEnglish": "I",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6973055601119995,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-1",
+          "lineId": "l19",
+          "text": "đợi",
+          "startMs": 209140,
+          "endMs": 209660,
+          "contextualEnglish": "wait",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.6442750071485838,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-2",
+          "lineId": "l19",
+          "text": "em",
+          "startMs": 209660,
+          "endMs": 210260,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8986911773681641,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t19-3",
+          "lineId": "l19",
+          "text": "anh",
+          "startMs": 210260,
+          "endMs": 210940,
+          "contextualEnglish": "I wait for you; I choose the compartment of pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6039397120475769,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-4",
+          "lineId": "l19",
+          "text": "chọn",
+          "startMs": 210940,
+          "endMs": 211300,
+          "contextualEnglish": "choose",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.5464422702789307,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-5",
+          "lineId": "l19",
+          "text": "ngăn",
+          "startMs": 211300,
+          "endMs": 211740,
+          "contextualEnglish": "compartment",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8260264694690704,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t19-6",
+          "lineId": "l19",
+          "text": "nỗi",
+          "startMs": 211740,
+          "endMs": 212640,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.8870325684547424,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t19-7",
+          "lineId": "l19",
+          "text": "đau",
+          "startMs": 212640,
+          "endMs": 213900,
+          "contextualEnglish": "pain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9911779165267944,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 19,
+      "alignmentConfidence": 0.7618613351757328,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l20",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "translationEn": "That day you left in the rain but forgot to lock your heart",
+      "startMs": 215580,
+      "endMs": 222660,
+      "tokens": [
+        {
+          "id": "t20-0",
+          "lineId": "l20",
+          "text": "Ngày",
+          "startMs": 215580,
+          "endMs": 215980,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7668306529521942,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-1",
+          "lineId": "l20",
+          "text": "hôm",
+          "startMs": 215980,
+          "endMs": 216220,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9312969446182251,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-2",
+          "lineId": "l20",
+          "text": "ấy",
+          "startMs": 216220,
+          "endMs": 216480,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.007287600077688694,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-3",
+          "lineId": "l20",
+          "text": "em",
+          "startMs": 216480,
+          "endMs": 216900,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.4947868287563324,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-4",
+          "lineId": "l20",
+          "text": "đi",
+          "startMs": 216900,
+          "endMs": 217100,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.923529326915741,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-5",
+          "lineId": "l20",
+          "text": "trong",
+          "startMs": 217100,
+          "endMs": 217520,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.008081289939582348,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-6",
+          "lineId": "l20",
+          "text": "mưa",
+          "startMs": 217520,
+          "endMs": 218160,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7884067595005035,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-7",
+          "lineId": "l20",
+          "text": "thế",
+          "startMs": 218160,
+          "endMs": 218660,
+          "contextualEnglish": "so",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.4206615090370178,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-8",
+          "lineId": "l20",
+          "text": "nhưng",
+          "startMs": 218660,
+          "endMs": 219120,
+          "contextualEnglish": "but",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6105604767799377,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-9",
+          "lineId": "l20",
+          "text": "lại",
+          "startMs": 219120,
+          "endMs": 219680,
+          "contextualEnglish": "again",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.9908945560455322,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-10",
+          "lineId": "l20",
+          "text": "quên",
+          "startMs": 219680,
+          "endMs": 220100,
+          "contextualEnglish": "forget",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6853732019662857,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-11",
+          "lineId": "l20",
+          "text": "tim",
+          "startMs": 220100,
+          "endMs": 220480,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.31124937534332275,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-12",
+          "lineId": "l20",
+          "text": "không",
+          "startMs": 220480,
+          "endMs": 220820,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7788743376731873,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t20-13",
+          "lineId": "l20",
+          "text": "khoá",
+          "startMs": 220820,
+          "endMs": 221600,
+          "contextualEnglish": "lock",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.2926444709300995,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-14",
+          "lineId": "l20",
+          "text": "cửa",
+          "startMs": 221600,
+          "endMs": 222660,
+          "contextualEnglish": "door",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.48556360105673474,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 20,
+      "alignmentConfidence": 0.5664027287728256,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l21",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "translationEn": "So the rain slipped in and stole the hundred-year vow",
+      "startMs": 223080,
+      "endMs": 229080,
+      "tokens": [
+        {
+          "id": "t21-0",
+          "lineId": "l21",
+          "text": "Để",
+          "startMs": 223080,
+          "endMs": 223200,
+          "contextualEnglish": "so that",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.462274182587862,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-1",
+          "lineId": "l21",
+          "text": "cho",
+          "startMs": 223200,
+          "endMs": 223420,
+          "contextualEnglish": "for",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6722739338874817,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-2",
+          "lineId": "l21",
+          "text": "mưa",
+          "startMs": 223420,
+          "endMs": 223880,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.97230464220047,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t21-3",
+          "lineId": "l21",
+          "text": "lân",
+          "startMs": 223880,
+          "endMs": 224120,
+          "contextualEnglish": "linger",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.21287945588119328,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-4",
+          "lineId": "l21",
+          "text": "la",
+          "startMs": 224120,
+          "endMs": 224480,
+          "contextualEnglish": "about",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2347792387008667,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-5",
+          "lineId": "l21",
+          "text": "hỏi",
+          "startMs": 224480,
+          "endMs": 224980,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.3211606852710247,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-6",
+          "lineId": "l21",
+          "text": "thăm",
+          "startMs": 224980,
+          "endMs": 225500,
+          "contextualEnglish": "visit",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.49385211430490017,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-7",
+          "lineId": "l21",
+          "text": "lẻn",
+          "startMs": 225500,
+          "endMs": 226220,
+          "contextualEnglish": "sneak",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.35722862114198506,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-8",
+          "lineId": "l21",
+          "text": "vào",
+          "startMs": 226220,
+          "endMs": 226400,
+          "contextualEnglish": "into",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8926477432250977,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t21-9",
+          "lineId": "l21",
+          "text": "trộm",
+          "startMs": 226400,
+          "endMs": 227120,
+          "contextualEnglish": "steal",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.45053844153881073,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-10",
+          "lineId": "l21",
+          "text": "đi",
+          "startMs": 227120,
+          "endMs": 227380,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9066694378852844,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t21-11",
+          "lineId": "l21",
+          "text": "khế",
+          "startMs": 227380,
+          "endMs": 227840,
+          "contextualEnglish": "contract",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.05685470765456557,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-12",
+          "lineId": "l21",
+          "text": "ước",
+          "startMs": 227840,
+          "endMs": 228200,
+          "contextualEnglish": "vow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.633138045668602,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-13",
+          "lineId": "l21",
+          "text": "trăm",
+          "startMs": 228200,
+          "endMs": 228700,
+          "contextualEnglish": "hundred",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.28730782493948936,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-14",
+          "lineId": "l21",
+          "text": "năm",
+          "startMs": 228700,
+          "endMs": 229080,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.06842092424631119,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 21,
+      "alignmentConfidence": 0.4681553332755963,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l22",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "translationEn": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+      "startMs": 229600,
+      "endMs": 237140,
+      "tokens": [
+        {
+          "id": "t22-0",
+          "lineId": "l22",
+          "text": "Ngày",
+          "startMs": 229600,
+          "endMs": 230480,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.3206551829352975,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-1",
+          "lineId": "l22",
+          "text": "em",
+          "startMs": 230480,
+          "endMs": 230740,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9737222194671631,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t22-2",
+          "lineId": "l22",
+          "text": "đi",
+          "startMs": 230740,
+          "endMs": 231020,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9956632256507874,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t22-3",
+          "lineId": "l22",
+          "text": "theo",
+          "startMs": 231020,
+          "endMs": 231380,
+          "contextualEnglish": "follow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.927359938621521,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t22-4",
+          "lineId": "l22",
+          "text": "cơn",
+          "startMs": 231380,
+          "endMs": 231760,
+          "contextualEnglish": "bout",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.4904527962207794,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-5",
+          "lineId": "l22",
+          "text": "mưa",
+          "startMs": 231760,
+          "endMs": 232260,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9536302089691162,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t22-6",
+          "lineId": "l22",
+          "text": "ngâu",
+          "startMs": 232260,
+          "endMs": 232740,
+          "contextualEnglish": "Ngâu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.46767856180667877,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-7",
+          "lineId": "l22",
+          "text": "bầy",
+          "startMs": 232740,
+          "endMs": 233300,
+          "contextualEnglish": "flock",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.372235800139606,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-8",
+          "lineId": "l22",
+          "text": "chim",
+          "startMs": 233300,
+          "endMs": 233600,
+          "contextualEnglish": "bird",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7310317158699036,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-9",
+          "lineId": "l22",
+          "text": "lạc",
+          "startMs": 233600,
+          "endMs": 234240,
+          "contextualEnglish": "lost",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.5589186723033587,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-10",
+          "lineId": "l22",
+          "text": "cánh",
+          "startMs": 234240,
+          "endMs": 234800,
+          "contextualEnglish": "wing",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5700154453516006,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-11",
+          "lineId": "l22",
+          "text": "khóc",
+          "startMs": 234800,
+          "endMs": 235080,
+          "contextualEnglish": "cry",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5077106803655624,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-12",
+          "lineId": "l22",
+          "text": "hoảng",
+          "startMs": 235080,
+          "endMs": 235480,
+          "contextualEnglish": "panic",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.05991646274924278,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-13",
+          "lineId": "l22",
+          "text": "tìm",
+          "startMs": 235480,
+          "endMs": 236000,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6645092144608498,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-14",
+          "lineId": "l22",
+          "text": "nhau",
+          "startMs": 236000,
+          "endMs": 237140,
+          "contextualEnglish": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9709969460964203,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 22,
+      "alignmentConfidence": 0.6376331380671926,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l23",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu",
+      "translationEn": "Who can measure or count all the drops of sorrow",
+      "startMs": 237820,
+      "endMs": 242180,
+      "tokens": [
+        {
+          "id": "t23-0",
+          "lineId": "l23",
+          "text": "Ai",
+          "startMs": 237820,
+          "endMs": 237980,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.21976149082183838,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-1",
+          "lineId": "l23",
+          "text": "đong",
+          "startMs": 237980,
+          "endMs": 238280,
+          "contextualEnglish": "measure",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.3498641562182456,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-2",
+          "lineId": "l23",
+          "text": "ai",
+          "startMs": 238280,
+          "endMs": 238640,
+          "contextualEnglish": "whom",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.28288593888282776,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-3",
+          "lineId": "l23",
+          "text": "đếm",
+          "startMs": 238640,
+          "endMs": 239220,
+          "contextualEnglish": "count",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.32317665685453295,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-4",
+          "lineId": "l23",
+          "text": "hết",
+          "startMs": 239220,
+          "endMs": 239520,
+          "contextualEnglish": "all",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9621611833572388,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t23-5",
+          "lineId": "l23",
+          "text": "bao",
+          "startMs": 239520,
+          "endMs": 239940,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.39036670327186584,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-6",
+          "lineId": "l23",
+          "text": "giọt",
+          "startMs": 239940,
+          "endMs": 241400,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.4613986437519391,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-7",
+          "lineId": "l23",
+          "text": "sầu",
+          "startMs": 241400,
+          "endMs": 242180,
+          "contextualEnglish": "sorrow",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.14983917772769928,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 23,
+      "alignmentConfidence": 0.39243174386077345,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l24",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "translationEn": "Ask drifting autumn — how many gold leaves fall each year",
+      "startMs": 244860,
+      "endMs": 251660,
+      "tokens": [
+        {
+          "id": "t24-0",
+          "lineId": "l24",
+          "text": "Hỏi",
+          "startMs": 244860,
+          "endMs": 245060,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.4702604115009308,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-1",
+          "lineId": "l24",
+          "text": "mùa",
+          "startMs": 245060,
+          "endMs": 245320,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.48916922385493916,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-2",
+          "lineId": "l24",
+          "text": "thu",
+          "startMs": 245320,
+          "endMs": 245480,
+          "contextualEnglish": "autumn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.32750746607780457,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-3",
+          "lineId": "l24",
+          "text": "đang",
+          "startMs": 245940,
+          "endMs": 246020,
+          "contextualEnglish": "currently",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0001295243710046634,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-4",
+          "lineId": "l24",
+          "text": "ru",
+          "startMs": 246020,
+          "endMs": 246260,
+          "contextualEnglish": "lull",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.006735197734087706,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-5",
+          "lineId": "l24",
+          "text": "miên",
+          "startMs": 246260,
+          "endMs": 246780,
+          "contextualEnglish": "drifting",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.22329020500183105,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-6",
+          "lineId": "l24",
+          "text": "man",
+          "startMs": 246780,
+          "endMs": 247260,
+          "contextualEnglish": "on",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.3243410587310791,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-7",
+          "lineId": "l24",
+          "text": "mỗi",
+          "startMs": 247260,
+          "endMs": 247860,
+          "contextualEnglish": "each",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.4209945136681199,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-8",
+          "lineId": "l24",
+          "text": "năm",
+          "startMs": 247860,
+          "endMs": 248240,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7268182039260864,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-9",
+          "lineId": "l24",
+          "text": "mùa",
+          "startMs": 248240,
+          "endMs": 248860,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7140385707219442,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-10",
+          "lineId": "l24",
+          "text": "rơi",
+          "startMs": 248860,
+          "endMs": 249300,
+          "contextualEnglish": "fall",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.20385697484016418,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-11",
+          "lineId": "l24",
+          "text": "bao",
+          "startMs": 249300,
+          "endMs": 249560,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7577759623527527,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t24-12",
+          "lineId": "l24",
+          "text": "chiếc",
+          "startMs": 249560,
+          "endMs": 250020,
+          "contextualEnglish": "classifier",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9107110102971395,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t24-13",
+          "lineId": "l24",
+          "text": "lá",
+          "startMs": 250020,
+          "endMs": 250340,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.3554222285747528,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-14",
+          "lineId": "l24",
+          "text": "vàng",
+          "startMs": 250340,
+          "endMs": 251660,
+          "contextualEnglish": "gold",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.2450547255575657,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 24,
+      "alignmentConfidence": 0.41174035181401347,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l25",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "translationEn": "Is there anywhere without a leaf like the diêu bông leaf",
+      "startMs": 252060,
+      "endMs": 258800,
+      "tokens": [
+        {
+          "id": "t25-0",
+          "lineId": "l25",
+          "text": "Liệu",
+          "startMs": 252060,
+          "endMs": 252300,
+          "contextualEnglish": "whether",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.41642676293849945,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-1",
+          "lineId": "l25",
+          "text": "có",
+          "startMs": 252300,
+          "endMs": 252540,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9578719735145569,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t25-2",
+          "lineId": "l25",
+          "text": "biết",
+          "startMs": 252540,
+          "endMs": 252800,
+          "contextualEnglish": "know",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5347877740859985,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-3",
+          "lineId": "l25",
+          "text": "ở",
+          "startMs": 252800,
+          "endMs": 253240,
+          "contextualEnglish": "at",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.003972786013036966,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-4",
+          "lineId": "l25",
+          "text": "nơi",
+          "startMs": 253240,
+          "endMs": 253540,
+          "contextualEnglish": "place",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8357332646846771,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t25-5",
+          "lineId": "l25",
+          "text": "nào",
+          "startMs": 253540,
+          "endMs": 253920,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9700259566307068,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t25-6",
+          "lineId": "l25",
+          "text": "không",
+          "startMs": 253920,
+          "endMs": 254420,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5635057687759399,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-7",
+          "lineId": "l25",
+          "text": "có",
+          "startMs": 254420,
+          "endMs": 255080,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.28183478116989136,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-8",
+          "lineId": "l25",
+          "text": "lá",
+          "startMs": 255080,
+          "endMs": 255540,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.048919375985860825,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-9",
+          "lineId": "l25",
+          "text": "nào",
+          "startMs": 255540,
+          "endMs": 255980,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8602035641670227,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t25-10",
+          "lineId": "l25",
+          "text": "trông",
+          "startMs": 255980,
+          "endMs": 256520,
+          "contextualEnglish": "look",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.21140987426042557,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-11",
+          "lineId": "l25",
+          "text": "như",
+          "startMs": 256520,
+          "endMs": 256840,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9723371267318726,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t25-12",
+          "lineId": "l25",
+          "text": "lá",
+          "startMs": 256840,
+          "endMs": 257400,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.19672466814517975,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-13",
+          "lineId": "l25",
+          "text": "diêu",
+          "startMs": 257400,
+          "endMs": 258300,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.23982048721518368,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-14",
+          "lineId": "l25",
+          "text": "bông",
+          "startMs": 258300,
+          "endMs": 258800,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6239345222711563,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 25,
+      "alignmentConfidence": 0.5145005791060006,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l26",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "translationEn": "O diêu bông leaf, before dawn breaks I must find you",
+      "startMs": 259400,
+      "endMs": 266420,
+      "tokens": [
+        {
+          "id": "t26-0",
+          "lineId": "l26",
+          "text": "Hỡi",
+          "startMs": 259400,
+          "endMs": 259620,
+          "contextualEnglish": "o",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.4545274064876139,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-1",
+          "lineId": "l26",
+          "text": "diêu",
+          "startMs": 259620,
+          "endMs": 259840,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8806560933589935,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t26-2",
+          "lineId": "l26",
+          "text": "bông",
+          "startMs": 259840,
+          "endMs": 260160,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9729251265525818,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t26-3",
+          "lineId": "l26",
+          "text": "ơi",
+          "startMs": 260160,
+          "endMs": 260520,
+          "contextualEnglish": "oh",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.08136232942342758,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-4",
+          "lineId": "l26",
+          "text": "hỡi",
+          "startMs": 260520,
+          "endMs": 260920,
+          "contextualEnglish": "O diêu bông leaf, before dawn breaks I must find you",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.592485137283802,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-5",
+          "lineId": "l26",
+          "text": "diêu",
+          "startMs": 260920,
+          "endMs": 261360,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9245126247406006,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t26-6",
+          "lineId": "l26",
+          "text": "bông",
+          "startMs": 261360,
+          "endMs": 261840,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9853542745113373,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t26-7",
+          "lineId": "l26",
+          "text": "bình",
+          "startMs": 261840,
+          "endMs": 262340,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7242996543645859,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-8",
+          "lineId": "l26",
+          "text": "minh",
+          "startMs": 262340,
+          "endMs": 262820,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5170620828866959,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-9",
+          "lineId": "l26",
+          "text": "chưa",
+          "startMs": 262820,
+          "endMs": 263020,
+          "contextualEnglish": "not yet",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7785810828208923,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t26-10",
+          "lineId": "l26",
+          "text": "hé",
+          "startMs": 263020,
+          "endMs": 264200,
+          "contextualEnglish": "open",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.14672179520130157,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-11",
+          "lineId": "l26",
+          "text": "tôi",
+          "startMs": 264200,
+          "endMs": 264620,
+          "contextualEnglish": "I",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.00032823896617628634,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-12",
+          "lineId": "l26",
+          "text": "phải",
+          "startMs": 264620,
+          "endMs": 265040,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.7014546394348145,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-13",
+          "lineId": "l26",
+          "text": "tìm",
+          "startMs": 265040,
+          "endMs": 265620,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6379116622701986,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-14",
+          "lineId": "l26",
+          "text": "xong",
+          "startMs": 265620,
+          "endMs": 266420,
+          "contextualEnglish": "done",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.09494817070662975,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 26,
+      "alignmentConfidence": 0.5662086879339767,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l27",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "translationEn": "Because tomorrow they go to get married",
+      "startMs": 266920,
+      "endMs": 271520,
+      "tokens": [
+        {
+          "id": "t27-0",
+          "lineId": "l27",
+          "text": "Vì",
+          "startMs": 266920,
+          "endMs": 267100,
+          "contextualEnglish": "because",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.5128032341599464,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-1",
+          "lineId": "l27",
+          "text": "mai",
+          "startMs": 267100,
+          "endMs": 267400,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0833536759018898,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-2",
+          "lineId": "l27",
+          "text": "người",
+          "startMs": 267400,
+          "endMs": 267760,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9894757270812988,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t27-3",
+          "lineId": "l27",
+          "text": "ta",
+          "startMs": 267760,
+          "endMs": 268080,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9899633526802063,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t27-4",
+          "lineId": "l27",
+          "text": "đã",
+          "startMs": 268080,
+          "endMs": 268600,
+          "contextualEnglish": "already",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.987019419670105,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t27-5",
+          "lineId": "l27",
+          "text": "đi",
+          "startMs": 268600,
+          "endMs": 269040,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9178661108016968,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t27-6",
+          "lineId": "l27",
+          "text": "lấy",
+          "startMs": 269040,
+          "endMs": 270220,
+          "contextualEnglish": "get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6600738912820816,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-7",
+          "lineId": "l27",
+          "text": "chồng",
+          "startMs": 270220,
+          "endMs": 271520,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.1429642152506858,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 27,
+      "alignmentConfidence": 0.6604399533534888,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l28",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "translationEn": "That day you left in the rain but forgot to lock your heart",
+      "startMs": 273920,
+      "endMs": 280520,
+      "tokens": [
+        {
+          "id": "t28-0",
+          "lineId": "l28",
+          "text": "Ngày",
+          "startMs": 273920,
+          "endMs": 274120,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.40997218200936913,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-1",
+          "lineId": "l28",
+          "text": "hôm",
+          "startMs": 274120,
+          "endMs": 274340,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8593455255031586,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t28-2",
+          "lineId": "l28",
+          "text": "ấy",
+          "startMs": 274340,
+          "endMs": 274600,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.0009966085199266672,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-3",
+          "lineId": "l28",
+          "text": "em",
+          "startMs": 274600,
+          "endMs": 275020,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7114588022232056,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-4",
+          "lineId": "l28",
+          "text": "đi",
+          "startMs": 275020,
+          "endMs": 275260,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9863590598106384,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t28-5",
+          "lineId": "l28",
+          "text": "trong",
+          "startMs": 275740,
+          "endMs": 275800,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0006875547696836293,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-6",
+          "lineId": "l28",
+          "text": "mưa",
+          "startMs": 275800,
+          "endMs": 276480,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.46562235057353973,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-7",
+          "lineId": "l28",
+          "text": "thế",
+          "startMs": 277180,
+          "endMs": 277320,
+          "contextualEnglish": "so",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.2631620466709137,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-8",
+          "lineId": "l28",
+          "text": "nhưng",
+          "startMs": 277320,
+          "endMs": 277600,
+          "contextualEnglish": "but",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5552996397018433,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-9",
+          "lineId": "l28",
+          "text": "lại",
+          "startMs": 277600,
+          "endMs": 277980,
+          "contextualEnglish": "again",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.9833252429962158,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t28-10",
+          "lineId": "l28",
+          "text": "quên",
+          "startMs": 277980,
+          "endMs": 278320,
+          "contextualEnglish": "forget",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7215115427970886,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-11",
+          "lineId": "l28",
+          "text": "tim",
+          "startMs": 278320,
+          "endMs": 278660,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8008336424827576,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t28-12",
+          "lineId": "l28",
+          "text": "không",
+          "startMs": 278660,
+          "endMs": 279000,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9388642311096191,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t28-13",
+          "lineId": "l28",
+          "text": "khoá",
+          "startMs": 279000,
+          "endMs": 279780,
+          "contextualEnglish": "lock",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.16829818487167358,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-14",
+          "lineId": "l28",
+          "text": "cửa",
+          "startMs": 279780,
+          "endMs": 280520,
+          "contextualEnglish": "door",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.47623092494904995,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 28,
+      "alignmentConfidence": 0.5561311692659122,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l29",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "translationEn": "So the rain slipped in and stole the hundred-year vow",
+      "startMs": 281240,
+      "endMs": 287380,
+      "tokens": [
+        {
+          "id": "t29-0",
+          "lineId": "l29",
+          "text": "Để",
+          "startMs": 281240,
+          "endMs": 281400,
+          "contextualEnglish": "so that",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.4943470670841634,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-1",
+          "lineId": "l29",
+          "text": "cho",
+          "startMs": 281400,
+          "endMs": 281600,
+          "contextualEnglish": "for",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7909427881240845,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t29-2",
+          "lineId": "l29",
+          "text": "mưa",
+          "startMs": 281600,
+          "endMs": 282020,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9511412084102631,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t29-3",
+          "lineId": "l29",
+          "text": "lân",
+          "startMs": 282020,
+          "endMs": 282300,
+          "contextualEnglish": "linger",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10085089900530875,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-4",
+          "lineId": "l29",
+          "text": "la",
+          "startMs": 282300,
+          "endMs": 282640,
+          "contextualEnglish": "about",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.25318023562431335,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-5",
+          "lineId": "l29",
+          "text": "hỏi",
+          "startMs": 282640,
+          "endMs": 283180,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.4897775501012802,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-6",
+          "lineId": "l29",
+          "text": "thăm",
+          "startMs": 283180,
+          "endMs": 283740,
+          "contextualEnglish": "visit",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5943940803408623,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-7",
+          "lineId": "l29",
+          "text": "lẻn",
+          "startMs": 283740,
+          "endMs": 284680,
+          "contextualEnglish": "sneak",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.1832611532881856,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-8",
+          "lineId": "l29",
+          "text": "vào",
+          "startMs": 284680,
+          "endMs": 284820,
+          "contextualEnglish": "into",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6055065393447876,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-9",
+          "lineId": "l29",
+          "text": "trộm",
+          "startMs": 284820,
+          "endMs": 285400,
+          "contextualEnglish": "steal",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.09385739065085848,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-10",
+          "lineId": "l29",
+          "text": "đi",
+          "startMs": 285400,
+          "endMs": 285560,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7164806723594666,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-11",
+          "lineId": "l29",
+          "text": "khế",
+          "startMs": 285560,
+          "endMs": 286040,
+          "contextualEnglish": "contract",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.053319184109568596,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-12",
+          "lineId": "l29",
+          "text": "ước",
+          "startMs": 286040,
+          "endMs": 286340,
+          "contextualEnglish": "vow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6686692833900452,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-13",
+          "lineId": "l29",
+          "text": "trăm",
+          "startMs": 286340,
+          "endMs": 286900,
+          "contextualEnglish": "hundred",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.3816749341785908,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-14",
+          "lineId": "l29",
+          "text": "năm",
+          "startMs": 286900,
+          "endMs": 287380,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.13399438560009003,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 29,
+      "alignmentConfidence": 0.43409315810745785,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l30",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "translationEn": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+      "startMs": 288540,
+      "endMs": 295260,
+      "tokens": [
+        {
+          "id": "t30-0",
+          "lineId": "l30",
+          "text": "Ngày",
+          "startMs": 288540,
+          "endMs": 288700,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8069396317005157,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t30-1",
+          "lineId": "l30",
+          "text": "em",
+          "startMs": 288700,
+          "endMs": 288960,
+          "contextualEnglish": "you",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9316134452819824,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t30-2",
+          "lineId": "l30",
+          "text": "đi",
+          "startMs": 288960,
+          "endMs": 289180,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9367191195487976,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t30-3",
+          "lineId": "l30",
+          "text": "theo",
+          "startMs": 289180,
+          "endMs": 289560,
+          "contextualEnglish": "follow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8667182326316833,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t30-4",
+          "lineId": "l30",
+          "text": "cơn",
+          "startMs": 289560,
+          "endMs": 289960,
+          "contextualEnglish": "bout",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7453365623950958,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-5",
+          "lineId": "l30",
+          "text": "mưa",
+          "startMs": 289960,
+          "endMs": 290400,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9263075590133667,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t30-6",
+          "lineId": "l30",
+          "text": "ngâu",
+          "startMs": 290400,
+          "endMs": 290880,
+          "contextualEnglish": "Ngâu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.6757288724184036,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-7",
+          "lineId": "l30",
+          "text": "bầy",
+          "startMs": 290880,
+          "endMs": 291480,
+          "contextualEnglish": "flock",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.3878949615949144,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-8",
+          "lineId": "l30",
+          "text": "chim",
+          "startMs": 291480,
+          "endMs": 291760,
+          "contextualEnglish": "bird",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.2464480847120285,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-9",
+          "lineId": "l30",
+          "text": "lạc",
+          "startMs": 291760,
+          "endMs": 292480,
+          "contextualEnglish": "lost",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.4088169187307358,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-10",
+          "lineId": "l30",
+          "text": "cánh",
+          "startMs": 292480,
+          "endMs": 293000,
+          "contextualEnglish": "wing",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.5072993710637093,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-11",
+          "lineId": "l30",
+          "text": "khóc",
+          "startMs": 293000,
+          "endMs": 293320,
+          "contextualEnglish": "cry",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.3940171841531992,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-12",
+          "lineId": "l30",
+          "text": "hoảng",
+          "startMs": 293320,
+          "endMs": 293700,
+          "contextualEnglish": "panic",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.031624553725123405,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-13",
+          "lineId": "l30",
+          "text": "tìm",
+          "startMs": 293700,
+          "endMs": 294260,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6484371808667978,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-14",
+          "lineId": "l30",
+          "text": "nhau",
+          "startMs": 294260,
+          "endMs": 295260,
+          "contextualEnglish": "The day you left with the Ngâu rain, lost birds cried searching for each other",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9582440853118896,
+          "reviewStatus": "approved"
+        }
+      ],
+      "displayOrder": 30,
+      "alignmentConfidence": 0.6314763842098828,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l31",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu hết bao giọt sầu",
+      "translationEn": "Who can measure or count all the drops of sorrow, all of them",
+      "startMs": 295980,
+      "endMs": 303520,
+      "tokens": [
+        {
+          "id": "t31-0",
+          "lineId": "l31",
+          "text": "Ai",
+          "startMs": 295980,
+          "endMs": 296180,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.09942463785409927,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-1",
+          "lineId": "l31",
+          "text": "đong",
+          "startMs": 296180,
+          "endMs": 296460,
+          "contextualEnglish": "measure",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.36914928909391165,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-2",
+          "lineId": "l31",
+          "text": "ai",
+          "startMs": 296460,
+          "endMs": 296800,
+          "contextualEnglish": "whom",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.010581569746136665,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-3",
+          "lineId": "l31",
+          "text": "đếm",
+          "startMs": 296800,
+          "endMs": 297420,
+          "contextualEnglish": "count",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6407368088451525,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-4",
+          "lineId": "l31",
+          "text": "hết",
+          "startMs": 297420,
+          "endMs": 297760,
+          "contextualEnglish": "all",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9844271540641785,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t31-5",
+          "lineId": "l31",
+          "text": "bao",
+          "startMs": 297760,
+          "endMs": 298220,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7083079218864441,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-6",
+          "lineId": "l31",
+          "text": "giọt",
+          "startMs": 298220,
+          "endMs": 299900,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.33789345622062683,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-7",
+          "lineId": "l31",
+          "text": "sầu",
+          "startMs": 299900,
+          "endMs": 300760,
+          "contextualEnglish": "sorrow",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.1119351563975215,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-8",
+          "lineId": "l31",
+          "text": "hết",
+          "startMs": 303300,
+          "endMs": 303520,
+          "contextualEnglish": "all",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.00009255087934434414,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-9",
+          "lineId": "l31",
+          "text": "bao",
+          "startMs": 303480,
+          "endMs": 303520,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0006949554663151503,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-10",
+          "lineId": "l31",
+          "text": "giọt",
+          "startMs": 303480,
+          "endMs": 303520,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.11748395464383066,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-11",
+          "lineId": "l31",
+          "text": "sầu",
+          "startMs": 303480,
+          "endMs": 303520,
+          "contextualEnglish": "sorrow",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.006168945808894932,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 31,
+      "alignmentConfidence": 0.2822413667422047,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l32",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "translationEn": "Ask drifting autumn — how many gold leaves fall each year",
+      "startMs": 303520,
+      "endMs": 309920,
+      "tokens": [
+        {
+          "id": "t32-0",
+          "lineId": "l32",
+          "text": "Hỏi",
+          "startMs": 303520,
+          "endMs": 303570,
+          "contextualEnglish": "ask",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.006936538964509964,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-1",
+          "lineId": "l32",
+          "text": "mùa",
+          "startMs": 303520,
+          "endMs": 303570,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.19261170458048582,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-2",
+          "lineId": "l32",
+          "text": "thu",
+          "startMs": 303520,
+          "endMs": 303570,
+          "contextualEnglish": "autumn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0012734635965898633,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-3",
+          "lineId": "l32",
+          "text": "đang",
+          "startMs": 303520,
+          "endMs": 304140,
+          "contextualEnglish": "currently",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.03596503660082817,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-4",
+          "lineId": "l32",
+          "text": "ru",
+          "startMs": 304140,
+          "endMs": 304400,
+          "contextualEnglish": "lull",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0007859012112021446,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-5",
+          "lineId": "l32",
+          "text": "miên",
+          "startMs": 304400,
+          "endMs": 304980,
+          "contextualEnglish": "drifting",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.10386913269758224,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-6",
+          "lineId": "l32",
+          "text": "man",
+          "startMs": 304980,
+          "endMs": 305360,
+          "contextualEnglish": "on",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.03253382071852684,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-7",
+          "lineId": "l32",
+          "text": "mỗi",
+          "startMs": 305360,
+          "endMs": 306120,
+          "contextualEnglish": "each",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.566944420337677,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-8",
+          "lineId": "l32",
+          "text": "năm",
+          "startMs": 306120,
+          "endMs": 306400,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9121333956718445,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t32-9",
+          "lineId": "l32",
+          "text": "mùa",
+          "startMs": 306400,
+          "endMs": 307080,
+          "contextualEnglish": "season",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.7626940608024597,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t32-10",
+          "lineId": "l32",
+          "text": "rơi",
+          "startMs": 307080,
+          "endMs": 307460,
+          "contextualEnglish": "fall",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.14801674336194992,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-11",
+          "lineId": "l32",
+          "text": "bao",
+          "startMs": 307460,
+          "endMs": 307760,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7932229042053223,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t32-12",
+          "lineId": "l32",
+          "text": "chiếc",
+          "startMs": 307760,
+          "endMs": 308220,
+          "contextualEnglish": "classifier",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7815059026082357,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t32-13",
+          "lineId": "l32",
+          "text": "lá",
+          "startMs": 308220,
+          "endMs": 308540,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6324293613433838,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t32-14",
+          "lineId": "l32",
+          "text": "vàng",
+          "startMs": 308540,
+          "endMs": 309920,
+          "contextualEnglish": "gold",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.0816224830923602,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 32,
+      "alignmentConfidence": 0.33683632465286384,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l33",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "translationEn": "Is there anywhere without a leaf like the diêu bông leaf",
+      "startMs": 310440,
+      "endMs": 316860,
+      "tokens": [
+        {
+          "id": "t33-0",
+          "lineId": "l33",
+          "text": "Liệu",
+          "startMs": 310440,
+          "endMs": 310500,
+          "contextualEnglish": "whether",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.29813819378614426,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-1",
+          "lineId": "l33",
+          "text": "có",
+          "startMs": 310500,
+          "endMs": 310700,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.9168281555175781,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-2",
+          "lineId": "l33",
+          "text": "biết",
+          "startMs": 310700,
+          "endMs": 310980,
+          "contextualEnglish": "know",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.7628666162490845,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-3",
+          "lineId": "l33",
+          "text": "ở",
+          "startMs": 310980,
+          "endMs": 311420,
+          "contextualEnglish": "at",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.0028954895678907633,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-4",
+          "lineId": "l33",
+          "text": "nơi",
+          "startMs": 311420,
+          "endMs": 311720,
+          "contextualEnglish": "place",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8208701014518738,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-5",
+          "lineId": "l33",
+          "text": "nào",
+          "startMs": 311720,
+          "endMs": 312120,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.9754669666290283,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-6",
+          "lineId": "l33",
+          "text": "không",
+          "startMs": 312120,
+          "endMs": 312540,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8967797756195068,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-7",
+          "lineId": "l33",
+          "text": "có",
+          "startMs": 312540,
+          "endMs": 313300,
+          "contextualEnglish": "Is there anywhere without a leaf like the diêu bông leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.008638104423880577,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-8",
+          "lineId": "l33",
+          "text": "lá",
+          "startMs": 313300,
+          "endMs": 313640,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.02761024422943592,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-9",
+          "lineId": "l33",
+          "text": "nào",
+          "startMs": 313640,
+          "endMs": 314120,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8897788524627686,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-10",
+          "lineId": "l33",
+          "text": "trông",
+          "startMs": 314120,
+          "endMs": 314740,
+          "contextualEnglish": "look",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.25250694900751114,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-11",
+          "lineId": "l33",
+          "text": "như",
+          "startMs": 314740,
+          "endMs": 315040,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9701765179634094,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t33-12",
+          "lineId": "l33",
+          "text": "lá",
+          "startMs": 315040,
+          "endMs": 315560,
+          "contextualEnglish": "leaf",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.054476357996463776,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-13",
+          "lineId": "l33",
+          "text": "diêu",
+          "startMs": 315560,
+          "endMs": 316480,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.04917937692152918,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t33-14",
+          "lineId": "l33",
+          "text": "bông",
+          "startMs": 316480,
+          "endMs": 316860,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5178501456975937,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 33,
+      "alignmentConfidence": 0.49627078983491324,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l34",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "translationEn": "O diêu bông leaf, before dawn breaks I must find you",
+      "startMs": 317580,
+      "endMs": 324680,
+      "tokens": [
+        {
+          "id": "t34-0",
+          "lineId": "l34",
+          "text": "Hỡi",
+          "startMs": 317580,
+          "endMs": 317820,
+          "contextualEnglish": "o",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.4834011336788535,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-1",
+          "lineId": "l34",
+          "text": "diêu",
+          "startMs": 317820,
+          "endMs": 318020,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.7530291676521301,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t34-2",
+          "lineId": "l34",
+          "text": "bông",
+          "startMs": 318020,
+          "endMs": 318340,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9598888754844666,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t34-3",
+          "lineId": "l34",
+          "text": "ơi",
+          "startMs": 318340,
+          "endMs": 318700,
+          "contextualEnglish": "oh",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.11382380872964859,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-4",
+          "lineId": "l34",
+          "text": "hỡi",
+          "startMs": 318700,
+          "endMs": 319120,
+          "contextualEnglish": "O diêu bông leaf, before dawn breaks I must find you",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.6066523790359497,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-5",
+          "lineId": "l34",
+          "text": "diêu",
+          "startMs": 319120,
+          "endMs": 319560,
+          "contextualEnglish": "diêu",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.8857141137123108,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t34-6",
+          "lineId": "l34",
+          "text": "bông",
+          "startMs": 319560,
+          "endMs": 320020,
+          "contextualEnglish": "bông",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9732301831245422,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t34-7",
+          "lineId": "l34",
+          "text": "bình",
+          "startMs": 320020,
+          "endMs": 320540,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6613025516271591,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-8",
+          "lineId": "l34",
+          "text": "minh",
+          "startMs": 320540,
+          "endMs": 321000,
+          "contextualEnglish": "dawn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.5033377846702933,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-9",
+          "lineId": "l34",
+          "text": "chưa",
+          "startMs": 321000,
+          "endMs": 321200,
+          "contextualEnglish": "not yet",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.607303261756897,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-10",
+          "lineId": "l34",
+          "text": "hé",
+          "startMs": 321200,
+          "endMs": 321960,
+          "contextualEnglish": "open",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.08865119516849518,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-11",
+          "lineId": "l34",
+          "text": "tôi",
+          "startMs": 321960,
+          "endMs": 322840,
+          "contextualEnglish": "I",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.0003306413418613374,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-12",
+          "lineId": "l34",
+          "text": "phải",
+          "startMs": 322840,
+          "endMs": 323260,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.9432655572891235,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t34-13",
+          "lineId": "l34",
+          "text": "tìm",
+          "startMs": 323260,
+          "endMs": 323820,
+          "contextualEnglish": "seek",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.6722730745871862,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t34-14",
+          "lineId": "l34",
+          "text": "xong",
+          "startMs": 323820,
+          "endMs": 324680,
+          "contextualEnglish": "done",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.21232629008591175,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 34,
+      "alignmentConfidence": 0.564302001196322,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l35",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "translationEn": "Because tomorrow they go to get married",
+      "startMs": 325120,
+      "endMs": 329600,
+      "tokens": [
+        {
+          "id": "t35-0",
+          "lineId": "l35",
+          "text": "Vì",
+          "startMs": 325120,
+          "endMs": 325280,
+          "contextualEnglish": "because",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.39916601218283176,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t35-1",
+          "lineId": "l35",
+          "text": "mai",
+          "startMs": 325280,
+          "endMs": 325560,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.12196237593889236,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t35-2",
+          "lineId": "l35",
+          "text": "người",
+          "startMs": 325560,
+          "endMs": 325920,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.8916578888893127,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t35-3",
+          "lineId": "l35",
+          "text": "ta",
+          "startMs": 325920,
+          "endMs": 326240,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.993278443813324,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t35-4",
+          "lineId": "l35",
+          "text": "đã",
+          "startMs": 326240,
+          "endMs": 326780,
+          "contextualEnglish": "already",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.9376145005226135,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t35-5",
+          "lineId": "l35",
+          "text": "đi",
+          "startMs": 326780,
+          "endMs": 327240,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.9082241654396057,
+          "reviewStatus": "approved"
+        },
+        {
+          "id": "t35-6",
+          "lineId": "l35",
+          "text": "lấy",
+          "startMs": 327240,
+          "endMs": 328440,
+          "contextualEnglish": "get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.6808908581733704,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t35-7",
+          "lineId": "l35",
+          "text": "chồng",
+          "startMs": 328440,
+          "endMs": 329600,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.08079908649960998,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 35,
+      "alignmentConfidence": 0.626699166432445,
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "l36",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "translationEn": "Because tomorrow they go to get married",
+      "startMs": 329850,
+      "endMs": 336100,
+      "tokens": [
+        {
+          "id": "t36-0",
+          "lineId": "l36",
+          "text": "Vì",
+          "startMs": 329850,
+          "endMs": 330400,
+          "contextualEnglish": "because",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-1",
+          "lineId": "l36",
+          "text": "mai",
+          "startMs": 330400,
+          "endMs": 331300,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-2",
+          "lineId": "l36",
+          "text": "người",
+          "startMs": 331300,
+          "endMs": 332900,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-3",
+          "lineId": "l36",
+          "text": "ta",
+          "startMs": 332900,
+          "endMs": 333550,
+          "contextualEnglish": "we",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-4",
+          "lineId": "l36",
+          "text": "đã",
+          "startMs": 333550,
+          "endMs": 334250,
+          "contextualEnglish": "already",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-5",
+          "lineId": "l36",
+          "text": "đi",
+          "startMs": 334250,
+          "endMs": 335050,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-6",
+          "lineId": "l36",
+          "text": "lấy",
+          "startMs": 335050,
+          "endMs": 335600,
+          "contextualEnglish": "get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t36-7",
+          "lineId": "l36",
+          "text": "chồng",
+          "startMs": 335600,
+          "endMs": 336100,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.62,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 36,
+      "alignmentConfidence": 0.62,
+      "reviewStatus": "approved"
+    }
+  ],
+  "translations": [],
+  "reviews": [],
+  "publishStatus": "approved",
+  "pipelineVersion": "demucs-stable-whisper-align-v1",
+  "globalOffsetMs": 0,
+  "approvedAt": "2026-11-14T02:31:20.643Z"
+}

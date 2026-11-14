@@ -203,7 +203,7 @@ export const SING_SONGS: SingSong[] = [
     id: "ngay-mai-nguoi-ta-lay-chong",
     title: "Ngày Mai Người Ta Lấy Chồng",
     titleEn: "Tomorrow Someone Gets Married",
-    artist: "Thành Đạt",
+    artist: "Nguyễn Thành Đạt",
     songwriter: "Đông Thiên Đức",
     language: "vi",
     genre: "Emotional Ballad",
@@ -230,7 +230,7 @@ export const SING_SONGS: SingSong[] = [
     rights: {
       status: "approved",
       compositionOwner: "Đông Thiên Đức",
-      masterOwner: "Thành Đạt / authorized master",
+      masterOwner: "Nguyễn Thành Đạt / authorized master",
       territory: "WW",
       allowedUses: [
         "metadata",
