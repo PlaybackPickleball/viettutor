@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
-import { DemoScript } from "@/components/DemoScript";
 import {
   LEVELS,
   getLetter,
@@ -58,59 +58,86 @@ export function DashboardClient() {
     activeMastery.total === 0
       ? 0
       : Math.round((activeMastery.mastered / activeMastery.total) * 100);
+  const activeLetters = getLettersForLevel(activeLevel);
 
   return (
     <div className="studio-shell scene-wash animate-riseIn">
-      <div className="mb-6 flex items-start justify-between gap-3">
-        <BrandMark size="lg" href={undefined} />
-        <button
-          type="button"
-          className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#e0d0bc] bg-paper text-ink/50"
-          aria-label="Notifications"
-        >
-          <BellIcon />
-        </button>
-      </div>
-
-      <p className="font-display text-3xl text-ink">Xin chào, Nicola</p>
-      <p className="mt-1 text-ink/55">Ready for today’s sounds?</p>
-
-      <section className="ami-card mt-6 px-4 py-4" id="learn">
-        <p className="quiet-label">Current course</p>
-        <p className="mt-1 font-display text-xl text-ink">Vietnamese Foundations</p>
-        <div className="mt-4">
-          <div className="mb-1 flex justify-between text-sm text-ink/60">
-            <span>
-              Level {activeLevel}: {activeMeta?.title ?? "Sounds"}
-            </span>
-            <span>{lessonPct}%</span>
-          </div>
-          <div className="h-2.5 overflow-hidden rounded-full bg-ink/10">
-            <div
-              className="h-full rounded-full bg-coral transition-all"
-              style={{ width: `${lessonPct}%` }}
-            />
-          </div>
-          <p className="mt-2 text-xs text-ink/45">{activeMeta?.subtitle}</p>
+      <header className="relative -mx-5 -mt-6 min-h-[11.5rem] overflow-hidden px-5 pb-5 pt-6">
+        <Image
+          src="/home/home-hero-pagoda.jpg"
+          alt=""
+          fill
+          priority
+          className="pointer-events-none object-cover object-[center_30%] opacity-[0.42]"
+          sizes="(max-width: 512px) 100vw, 512px"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f8f1e7]/40 via-[#f8f1e7]/70 to-[#f8f1e7]" />
+        <div className="relative z-[1] flex items-start justify-between gap-3">
+          <BrandMark size="lg" href={undefined} />
+          <button
+            type="button"
+            className="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-[#e0d0bc] bg-paper/90 text-ink/50 backdrop-blur-sm"
+            aria-label="Notifications"
+          >
+            <BellIcon />
+          </button>
         </div>
-        <Link href={href} className="teacher-btn-primary mt-5 w-full">
-          Continue Learning
-          {current ? (
-            <span className="opacity-90" lang="vi">
-              · {current.grapheme}
-            </span>
-          ) : null}
-        </Link>
+        <div className="relative z-[1] mt-8">
+          <p className="font-display text-3xl text-ink">Xin chào, Nicola</p>
+          <p className="mt-1 text-ink/55">Ready for today’s sounds?</p>
+        </div>
+      </header>
+
+      <section className="ami-card relative mt-2 overflow-hidden px-4 py-4" id="learn">
+        <div className="relative z-[1] max-w-[62%]">
+          <p className="quiet-label">Current course</p>
+          <p className="mt-1 font-display text-xl text-ink">Vietnamese Foundations</p>
+          <div className="mt-4">
+            <div className="mb-1 flex justify-between text-sm text-ink/60">
+              <span>
+                Level {activeLevel}: {activeMeta?.title ?? "Sounds"}
+              </span>
+              <span>{lessonPct}%</span>
+            </div>
+            <div className="h-2.5 overflow-hidden rounded-full bg-ink/10">
+              <div
+                className="h-full rounded-full bg-coral transition-all"
+                style={{ width: `${lessonPct}%` }}
+              />
+            </div>
+            <p className="mt-2 text-xs text-ink/45" lang="vi">
+              {activeLetters.map((l) => l.grapheme).join(" · ")}
+            </p>
+          </div>
+          <Link href={href} className="teacher-btn-primary mt-5 w-full sm:w-auto">
+            <PlayIcon />
+            Continue Learning
+            {current ? (
+              <span className="opacity-90" lang="vi">
+                · {current.grapheme}
+              </span>
+            ) : null}
+          </Link>
+        </div>
+        <div className="pointer-events-none absolute -bottom-2 -right-3 h-36 w-36 sm:h-40 sm:w-40">
+          <Image
+            src="/home/home-course-nonla.jpg"
+            alt=""
+            fill
+            className="object-contain drop-shadow-md"
+            sizes="160px"
+          />
+        </div>
       </section>
 
       <section className="mt-6 grid grid-cols-3 gap-3" id="progress" aria-label="Practice stats">
-        <StatCircle value={String(counts.mastered)} label="Sounds mastered" icon="wave" />
+        <StatCircle value={String(counts.mastered)} label="Sounds mastered" icon="book" />
         <StatCircle value={`${streak} days`} label="Practice streak" icon="flame" />
         <StatCircle value={`${progress.minutesToday} min`} label="Time today" icon="clock" />
       </section>
 
-      <section className="ami-card mt-6 px-4 py-4">
-        <div className="flex items-center justify-between gap-3">
+      <section className="ami-card relative mt-6 overflow-hidden px-4 py-4">
+        <div className="relative z-[1] flex items-center justify-between gap-3 pr-20">
           <div>
             <p className="quiet-label">Teacher stamps</p>
             <p className="mt-1 font-display text-2xl text-ink">
@@ -120,37 +147,45 @@ export function DashboardClient() {
               {stars}
               <span className="text-base font-sans font-normal text-ink/45"> / {starCap}</span>
             </p>
-          </div>
-          <div className="h-2 w-24 overflow-hidden rounded-full bg-ink/10">
-            <div
-              className="h-full rounded-full bg-coral"
-              style={{ width: `${Math.min(100, (stars / starCap) * 100)}%` }}
-            />
+            <div className="mt-3 h-2 w-28 overflow-hidden rounded-full bg-ink/10">
+              <div
+                className="h-full rounded-full bg-coral"
+                style={{ width: `${Math.min(100, (stars / starCap) * 100)}%` }}
+              />
+            </div>
+            <p className="mt-3 text-sm text-ink/65">{motivationLine(progress)}</p>
           </div>
         </div>
-        <p className="mt-3 text-sm text-ink/65">{motivationLine(progress)}</p>
+        <div className="pointer-events-none absolute -bottom-1 -right-1 h-24 w-24 rotate-6 sm:h-28 sm:w-28">
+          <Image
+            src="/home/home-teacher-stamp.jpg"
+            alt=""
+            fill
+            className="rounded-lg object-cover shadow-soft ring-1 ring-[#e0d0bc]/80"
+            sizes="112px"
+          />
+        </div>
       </section>
 
-      <div className="mt-6 grid grid-cols-1 gap-3">
-        <Link href="/scan" className="ami-card block px-4 py-4 transition hover:bg-paper">
-          <p className="quiet-label">Scan & Read</p>
-          <p className="mt-1 font-display text-xl text-ink">Photograph Vietnamese</p>
-          <p className="mt-1 text-sm text-ink/60">
-            Crop a sign or menu, tap words, listen, and save vocabulary.
-          </p>
-        </Link>
-        <Link href="/sing" className="ami-card block px-4 py-4 transition hover:bg-paper">
-          <p className="quiet-label">New · ÁMi Sing</p>
-          <p className="mt-1 font-display text-xl text-ink">Learn through karaoke</p>
-          <p className="mt-1 text-sm text-ink/60">
-            Listen & understand, sing along, then Speak & Master with clear speech feedback.
-          </p>
-        </Link>
-      </div>
+      <section className="mt-6 grid grid-cols-3 gap-2.5" aria-label="Ways to practice">
+        <FeatureThumb
+          href="/scan"
+          src="/home/home-feature-scan.jpg"
+          title="Photograph Vietnamese"
+        />
+        <FeatureThumb
+          href="/sing"
+          src="/home/home-feature-sing.jpg"
+          title="Learn through karaoke"
+        />
+        <FeatureThumb
+          href={href.includes("/write") ? href : `/studio/${progress.currentLetterId || "a"}/write`}
+          src="/home/home-feature-write.jpg"
+          title={`Letter ${current?.grapheme ?? "a"} live path`}
+        />
+      </section>
 
-      <DemoScript />
-
-      <section className="mb-4 mt-2 space-y-5" aria-labelledby="levels-heading">
+      <section className="mb-4 mt-8 space-y-5" aria-labelledby="levels-heading">
         <h2 id="levels-heading" className="quiet-label">
           Alphabet path · {LEVELS.length} levels
         </h2>
@@ -229,12 +264,34 @@ export function DashboardClient() {
           Progress saves on this device
           {isSupabaseConfigured() ? " · Supabase connected" : " · Supabase stub ready"}.
         </p>
-        <p className="mt-1">
-          {counts.total} sounds across {LEVELS.length} levels · 10 takes per sound · Simulated
-          scoring.
-        </p>
       </section>
     </div>
+  );
+}
+
+function FeatureThumb({
+  href,
+  src,
+  title,
+}: {
+  href: string;
+  src: string;
+  title: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="ami-card group relative flex flex-col overflow-hidden p-0 transition hover:bg-paper"
+    >
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
+        <Image src={src} alt="" fill className="object-cover transition group-hover:scale-[1.03]" sizes="140px" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2a1f16]/55 via-transparent to-transparent" />
+        <span className="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-coral text-paper text-xs shadow-soft">
+          →
+        </span>
+      </div>
+      <p className="px-2.5 py-2.5 text-[11px] font-medium leading-snug text-ink">{title}</p>
+    </Link>
   );
 }
 
@@ -245,16 +302,59 @@ function StatCircle({
 }: {
   value: string;
   label: string;
-  icon: "wave" | "flame" | "clock";
+  icon: "book" | "flame" | "clock";
 }) {
   return (
     <div className="ami-card flex flex-col items-center px-2 py-4 text-center">
       <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-soft text-coral">
-        {icon === "wave" ? "〰" : icon === "flame" ? "✦" : "◷"}
+        {icon === "book" ? <BookIcon /> : icon === "flame" ? <FlameIcon /> : <ClockIcon />}
       </div>
       <p className="font-display text-lg leading-tight text-ink">{value}</p>
       <p className="mt-1 text-[11px] leading-snug text-ink/50">{label}</p>
     </div>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M8 5.5v13l11-6.5L8 5.5Z" />
+    </svg>
+  );
+}
+
+function BookIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path d="M4 19.5h14" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function FlameIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M12 3c2 3 1 5 3 7 2 2 4 3 4 7a7 7 0 1 1-14 0c0-3 2-5 3-7 1-2 2-4 4-7Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M12 8v5l3 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
   );
 }
 
