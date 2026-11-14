@@ -1,5 +1,22 @@
 import type { KaraokeSong, LyricLine, LyricToken } from "./types";
-import { wordFillProgress } from "./types";
+import { msToSec, wordFillProgress } from "./types";
+
+/**
+ * Audio clock (seconds) where the first lyric / vocals begin.
+ * Uses globalOffsetMs so seek lands on the sung phrase, not the highlight clock alone.
+ */
+export function vocalsStartAudioSec(song: KaraokeSong): number | null {
+  const first = song.lines[0];
+  if (!first) return null;
+  return Math.max(0, msToSec(first.startMs + (song.globalOffsetMs ?? 0)));
+}
+
+/** True when the track has a meaningful instrumental/intro before lyrics. */
+export function songHasIntro(song: KaraokeSong, minIntroMs = 2500): boolean {
+  const first = song.lines[0];
+  if (!first) return false;
+  return first.startMs + (song.globalOffsetMs ?? 0) >= minIntroMs;
+}
 
 export function findLineAtMs(lines: LyricLine[], tMs: number): LyricLine | null {
   if (!lines.length) return null;

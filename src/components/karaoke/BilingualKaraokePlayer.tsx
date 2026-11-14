@@ -7,7 +7,13 @@ import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import type { KaraokeMode, KaraokeSong, LyricLine, LyricToken } from "@/lib/karaoke/types";
 import { msToSec, secToMs } from "@/lib/karaoke/types";
-import { adjacentLine, findLineAtMs, phraseForRewind } from "@/lib/karaoke/engine";
+import {
+  adjacentLine,
+  findLineAtMs,
+  phraseForRewind,
+  songHasIntro,
+  vocalsStartAudioSec,
+} from "@/lib/karaoke/engine";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
 import { saveVocabItem } from "@/lib/vocab/store";
 
@@ -125,6 +131,20 @@ export function BilingualKaraokePlayer({ song }: Props) {
     repeatPhrase(prev);
   }
 
+  const vocalsStartSec = vocalsStartAudioSec(song);
+  const hasIntro = songHasIntro(song);
+  const inIntro =
+    hasIntro && vocalsStartSec != null && tSec < vocalsStartSec - 0.35;
+
+  /** Jump past instrumental intro to the first lyric / vocals. */
+  function skipIntro() {
+    if (vocalsStartSec == null) return;
+    stopSpeaking();
+    setLoop(null);
+    seek(vocalsStartSec);
+    setPlaying(true);
+  }
+
   function saveSelected() {
     if (!selected || !activeLine) return;
     saveVocabItem({
@@ -186,6 +206,15 @@ export function BilingualKaraokePlayer({ song }: Props) {
 
       {mode !== "practice" ? (
         <>
+          {inIntro ? (
+            <button
+              type="button"
+              className="teacher-btn-primary mt-4 w-full"
+              onClick={skipIntro}
+            >
+              Skip intro · jump to song
+            </button>
+          ) : null}
           <div className="mt-4 flex items-center justify-center gap-3">
             <button
               type="button"
@@ -292,6 +321,17 @@ export function BilingualKaraokePlayer({ song }: Props) {
             >
               Restart
             </button>
+            {hasIntro ? (
+              <button
+                type="button"
+                className={`rounded-xl px-3 py-1.5 text-sm ${
+                  inIntro ? "bg-coral text-paper" : "bg-soft text-ink/70"
+                }`}
+                onClick={skipIntro}
+              >
+                Skip intro
+              </button>
+            ) : null}
           </div>
         </>
       ) : (
@@ -325,6 +365,15 @@ export function BilingualKaraokePlayer({ song }: Props) {
               >
                 Hear sentence slowly
               </button>
+              {hasIntro ? (
+                <button
+                  type="button"
+                  className="teacher-btn-secondary mt-2 w-full"
+                  onClick={skipIntro}
+                >
+                  Skip intro · jump to first phrase
+                </button>
+              ) : null}
               <button
                 type="button"
                 className="teacher-btn-secondary mt-2 w-full"

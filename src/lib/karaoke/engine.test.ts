@@ -6,6 +6,8 @@ import {
   findTokenAtMs,
   phraseForRewind,
   phraseGlosses,
+  songHasIntro,
+  vocalsStartAudioSec,
 } from "./engine";
 import { wordFillProgress } from "./types";
 
@@ -53,5 +55,18 @@ describe("bilingual karaoke engine", () => {
     expect(nearStart?.id).toBe(lines[0].id);
     const mid = phraseForRewind(lines, second.startMs + 800);
     expect(mid?.id).toBe(second.id);
+  });
+
+  it("reports vocals start for skip-intro", () => {
+    expect(vocalsStartAudioSec(XIN_CHAO_BILINGUAL)).toBe(0);
+    expect(songHasIntro(XIN_CHAO_BILINGUAL)).toBe(false);
+    const withIntro = {
+      ...XIN_CHAO_BILINGUAL,
+      lines: XIN_CHAO_BILINGUAL.lines.map((l, i) =>
+        i === 0 ? { ...l, startMs: 32000 } : l,
+      ),
+    };
+    expect(vocalsStartAudioSec(withIntro)).toBe(32);
+    expect(songHasIntro(withIntro)).toBe(true);
   });
 });
