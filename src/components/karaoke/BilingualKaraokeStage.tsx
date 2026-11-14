@@ -11,6 +11,8 @@ type Props = {
   currentMs: number;
   mode: KaraokeMode;
   selectedId: string | null;
+  /** Token currently being spoken by AI. */
+  speakingId?: string | null;
   onTapToken: (token: LyricToken) => void;
   /** Practice: AI reads the full lyric phrase (not a single word). */
   onHearPhrase?: (line: LyricLine) => void;
@@ -21,6 +23,7 @@ export function BilingualKaraokeStage({
   currentMs,
   mode,
   selectedId,
+  speakingId = null,
   onTapToken,
   onHearPhrase,
 }: Props) {
@@ -42,6 +45,9 @@ export function BilingualKaraokeStage({
       ref={scrollerRef}
       className="ami-card max-h-[min(52vh,28rem)] overflow-y-auto scroll-smooth px-3 py-4"
     >
+      <p className="mb-3 text-center text-[11px] text-ink/40">
+        Tap any lyric word to hear AI say it
+      </p>
       <ul className="space-y-6">
         {song.lines.map((line) => {
           const isActive = activeLine?.id === line.id;
@@ -68,6 +74,7 @@ export function BilingualKaraokeStage({
                     showGloss={showGloss}
                     gloss={glossByToken.get(tok.id)}
                     selected={selectedId === tok.id}
+                    speaking={speakingId === tok.id}
                     onTap={onTapToken}
                   />
                 ))}

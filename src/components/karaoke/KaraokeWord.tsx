@@ -9,13 +9,23 @@ type Props = {
   showGloss: boolean;
   gloss?: string;
   selected?: boolean;
+  speaking?: boolean;
   onTap: (token: LyricToken) => void;
 };
 
 /**
  * Progressive coral fill over the Vietnamese word based on audio clock progress.
+ * Tap to hear AI pronounce the word.
  */
-export function KaraokeWord({ token, currentMs, showGloss, gloss, selected, onTap }: Props) {
+export function KaraokeWord({
+  token,
+  currentMs,
+  showGloss,
+  gloss,
+  selected,
+  speaking,
+  onTap,
+}: Props) {
   const progress = wordFillProgress(currentMs, token.startMs, token.endMs);
   const active = progress > 0 && progress < 1;
   const done = progress >= 1;
@@ -24,16 +34,19 @@ export function KaraokeWord({ token, currentMs, showGloss, gloss, selected, onTa
     <button
       type="button"
       onClick={() => onTap(token)}
-      className={`inline-flex max-w-full flex-col items-center rounded-xl px-1.5 py-1 transition ${
-        selected ? "bg-amber/20 ring-1 ring-coral/40" : "hover:bg-soft/80"
+      className={`inline-flex max-w-full flex-col items-center rounded-xl px-1.5 py-1 transition active:scale-[0.97] ${
+        speaking
+          ? "bg-coral/25 ring-2 ring-coral/50"
+          : selected
+            ? "bg-amber/20 ring-1 ring-coral/40"
+            : "hover:bg-soft/80"
       }`}
-      aria-label={token.text}
+      aria-label={`Hear ${token.text}`}
+      title={`Hear “${token.text}”`}
       lang="vi"
     >
       <span className="relative inline-block text-2xl font-medium leading-snug tracking-tight">
-        {/* Base (unfilled) */}
         <span className={done ? "text-coral" : "text-ink/35"}>{token.text}</span>
-        {/* Progressive fill overlay */}
         {!done ? (
           <span
             aria-hidden
@@ -44,15 +57,16 @@ export function KaraokeWord({ token, currentMs, showGloss, gloss, selected, onTa
           </span>
         ) : null}
         {active ? (
-          <span className="sr-only">
-            {Math.round(progress * 100)}% through word
-          </span>
+          <span className="sr-only">{Math.round(progress * 100)}% through word</span>
         ) : null}
       </span>
       {showGloss && gloss ? (
         <span className="mt-0.5 max-w-[6.5rem] truncate text-center text-[11px] leading-tight text-ink/45">
           {gloss}
         </span>
+      ) : null}
+      {speaking ? (
+        <span className="mt-0.5 text-[10px] font-medium text-coral">AI…</span>
       ) : null}
     </button>
   );

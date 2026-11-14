@@ -23,13 +23,17 @@ const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
   {
     id: "learn",
     label: "Learn",
-    hint: "Word glosses + line translation. Tap a word to hear it.",
+    hint: "Tap any lyric word — AI says it. Glosses + translation shown.",
   },
-  { id: "sing", label: "Sing", hint: "Clean karaoke — translations hidden." },
+  {
+    id: "sing",
+    label: "Sing",
+    hint: "Sing along — tap a lyric word anytime to hear AI say it.",
+  },
   {
     id: "practice",
     label: "Practice",
-    hint: "Type or tap a word for AI to say it, or hear the whole phrase.",
+    hint: "Tap a lyric word to hear it, or hear the whole phrase.",
   },
 ];
 
@@ -50,8 +54,10 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const [seekNonce, setSeekNonce] = useState(0);
   const [loop, setLoop] = useState<{ start: number; end: number } | null>(null);
   const [selected, setSelected] = useState<LyricToken | null>(null);
+  const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [saySeed, setSaySeed] = useState("");
   const [duckUntil, setDuckUntil] = useState(0);
+  const [ttsBusy, setTtsBusy] = useState(false);
 
   /** Single timing source: audio.currentTime, shifted by approved globalOffsetMs. */
   const tMs = secToMs(tSec) - (song.globalOffsetMs ?? 0);
@@ -70,29 +76,31 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const practiceLine =
     activeLine ?? phraseForRewind(song.lines, tMs) ?? song.lines[0] ?? null;
 
-  async function hearWord(text: string, opts?: { slow?: boolean }) {
-    const word = text.trim();
+  async function hearWord(token: LyricToken | string, opts?: { slow?: boolean }) {
+    const word = typeof token === "string" ? token.trim() : token.text.trim();
+    const id = typeof token === "string" ? null : token.id;
     if (!word) return;
     stopSpeaking();
     setPlaying(false);
+    setTtsBusy(true);
     setSaySeed(word);
-    const approxMs = Math.max(1600, word.length * (opts?.slow ? 220 : 140));
+    if (id) setSpeakingId(id);
+    const approxMs = Math.max(1800, word.length * (opts?.slow ? 220 : 150));
     setDuckUntil(Date.now() + approxMs);
     try {
       await speakVietnamese(word, { slow: opts?.slow });
     } catch {
       /* */
+    } finally {
+      setSpeakingId(null);
+      setTtsBusy(false);
     }
   }
 
   async function onTapToken(token: LyricToken) {
     setSelected(token);
-    // Practice: word tap says that word (type box also available); phrase has its own control.
-    if (mode === "practice") {
-      await hearWord(token.text);
-      return;
-    }
-    await hearWord(token.text);
+    // Every mode: tap lyric word → AI speaks that word.
+    await hearWord(token);
   }
 
   /** Pause the track and have AI read the whole lyric sentence (not a single word). */
@@ -100,13 +108,17 @@ export function BilingualKaraokePlayer({ song }: Props) {
     if (!line?.textVi?.trim()) return;
     stopSpeaking();
     setPlaying(false);
+    setTtsBusy(true);
     setSelected(null);
+    setSpeakingId(null);
     const approxMs = Math.max(2200, line.textVi.length * (opts?.slow ? 180 : 120));
     setDuckUntil(Date.now() + approxMs);
     try {
       await speakVietnamese(line.textVi, { slow: opts?.slow ?? false, rate: opts?.slow ? 0.72 : 0.88 });
     } catch {
       /* */
+    } finally {
+      setTtsBusy(false);
     }
   }
 
@@ -173,6 +185,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
         playing={audioPlaying && (mode !== "practice" || Boolean(loop))}
         speed={speed}
         loop={loop}
+        muted={ttsBusy}
         seekTo={seekTo}
         seekNonce={seekNonce}
         onTime={setTSec}
@@ -204,6 +217,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
           currentMs={tMs}
           mode={mode}
           selectedId={selected?.id ?? null}
+          speakingId={speakingId}
           onTapToken={(tok) => void onTapToken(tok)}
           onHearPhrase={
             mode === "practice" ? (line) => void hearFullSentence(line) : undefined

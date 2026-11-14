@@ -13,6 +13,8 @@ type Props = {
   playing: boolean;
   speed: number;
   loop: KaraokeLoop;
+  /** Mute track instantly (e.g. while AI speaks a tapped lyric word). */
+  muted?: boolean;
   onTime: (t: number) => void;
   onPlayingChange: (playing: boolean) => void;
   onDuration?: (sec: number) => void;
@@ -32,6 +34,7 @@ export function KaraokePlayer({
   playing,
   speed,
   loop,
+  muted = false,
   onTime,
   onPlayingChange,
   onDuration,
@@ -119,6 +122,13 @@ export function KaraokePlayer({
     if (!audio) return;
     audio.playbackRate = speed;
   }, [speed]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.muted = muted;
+    audio.volume = muted ? 0 : 1;
+  }, [muted]);
 
   useEffect(() => {
     const audio = audioRef.current;
