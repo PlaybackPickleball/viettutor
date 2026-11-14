@@ -1,5 +1,6 @@
 import type { SingSong } from "./types";
 import { canShowCatalogCard } from "./rights";
+import { SAMPLE_TIMED_LINE, timedLineToLyricLine } from "./timedLine";
 
 /**
  * Catalog: original educational demo + licensed free-to-use ballads + rights metadata.
@@ -293,6 +294,46 @@ export const SING_SONGS: SingSong[] = [
       note: "Licensed and free to use in ÁMi Lingua (Nicola). Demo master at /sing/; local import still supported.",
     },
     lines: [],
+  },
+  {
+    id: "practice_001",
+    title: "Em yêu anh",
+    titleEn: "I Love You (practice line)",
+    artist: "ÁMi Lingua Practice",
+    songwriter: "ÁMi Lingua",
+    language: "vi",
+    genre: "Educational",
+    style: "educational",
+    vocalType: "mixed",
+    difficulty: "beginner",
+    dialect: "southern",
+    durationSec: 15,
+    estimatedLessonMin: 5,
+    tags: ["practice", "beginner", "romance", "original"],
+    skills: ["Word recognition", "Pronunciation", "Tap-to-learn"],
+    summary:
+      "Short educational practice line with word-level timings (TimedLyricLine JSON). Use Speak / Understand without a commercial track.",
+    category: "Beginner Songs",
+    featured: true,
+    source: "original",
+    rights: {
+      status: "approved",
+      compositionOwner: "ÁMi Lingua",
+      masterOwner: "ÁMi Lingua",
+      territory: "WW",
+      allowedUses: [
+        "metadata",
+        "audio_playback",
+        "lyrics_display",
+        "synchronization",
+        "ugc_recording",
+        "commercial",
+      ],
+      effectiveDate: "2026-11-14",
+      documentationRef: "original-practice-001",
+      note: "Original educational phrase. Timings follow the TimedLyricLine interchange format.",
+    },
+    lines: [timedLineToLyricLine(SAMPLE_TIMED_LINE, 0)],
   },
 ];
 

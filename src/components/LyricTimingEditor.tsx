@@ -8,6 +8,11 @@ import {
   saveLocalLyrics,
   type LocalLyricDraft,
 } from "@/lib/sing/localLyrics";
+import {
+  lyricLineToTimedLine,
+  parseTimedLyricJson,
+  SAMPLE_TIMED_LINE,
+} from "@/lib/sing/timedLine";
 import type { LyricLine } from "@/lib/sing/types";
 import { formatKaraokeTime } from "@/components/KaraokePlayer";
 
@@ -21,7 +26,7 @@ type Props = {
 
 /**
  * Private local lyric-timing editor.
- * Accepts only user-supplied text — never fetches commercial lyrics.
+ * Accepts only user-supplied text / timed JSON — never fetches commercial lyrics.
  */
 export function LyricTimingEditor({
   songId,
@@ -32,6 +37,8 @@ export function LyricTimingEditor({
 }: Props) {
   const [rawVi, setRawVi] = useState(draft?.rawVi ?? "");
   const [rawEn, setRawEn] = useState(draft?.rawEn ?? "");
+  const [jsonText, setJsonText] = useState("");
+  const [jsonError, setJsonError] = useState<string | null>(null);
   const [lines, setLines] = useState<LyricLine[]>(draft?.lines ?? []);
   const [activeLineId, setActiveLineId] = useState<string | null>(
     draft?.lines[0]?.id ?? null,
@@ -44,11 +51,11 @@ export function LyricTimingEditor({
     setActiveLineId(next[0]?.id ?? null);
   }
 
-  function persist(nextLines: LyricLine[]) {
+  function persist(nextLines: LyricLine[], nextVi = rawVi, nextEn = rawEn) {
     const saved: LocalLyricDraft = {
       songId,
-      rawVi,
-      rawEn,
+      rawVi: nextVi,
+      rawEn: nextEn,
       lines: nextLines,
       updatedAt: new Date().toISOString(),
     };
@@ -61,6 +68,22 @@ export function LyricTimingEditor({
     const next = lines.length ? lines : parseUserLyricText(rawVi, rawEn, durationSec);
     persist(next);
     setOpen(false);
+  }
+
+  function importTimedJson(raw: string) {
+    setJsonError(null);
+    try {
+      const parsed = parseTimedLyricJson(raw);
+      const nextVi = parsed.timed.map((l) => l.line).join("\n");
+      const nextEn = parsed.timed.map((l) => l.translation || "").join("\n");
+      setRawVi(nextVi);
+      setRawEn(nextEn);
+      setLines(parsed.lines);
+      setActiveLineId(parsed.lines[0]?.id ?? null);
+      persist(parsed.lines, nextVi, nextEn);
+    } catch (e) {
+      setJsonError(e instanceof Error ? e.message : "Invalid timed lyric JSON");
+    }
   }
 
   return (
@@ -163,6 +186,55 @@ export function LyricTimingEditor({
           <button type="button" className="teacher-btn-primary mt-3 w-full" onClick={saveAll}>
             Save timings on this device
           </button>
+
+          <p className="quiet-label mt-5">Import timed JSON</p>
+          <p className="mt-1 text-xs text-ink/45">
+            Paste a TimedLyricLine (or an array / document with lines) with word-level start/end.
+          </p>
+          <textarea
+            value={jsonText}
+            onChange={(e) => setJsonText(e.target.value)}
+            rows={5}
+            className="ami-card mt-2 w-full px-3 py-2 font-mono text-xs"
+            placeholder='{"songId":"…","line":"Em yêu anh","translation":"I love you","start":12.4,"end":14.8,"words":[…]}'
+          />
+          <div className="mt-2 flex flex-wrap gap-2">
+            <button
+              type="button"
+              className="teacher-btn-secondary py-2 text-sm"
+              onClick={() => importTimedJson(jsonText)}
+              disabled={!jsonText.trim()}
+            >
+              Import JSON
+            </button>
+            <button
+              type="button"
+              className="teacher-btn-secondary py-2 text-sm"
+              onClick={() => {
+                const sample = JSON.stringify(SAMPLE_TIMED_LINE, null, 2);
+                setJsonText(sample);
+                importTimedJson(sample);
+              }}
+            >
+              Load sample “Em yêu anh”
+            </button>
+            {lines.length ? (
+              <button
+                type="button"
+                className="teacher-btn-secondary py-2 text-sm"
+                onClick={() => {
+                  const payload =
+                    lines.length === 1
+                      ? lyricLineToTimedLine(lines[0], songId)
+                      : { songId, lines: lines.map((l) => lyricLineToTimedLine(l, songId)) };
+                  setJsonText(JSON.stringify(payload, null, 2));
+                }}
+              >
+                Export JSON
+              </button>
+            ) : null}
+          </div>
+          {jsonError ? <p className="mt-2 text-sm text-coral">{jsonError}</p> : null}
         </>
       ) : (
         <p className="mt-3 text-sm text-ink/50">

@@ -33,6 +33,27 @@ Only the two licensed demo masters under `public/sing/` are allow-listed in `.gi
 4. Open **Timing editor**, paste lyrics you are authorized to type, play, **Mark start/end** per line, save.  
 5. Use modes: Listen → Understand → Sing → Speak → Improve.
 
+## Timed lyric JSON (interchange)
+
+Word-level timings use this shape (see `src/lib/sing/timedLine.ts`):
+
+```json
+{
+  "songId": "practice_001",
+  "line": "Em yêu anh",
+  "translation": "I love you",
+  "start": 12.4,
+  "end": 14.8,
+  "words": [
+    { "text": "Em", "english": "I", "start": 12.4, "end": 13.1 },
+    { "text": "yêu", "english": "love", "start": 13.1, "end": 13.8 },
+    { "text": "anh", "english": "you", "start": 13.8, "end": 14.8 }
+  ]
+}
+```
+
+Import/export from the song **Timing editor**. Catalog song `practice_001` ships with this sample line for Speak / Understand practice.
+
 ## Production Mode
 
 - `/api/sing/asset` and `/api/sing/lyrics` enforce rights (deny by default).  
