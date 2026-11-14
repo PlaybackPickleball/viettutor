@@ -5,9 +5,9 @@ import { KaraokePlayer, formatKaraokeTime } from "@/components/KaraokePlayer";
 import { BilingualKaraokeStage } from "@/components/karaoke/BilingualKaraokeStage";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
-import type { KaraokeMode, KaraokeSong, LyricToken } from "@/lib/karaoke/types";
+import type { KaraokeMode, KaraokeSong, LyricLine, LyricToken } from "@/lib/karaoke/types";
 import { msToSec, secToMs } from "@/lib/karaoke/types";
-import { findLineAtMs } from "@/lib/karaoke/engine";
+import { adjacentLine, findLineAtMs, phraseForRewind } from "@/lib/karaoke/engine";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
 import { saveVocabItem } from "@/lib/vocab/store";
 
@@ -22,7 +22,7 @@ const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
   {
     id: "practice",
     label: "Practice",
-    hint: "Loop the current line, record, and compare with TTS.",
+    hint: "Repeat a phrase with the track as many times as you like.",
   },
 ];
 
@@ -69,13 +69,35 @@ export function BilingualKaraokePlayer({ song }: Props) {
     }
   }
 
-  function loopActiveLine() {
-    if (!activeLine) return;
-    const start = msToSec(activeLine.startMs);
-    const end = msToSec(activeLine.endMs);
+  function audioSecForLine(line: LyricLine) {
+    const offsetSec = msToSec(song.globalOffsetMs ?? 0);
+    return {
+      start: Math.max(0, msToSec(line.startMs) + offsetSec),
+      end: Math.max(0, msToSec(line.endMs) + offsetSec),
+    };
+  }
+
+  /** Seek track to a lyric sentence and keep looping it for recite practice. */
+  function repeatPhrase(line: LyricLine | null | undefined) {
+    if (!line) return;
+    const { start, end } = audioSecForLine(line);
     setLoop({ start, end });
     seek(start);
     setPlaying(true);
+  }
+
+  function rewindAndRepeatPhrase() {
+    repeatPhrase(phraseForRewind(song.lines, tMs));
+  }
+
+  function repeatPreviousPhrase() {
+    const current = phraseForRewind(song.lines, tMs);
+    const prev = adjacentLine(song.lines, current?.id, -1) ?? current;
+    repeatPhrase(prev);
+  }
+
+  function loopActiveLine() {
+    repeatPhrase(activeLine);
   }
 
   function saveSelected() {
@@ -140,6 +162,15 @@ export function BilingualKaraokePlayer({ song }: Props) {
             <button
               type="button"
               className="circle-btn"
+              onClick={repeatPreviousPhrase}
+              aria-label="Previous phrase and loop"
+              title="Previous phrase"
+            >
+              ⟲
+            </button>
+            <button
+              type="button"
+              className="circle-btn"
               onClick={() => seek(Math.max(0, tSec - 3))}
               aria-label="Back 3 seconds"
             >
@@ -161,6 +192,15 @@ export function BilingualKaraokePlayer({ song }: Props) {
             >
               +3s
             </button>
+            <button
+              type="button"
+              className={`circle-btn ${loop ? "bg-coral text-paper" : ""}`}
+              onClick={rewindAndRepeatPhrase}
+              aria-label="Repeat this phrase with the track"
+              title="Repeat phrase"
+            >
+              ↻
+            </button>
           </div>
           <input
             type="range"
@@ -175,6 +215,15 @@ export function BilingualKaraokePlayer({ song }: Props) {
           <p className="mt-1 text-center text-xs text-ink/40">
             {formatKaraokeTime(tSec)} / {formatKaraokeTime(durationSec)}
           </p>
+          {loop && activeLine ? (
+            <p className="mt-2 text-center text-xs text-coral" lang="vi">
+              Repeating: {phraseForRewind(song.lines, tMs)?.textVi ?? activeLine.textVi}
+            </p>
+          ) : (
+            <p className="mt-2 text-center text-xs text-ink/40">
+              ↻ repeats this phrase · ⟲ goes to the previous sentence
+            </p>
+          )}
           <div className="mt-3 flex flex-wrap gap-2">
             {SPEEDS.map((s) => (
               <button
@@ -190,15 +239,25 @@ export function BilingualKaraokePlayer({ song }: Props) {
             ))}
             <button
               type="button"
-              className="rounded-xl bg-soft px-3 py-1.5 text-sm text-ink/70"
-              onClick={() => (loop ? setLoop(null) : loopActiveLine())}
+              className={`rounded-xl px-3 py-1.5 text-sm ${
+                loop ? "bg-coral text-paper" : "bg-soft text-ink/70"
+              }`}
+              onClick={() => (loop ? setLoop(null) : rewindAndRepeatPhrase())}
             >
-              {loop ? "Clear loop" : "Loop line"}
+              {loop ? "Stop repeat" : "Repeat phrase"}
+            </button>
+            <button
+              type="button"
+              className="rounded-xl bg-soft px-3 py-1.5 text-sm text-ink/70"
+              onClick={repeatPreviousPhrase}
+            >
+              Last sentence
             </button>
             <button
               type="button"
               className="rounded-xl bg-soft px-3 py-1.5 text-sm text-ink/70"
               onClick={() => {
+                setLoop(null);
                 seek(0);
                 setPlaying(true);
               }}
@@ -209,7 +268,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
         </>
       ) : (
         <section className="ami-card mt-4 px-4 py-4">
-          <p className="quiet-label">Practice line</p>
+          <p className="quiet-label">Practice phrase</p>
           {activeLine ? (
             <>
               <p className="mt-2 font-display text-2xl text-ink" lang="vi">
@@ -218,17 +277,33 @@ export function BilingualKaraokePlayer({ song }: Props) {
               <p className="mt-1 text-ink/60">{activeLine.translationEn}</p>
               <button
                 type="button"
-                className="teacher-btn-secondary mt-3 w-full"
-                onClick={() => void speakVietnamese(activeLine.textVi)}
+                className="teacher-btn-primary mt-3 w-full"
+                onClick={rewindAndRepeatPhrase}
               >
-                Hear TTS model
+                {loop ? "Replay this phrase" : "Repeat phrase with music"}
               </button>
               <button
                 type="button"
                 className="teacher-btn-secondary mt-2 w-full"
-                onClick={loopActiveLine}
+                onClick={repeatPreviousPhrase}
               >
-                Loop line with music
+                Last sentence + loop
+              </button>
+              {loop ? (
+                <button
+                  type="button"
+                  className="teacher-btn-secondary mt-2 w-full"
+                  onClick={() => setLoop(null)}
+                >
+                  Stop repeating
+                </button>
+              ) : null}
+              <button
+                type="button"
+                className="teacher-btn-secondary mt-2 w-full"
+                onClick={() => void speakVietnamese(activeLine.textVi)}
+              >
+                Hear TTS model
               </button>
               <div className="mt-4">
                 <SingSpeakMic

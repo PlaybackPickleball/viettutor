@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { XIN_CHAO_BILINGUAL } from "./fixtures/xin-chao-bilingual";
-import { activeFill, findLineAtMs, findTokenAtMs, phraseGlosses } from "./engine";
+import {
+  activeFill,
+  findLineAtMs,
+  findTokenAtMs,
+  phraseForRewind,
+  phraseGlosses,
+} from "./engine";
 import { wordFillProgress } from "./types";
 
 describe("bilingual karaoke engine", () => {
@@ -38,5 +44,14 @@ describe("bilingual karaoke engine", () => {
     expect(fill.token?.text).toBe("chào");
     expect(fill.progress).toBeGreaterThan(0);
     expect(fill.progress).toBeLessThan(1);
+  });
+
+  it("rewinds to previous phrase near line start", () => {
+    const lines = XIN_CHAO_BILINGUAL.lines;
+    const second = lines[1];
+    const nearStart = phraseForRewind(lines, second.startMs + 100);
+    expect(nearStart?.id).toBe(lines[0].id);
+    const mid = phraseForRewind(lines, second.startMs + 800);
+    expect(mid?.id).toBe(second.id);
   });
 });

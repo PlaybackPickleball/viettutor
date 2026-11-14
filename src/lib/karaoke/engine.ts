@@ -14,6 +14,41 @@ export function findLineAtMs(lines: LyricLine[], tMs: number): LyricLine | null 
   return last;
 }
 
+export function findLineIndex(lines: LyricLine[], lineId: string | undefined): number {
+  if (!lineId) return -1;
+  return lines.findIndex((l) => l.id === lineId);
+}
+
+/**
+ * Phrase to repeat for practice:
+ * - If playhead is well into the current line → that line
+ * - If still near the line start → previous line (so “last sentence” rewinds)
+ */
+export function phraseForRewind(
+  lines: LyricLine[],
+  tMs: number,
+  nearStartMs = 500,
+): LyricLine | null {
+  const current = findLineAtMs(lines, tMs);
+  if (!current) return lines[0] ?? null;
+  const idx = findLineIndex(lines, current.id);
+  if (idx < 0) return current;
+  if (tMs - current.startMs < nearStartMs && idx > 0) {
+    return lines[idx - 1] ?? current;
+  }
+  return current;
+}
+
+export function adjacentLine(
+  lines: LyricLine[],
+  lineId: string | undefined,
+  delta: -1 | 1,
+): LyricLine | null {
+  const idx = findLineIndex(lines, lineId);
+  if (idx < 0) return null;
+  return lines[idx + delta] ?? null;
+}
+
 export function findTokenAtMs(
   lines: LyricLine[],
   tMs: number,
