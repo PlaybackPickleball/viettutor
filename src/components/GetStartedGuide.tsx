@@ -76,11 +76,6 @@ export function GetStartedGuide() {
                 hear AI say a word or the whole phrase.
               </li>
               <li>
-                <span className="font-medium text-ink">Skip intro</span> jumps past the music
-                opening to the first lyric line. Type any word in Practice and tap{" "}
-                <em>Say word (AI)</em>.
-              </li>
-              <li>
                 <span className="font-medium text-ink">Scan</span> — photograph Vietnamese text and
                 tap words to learn them.
               </li>
