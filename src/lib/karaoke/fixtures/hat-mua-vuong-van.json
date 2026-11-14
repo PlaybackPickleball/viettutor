@@ -1,0 +1,2198 @@
+{
+  "id": "hat-mua-vuong-van",
+  "title": "Hạt Mưa Vương Vấn",
+  "artist": "Kiều Chi",
+  "language": "vi",
+  "audioUrl": "/sing/hat-mua-vuong-van.mp3",
+  "durationMs": 272901,
+  "lines": [
+    {
+      "id": "l0",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Hạt mưa vương vấn trên mi",
+      "translationEn": "Raindrops linger on my lashes",
+      "startMs": 1350,
+      "endMs": 5025,
+      "tokens": [
+        {
+          "id": "t0-0",
+          "lineId": "l0",
+          "text": "Hạt",
+          "startMs": 1350,
+          "endMs": 1962,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-1",
+          "lineId": "l0",
+          "text": "mưa",
+          "startMs": 1962,
+          "endMs": 2575,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-2",
+          "lineId": "l0",
+          "text": "vương",
+          "startMs": 2575,
+          "endMs": 3188,
+          "contextualEnglish": "linger",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-3",
+          "lineId": "l0",
+          "text": "vấn",
+          "startMs": 3188,
+          "endMs": 3800,
+          "contextualEnglish": "cling",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-4",
+          "lineId": "l0",
+          "text": "trên",
+          "startMs": 3800,
+          "endMs": 4412,
+          "contextualEnglish": "on",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-5",
+          "lineId": "l0",
+          "text": "mi",
+          "startMs": 4412,
+          "endMs": 5025,
+          "contextualEnglish": "eyelash",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 0,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l1",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Như nỗi nhớ chẳng thể nguôi",
+      "translationEn": "Like a longing that won't fade",
+      "startMs": 5025,
+      "endMs": 8700,
+      "tokens": [
+        {
+          "id": "t1-0",
+          "lineId": "l1",
+          "text": "Như",
+          "startMs": 5025,
+          "endMs": 5637,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-1",
+          "lineId": "l1",
+          "text": "nỗi",
+          "startMs": 5637,
+          "endMs": 6250,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-2",
+          "lineId": "l1",
+          "text": "nhớ",
+          "startMs": 6250,
+          "endMs": 6862,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-3",
+          "lineId": "l1",
+          "text": "chẳng",
+          "startMs": 6862,
+          "endMs": 7475,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-4",
+          "lineId": "l1",
+          "text": "thể",
+          "startMs": 7475,
+          "endMs": 8087,
+          "contextualEnglish": "can",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-5",
+          "lineId": "l1",
+          "text": "nguôi",
+          "startMs": 8087,
+          "endMs": 8700,
+          "contextualEnglish": "fade",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 1,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l2",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Em ngồi đây nghe mưa rơi",
+      "translationEn": "I sit here listening to the rain",
+      "startMs": 8700,
+      "endMs": 12375,
+      "tokens": [
+        {
+          "id": "t2-0",
+          "lineId": "l2",
+          "text": "Em",
+          "startMs": 8700,
+          "endMs": 9312,
+          "contextualEnglish": "I (female)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-1",
+          "lineId": "l2",
+          "text": "ngồi",
+          "startMs": 9312,
+          "endMs": 9925,
+          "contextualEnglish": "sit",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-2",
+          "lineId": "l2",
+          "text": "đây",
+          "startMs": 9925,
+          "endMs": 10537,
+          "contextualEnglish": "here",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-3",
+          "lineId": "l2",
+          "text": "nghe",
+          "startMs": 10537,
+          "endMs": 11150,
+          "contextualEnglish": "hear",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-4",
+          "lineId": "l2",
+          "text": "mưa",
+          "startMs": 11150,
+          "endMs": 11762,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-5",
+          "lineId": "l2",
+          "text": "rơi",
+          "startMs": 11762,
+          "endMs": 12375,
+          "contextualEnglish": "fall",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 2,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l3",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Lòng bỗng thấy nhớ anh nhiều",
+      "translationEn": "And suddenly miss you so much",
+      "startMs": 12375,
+      "endMs": 16050,
+      "tokens": [
+        {
+          "id": "t3-0",
+          "lineId": "l3",
+          "text": "Lòng",
+          "startMs": 12375,
+          "endMs": 12987,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-1",
+          "lineId": "l3",
+          "text": "bỗng",
+          "startMs": 12987,
+          "endMs": 13600,
+          "contextualEnglish": "suddenly",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-2",
+          "lineId": "l3",
+          "text": "thấy",
+          "startMs": 13600,
+          "endMs": 14212,
+          "contextualEnglish": "see",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-3",
+          "lineId": "l3",
+          "text": "nhớ",
+          "startMs": 14212,
+          "endMs": 14825,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-4",
+          "lineId": "l3",
+          "text": "anh",
+          "startMs": 14825,
+          "endMs": 15437,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-5",
+          "lineId": "l3",
+          "text": "nhiều",
+          "startMs": 15437,
+          "endMs": 16050,
+          "contextualEnglish": "a lot",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 3,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l4",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Từng giọt mưa như lời ca",
+      "translationEn": "Each raindrop is like a song",
+      "startMs": 16050,
+      "endMs": 19725,
+      "tokens": [
+        {
+          "id": "t4-0",
+          "lineId": "l4",
+          "text": "Từng",
+          "startMs": 16050,
+          "endMs": 16662,
+          "contextualEnglish": "each",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-1",
+          "lineId": "l4",
+          "text": "giọt",
+          "startMs": 16662,
+          "endMs": 17275,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-2",
+          "lineId": "l4",
+          "text": "mưa",
+          "startMs": 17275,
+          "endMs": 17887,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-3",
+          "lineId": "l4",
+          "text": "như",
+          "startMs": 17887,
+          "endMs": 18500,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-4",
+          "lineId": "l4",
+          "text": "lời",
+          "startMs": 18500,
+          "endMs": 19112,
+          "contextualEnglish": "word",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-5",
+          "lineId": "l4",
+          "text": "ca",
+          "startMs": 19112,
+          "endMs": 19725,
+          "contextualEnglish": "song",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 4,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l5",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Kể về ngày mình bên nhau",
+      "translationEn": "Telling of the days we shared",
+      "startMs": 19725,
+      "endMs": 23400,
+      "tokens": [
+        {
+          "id": "t5-0",
+          "lineId": "l5",
+          "text": "Kể",
+          "startMs": 19725,
+          "endMs": 20338,
+          "contextualEnglish": "tell",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-1",
+          "lineId": "l5",
+          "text": "về",
+          "startMs": 20338,
+          "endMs": 20950,
+          "contextualEnglish": "toward",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-2",
+          "lineId": "l5",
+          "text": "ngày",
+          "startMs": 20950,
+          "endMs": 21562,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-3",
+          "lineId": "l5",
+          "text": "mình",
+          "startMs": 21562,
+          "endMs": 22175,
+          "contextualEnglish": "we/self",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-4",
+          "lineId": "l5",
+          "text": "bên",
+          "startMs": 22175,
+          "endMs": 22787,
+          "contextualEnglish": "beside",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-5",
+          "lineId": "l5",
+          "text": "nhau",
+          "startMs": 22787,
+          "endMs": 23400,
+          "contextualEnglish": "each other",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 5,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l6",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Giờ đây khoảng cách thật xa",
+      "translationEn": "Now the distance feels so far",
+      "startMs": 23850,
+      "endMs": 27900,
+      "tokens": [
+        {
+          "id": "t6-0",
+          "lineId": "l6",
+          "text": "Giờ",
+          "startMs": 23850,
+          "endMs": 24525,
+          "contextualEnglish": "now",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-1",
+          "lineId": "l6",
+          "text": "đây",
+          "startMs": 24525,
+          "endMs": 25200,
+          "contextualEnglish": "here",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-2",
+          "lineId": "l6",
+          "text": "khoảng",
+          "startMs": 25200,
+          "endMs": 25875,
+          "contextualEnglish": "distance",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-3",
+          "lineId": "l6",
+          "text": "cách",
+          "startMs": 25875,
+          "endMs": 26550,
+          "contextualEnglish": "gap",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-4",
+          "lineId": "l6",
+          "text": "thật",
+          "startMs": 26550,
+          "endMs": 27225,
+          "contextualEnglish": "really",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-5",
+          "lineId": "l6",
+          "text": "xa",
+          "startMs": 27225,
+          "endMs": 27900,
+          "contextualEnglish": "far",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 6,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l7",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Chỉ còn mưa với nỗi nhớ",
+      "translationEn": "Only rain and longing remain",
+      "startMs": 30150,
+      "endMs": 33364,
+      "tokens": [
+        {
+          "id": "t7-0",
+          "lineId": "l7",
+          "text": "Chỉ",
+          "startMs": 30150,
+          "endMs": 30686,
+          "contextualEnglish": "only",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-1",
+          "lineId": "l7",
+          "text": "còn",
+          "startMs": 30686,
+          "endMs": 31221,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-2",
+          "lineId": "l7",
+          "text": "mưa",
+          "startMs": 31221,
+          "endMs": 31757,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-3",
+          "lineId": "l7",
+          "text": "với",
+          "startMs": 31757,
+          "endMs": 32293,
+          "contextualEnglish": "with",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-4",
+          "lineId": "l7",
+          "text": "nỗi",
+          "startMs": 32293,
+          "endMs": 32829,
+          "contextualEnglish": "feeling",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-5",
+          "lineId": "l7",
+          "text": "nhớ",
+          "startMs": 32829,
+          "endMs": 33364,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 7,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l8",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Hạt mưa ơi xin hãy mang",
+      "translationEn": "Oh raindrops, please carry",
+      "startMs": 33364,
+      "endMs": 36579,
+      "tokens": [
+        {
+          "id": "t8-0",
+          "lineId": "l8",
+          "text": "Hạt",
+          "startMs": 33364,
+          "endMs": 33900,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-1",
+          "lineId": "l8",
+          "text": "mưa",
+          "startMs": 33900,
+          "endMs": 34436,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-2",
+          "lineId": "l8",
+          "text": "ơi",
+          "startMs": 34436,
+          "endMs": 34971,
+          "contextualEnglish": "oh",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-3",
+          "lineId": "l8",
+          "text": "xin",
+          "startMs": 34971,
+          "endMs": 35507,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-4",
+          "lineId": "l8",
+          "text": "hãy",
+          "startMs": 35507,
+          "endMs": 36043,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-5",
+          "lineId": "l8",
+          "text": "mang",
+          "startMs": 36043,
+          "endMs": 36579,
+          "contextualEnglish": "carry",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 8,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l9",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Lời yêu thương gửi đến anh",
+      "translationEn": "My loving words to you",
+      "startMs": 36579,
+      "endMs": 39793,
+      "tokens": [
+        {
+          "id": "t9-0",
+          "lineId": "l9",
+          "text": "Lời",
+          "startMs": 36579,
+          "endMs": 37114,
+          "contextualEnglish": "word",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-1",
+          "lineId": "l9",
+          "text": "yêu",
+          "startMs": 37114,
+          "endMs": 37650,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-2",
+          "lineId": "l9",
+          "text": "thương",
+          "startMs": 37650,
+          "endMs": 38186,
+          "contextualEnglish": "cherish",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-3",
+          "lineId": "l9",
+          "text": "gửi",
+          "startMs": 38186,
+          "endMs": 38721,
+          "contextualEnglish": "send",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-4",
+          "lineId": "l9",
+          "text": "đến",
+          "startMs": 38721,
+          "endMs": 39257,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-5",
+          "lineId": "l9",
+          "text": "anh",
+          "startMs": 39257,
+          "endMs": 39793,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 9,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l10",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Dù bao tháng năm trôi qua",
+      "translationEn": "Though months and years may pass",
+      "startMs": 39793,
+      "endMs": 43007,
+      "tokens": [
+        {
+          "id": "t10-0",
+          "lineId": "l10",
+          "text": "Dù",
+          "startMs": 39793,
+          "endMs": 40329,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-1",
+          "lineId": "l10",
+          "text": "bao",
+          "startMs": 40329,
+          "endMs": 40864,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-2",
+          "lineId": "l10",
+          "text": "tháng",
+          "startMs": 40864,
+          "endMs": 41400,
+          "contextualEnglish": "month",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-3",
+          "lineId": "l10",
+          "text": "năm",
+          "startMs": 41400,
+          "endMs": 41936,
+          "contextualEnglish": "year",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-4",
+          "lineId": "l10",
+          "text": "trôi",
+          "startMs": 41936,
+          "endMs": 42471,
+          "contextualEnglish": "drift",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-5",
+          "lineId": "l10",
+          "text": "qua",
+          "startMs": 42471,
+          "endMs": 43007,
+          "contextualEnglish": "pass",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 10,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l11",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Vẫn mong một ngày gặp lại",
+      "translationEn": "I still hope we'll meet again",
+      "startMs": 43007,
+      "endMs": 46221,
+      "tokens": [
+        {
+          "id": "t11-0",
+          "lineId": "l11",
+          "text": "Vẫn",
+          "startMs": 43007,
+          "endMs": 43543,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-1",
+          "lineId": "l11",
+          "text": "mong",
+          "startMs": 43543,
+          "endMs": 44079,
+          "contextualEnglish": "hope",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-2",
+          "lineId": "l11",
+          "text": "một",
+          "startMs": 44079,
+          "endMs": 44614,
+          "contextualEnglish": "one",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-3",
+          "lineId": "l11",
+          "text": "ngày",
+          "startMs": 44614,
+          "endMs": 45150,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-4",
+          "lineId": "l11",
+          "text": "gặp",
+          "startMs": 45150,
+          "endMs": 45686,
+          "contextualEnglish": "meet",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-5",
+          "lineId": "l11",
+          "text": "lại",
+          "startMs": 45686,
+          "endMs": 46221,
+          "contextualEnglish": "again",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 11,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l12",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Phố cũ vẫn còn hàng me",
+      "translationEn": "The old street still has tamarind trees",
+      "startMs": 46221,
+      "endMs": 49436,
+      "tokens": [
+        {
+          "id": "t12-0",
+          "lineId": "l12",
+          "text": "Phố",
+          "startMs": 46221,
+          "endMs": 46757,
+          "contextualEnglish": "street",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-1",
+          "lineId": "l12",
+          "text": "cũ",
+          "startMs": 46757,
+          "endMs": 47293,
+          "contextualEnglish": "old",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-2",
+          "lineId": "l12",
+          "text": "vẫn",
+          "startMs": 47293,
+          "endMs": 47829,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-3",
+          "lineId": "l12",
+          "text": "còn",
+          "startMs": 47829,
+          "endMs": 48364,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-4",
+          "lineId": "l12",
+          "text": "hàng",
+          "startMs": 48364,
+          "endMs": 48900,
+          "contextualEnglish": "row",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-5",
+          "lineId": "l12",
+          "text": "me",
+          "startMs": 48900,
+          "endMs": 49436,
+          "contextualEnglish": "tamarind",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 12,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l13",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Nơi mình từng hẹn ước thề",
+      "translationEn": "Where we once made promises",
+      "startMs": 49436,
+      "endMs": 52650,
+      "tokens": [
+        {
+          "id": "t13-0",
+          "lineId": "l13",
+          "text": "Nơi",
+          "startMs": 49436,
+          "endMs": 49971,
+          "contextualEnglish": "where",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-1",
+          "lineId": "l13",
+          "text": "mình",
+          "startMs": 49971,
+          "endMs": 50507,
+          "contextualEnglish": "we/self",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-2",
+          "lineId": "l13",
+          "text": "từng",
+          "startMs": 50507,
+          "endMs": 51043,
+          "contextualEnglish": "once",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-3",
+          "lineId": "l13",
+          "text": "hẹn",
+          "startMs": 51043,
+          "endMs": 51579,
+          "contextualEnglish": "promise",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-4",
+          "lineId": "l13",
+          "text": "ước",
+          "startMs": 51579,
+          "endMs": 52114,
+          "contextualEnglish": "wish",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-5",
+          "lineId": "l13",
+          "text": "thề",
+          "startMs": 52114,
+          "endMs": 52650,
+          "contextualEnglish": "vow",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 13,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l14",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Giờ anh ở phương trời nào",
+      "translationEn": "Where are you now in this world",
+      "startMs": 52650,
+      "endMs": 55864,
+      "tokens": [
+        {
+          "id": "t14-0",
+          "lineId": "l14",
+          "text": "Giờ",
+          "startMs": 52650,
+          "endMs": 53186,
+          "contextualEnglish": "now",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-1",
+          "lineId": "l14",
+          "text": "anh",
+          "startMs": 53186,
+          "endMs": 53721,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-2",
+          "lineId": "l14",
+          "text": "ở",
+          "startMs": 53721,
+          "endMs": 54257,
+          "contextualEnglish": "at",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-3",
+          "lineId": "l14",
+          "text": "phương",
+          "startMs": 54257,
+          "endMs": 54793,
+          "contextualEnglish": "direction",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-4",
+          "lineId": "l14",
+          "text": "trời",
+          "startMs": 54793,
+          "endMs": 55329,
+          "contextualEnglish": "sky",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-5",
+          "lineId": "l14",
+          "text": "nào",
+          "startMs": 55329,
+          "endMs": 55864,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 14,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l15",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Có nghe mưa đang nhớ anh",
+      "translationEn": "Do you hear the rain missing you",
+      "startMs": 55864,
+      "endMs": 59079,
+      "tokens": [
+        {
+          "id": "t15-0",
+          "lineId": "l15",
+          "text": "Có",
+          "startMs": 55864,
+          "endMs": 56400,
+          "contextualEnglish": "do you",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-1",
+          "lineId": "l15",
+          "text": "nghe",
+          "startMs": 56400,
+          "endMs": 56936,
+          "contextualEnglish": "hear",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-2",
+          "lineId": "l15",
+          "text": "mưa",
+          "startMs": 56936,
+          "endMs": 57471,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-3",
+          "lineId": "l15",
+          "text": "đang",
+          "startMs": 57471,
+          "endMs": 58007,
+          "contextualEnglish": "currently",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-4",
+          "lineId": "l15",
+          "text": "nhớ",
+          "startMs": 58007,
+          "endMs": 58543,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-5",
+          "lineId": "l15",
+          "text": "anh",
+          "startMs": 58543,
+          "endMs": 59079,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 15,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l16",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Hạt mưa vương vấn bên thềm",
+      "translationEn": "Raindrops linger on the doorstep",
+      "startMs": 59079,
+      "endMs": 62293,
+      "tokens": [
+        {
+          "id": "t16-0",
+          "lineId": "l16",
+          "text": "Hạt",
+          "startMs": 59079,
+          "endMs": 59614,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-1",
+          "lineId": "l16",
+          "text": "mưa",
+          "startMs": 59614,
+          "endMs": 60150,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-2",
+          "lineId": "l16",
+          "text": "vương",
+          "startMs": 60150,
+          "endMs": 60686,
+          "contextualEnglish": "linger",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-3",
+          "lineId": "l16",
+          "text": "vấn",
+          "startMs": 60686,
+          "endMs": 61221,
+          "contextualEnglish": "cling",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-4",
+          "lineId": "l16",
+          "text": "bên",
+          "startMs": 61221,
+          "endMs": 61757,
+          "contextualEnglish": "beside",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-5",
+          "lineId": "l16",
+          "text": "thềm",
+          "startMs": 61757,
+          "endMs": 62293,
+          "contextualEnglish": "doorstep",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 16,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l17",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Như em vẫn chờ bóng ai",
+      "translationEn": "Like me still waiting for someone",
+      "startMs": 62293,
+      "endMs": 65507,
+      "tokens": [
+        {
+          "id": "t17-0",
+          "lineId": "l17",
+          "text": "Như",
+          "startMs": 62293,
+          "endMs": 62829,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-1",
+          "lineId": "l17",
+          "text": "em",
+          "startMs": 62829,
+          "endMs": 63364,
+          "contextualEnglish": "you (female)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-2",
+          "lineId": "l17",
+          "text": "vẫn",
+          "startMs": 63364,
+          "endMs": 63900,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-3",
+          "lineId": "l17",
+          "text": "chờ",
+          "startMs": 63900,
+          "endMs": 64436,
+          "contextualEnglish": "wait",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-4",
+          "lineId": "l17",
+          "text": "bóng",
+          "startMs": 64436,
+          "endMs": 64971,
+          "contextualEnglish": "shadow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-5",
+          "lineId": "l17",
+          "text": "ai",
+          "startMs": 64971,
+          "endMs": 65507,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 17,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l18",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Nếu mưa có thể nói thay",
+      "translationEn": "If rain could speak for me",
+      "startMs": 65507,
+      "endMs": 68721,
+      "tokens": [
+        {
+          "id": "t18-0",
+          "lineId": "l18",
+          "text": "Nếu",
+          "startMs": 65507,
+          "endMs": 66043,
+          "contextualEnglish": "if",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-1",
+          "lineId": "l18",
+          "text": "mưa",
+          "startMs": 66043,
+          "endMs": 66579,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-2",
+          "lineId": "l18",
+          "text": "có",
+          "startMs": 66579,
+          "endMs": 67114,
+          "contextualEnglish": "have",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-3",
+          "lineId": "l18",
+          "text": "thể",
+          "startMs": 67114,
+          "endMs": 67650,
+          "contextualEnglish": "can",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-4",
+          "lineId": "l18",
+          "text": "nói",
+          "startMs": 67650,
+          "endMs": 68186,
+          "contextualEnglish": "speak",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-5",
+          "lineId": "l18",
+          "text": "thay",
+          "startMs": 68186,
+          "endMs": 68721,
+          "contextualEnglish": "instead",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 18,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l19",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Xin nói rằng em vẫn yêu",
+      "translationEn": "Please say that I still love you",
+      "startMs": 68721,
+      "endMs": 71936,
+      "tokens": [
+        {
+          "id": "t19-0",
+          "lineId": "l19",
+          "text": "Xin",
+          "startMs": 68721,
+          "endMs": 69257,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-1",
+          "lineId": "l19",
+          "text": "nói",
+          "startMs": 69257,
+          "endMs": 69793,
+          "contextualEnglish": "speak",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-2",
+          "lineId": "l19",
+          "text": "rằng",
+          "startMs": 69793,
+          "endMs": 70329,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-3",
+          "lineId": "l19",
+          "text": "em",
+          "startMs": 70329,
+          "endMs": 70864,
+          "contextualEnglish": "you (female)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-4",
+          "lineId": "l19",
+          "text": "vẫn",
+          "startMs": 70864,
+          "endMs": 71400,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-5",
+          "lineId": "l19",
+          "text": "yêu",
+          "startMs": 71400,
+          "endMs": 71936,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 19,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l20",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Dù bao gió mưa cuộc đời",
+      "translationEn": "Through all of life's storms",
+      "startMs": 71936,
+      "endMs": 75150,
+      "tokens": [
+        {
+          "id": "t20-0",
+          "lineId": "l20",
+          "text": "Dù",
+          "startMs": 71936,
+          "endMs": 72471,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-1",
+          "lineId": "l20",
+          "text": "bao",
+          "startMs": 72471,
+          "endMs": 73007,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-2",
+          "lineId": "l20",
+          "text": "gió",
+          "startMs": 73007,
+          "endMs": 73543,
+          "contextualEnglish": "wind",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-3",
+          "lineId": "l20",
+          "text": "mưa",
+          "startMs": 73543,
+          "endMs": 74079,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-4",
+          "lineId": "l20",
+          "text": "cuộc",
+          "startMs": 74079,
+          "endMs": 74614,
+          "contextualEnglish": "life",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-5",
+          "lineId": "l20",
+          "text": "đời",
+          "startMs": 74614,
+          "endMs": 75150,
+          "contextualEnglish": "life",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 20,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l21",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Vẫn giữ một tình yêu ấy",
+      "translationEn": "I keep that same love",
+      "startMs": 75150,
+      "endMs": 78364,
+      "tokens": [
+        {
+          "id": "t21-0",
+          "lineId": "l21",
+          "text": "Vẫn",
+          "startMs": 75150,
+          "endMs": 75686,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-1",
+          "lineId": "l21",
+          "text": "giữ",
+          "startMs": 75686,
+          "endMs": 76221,
+          "contextualEnglish": "keep",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-2",
+          "lineId": "l21",
+          "text": "một",
+          "startMs": 76221,
+          "endMs": 76757,
+          "contextualEnglish": "one",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-3",
+          "lineId": "l21",
+          "text": "tình",
+          "startMs": 76757,
+          "endMs": 77293,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-4",
+          "lineId": "l21",
+          "text": "yêu",
+          "startMs": 77293,
+          "endMs": 77829,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-5",
+          "lineId": "l21",
+          "text": "ấy",
+          "startMs": 77829,
+          "endMs": 78364,
+          "contextualEnglish": "that",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 21,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l22",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Hạt mưa rơi mãi không ngừng",
+      "translationEn": "The rain keeps falling on",
+      "startMs": 78364,
+      "endMs": 81579,
+      "tokens": [
+        {
+          "id": "t22-0",
+          "lineId": "l22",
+          "text": "Hạt",
+          "startMs": 78364,
+          "endMs": 78900,
+          "contextualEnglish": "drop",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-1",
+          "lineId": "l22",
+          "text": "mưa",
+          "startMs": 78900,
+          "endMs": 79436,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-2",
+          "lineId": "l22",
+          "text": "rơi",
+          "startMs": 79436,
+          "endMs": 79971,
+          "contextualEnglish": "fall",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-3",
+          "lineId": "l22",
+          "text": "mãi",
+          "startMs": 79971,
+          "endMs": 80507,
+          "contextualEnglish": "forever",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-4",
+          "lineId": "l22",
+          "text": "không",
+          "startMs": 80507,
+          "endMs": 81043,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-5",
+          "lineId": "l22",
+          "text": "ngừng",
+          "startMs": 81043,
+          "endMs": 81579,
+          "contextualEnglish": "stop",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 22,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l23",
+      "songId": "hat-mua-vuong-van",
+      "textVi": "Như trái tim chẳng quên được",
+      "translationEn": "Like a heart that cannot forget",
+      "startMs": 81579,
+      "endMs": 84793,
+      "tokens": [
+        {
+          "id": "t23-0",
+          "lineId": "l23",
+          "text": "Như",
+          "startMs": 81579,
+          "endMs": 82114,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-1",
+          "lineId": "l23",
+          "text": "trái",
+          "startMs": 82114,
+          "endMs": 82650,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-2",
+          "lineId": "l23",
+          "text": "tim",
+          "startMs": 82650,
+          "endMs": 83186,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-3",
+          "lineId": "l23",
+          "text": "chẳng",
+          "startMs": 83186,
+          "endMs": 83721,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-4",
+          "lineId": "l23",
+          "text": "quên",
+          "startMs": 83721,
+          "endMs": 84257,
+          "contextualEnglish": "forget",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-5",
+          "lineId": "l23",
+          "text": "được",
+          "startMs": 84257,
+          "endMs": 84793,
+          "contextualEnglish": "able",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 23,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    }
+  ],
+  "translations": [],
+  "reviews": [],
+  "publishStatus": "approved",
+  "pipelineVersion": "energy-align-v1"
+}

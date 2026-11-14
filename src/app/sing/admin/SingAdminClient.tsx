@@ -99,12 +99,26 @@ export function SingAdminClient() {
           Edit ms boundaries, translations, and preview Learn/Sing/Practice. AI (Demucs / WhisperX /
           LLM) stays offline — playback uses approved JSON only.
         </p>
-        <Link
-          href="/sing/admin/align/xin-chao-moi-ngay"
-          className="teacher-btn-primary mt-4 block w-full text-center"
-        >
-          Open Xin chào mỗi ngày alignment
-        </Link>
+        <div className="mt-4 space-y-2">
+          <Link
+            href="/sing/admin/align/xin-chao-moi-ngay"
+            className="teacher-btn-primary block w-full text-center"
+          >
+            Xin chào mỗi ngày
+          </Link>
+          <Link
+            href="/sing/admin/align/ngay-mai-nguoi-ta-lay-chong"
+            className="teacher-btn-secondary block w-full text-center"
+          >
+            Ngày Mai Người Ta Lấy Chồng
+          </Link>
+          <Link
+            href="/sing/admin/align/hat-mua-vuong-van"
+            className="teacher-btn-secondary block w-full text-center"
+          >
+            Hạt Mưa Vương Vấn
+          </Link>
+        </div>
       </section>
 
       <section className="ami-card mt-5 px-4 py-5">

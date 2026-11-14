@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { getKaraokeSong } from "@/lib/karaoke/catalog";
 import { formatLessonDuration, listCatalogSongs, searchSongs } from "@/lib/sing/catalog";
 import {
   loadPracticeHistory,
@@ -44,7 +45,8 @@ function SongCard({
   progress?: SingProgress;
   saved?: boolean;
 }) {
-  const ready = canPlayAudio(song);
+  const karaoke = Boolean(getKaraokeSong(song.id));
+  const ready = canPlayAudio(song) || karaoke;
   const href = `/sing/${song.id}`;
   return (
     <li>
@@ -53,6 +55,7 @@ function SongCard({
           <div>
             <p className="quiet-label">
               {song.difficulty} · {song.vocalType} · {song.category}
+              {karaoke ? " · karaoke" : ""}
             </p>
             <p className="mt-1 font-display text-xl text-ink" lang="vi">
               {song.title}
@@ -73,7 +76,7 @@ function SongCard({
                 ready ? "bg-coral/15 text-coral" : "bg-soft text-ink/50"
               }`}
             >
-              {availabilityLabel(song)}
+              {karaoke ? "Karaoke ready" : availabilityLabel(song)}
             </span>
             {progress?.modesCompleted?.length ? (
               <span className="text-[11px] text-ink/40">

@@ -14,6 +14,7 @@ Built on ÁMi Sing. Playback never re-runs AI — only approved `KaraokeSong` JS
 `src/lib/karaoke/pipeline.ts` — Demucs → WhisperX (preserve verified lyrics) → LLM enrich → flag uncertain → persist JSON.
 
 ## Try it
-1. `/sing/xin-chao-moi-ngay` — bilingual player  
-2. `/sing/admin/align/xin-chao-moi-ngay` — timeline edit + dry-run job  
-3. Fixture: `src/lib/karaoke/fixtures/xin-chao-bilingual.ts`
+1. `/sing/xin-chao-moi-ngay` — bilingual player (original demo)  
+2. `/sing/ngay-mai-nguoi-ta-lay-chong` · `/sing/hat-mua-vuong-van` — licensed free-to-use masters + energy-aligned karaoke JSON  
+3. Admin align: `/sing/admin/align/<songId>`  
+4. Fixtures: `src/lib/karaoke/fixtures/*.json` (timings from audio energy; refine in admin)

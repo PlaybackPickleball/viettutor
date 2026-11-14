@@ -1,0 +1,2939 @@
+{
+  "id": "ngay-mai-nguoi-ta-lay-chong",
+  "title": "Ngày Mai Người Ta Lấy Chồng",
+  "artist": "Thành Đạt",
+  "language": "vi",
+  "audioUrl": "/sing/ngay-mai-nguoi-ta-lay-chong.mp3",
+  "durationMs": 420362,
+  "lines": [
+    {
+      "id": "l0",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 4950,
+      "endMs": 8550,
+      "tokens": [
+        {
+          "id": "t0-0",
+          "lineId": "l0",
+          "text": "Ngày",
+          "startMs": 4950,
+          "endMs": 5550,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-1",
+          "lineId": "l0",
+          "text": "mai",
+          "startMs": 5550,
+          "endMs": 6150,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-2",
+          "lineId": "l0",
+          "text": "người",
+          "startMs": 6150,
+          "endMs": 6750,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-3",
+          "lineId": "l0",
+          "text": "ta",
+          "startMs": 6750,
+          "endMs": 7350,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-4",
+          "lineId": "l0",
+          "text": "lấy",
+          "startMs": 7350,
+          "endMs": 7950,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t0-5",
+          "lineId": "l0",
+          "text": "chồng",
+          "startMs": 7950,
+          "endMs": 8550,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 0,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l1",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Còn anh thì đứng nhìn theo",
+      "translationEn": "While I stand watching",
+      "startMs": 9000,
+      "endMs": 10350,
+      "tokens": [
+        {
+          "id": "t1-0",
+          "lineId": "l1",
+          "text": "Còn",
+          "startMs": 9000,
+          "endMs": 9225,
+          "contextualEnglish": "while/still",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-1",
+          "lineId": "l1",
+          "text": "anh",
+          "startMs": 9225,
+          "endMs": 9450,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-2",
+          "lineId": "l1",
+          "text": "thì",
+          "startMs": 9450,
+          "endMs": 9675,
+          "contextualEnglish": "then",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-3",
+          "lineId": "l1",
+          "text": "đứng",
+          "startMs": 9675,
+          "endMs": 9900,
+          "contextualEnglish": "stand",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-4",
+          "lineId": "l1",
+          "text": "nhìn",
+          "startMs": 9900,
+          "endMs": 10125,
+          "contextualEnglish": "look",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t1-5",
+          "lineId": "l1",
+          "text": "theo",
+          "startMs": 10125,
+          "endMs": 10350,
+          "contextualEnglish": "after",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 1,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l2",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Bao nhiêu yêu thương ngày nào",
+      "translationEn": "All the love from those days",
+      "startMs": 12150,
+      "endMs": 15350,
+      "tokens": [
+        {
+          "id": "t2-0",
+          "lineId": "l2",
+          "text": "Bao",
+          "startMs": 12150,
+          "endMs": 12683,
+          "contextualEnglish": "how many",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-1",
+          "lineId": "l2",
+          "text": "nhiêu",
+          "startMs": 12683,
+          "endMs": 13217,
+          "contextualEnglish": "much",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-2",
+          "lineId": "l2",
+          "text": "yêu",
+          "startMs": 13217,
+          "endMs": 13750,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-3",
+          "lineId": "l2",
+          "text": "thương",
+          "startMs": 13750,
+          "endMs": 14283,
+          "contextualEnglish": "cherish",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-4",
+          "lineId": "l2",
+          "text": "ngày",
+          "startMs": 14283,
+          "endMs": 14817,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t2-5",
+          "lineId": "l2",
+          "text": "nào",
+          "startMs": 14817,
+          "endMs": 15350,
+          "contextualEnglish": "which",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 2,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l3",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Giờ đây chỉ còn trong nhớ",
+      "translationEn": "Now lives only in memory",
+      "startMs": 15350,
+      "endMs": 18550,
+      "tokens": [
+        {
+          "id": "t3-0",
+          "lineId": "l3",
+          "text": "Giờ",
+          "startMs": 15350,
+          "endMs": 15883,
+          "contextualEnglish": "now",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-1",
+          "lineId": "l3",
+          "text": "đây",
+          "startMs": 15883,
+          "endMs": 16417,
+          "contextualEnglish": "here",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-2",
+          "lineId": "l3",
+          "text": "chỉ",
+          "startMs": 16417,
+          "endMs": 16950,
+          "contextualEnglish": "only",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-3",
+          "lineId": "l3",
+          "text": "còn",
+          "startMs": 16950,
+          "endMs": 17483,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-4",
+          "lineId": "l3",
+          "text": "trong",
+          "startMs": 17483,
+          "endMs": 18017,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t3-5",
+          "lineId": "l3",
+          "text": "nhớ",
+          "startMs": 18017,
+          "endMs": 18550,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 3,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l4",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Người ta hạnh phúc bên ai",
+      "translationEn": "They are happy with someone",
+      "startMs": 18550,
+      "endMs": 21750,
+      "tokens": [
+        {
+          "id": "t4-0",
+          "lineId": "l4",
+          "text": "Người",
+          "startMs": 18550,
+          "endMs": 19083,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-1",
+          "lineId": "l4",
+          "text": "ta",
+          "startMs": 19083,
+          "endMs": 19617,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-2",
+          "lineId": "l4",
+          "text": "hạnh",
+          "startMs": 19617,
+          "endMs": 20150,
+          "contextualEnglish": "happiness",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-3",
+          "lineId": "l4",
+          "text": "phúc",
+          "startMs": 20150,
+          "endMs": 20683,
+          "contextualEnglish": "blessed",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-4",
+          "lineId": "l4",
+          "text": "bên",
+          "startMs": 20683,
+          "endMs": 21217,
+          "contextualEnglish": "beside",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t4-5",
+          "lineId": "l4",
+          "text": "ai",
+          "startMs": 21217,
+          "endMs": 21750,
+          "contextualEnglish": "who",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 4,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l5",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Còn anh lặng lẽ một mình",
+      "translationEn": "And I am quietly alone",
+      "startMs": 21750,
+      "endMs": 24950,
+      "tokens": [
+        {
+          "id": "t5-0",
+          "lineId": "l5",
+          "text": "Còn",
+          "startMs": 21750,
+          "endMs": 22283,
+          "contextualEnglish": "while/still",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-1",
+          "lineId": "l5",
+          "text": "anh",
+          "startMs": 22283,
+          "endMs": 22817,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-2",
+          "lineId": "l5",
+          "text": "lặng",
+          "startMs": 22817,
+          "endMs": 23350,
+          "contextualEnglish": "silent",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-3",
+          "lineId": "l5",
+          "text": "lẽ",
+          "startMs": 23350,
+          "endMs": 23883,
+          "contextualEnglish": "quietly",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-4",
+          "lineId": "l5",
+          "text": "một",
+          "startMs": 23883,
+          "endMs": 24417,
+          "contextualEnglish": "one",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t5-5",
+          "lineId": "l5",
+          "text": "mình",
+          "startMs": 24417,
+          "endMs": 24950,
+          "contextualEnglish": "we/self",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 5,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l6",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 24950,
+      "endMs": 28150,
+      "tokens": [
+        {
+          "id": "t6-0",
+          "lineId": "l6",
+          "text": "Ngày",
+          "startMs": 24950,
+          "endMs": 25483,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-1",
+          "lineId": "l6",
+          "text": "mai",
+          "startMs": 25483,
+          "endMs": 26017,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-2",
+          "lineId": "l6",
+          "text": "người",
+          "startMs": 26017,
+          "endMs": 26550,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-3",
+          "lineId": "l6",
+          "text": "ta",
+          "startMs": 26550,
+          "endMs": 27083,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-4",
+          "lineId": "l6",
+          "text": "lấy",
+          "startMs": 27083,
+          "endMs": 27617,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t6-5",
+          "lineId": "l6",
+          "text": "chồng",
+          "startMs": 27617,
+          "endMs": 28150,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 6,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l7",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh biết phải làm sao đây",
+      "translationEn": "I don't know what to do",
+      "startMs": 28150,
+      "endMs": 31350,
+      "tokens": [
+        {
+          "id": "t7-0",
+          "lineId": "l7",
+          "text": "Anh",
+          "startMs": 28150,
+          "endMs": 28683,
+          "contextualEnglish": "I (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-1",
+          "lineId": "l7",
+          "text": "biết",
+          "startMs": 28683,
+          "endMs": 29217,
+          "contextualEnglish": "know",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-2",
+          "lineId": "l7",
+          "text": "phải",
+          "startMs": 29217,
+          "endMs": 29750,
+          "contextualEnglish": "must",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-3",
+          "lineId": "l7",
+          "text": "làm",
+          "startMs": 29750,
+          "endMs": 30283,
+          "contextualEnglish": "do",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-4",
+          "lineId": "l7",
+          "text": "sao",
+          "startMs": 30283,
+          "endMs": 30817,
+          "contextualEnglish": "how",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t7-5",
+          "lineId": "l7",
+          "text": "đây",
+          "startMs": 30817,
+          "endMs": 31350,
+          "contextualEnglish": "here",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 7,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l8",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Xin giữ trong tim một lời",
+      "translationEn": "Keep one word in my heart",
+      "startMs": 31350,
+      "endMs": 34550,
+      "tokens": [
+        {
+          "id": "t8-0",
+          "lineId": "l8",
+          "text": "Xin",
+          "startMs": 31350,
+          "endMs": 31883,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-1",
+          "lineId": "l8",
+          "text": "giữ",
+          "startMs": 31883,
+          "endMs": 32417,
+          "contextualEnglish": "keep",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-2",
+          "lineId": "l8",
+          "text": "trong",
+          "startMs": 32417,
+          "endMs": 32950,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-3",
+          "lineId": "l8",
+          "text": "tim",
+          "startMs": 32950,
+          "endMs": 33483,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-4",
+          "lineId": "l8",
+          "text": "một",
+          "startMs": 33483,
+          "endMs": 34017,
+          "contextualEnglish": "one",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t8-5",
+          "lineId": "l8",
+          "text": "lời",
+          "startMs": 34017,
+          "endMs": 34550,
+          "contextualEnglish": "word",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 8,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l9",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Dù mai cách xa ngàn trùng",
+      "translationEn": "Though tomorrow we're far apart",
+      "startMs": 34550,
+      "endMs": 37750,
+      "tokens": [
+        {
+          "id": "t9-0",
+          "lineId": "l9",
+          "text": "Dù",
+          "startMs": 34550,
+          "endMs": 35083,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-1",
+          "lineId": "l9",
+          "text": "mai",
+          "startMs": 35083,
+          "endMs": 35617,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-2",
+          "lineId": "l9",
+          "text": "cách",
+          "startMs": 35617,
+          "endMs": 36150,
+          "contextualEnglish": "gap",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-3",
+          "lineId": "l9",
+          "text": "xa",
+          "startMs": 36150,
+          "endMs": 36683,
+          "contextualEnglish": "far",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-4",
+          "lineId": "l9",
+          "text": "ngàn",
+          "startMs": 36683,
+          "endMs": 37217,
+          "contextualEnglish": "thousand",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t9-5",
+          "lineId": "l9",
+          "text": "trùng",
+          "startMs": 37217,
+          "endMs": 37750,
+          "contextualEnglish": "layers",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 9,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l10",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vẫn mong người luôn bình yên",
+      "translationEn": "Still wishing you peace",
+      "startMs": 37750,
+      "endMs": 40950,
+      "tokens": [
+        {
+          "id": "t10-0",
+          "lineId": "l10",
+          "text": "Vẫn",
+          "startMs": 37750,
+          "endMs": 38283,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-1",
+          "lineId": "l10",
+          "text": "mong",
+          "startMs": 38283,
+          "endMs": 38817,
+          "contextualEnglish": "hope",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-2",
+          "lineId": "l10",
+          "text": "người",
+          "startMs": 38817,
+          "endMs": 39350,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-3",
+          "lineId": "l10",
+          "text": "luôn",
+          "startMs": 39350,
+          "endMs": 39883,
+          "contextualEnglish": "always",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-4",
+          "lineId": "l10",
+          "text": "bình",
+          "startMs": 39883,
+          "endMs": 40417,
+          "contextualEnglish": "peace",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t10-5",
+          "lineId": "l10",
+          "text": "yên",
+          "startMs": 40417,
+          "endMs": 40950,
+          "contextualEnglish": "peaceful",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 10,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l11",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Dù anh không thuộc về nhau",
+      "translationEn": "Even if we don't belong together",
+      "startMs": 41400,
+      "endMs": 44550,
+      "tokens": [
+        {
+          "id": "t11-0",
+          "lineId": "l11",
+          "text": "Dù",
+          "startMs": 41400,
+          "endMs": 41925,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-1",
+          "lineId": "l11",
+          "text": "anh",
+          "startMs": 41925,
+          "endMs": 42450,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-2",
+          "lineId": "l11",
+          "text": "không",
+          "startMs": 42450,
+          "endMs": 42975,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-3",
+          "lineId": "l11",
+          "text": "thuộc",
+          "startMs": 42975,
+          "endMs": 43500,
+          "contextualEnglish": "belong",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-4",
+          "lineId": "l11",
+          "text": "về",
+          "startMs": 43500,
+          "endMs": 44025,
+          "contextualEnglish": "toward",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t11-5",
+          "lineId": "l11",
+          "text": "nhau",
+          "startMs": 44025,
+          "endMs": 44550,
+          "contextualEnglish": "each other",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 11,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l12",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 45000,
+      "endMs": 48150,
+      "tokens": [
+        {
+          "id": "t12-0",
+          "lineId": "l12",
+          "text": "Ngày",
+          "startMs": 45000,
+          "endMs": 45525,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-1",
+          "lineId": "l12",
+          "text": "mai",
+          "startMs": 45525,
+          "endMs": 46050,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-2",
+          "lineId": "l12",
+          "text": "người",
+          "startMs": 46050,
+          "endMs": 46575,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-3",
+          "lineId": "l12",
+          "text": "ta",
+          "startMs": 46575,
+          "endMs": 47100,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-4",
+          "lineId": "l12",
+          "text": "lấy",
+          "startMs": 47100,
+          "endMs": 47625,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t12-5",
+          "lineId": "l12",
+          "text": "chồng",
+          "startMs": 47625,
+          "endMs": 48150,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 12,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l13",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Mà lòng anh vẫn chưa quên",
+      "translationEn": "But my heart has not forgotten",
+      "startMs": 48600,
+      "endMs": 50850,
+      "tokens": [
+        {
+          "id": "t13-0",
+          "lineId": "l13",
+          "text": "Mà",
+          "startMs": 48600,
+          "endMs": 48975,
+          "contextualEnglish": "but",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-1",
+          "lineId": "l13",
+          "text": "lòng",
+          "startMs": 48975,
+          "endMs": 49350,
+          "contextualEnglish": "heart",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-2",
+          "lineId": "l13",
+          "text": "anh",
+          "startMs": 49350,
+          "endMs": 49725,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-3",
+          "lineId": "l13",
+          "text": "vẫn",
+          "startMs": 49725,
+          "endMs": 50100,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-4",
+          "lineId": "l13",
+          "text": "chưa",
+          "startMs": 50100,
+          "endMs": 50475,
+          "contextualEnglish": "not yet",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t13-5",
+          "lineId": "l13",
+          "text": "quên",
+          "startMs": 50475,
+          "endMs": 50850,
+          "contextualEnglish": "forget",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 13,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l14",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Những câu hẹn ước ban đầu",
+      "translationEn": "Those first promises",
+      "startMs": 52200,
+      "endMs": 55350,
+      "tokens": [
+        {
+          "id": "t14-0",
+          "lineId": "l14",
+          "text": "Những",
+          "startMs": 52200,
+          "endMs": 52725,
+          "contextualEnglish": "those",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-1",
+          "lineId": "l14",
+          "text": "câu",
+          "startMs": 52725,
+          "endMs": 53250,
+          "contextualEnglish": "sentence",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-2",
+          "lineId": "l14",
+          "text": "hẹn",
+          "startMs": 53250,
+          "endMs": 53775,
+          "contextualEnglish": "promise",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-3",
+          "lineId": "l14",
+          "text": "ước",
+          "startMs": 53775,
+          "endMs": 54300,
+          "contextualEnglish": "wish",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-4",
+          "lineId": "l14",
+          "text": "ban",
+          "startMs": 54300,
+          "endMs": 54825,
+          "contextualEnglish": "beginning",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t14-5",
+          "lineId": "l14",
+          "text": "đầu",
+          "startMs": 54825,
+          "endMs": 55350,
+          "contextualEnglish": "first",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 14,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l15",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Giờ chỉ còn lại kỷ niệm",
+      "translationEn": "Now only memories remain",
+      "startMs": 55800,
+      "endMs": 59175,
+      "tokens": [
+        {
+          "id": "t15-0",
+          "lineId": "l15",
+          "text": "Giờ",
+          "startMs": 55800,
+          "endMs": 56362,
+          "contextualEnglish": "now",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-1",
+          "lineId": "l15",
+          "text": "chỉ",
+          "startMs": 56362,
+          "endMs": 56925,
+          "contextualEnglish": "only",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-2",
+          "lineId": "l15",
+          "text": "còn",
+          "startMs": 56925,
+          "endMs": 57488,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-3",
+          "lineId": "l15",
+          "text": "lại",
+          "startMs": 57488,
+          "endMs": 58050,
+          "contextualEnglish": "again",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-4",
+          "lineId": "l15",
+          "text": "kỷ",
+          "startMs": 58050,
+          "endMs": 58612,
+          "contextualEnglish": "memory",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t15-5",
+          "lineId": "l15",
+          "text": "niệm",
+          "startMs": 58612,
+          "endMs": 59175,
+          "contextualEnglish": "remembrance",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 15,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l16",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Đường về không còn chung lối",
+      "translationEn": "Our paths no longer meet",
+      "startMs": 59175,
+      "endMs": 62550,
+      "tokens": [
+        {
+          "id": "t16-0",
+          "lineId": "l16",
+          "text": "Đường",
+          "startMs": 59175,
+          "endMs": 59738,
+          "contextualEnglish": "road",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-1",
+          "lineId": "l16",
+          "text": "về",
+          "startMs": 59738,
+          "endMs": 60300,
+          "contextualEnglish": "toward",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-2",
+          "lineId": "l16",
+          "text": "không",
+          "startMs": 60300,
+          "endMs": 60862,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-3",
+          "lineId": "l16",
+          "text": "còn",
+          "startMs": 60862,
+          "endMs": 61425,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-4",
+          "lineId": "l16",
+          "text": "chung",
+          "startMs": 61425,
+          "endMs": 61988,
+          "contextualEnglish": "shared",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t16-5",
+          "lineId": "l16",
+          "text": "lối",
+          "startMs": 61988,
+          "endMs": 62550,
+          "contextualEnglish": "path",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 16,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l17",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Chỉ còn bóng tối và mưa",
+      "translationEn": "Only darkness and rain remain",
+      "startMs": 63450,
+      "endMs": 66600,
+      "tokens": [
+        {
+          "id": "t17-0",
+          "lineId": "l17",
+          "text": "Chỉ",
+          "startMs": 63450,
+          "endMs": 63975,
+          "contextualEnglish": "only",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-1",
+          "lineId": "l17",
+          "text": "còn",
+          "startMs": 63975,
+          "endMs": 64500,
+          "contextualEnglish": "remain",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-2",
+          "lineId": "l17",
+          "text": "bóng",
+          "startMs": 64500,
+          "endMs": 65025,
+          "contextualEnglish": "shadow",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-3",
+          "lineId": "l17",
+          "text": "tối",
+          "startMs": 65025,
+          "endMs": 65550,
+          "contextualEnglish": "dark",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-4",
+          "lineId": "l17",
+          "text": "và",
+          "startMs": 65550,
+          "endMs": 66075,
+          "contextualEnglish": "and",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t17-5",
+          "lineId": "l17",
+          "text": "mưa",
+          "startMs": 66075,
+          "endMs": 66600,
+          "contextualEnglish": "rain",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 17,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l18",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 66600,
+      "endMs": 69750,
+      "tokens": [
+        {
+          "id": "t18-0",
+          "lineId": "l18",
+          "text": "Ngày",
+          "startMs": 66600,
+          "endMs": 67125,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-1",
+          "lineId": "l18",
+          "text": "mai",
+          "startMs": 67125,
+          "endMs": 67650,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-2",
+          "lineId": "l18",
+          "text": "người",
+          "startMs": 67650,
+          "endMs": 68175,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-3",
+          "lineId": "l18",
+          "text": "ta",
+          "startMs": 68175,
+          "endMs": 68700,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-4",
+          "lineId": "l18",
+          "text": "lấy",
+          "startMs": 68700,
+          "endMs": 69225,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t18-5",
+          "lineId": "l18",
+          "text": "chồng",
+          "startMs": 69225,
+          "endMs": 69750,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 18,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l19",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh chúc người luôn hạnh phúc",
+      "translationEn": "I wish you lasting happiness",
+      "startMs": 70650,
+      "endMs": 73862,
+      "tokens": [
+        {
+          "id": "t19-0",
+          "lineId": "l19",
+          "text": "Anh",
+          "startMs": 70650,
+          "endMs": 71185,
+          "contextualEnglish": "I (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-1",
+          "lineId": "l19",
+          "text": "chúc",
+          "startMs": 71185,
+          "endMs": 71721,
+          "contextualEnglish": "wish",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-2",
+          "lineId": "l19",
+          "text": "người",
+          "startMs": 71721,
+          "endMs": 72256,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-3",
+          "lineId": "l19",
+          "text": "luôn",
+          "startMs": 72256,
+          "endMs": 72791,
+          "contextualEnglish": "always",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-4",
+          "lineId": "l19",
+          "text": "hạnh",
+          "startMs": 72791,
+          "endMs": 73327,
+          "contextualEnglish": "happiness",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t19-5",
+          "lineId": "l19",
+          "text": "phúc",
+          "startMs": 73327,
+          "endMs": 73862,
+          "contextualEnglish": "blessed",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 19,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l20",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Dù nước mắt vẫn âm thầm",
+      "translationEn": "Though tears still fall quietly",
+      "startMs": 73862,
+      "endMs": 77074,
+      "tokens": [
+        {
+          "id": "t20-0",
+          "lineId": "l20",
+          "text": "Dù",
+          "startMs": 73862,
+          "endMs": 74397,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-1",
+          "lineId": "l20",
+          "text": "nước",
+          "startMs": 74397,
+          "endMs": 74933,
+          "contextualEnglish": "Though tears still fall quietly",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-2",
+          "lineId": "l20",
+          "text": "mắt",
+          "startMs": 74933,
+          "endMs": 75468,
+          "contextualEnglish": "Though tears still fall quietly",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-3",
+          "lineId": "l20",
+          "text": "vẫn",
+          "startMs": 75468,
+          "endMs": 76003,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-4",
+          "lineId": "l20",
+          "text": "âm",
+          "startMs": 76003,
+          "endMs": 76539,
+          "contextualEnglish": "quietly",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t20-5",
+          "lineId": "l20",
+          "text": "thầm",
+          "startMs": 76539,
+          "endMs": 77074,
+          "contextualEnglish": "silently",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 20,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l21",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vẫn cười để thấy em vui",
+      "translationEn": "I smile to see you happy",
+      "startMs": 77074,
+      "endMs": 80286,
+      "tokens": [
+        {
+          "id": "t21-0",
+          "lineId": "l21",
+          "text": "Vẫn",
+          "startMs": 77074,
+          "endMs": 77609,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-1",
+          "lineId": "l21",
+          "text": "cười",
+          "startMs": 77609,
+          "endMs": 78145,
+          "contextualEnglish": "smile",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-2",
+          "lineId": "l21",
+          "text": "để",
+          "startMs": 78145,
+          "endMs": 78680,
+          "contextualEnglish": "to",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-3",
+          "lineId": "l21",
+          "text": "thấy",
+          "startMs": 78680,
+          "endMs": 79216,
+          "contextualEnglish": "see",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-4",
+          "lineId": "l21",
+          "text": "em",
+          "startMs": 79216,
+          "endMs": 79751,
+          "contextualEnglish": "you (female)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t21-5",
+          "lineId": "l21",
+          "text": "vui",
+          "startMs": 79751,
+          "endMs": 80286,
+          "contextualEnglish": "happy",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 21,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l22",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Mai này nếu có nhớ anh",
+      "translationEn": "If someday you remember me",
+      "startMs": 80286,
+      "endMs": 83498,
+      "tokens": [
+        {
+          "id": "t22-0",
+          "lineId": "l22",
+          "text": "Mai",
+          "startMs": 80286,
+          "endMs": 80822,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-1",
+          "lineId": "l22",
+          "text": "này",
+          "startMs": 80822,
+          "endMs": 81357,
+          "contextualEnglish": "this",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-2",
+          "lineId": "l22",
+          "text": "nếu",
+          "startMs": 81357,
+          "endMs": 81892,
+          "contextualEnglish": "if",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-3",
+          "lineId": "l22",
+          "text": "có",
+          "startMs": 81892,
+          "endMs": 82428,
+          "contextualEnglish": "have",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-4",
+          "lineId": "l22",
+          "text": "nhớ",
+          "startMs": 82428,
+          "endMs": 82963,
+          "contextualEnglish": "remember",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t22-5",
+          "lineId": "l22",
+          "text": "anh",
+          "startMs": 82963,
+          "endMs": 83498,
+          "contextualEnglish": "I/you (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 22,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l23",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Thì hãy nghĩ như một giấc mơ",
+      "translationEn": "Think of it as a dream",
+      "startMs": 83498,
+      "endMs": 86710,
+      "tokens": [
+        {
+          "id": "t23-0",
+          "lineId": "l23",
+          "text": "Thì",
+          "startMs": 83498,
+          "endMs": 83957,
+          "contextualEnglish": "then",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-1",
+          "lineId": "l23",
+          "text": "hãy",
+          "startMs": 83957,
+          "endMs": 84416,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-2",
+          "lineId": "l23",
+          "text": "nghĩ",
+          "startMs": 84416,
+          "endMs": 84875,
+          "contextualEnglish": "think",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-3",
+          "lineId": "l23",
+          "text": "như",
+          "startMs": 84875,
+          "endMs": 85334,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-4",
+          "lineId": "l23",
+          "text": "một",
+          "startMs": 85334,
+          "endMs": 85793,
+          "contextualEnglish": "one",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-5",
+          "lineId": "l23",
+          "text": "giấc",
+          "startMs": 85793,
+          "endMs": 86251,
+          "contextualEnglish": "dream",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t23-6",
+          "lineId": "l23",
+          "text": "mơ",
+          "startMs": 86251,
+          "endMs": 86710,
+          "contextualEnglish": "dream",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 23,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l24",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 86710,
+      "endMs": 89922,
+      "tokens": [
+        {
+          "id": "t24-0",
+          "lineId": "l24",
+          "text": "Ngày",
+          "startMs": 86710,
+          "endMs": 87246,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-1",
+          "lineId": "l24",
+          "text": "mai",
+          "startMs": 87246,
+          "endMs": 87781,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-2",
+          "lineId": "l24",
+          "text": "người",
+          "startMs": 87781,
+          "endMs": 88316,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-3",
+          "lineId": "l24",
+          "text": "ta",
+          "startMs": 88316,
+          "endMs": 88852,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-4",
+          "lineId": "l24",
+          "text": "lấy",
+          "startMs": 88852,
+          "endMs": 89387,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t24-5",
+          "lineId": "l24",
+          "text": "chồng",
+          "startMs": 89387,
+          "endMs": 89922,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 24,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l25",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh xin được nhìn lần cuối",
+      "translationEn": "Let me look one last time",
+      "startMs": 89922,
+      "endMs": 93134,
+      "tokens": [
+        {
+          "id": "t25-0",
+          "lineId": "l25",
+          "text": "Anh",
+          "startMs": 89922,
+          "endMs": 90458,
+          "contextualEnglish": "I (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-1",
+          "lineId": "l25",
+          "text": "xin",
+          "startMs": 90458,
+          "endMs": 90993,
+          "contextualEnglish": "please",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-2",
+          "lineId": "l25",
+          "text": "được",
+          "startMs": 90993,
+          "endMs": 91528,
+          "contextualEnglish": "able",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-3",
+          "lineId": "l25",
+          "text": "nhìn",
+          "startMs": 91528,
+          "endMs": 92064,
+          "contextualEnglish": "look",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-4",
+          "lineId": "l25",
+          "text": "lần",
+          "startMs": 92064,
+          "endMs": 92599,
+          "contextualEnglish": "time",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t25-5",
+          "lineId": "l25",
+          "text": "cuối",
+          "startMs": 92599,
+          "endMs": 93134,
+          "contextualEnglish": "last",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 25,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l26",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Rồi quay bước đi thật xa",
+      "translationEn": "Then I will walk far away",
+      "startMs": 93134,
+      "endMs": 96347,
+      "tokens": [
+        {
+          "id": "t26-0",
+          "lineId": "l26",
+          "text": "Rồi",
+          "startMs": 93134,
+          "endMs": 93670,
+          "contextualEnglish": "then",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-1",
+          "lineId": "l26",
+          "text": "quay",
+          "startMs": 93670,
+          "endMs": 94205,
+          "contextualEnglish": "turn",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-2",
+          "lineId": "l26",
+          "text": "bước",
+          "startMs": 94205,
+          "endMs": 94741,
+          "contextualEnglish": "step",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-3",
+          "lineId": "l26",
+          "text": "đi",
+          "startMs": 94741,
+          "endMs": 95276,
+          "contextualEnglish": "go",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-4",
+          "lineId": "l26",
+          "text": "thật",
+          "startMs": 95276,
+          "endMs": 95811,
+          "contextualEnglish": "really",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t26-5",
+          "lineId": "l26",
+          "text": "xa",
+          "startMs": 95811,
+          "endMs": 96347,
+          "contextualEnglish": "far",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 26,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l27",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Để người yên vui bên đó",
+      "translationEn": "So you can rest happy there",
+      "startMs": 96347,
+      "endMs": 99559,
+      "tokens": [
+        {
+          "id": "t27-0",
+          "lineId": "l27",
+          "text": "Để",
+          "startMs": 96347,
+          "endMs": 96882,
+          "contextualEnglish": "so that",
+          "toneMetadata": {
+            "label": "hỏi"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-1",
+          "lineId": "l27",
+          "text": "người",
+          "startMs": 96882,
+          "endMs": 97417,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-2",
+          "lineId": "l27",
+          "text": "yên",
+          "startMs": 97417,
+          "endMs": 97953,
+          "contextualEnglish": "peaceful",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-3",
+          "lineId": "l27",
+          "text": "vui",
+          "startMs": 97953,
+          "endMs": 98488,
+          "contextualEnglish": "happy",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-4",
+          "lineId": "l27",
+          "text": "bên",
+          "startMs": 98488,
+          "endMs": 99023,
+          "contextualEnglish": "beside",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t27-5",
+          "lineId": "l27",
+          "text": "đó",
+          "startMs": 99023,
+          "endMs": 99559,
+          "contextualEnglish": "there",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 27,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l28",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Tình yêu dù không thành câu",
+      "translationEn": "Even if love is unfinished",
+      "startMs": 99559,
+      "endMs": 102771,
+      "tokens": [
+        {
+          "id": "t28-0",
+          "lineId": "l28",
+          "text": "Tình",
+          "startMs": 99559,
+          "endMs": 100094,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-1",
+          "lineId": "l28",
+          "text": "yêu",
+          "startMs": 100094,
+          "endMs": 100629,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-2",
+          "lineId": "l28",
+          "text": "dù",
+          "startMs": 100629,
+          "endMs": 101165,
+          "contextualEnglish": "even if",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-3",
+          "lineId": "l28",
+          "text": "không",
+          "startMs": 101165,
+          "endMs": 101700,
+          "contextualEnglish": "not",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-4",
+          "lineId": "l28",
+          "text": "thành",
+          "startMs": 101700,
+          "endMs": 102235,
+          "contextualEnglish": "become",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t28-5",
+          "lineId": "l28",
+          "text": "câu",
+          "startMs": 102235,
+          "endMs": 102771,
+          "contextualEnglish": "sentence",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 28,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l29",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Vẫn đẹp trong ký ức dài",
+      "translationEn": "It stays beautiful in memory",
+      "startMs": 102771,
+      "endMs": 105983,
+      "tokens": [
+        {
+          "id": "t29-0",
+          "lineId": "l29",
+          "text": "Vẫn",
+          "startMs": 102771,
+          "endMs": 103306,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-1",
+          "lineId": "l29",
+          "text": "đẹp",
+          "startMs": 103306,
+          "endMs": 103841,
+          "contextualEnglish": "beautiful",
+          "toneMetadata": {
+            "label": "nặng"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-2",
+          "lineId": "l29",
+          "text": "trong",
+          "startMs": 103841,
+          "endMs": 104377,
+          "contextualEnglish": "in",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-3",
+          "lineId": "l29",
+          "text": "ký",
+          "startMs": 104377,
+          "endMs": 104912,
+          "contextualEnglish": "memory",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-4",
+          "lineId": "l29",
+          "text": "ức",
+          "startMs": 104912,
+          "endMs": 105447,
+          "contextualEnglish": "memory",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t29-5",
+          "lineId": "l29",
+          "text": "dài",
+          "startMs": 105447,
+          "endMs": 105983,
+          "contextualEnglish": "long",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 29,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l30",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Ngày mai người ta lấy chồng",
+      "translationEn": "Tomorrow they get married",
+      "startMs": 105983,
+      "endMs": 109195,
+      "tokens": [
+        {
+          "id": "t30-0",
+          "lineId": "l30",
+          "text": "Ngày",
+          "startMs": 105983,
+          "endMs": 106518,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-1",
+          "lineId": "l30",
+          "text": "mai",
+          "startMs": 106518,
+          "endMs": 107053,
+          "contextualEnglish": "tomorrow",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-2",
+          "lineId": "l30",
+          "text": "người",
+          "startMs": 107053,
+          "endMs": 107589,
+          "contextualEnglish": "person",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-3",
+          "lineId": "l30",
+          "text": "ta",
+          "startMs": 107589,
+          "endMs": 108124,
+          "contextualEnglish": "they",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-4",
+          "lineId": "l30",
+          "text": "lấy",
+          "startMs": 108124,
+          "endMs": 108659,
+          "contextualEnglish": "take/get",
+          "toneMetadata": {
+            "label": "sắc"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t30-5",
+          "lineId": "l30",
+          "text": "chồng",
+          "startMs": 108659,
+          "endMs": 109195,
+          "contextualEnglish": "husband",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 30,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    },
+    {
+      "id": "l31",
+      "songId": "ngay-mai-nguoi-ta-lay-chong",
+      "textVi": "Anh vẫn yêu như ngày đầu",
+      "translationEn": "I still love as at the start",
+      "startMs": 109195,
+      "endMs": 112407,
+      "tokens": [
+        {
+          "id": "t31-0",
+          "lineId": "l31",
+          "text": "Anh",
+          "startMs": 109195,
+          "endMs": 109730,
+          "contextualEnglish": "I (male)",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-1",
+          "lineId": "l31",
+          "text": "vẫn",
+          "startMs": 109730,
+          "endMs": 110266,
+          "contextualEnglish": "still",
+          "toneMetadata": {
+            "label": "ngã"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-2",
+          "lineId": "l31",
+          "text": "yêu",
+          "startMs": 110266,
+          "endMs": 110801,
+          "contextualEnglish": "love",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-3",
+          "lineId": "l31",
+          "text": "như",
+          "startMs": 110801,
+          "endMs": 111336,
+          "contextualEnglish": "like",
+          "toneMetadata": {
+            "label": "ngang"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-4",
+          "lineId": "l31",
+          "text": "ngày",
+          "startMs": 111336,
+          "endMs": 111872,
+          "contextualEnglish": "day",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        },
+        {
+          "id": "t31-5",
+          "lineId": "l31",
+          "text": "đầu",
+          "startMs": 111872,
+          "endMs": 112407,
+          "contextualEnglish": "first",
+          "toneMetadata": {
+            "label": "huyền"
+          },
+          "alignmentConfidence": 0.72,
+          "reviewStatus": "needs_review"
+        }
+      ],
+      "displayOrder": 31,
+      "alignmentConfidence": 0.72,
+      "reviewStatus": "needs_review"
+    }
+  ],
+  "translations": [],
+  "reviews": [],
+  "publishStatus": "approved",
+  "pipelineVersion": "energy-align-v1"
+}
