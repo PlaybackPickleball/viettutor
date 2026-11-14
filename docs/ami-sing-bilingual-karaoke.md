@@ -15,6 +15,6 @@ Built on ÁMi Sing. Playback never re-runs AI — only approved `KaraokeSong` JS
 
 ## Try it
 1. `/sing/xin-chao-moi-ngay` — bilingual player (original demo)  
-2. `/sing/ngay-mai-nguoi-ta-lay-chong` · `/sing/hat-mua-vuong-van` — licensed free-to-use masters + energy-aligned karaoke JSON  
-3. Admin align: `/sing/admin/align/<songId>`  
-4. Fixtures: `src/lib/karaoke/fixtures/*.json` (timings from audio energy; refine in admin)
+2. `/sing/ngay-mai-nguoi-ta-lay-chong` · `/sing/hat-mua-vuong-van` — licensed masters + forced-aligned karaoke JSON  
+3. Admin sync: `/sing/admin/align/<songId>` (upload, Demucs, forced align, offset, approve)  
+4. Sync guide: [`docs/ami-sing-karaoke-sync.md`](./ami-sing-karaoke-sync.md)

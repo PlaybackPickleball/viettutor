@@ -80,6 +80,14 @@ export type KaraokeSong = {
   /** Published karaoke uses only approved preprocessing output */
   publishStatus: ReviewStatus;
   pipelineVersion?: string;
+  /**
+   * Global lyric clock shift in ms.
+   * Highlight clock = audio.currentTimeMs − globalOffsetMs.
+   * Positive = lyrics were early vs audio (delay highlight).
+   */
+  globalOffsetMs?: number;
+  /** ISO time when admin approved this document */
+  approvedAt?: string;
 };
 
 export function clamp01(n: number): number {

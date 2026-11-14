@@ -3,7 +3,15 @@ import { wordFillProgress } from "./types";
 
 export function findLineAtMs(lines: LyricLine[], tMs: number): LyricLine | null {
   if (!lines.length) return null;
-  return lines.find((l) => tMs >= l.startMs && tMs < l.endMs) ?? null;
+  const hit = lines.find((l) => tMs >= l.startMs && tMs < l.endMs);
+  if (hit) return hit;
+  // Instrumental / pause: stay on last started line until the next begins
+  let last: LyricLine | null = null;
+  for (const l of lines) {
+    if (tMs >= l.startMs) last = l;
+    else break;
+  }
+  return last;
 }
 
 export function findTokenAtMs(

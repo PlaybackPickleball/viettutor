@@ -11,7 +11,8 @@ import { LocalMp3Importer } from "@/components/LocalMp3Importer";
 import { LyricTimingEditor } from "@/components/LyricTimingEditor";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
-import { getKaraokeSong } from "@/lib/karaoke/catalog";
+import { getKaraokeSong, registerKaraokeOverride } from "@/lib/karaoke/catalog";
+import type { KaraokeSong } from "@/lib/karaoke/types";
 import { getSong } from "@/lib/sing/catalog";
 import { isLocalAssetSong, isSingDevMode } from "@/lib/sing/devMode";
 import { getLocalLyrics, type LocalLyricDraft } from "@/lib/sing/localLyrics";
@@ -48,7 +49,28 @@ const SPEEDS = [0.75, 1, 1.25] as const;
 export function SingPlayerClient({ songId }: { songId: string }) {
   const router = useRouter();
   const song = useMemo(() => getSong(songId), [songId]);
-  const karaokeDoc = useMemo(() => getKaraokeSong(songId), [songId]);
+  const [karaokeDoc, setKaraokeDoc] = useState<KaraokeSong | undefined>(() =>
+    getKaraokeSong(songId),
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/sing/karaoke/${songId}`);
+        if (!res.ok) return;
+        const data = (await res.json()) as { song?: KaraokeSong };
+        if (cancelled || !data.song || data.song.publishStatus !== "approved") return;
+        registerKaraokeOverride(data.song);
+        setKaraokeDoc(data.song);
+      } catch {
+        /* keep fixture */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [songId]);
 
   const [mode, setMode] = useState<SingMode>("listen");
   const [playing, setPlaying] = useState(false);

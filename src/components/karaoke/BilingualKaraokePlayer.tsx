@@ -45,12 +45,10 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const [selected, setSelected] = useState<LyricToken | null>(null);
   const [duckUntil, setDuckUntil] = useState(0);
 
-  const tMs = secToMs(tSec);
+  /** Single timing source: audio.currentTime, shifted by approved globalOffsetMs. */
+  const tMs = secToMs(tSec) - (song.globalOffsetMs ?? 0);
   const durationSec = msToSec(song.durationMs);
-  const activeLine = useMemo(
-    () => findLineAtMs(song.lines, tMs) ?? song.lines[0] ?? null,
-    [song.lines, tMs],
-  );
+  const activeLine = useMemo(() => findLineAtMs(song.lines, tMs), [song.lines, tMs]);
 
   useEffect(() => () => stopSpeaking(), []);
 

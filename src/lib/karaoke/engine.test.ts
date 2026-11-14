@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { XIN_CHAO_BILINGUAL } from "./fixtures/xin-chao-bilingual";
-import { activeFill, findTokenAtMs, phraseGlosses } from "./engine";
+import { activeFill, findLineAtMs, findTokenAtMs, phraseGlosses } from "./engine";
 import { wordFillProgress } from "./types";
 
 describe("bilingual karaoke engine", () => {
@@ -14,6 +14,15 @@ describe("bilingual karaoke engine", () => {
   it("finds tokens by millisecond clock", () => {
     const hit = findTokenAtMs(XIN_CHAO_BILINGUAL.lines, 4000);
     expect(hit?.token.text).toBe("tiếng");
+  });
+
+  it("keeps last line during instrumental gaps", () => {
+    const lines = XIN_CHAO_BILINGUAL.lines;
+    const afterFirst = lines[0].endMs + 10;
+    const beforeSecond = lines[1].startMs - 10;
+    if (afterFirst < beforeSecond) {
+      expect(findLineAtMs(lines, afterFirst)?.id).toBe(lines[0].id);
+    }
   });
 
   it("groups phrase glosses for tiếng Việt", () => {

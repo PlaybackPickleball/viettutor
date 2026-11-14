@@ -94,10 +94,10 @@ export function SingAdminClient() {
       </p>
 
       <section className="ami-card mt-6 px-4 py-5">
-        <h2 className="font-display text-xl text-ink">Bilingual karaoke alignment</h2>
+        <h2 className="font-display text-xl text-ink">Bilingual karaoke synchronization</h2>
         <p className="mt-2 text-sm text-ink/55">
-          Edit ms boundaries, translations, and preview Learn/Sing/Practice. AI (Demucs / WhisperX /
-          LLM) stays offline — playback uses approved JSON only.
+          Upload masters, paste verified lyrics, run Demucs + forced alignment, nudge global offset,
+          and approve word timestamps once. Playback uses <code>audio.currentTime</code> only.
         </p>
         <div className="mt-4 space-y-2">
           <Link
