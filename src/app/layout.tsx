@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Fraunces, Mali } from "next/font/google";
 import { BottomNav } from "@/components/BottomNav";
+import { GetStartedGuide } from "@/components/GetStartedGuide";
 import "./globals.css";
 
 const display = Fraunces({
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${display.variable} ${sans.variable} ${hand.variable} antialiased`}>
         {children}
+        <GetStartedGuide />
         <BottomNav />
       </body>
     </html>
