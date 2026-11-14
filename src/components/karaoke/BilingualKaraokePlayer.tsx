@@ -14,6 +14,7 @@ import {
   songHasIntro,
   vocalsStartAudioSec,
 } from "@/lib/karaoke/engine";
+import { AiSayInput } from "@/components/karaoke/AiSayInput";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
 import { saveVocabItem } from "@/lib/vocab/store";
 
@@ -28,7 +29,7 @@ const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
   {
     id: "practice",
     label: "Practice",
-    hint: "Tap a word or Hear whole phrase — AI reads the full line, not word-by-word.",
+    hint: "Type or tap a word for AI to say it, or hear the whole phrase.",
   },
 ];
 
@@ -49,6 +50,7 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const [seekNonce, setSeekNonce] = useState(0);
   const [loop, setLoop] = useState<{ start: number; end: number } | null>(null);
   const [selected, setSelected] = useState<LyricToken | null>(null);
+  const [saySeed, setSaySeed] = useState("");
   const [duckUntil, setDuckUntil] = useState(0);
 
   /** Single timing source: audio.currentTime, shifted by approved globalOffsetMs. */
@@ -68,24 +70,29 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const practiceLine =
     activeLine ?? phraseForRewind(song.lines, tMs) ?? song.lines[0] ?? null;
 
-  function lineForToken(token: LyricToken): LyricLine | null {
-    return song.lines.find((l) => l.tokens.some((t) => t.id === token.id)) ?? practiceLine;
-  }
-
-  async function onTapToken(token: LyricToken) {
-    // Practice: any word tap reads the whole phrase, not word-by-word.
-    if (mode === "practice") {
-      await hearFullSentence(lineForToken(token));
-      return;
-    }
-    setSelected(token);
+  async function hearWord(text: string, opts?: { slow?: boolean }) {
+    const word = text.trim();
+    if (!word) return;
+    stopSpeaking();
     setPlaying(false);
-    setDuckUntil(Date.now() + 2500);
+    setSaySeed(word);
+    const approxMs = Math.max(1600, word.length * (opts?.slow ? 220 : 140));
+    setDuckUntil(Date.now() + approxMs);
     try {
-      await speakVietnamese(token.text);
+      await speakVietnamese(word, { slow: opts?.slow });
     } catch {
       /* */
     }
+  }
+
+  async function onTapToken(token: LyricToken) {
+    setSelected(token);
+    // Practice: word tap says that word (type box also available); phrase has its own control.
+    if (mode === "practice") {
+      await hearWord(token.text);
+      return;
+    }
+    await hearWord(token.text);
   }
 
   /** Pause the track and have AI read the whole lyric sentence (not a single word). */
@@ -351,6 +358,18 @@ export function BilingualKaraokePlayer({ song }: Props) {
                 <p className="mt-1 text-ink/60">{practiceLine.translationEn}</p>
                 <p className="mt-2 text-xs text-coral">Tap sentence · AI reads the whole line</p>
               </button>
+              <div className="mt-3">
+                <AiSayInput
+                  seedText={saySeed || selected?.text || ""}
+                  suggestions={practiceLine.tokens.map((t) => t.text)}
+                  onSpeakingChange={(busy) => {
+                    if (busy) {
+                      setPlaying(false);
+                      setDuckUntil(Date.now() + 8000);
+                    }
+                  }}
+                />
+              </div>
               <button
                 type="button"
                 className="teacher-btn-primary mt-3 w-full"
@@ -416,28 +435,53 @@ export function BilingualKaraokePlayer({ song }: Props) {
         </section>
       )}
 
-      {selected && mode === "learn" ? (
+      {mode === "learn" ? (
         <section className="ami-card mt-4 animate-pop px-4 py-4">
-          <p className="quiet-label">Vocabulary</p>
-          <p className="mt-1 font-display text-3xl text-ink" lang="vi">
-            {selected.text}
-          </p>
-          <p className="mt-1 text-lg text-ink/65">{selected.contextualEnglish}</p>
-          <p className="mt-2 text-sm text-ink/50">
-            Tone: {selected.toneMetadata.label}
-            {selected.toneMetadata.note ? ` — ${selected.toneMetadata.note}` : ""}
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <button
-              type="button"
-              className="teacher-btn-secondary py-2 text-sm"
-              onClick={() => void speakVietnamese(selected.text)}
-            >
-              Hear again
-            </button>
-            <button type="button" className="teacher-btn-amber py-2 text-sm" onClick={saveSelected}>
-              Save word
-            </button>
+          {selected ? (
+            <>
+              <p className="quiet-label">Vocabulary</p>
+              <p className="mt-1 font-display text-3xl text-ink" lang="vi">
+                {selected.text}
+              </p>
+              <p className="mt-1 text-lg text-ink/65">{selected.contextualEnglish}</p>
+              <p className="mt-2 text-sm text-ink/50">
+                Tone: {selected.toneMetadata.label}
+                {selected.toneMetadata.note ? ` — ${selected.toneMetadata.note}` : ""}
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  className="teacher-btn-secondary py-2 text-sm"
+                  onClick={() => void hearWord(selected.text)}
+                >
+                  Hear again
+                </button>
+                <button
+                  type="button"
+                  className="teacher-btn-secondary py-2 text-sm"
+                  onClick={() => void hearWord(selected.text, { slow: true })}
+                >
+                  Hear slowly
+                </button>
+                <button type="button" className="teacher-btn-amber py-2 text-sm" onClick={saveSelected}>
+                  Save word
+                </button>
+              </div>
+            </>
+          ) : (
+            <p className="quiet-label">Tap a lyric word, or type below</p>
+          )}
+          <div className="mt-4">
+            <AiSayInput
+              seedText={saySeed || selected?.text || ""}
+              suggestions={(activeLine ?? practiceLine)?.tokens.map((t) => t.text) ?? []}
+              onSpeakingChange={(busy) => {
+                if (busy) {
+                  setPlaying(false);
+                  setDuckUntil(Date.now() + 8000);
+                }
+              }}
+            />
           </div>
         </section>
       ) : null}
