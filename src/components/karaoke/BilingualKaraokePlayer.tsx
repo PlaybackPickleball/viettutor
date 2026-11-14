@@ -22,7 +22,7 @@ const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
   {
     id: "practice",
     label: "Practice",
-    hint: "Hear the full sentence with AI, then loop the track and recite it.",
+    hint: "Tap a word or Hear whole phrase — AI reads the full line, not word-by-word.",
   },
 ];
 
@@ -62,7 +62,16 @@ export function BilingualKaraokePlayer({ song }: Props) {
   const practiceLine =
     activeLine ?? phraseForRewind(song.lines, tMs) ?? song.lines[0] ?? null;
 
+  function lineForToken(token: LyricToken): LyricLine | null {
+    return song.lines.find((l) => l.tokens.some((t) => t.id === token.id)) ?? practiceLine;
+  }
+
   async function onTapToken(token: LyricToken) {
+    // Practice: any word tap reads the whole phrase, not word-by-word.
+    if (mode === "practice") {
+      await hearFullSentence(lineForToken(token));
+      return;
+    }
     setSelected(token);
     setPlaying(false);
     setDuckUntil(Date.now() + 2500);
@@ -169,6 +178,9 @@ export function BilingualKaraokePlayer({ song }: Props) {
           mode={mode}
           selectedId={selected?.id ?? null}
           onTapToken={(tok) => void onTapToken(tok)}
+          onHearPhrase={
+            mode === "practice" ? (line) => void hearFullSentence(line) : undefined
+          }
         />
       </div>
 

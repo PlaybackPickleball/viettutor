@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { KaraokeWord } from "@/components/karaoke/KaraokeWord";
 import { phraseGlosses } from "@/lib/karaoke/engine";
-import type { KaraokeMode, KaraokeSong, LyricToken } from "@/lib/karaoke/types";
+import type { KaraokeMode, KaraokeSong, LyricLine, LyricToken } from "@/lib/karaoke/types";
 import { findLineAtMs, findTokenAtMs } from "@/lib/karaoke/engine";
 
 type Props = {
@@ -12,6 +12,8 @@ type Props = {
   mode: KaraokeMode;
   selectedId: string | null;
   onTapToken: (token: LyricToken) => void;
+  /** Practice: AI reads the full lyric phrase (not a single word). */
+  onHearPhrase?: (line: LyricLine) => void;
 };
 
 export function BilingualKaraokeStage({
@@ -20,6 +22,7 @@ export function BilingualKaraokeStage({
   mode,
   selectedId,
   onTapToken,
+  onHearPhrase,
 }: Props) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const activeLine = findLineAtMs(song.lines, currentMs) ?? song.lines[0] ?? null;
@@ -77,6 +80,17 @@ export function BilingualKaraokeStage({
                 >
                   {line.translationEn}
                 </p>
+              ) : null}
+              {mode === "practice" && onHearPhrase ? (
+                <button
+                  type="button"
+                  className={`mx-auto mt-2 block rounded-xl px-3 py-1.5 text-sm ${
+                    isActive ? "bg-coral text-paper" : "bg-soft text-ink/70"
+                  }`}
+                  onClick={() => onHearPhrase(line)}
+                >
+                  Hear whole phrase (AI)
+                </button>
               ) : null}
               {isActive && activeTok && mode === "learn" ? (
                 <p className="mt-1 text-center text-[11px] text-ink/40">
