@@ -5,6 +5,22 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { continueHref, loadProgress } from "@/lib/progress";
 
+function SingIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M9 18V6l10-2v12"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="7" cy="18" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+      <circle cx="17" cy="16" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 export function BottomNav() {
   const path = usePathname();
   const [writeHref, setWriteHref] = useState("/studio/a/write");
@@ -123,22 +139,6 @@ function WriteIcon({ active }: { active?: boolean }) {
         strokeLinejoin="round"
       />
       <path d="M13.5 6.5 17.5 10.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
-    </svg>
-  );
-}
-
-function SingIcon({ active }: { active?: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M9 18V6l10-2v12"
-        stroke={active ? "#e07a4a" : "currentColor"}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="7" cy="18" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
-      <circle cx="17" cy="16" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
     </svg>
   );
 }
