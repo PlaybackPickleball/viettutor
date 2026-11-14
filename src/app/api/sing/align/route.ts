@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 import { getFixtureKaraokeSong } from "@/lib/karaoke/catalog";
-import { runForcedAlignmentJob } from "@/lib/karaoke/pipeline";
+import { runForcedAlignmentJob } from "@/lib/karaoke/pipelineServer";
 import { ensureKaraokeDirs, readApprovedSong, UPLOAD_DIR } from "@/lib/karaoke/store";
 
 export const runtime = "nodejs";
@@ -43,14 +43,24 @@ export async function POST(req: Request) {
     if (!["mp3", "wav", "m4a", "ogg"].includes(ext)) {
       return NextResponse.json({ error: "unsupported_audio" }, { status: 400 });
     }
-    audioPath = path.join(UPLOAD_DIR, `${songId}.${ext}`);
+    audioPath = path.join(/* turbopackIgnore: true */ UPLOAD_DIR, `${songId}.${ext}`);
     await fs.writeFile(audioPath, buf);
     // Serve uploads via API asset helper when not in public/
     audioUrl = `/api/sing/media/${songId}`;
   } else {
     // Prefer public catalog masters
-    const publicMp3 = path.join(process.cwd(), "public", "sing", `${songId}.mp3`);
-    const publicWav = path.join(process.cwd(), "public", "sing", `${songId}.wav`);
+    const publicMp3 = path.join(
+      /* turbopackIgnore: true */ process.cwd(),
+      "public",
+      "sing",
+      `${songId}.mp3`,
+    );
+    const publicWav = path.join(
+      /* turbopackIgnore: true */ process.cwd(),
+      "public",
+      "sing",
+      `${songId}.wav`,
+    );
     try {
       await fs.access(publicMp3);
       audioPath = publicMp3;

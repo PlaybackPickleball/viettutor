@@ -34,7 +34,9 @@ function saveDraftLocal(song: KaraokeSong) {
 
 export function AlignAdminClient({ songId }: { songId: string }) {
   const fixture = useMemo(() => getFixtureKaraokeSong(songId), [songId]);
-  const [song, setSong] = useState<KaraokeSong | null>(null);
+  const [song, setSong] = useState<KaraokeSong | null>(() =>
+    fixture ? structuredClone(fixture) : getKaraokeSong(songId) ?? null,
+  );
   const [tokenId, setTokenId] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -59,11 +61,12 @@ export function AlignAdminClient({ songId }: { songId: string }) {
         if (res.ok) {
           const data = (await res.json()) as { song?: KaraokeSong };
           if (!cancelled && data.song) {
-            setSong(local ?? data.song);
-            setTitle(data.song.title);
-            setArtist(data.song.artist);
+            const next = local ?? data.song;
+            setSong(next);
+            setTitle(next.title);
+            setArtist(next.artist);
             if (!local) {
-              setLyricsVi(data.song.lines.map((l) => l.textVi).join("\n"));
+              setLyricsVi(next.lines.map((l) => l.textVi).join("\n"));
             }
             return;
           }
@@ -71,15 +74,12 @@ export function AlignAdminClient({ songId }: { songId: string }) {
       } catch {
         /* */
       }
-      if (!cancelled) {
-        const base = local ?? fixture ?? getKaraokeSong(songId) ?? null;
-        setSong(base ? structuredClone(base) : null);
-      }
+      if (!cancelled && local) setSong(local);
     })();
     return () => {
       cancelled = true;
     };
-  }, [fixture, songId]);
+  }, [songId]);
 
   const selected: LyricToken | null = useMemo(() => {
     if (!song || !tokenId) return null;

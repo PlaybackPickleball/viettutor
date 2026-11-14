@@ -2,13 +2,13 @@ import { promises as fs } from "fs";
 import path from "path";
 import type { KaraokeSong } from "./types";
 
-const ROOT = path.join(process.cwd(), "data", "karaoke");
-export const APPROVED_DIR = path.join(ROOT, "approved");
-export const UPLOAD_DIR = path.join(ROOT, "uploads");
-export const ALIGN_DIR = path.join(ROOT, "align");
+const ROOT = path.join(/* turbopackIgnore: true */ process.cwd(), "data", "karaoke");
+export const APPROVED_DIR = path.join(/* turbopackIgnore: true */ ROOT, "approved");
+export const UPLOAD_DIR = path.join(/* turbopackIgnore: true */ ROOT, "uploads");
+export const ALIGN_DIR = path.join(/* turbopackIgnore: true */ ROOT, "align");
 
 export function approvedPath(songId: string): string {
-  return path.join(APPROVED_DIR, `${songId}.json`);
+  return path.join(/* turbopackIgnore: true */ APPROVED_DIR, `${songId}.json`);
 }
 
 export async function ensureKaraokeDirs(): Promise<void> {
