@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BEGINNER_SONG } from "@/lib/english/song";
 import { speakEnglish } from "@/lib/english/speakClient";
 import { REPLAY_LABEL, SLOW_LABEL } from "@/lib/english/a11y";
+import { HearPhrase } from "./HearPhrase";
 import { EnShell, primaryBtn, secondaryBtn } from "./EnShell";
 
 export function EnglishSing() {
@@ -25,9 +26,10 @@ export function EnglishSing() {
       <p className="text-lg">{BEGINNER_SONG.titleEn}</p>
       <p className="mt-3 text-lg">{BEGINNER_SONG.wordSync.noteVi}</p>
       <p className="mt-2 text-base">Bài hát gốc của lớp học. Không dùng bài có bản quyền.</p>
-      <p className="mt-6 font-display text-4xl" lang="en">
-        {line.en}
-      </p>
+      <div className="en-panel mt-6 p-4">
+        <HearPhrase text={line.en} size="display" />
+        <p className="mt-2 text-base">Bấm từng từ để nghe.</p>
+      </div>
       <p className="mt-2 text-xl">{line.vi}</p>
       <p className="mt-3 text-base">
         Câu {index + 1} / {BEGINNER_SONG.lines.length}

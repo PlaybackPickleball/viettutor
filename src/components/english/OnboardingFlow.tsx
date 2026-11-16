@@ -98,7 +98,7 @@ export function OnboardingFlow() {
             <fieldset className="space-y-3">
               <legend className="sr-only">Mục tiêu</legend>
               {GOALS.map((goal) => (
-                <label key={goal.id} className="flex min-h-14 items-center gap-3 rounded-2xl border-2 border-[#1b2a4a] px-4">
+                <label key={goal.id} className="flex min-h-14 items-center gap-3 en-panel px-4">
                   <input
                     type="checkbox"
                     className="h-6 w-6"
@@ -121,7 +121,7 @@ export function OnboardingFlow() {
             <fieldset className="space-y-3">
               <legend className="sr-only">Trình độ</legend>
               {LEVEL_OPTIONS.map((option) => (
-                <label key={option.id} className="flex min-h-14 items-center gap-3 rounded-2xl border-2 border-[#1b2a4a] px-4">
+                <label key={option.id} className="flex min-h-14 items-center gap-3 en-panel px-4">
                   <input
                     type="radio"
                     name="level"
@@ -146,7 +146,7 @@ export function OnboardingFlow() {
             <fieldset className="grid gap-3">
               <legend className="sr-only">Số phút</legend>
               {MINUTE_OPTIONS.map((option) => (
-                <label key={option} className="flex min-h-14 items-center gap-3 rounded-2xl border-2 border-[#1b2a4a] px-4">
+                <label key={option} className="flex min-h-14 items-center gap-3 en-panel px-4">
                   <input
                     type="radio"
                     name="minutes"

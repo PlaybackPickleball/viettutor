@@ -247,8 +247,8 @@ export function SpeakTake({ expected, lessonId, score, onContinue }: Props) {
             {phase === "recording" ? "Đang nghe…" : RECORD_LABEL}
           </button>
           {phase === "recording" ? (
-            <div className="h-3 overflow-hidden rounded-full bg-[#1b2a4a]/10" aria-hidden>
-              <div className="h-full bg-[#115e59]" style={{ width: `${Math.round(level * 100)}%` }} />
+            <div className="h-3 overflow-hidden rounded-full bg-[#1c3a2a]/10" aria-hidden>
+              <div className="h-full rounded-full bg-[var(--en-teal)]" style={{ width: `${Math.round(level * 100)}%` }} />
             </div>
           ) : null}
           {!heardModel ? <p className="text-base">Bấm Nghe lại trước khi ghi âm.</p> : null}
@@ -276,7 +276,7 @@ export function SpeakTake({ expected, lessonId, score, onContinue }: Props) {
       ) : null}
 
       {showResult && feedback ? (
-        <div className="space-y-3 rounded-2xl border-2 border-[#1b2a4a] p-4" role="status">
+        <div className="en-panel space-y-3 p-4" role="status">
           {feedback.categoryLabel && !feedback.failed ? (
             <p className="text-xl font-semibold">{feedback.categoryLabel}</p>
           ) : null}

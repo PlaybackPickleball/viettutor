@@ -62,23 +62,49 @@ export function captureEnglishTranscript(): { stop: () => Promise<string | null>
   };
 }
 
+/** Drop punctuation so a tapped token is spoken as a word. */
+export function speakableEnglish(text: string): string {
+  const cleaned = text.replace(/^[^A-Za-z0-9']+|[^A-Za-z0-9']+$/g, "");
+  return cleaned || text.trim();
+}
+
+function voicesReady(synth: SpeechSynthesis): Promise<SpeechSynthesisVoice[]> {
+  const existing = synth.getVoices();
+  if (existing.length > 0) return Promise.resolve(existing);
+  return new Promise((resolve) => {
+    const finish = () => resolve(synth.getVoices());
+    synth.addEventListener("voiceschanged", finish, { once: true });
+    window.setTimeout(finish, 400);
+  });
+}
+
 export async function speakEnglish(text: string, slow = false): Promise<"en-US" | "english" | "missing"> {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     throw new Error("Speech synthesis unavailable");
   }
   const synth = window.speechSynthesis;
+  const voices = await voicesReady(synth);
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = "en-US";
-  const voices = synth.getVoices();
   const american = voices.find((voice) => voice.lang.toLowerCase() === "en-us");
   const english = voices.find((voice) => voice.lang.toLowerCase().startsWith("en"));
   if (american) utter.voice = american;
   else if (english) utter.voice = english;
   utter.rate = replayRate(slow);
-  synth.cancel();
+  if (synth.speaking || synth.pending) {
+    synth.cancel();
+    await new Promise((resolve) => window.setTimeout(resolve, 60));
+  }
   await new Promise<void>((resolve, reject) => {
     utter.onend = () => resolve();
-    utter.onerror = () => reject(new Error("Speech failed"));
+    utter.onerror = (event) => {
+      const code = "error" in event ? String(event.error) : "";
+      if (code === "interrupted" || code === "canceled") {
+        resolve();
+        return;
+      }
+      reject(new Error("Speech failed"));
+    };
     synth.speak(utter);
   });
   if (american) return "en-US";

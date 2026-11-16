@@ -7,18 +7,18 @@ import { browserStore, loadCourse } from "@/lib/experience/store";
 import { continueTarget, loadEnglishProgress } from "@/lib/english/progress";
 import { continueHref, loadProgress } from "@/lib/progress";
 
-function SingIcon({ active }: { active?: boolean }) {
+function SingIcon({ active, accent = "#e07a4a" }: { active?: boolean; accent?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M9 18V6l10-2v12"
-        stroke={active ? "#e07a4a" : "currentColor"}
+        stroke={active ? accent : "currentColor"}
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="7" cy="18" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
-      <circle cx="17" cy="16" r="2.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+      <circle cx="7" cy="18" r="2.5" stroke={active ? accent : "currentColor"} strokeWidth="1.8" />
+      <circle cx="17" cy="16" r="2.5" stroke={active ? accent : "currentColor"} strokeWidth="1.8" />
     </svg>
   );
 }
@@ -120,10 +120,10 @@ export function BottomNav() {
               key={item.label}
               href={item.href}
               className={`flex min-w-[3.5rem] flex-col items-center gap-1 rounded-xl px-1.5 py-1.5 text-[10px] sm:min-w-[4.25rem] sm:px-2 sm:text-[11px] ${
-                active ? "text-coral" : "text-ink/45 hover:text-ink/70"
+                active ? (english ? "text-[#1e6b45]" : "text-coral") : "text-ink/45 hover:text-ink/70"
               }`}
             >
-              <Icon active={active} />
+              <Icon active={active} accent={english ? "#1e6b45" : "#e07a4a"} />
               {item.label}
             </Link>
           );
@@ -133,12 +133,12 @@ export function BottomNav() {
   );
 }
 
-function HomeIcon({ active }: { active?: boolean }) {
+function HomeIcon({ active, accent = "#e07a4a" }: { active?: boolean; accent?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z"
-        stroke={active ? "#e07a4a" : "currentColor"}
+        stroke={active ? accent : "currentColor"}
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
@@ -146,44 +146,44 @@ function HomeIcon({ active }: { active?: boolean }) {
   );
 }
 
-function LearnIcon({ active }: { active?: boolean }) {
+function LearnIcon({ active, accent = "#e07a4a" }: { active?: boolean; accent?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M4 6.5C8 5 12 5 12 5s4 0 8 1.5V18s-4-1-8-1-8 1-8 1V6.5Z"
-        stroke={active ? "#e07a4a" : "currentColor"}
+        stroke={active ? accent : "currentColor"}
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
-      <path d="M12 5v12" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+      <path d="M12 5v12" stroke={active ? accent : "currentColor"} strokeWidth="1.8" />
     </svg>
   );
 }
 
-function ScanIcon({ active }: { active?: boolean }) {
+function ScanIcon({ active, accent = "#e07a4a" }: { active?: boolean; accent?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M4 8V5a1 1 0 0 1 1-1h3M20 8V5a1 1 0 0 0-1-1h-3M4 16v3a1 1 0 0 0 1 1h3M20 16v3a1 1 0 0 1-1 1h-3"
-        stroke={active ? "#e07a4a" : "currentColor"}
+        stroke={active ? accent : "currentColor"}
         strokeWidth="1.8"
         strokeLinecap="round"
       />
-      <path d="M3 12h18" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M3 12h18" stroke={active ? accent : "currentColor"} strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );
 }
 
-function WriteIcon({ active }: { active?: boolean }) {
+function WriteIcon({ active, accent = "#e07a4a" }: { active?: boolean; accent?: string }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
         d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17v3Z"
-        stroke={active ? "#e07a4a" : "currentColor"}
+        stroke={active ? accent : "currentColor"}
         strokeWidth="1.8"
         strokeLinejoin="round"
       />
-      <path d="M13.5 6.5 17.5 10.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+      <path d="M13.5 6.5 17.5 10.5" stroke={active ? accent : "currentColor"} strokeWidth="1.8" />
     </svg>
   );
 }
