@@ -78,7 +78,7 @@ export function OnboardingFlow() {
   }
 
   return (
-    <div className="en-ui studio-shell">
+    <div className="en-ui studio-shell scene-wash">
       <main id="en-main">
         <p className="text-base">Bước {step + 1} / 5</p>
         {step === 0 ? (

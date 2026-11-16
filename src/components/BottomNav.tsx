@@ -120,10 +120,10 @@ export function BottomNav() {
               key={item.label}
               href={item.href}
               className={`flex min-w-[3.5rem] flex-col items-center gap-1 rounded-xl px-1.5 py-1.5 text-[10px] sm:min-w-[4.25rem] sm:px-2 sm:text-[11px] ${
-                active ? (english ? "text-[#1e6b45]" : "text-coral") : "text-ink/45 hover:text-ink/70"
+                active ? "text-coral" : "text-ink/45 hover:text-ink/70"
               }`}
             >
-              <Icon active={active} accent={english ? "#1e6b45" : "#e07a4a"} />
+              <Icon active={active} />
               {item.label}
             </Link>
           );

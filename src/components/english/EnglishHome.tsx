@@ -13,7 +13,7 @@ import {
   loadEnglishProgress,
   type EnglishProgress,
 } from "@/lib/english/progress";
-import { FoundationsMark } from "./FoundationsMark";
+import { BrandMark } from "@/components/BrandMark";
 import { primaryBtn, secondaryBtn } from "./EnShell";
 
 export function EnglishHome() {
@@ -27,7 +27,7 @@ export function EnglishHome() {
 
   if (!progress) {
     return (
-      <div className="en-ui studio-shell">
+      <div className="en-ui studio-shell scene-wash">
         <p>Đang mở lớp học…</p>
       </div>
     );
@@ -43,14 +43,12 @@ export function EnglishHome() {
     .filter((lesson) => lesson != null);
 
   return (
-    <div className="en-ui studio-shell">
-      <header>
-        <div className="flex justify-end">
-          <Link href="/settings" className={secondaryBtn}>
-            Cài đặt
-          </Link>
-        </div>
-        <FoundationsMark compact />
+    <div className="en-ui studio-shell scene-wash">
+      <header className="flex items-start justify-between gap-3">
+        <BrandMark size="lg" href="/en" tagline="Học Tiếng Anh" />
+        <Link href="/settings" className={secondaryBtn}>
+          Cài đặt
+        </Link>
       </header>
       <p className="mt-5 text-base font-semibold text-[var(--en-leaf)]">Học Tiếng Anh</p>
       <h1 className="mt-1 font-display text-4xl text-[var(--en-navy)]">{greetingVi(hour)}</h1>
@@ -58,7 +56,7 @@ export function EnglishHome() {
         <p className="text-lg">
           Bài đã xong: {done}/{total}
         </p>
-        <div className="mt-2 h-3 overflow-hidden rounded-full bg-[#1c3a2a]/10" aria-hidden>
+        <div className="mt-2 h-3 overflow-hidden rounded-full bg-ink/10" aria-hidden>
           <div className="h-full rounded-full bg-[var(--en-teal)]" style={{ width: `${Math.round((done / total) * 100)}%` }} />
         </div>
         {!progress.onboardingCompleted ? (

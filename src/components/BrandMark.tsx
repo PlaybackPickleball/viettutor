@@ -3,6 +3,8 @@ import Link from "next/link";
 type Props = {
   href?: string;
   size?: "sm" | "lg";
+  /** Large mark caption. Null hides it. Omitted keeps the Vietnamese studio caption. */
+  tagline?: string | null;
 };
 
 function Lotus({ className }: { className?: string }) {
@@ -43,7 +45,7 @@ function Lotus({ className }: { className?: string }) {
   );
 }
 
-export function BrandMark({ href = "/", size = "sm" }: Props) {
+export function BrandMark({ href = "/", size = "sm", tagline }: Props) {
   const title =
     size === "lg"
       ? "font-display text-4xl sm:text-5xl leading-none tracking-tight text-ink"
@@ -56,8 +58,8 @@ export function BrandMark({ href = "/", size = "sm" }: Props) {
         <span className={title} lang="vi">
           ÁMi <span className="text-coral">Lingua</span>
         </span>
-        {size === "lg" ? (
-          <span className="mt-2 max-w-xs text-sm text-ink/60">AI Vietnamese Learning</span>
+        {size === "lg" && tagline !== null ? (
+          <span className="mt-2 max-w-xs text-sm text-ink/60">{tagline ?? "AI Vietnamese Learning"}</span>
         ) : null}
       </span>
     </span>
