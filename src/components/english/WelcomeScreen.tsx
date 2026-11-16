@@ -31,7 +31,8 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
           Welcome
           <span className="mt-1 block">Chào mừng</span>
         </h1>
-        <p className="mt-4 text-lg">Chọn một lớp. Đổi lớp sau này không xóa tiến độ.</p>
+        <p className="en-instruction mt-4">Which language do you want to learn?</p>
+        <p className="mt-2 text-lg">Bạn muốn học ngôn ngữ nào? Chọn một. Đổi sau không xóa tiến độ.</p>
         <div className="mt-6 space-y-4">
           <article className="rounded-[1.5rem] border-2 border-[#1b2a4a] bg-[#fffaf3] p-5">
             <h2 className="font-display text-3xl">Learn Vietnamese</h2>

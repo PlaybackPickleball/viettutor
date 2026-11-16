@@ -50,7 +50,7 @@ describe("course selection", () => {
     expect(store.snapshot()[COURSE_KEY]).toBeUndefined();
   });
 
-  it("maps an existing Vietnamese learner to en_to_vi without rewriting progress", () => {
+  it("shows the welcome chooser even when Vietnamese progress already exists", () => {
     const mem = installBrowserStorage();
     const seeded = loadProgress();
     seeded.practiceDates = [new Date().toISOString().slice(0, 10)];
@@ -59,17 +59,22 @@ describe("course selection", () => {
     const before = mem.get("ami-lingua.progress.v2");
     expect(practiceStreak(loadProgress())).toBe(1);
 
-    const loaded = loadCourse({
-      getItem: (key) => mem.get(key) ?? null,
-      setItem: (key, value) => {
+    const store = {
+      getItem: (key: string) => mem.get(key) ?? null,
+      setItem: (key: string, value: string) => {
         mem.set(key, value);
       },
-    });
+    };
+    const loaded = loadCourse(store);
 
-    expect(loaded.migrated).toBe(true);
-    expect(loaded.record?.active).toBe("en_to_vi");
+    expect(loaded.record).toBeNull();
     expect(mem.get("ami-lingua.progress.v2")).toBe(before);
     expect(practiceStreak(loadProgress())).toBe(1);
+    expect(loadProgress().letters.a.attempts).toBe(4);
+
+    setActiveCourse(store, "en_to_vi");
+    expect(loadCourse(store).record?.active).toBe("en_to_vi");
+    expect(mem.get("ami-lingua.progress.v2")).toBe(before);
     expect(loadProgress().letters.a.attempts).toBe(4);
   });
 

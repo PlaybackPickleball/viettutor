@@ -13,6 +13,8 @@ export type CourseRecord = {
   version: 1;
   active: ExperienceId;
   textSize: TextSize;
+  /** True only after the learner taps a welcome card or switches in settings. */
+  chosen: true;
   updatedAt: string;
 };
 
@@ -56,11 +58,13 @@ export function parseCourse(raw: string | null): CourseRecord | null {
     const parsed = JSON.parse(raw) as Partial<CourseRecord>;
     if (parsed.version !== 1) return null;
     if (parsed.active !== "en_to_vi" && parsed.active !== "vi_to_en") return null;
+    if (parsed.chosen !== true) return null;
     const textSize: TextSize = parsed.textSize === "large" ? "large" : "standard";
     return {
       version: 1,
       active: parsed.active,
       textSize,
+      chosen: true,
       updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : nowIso(),
     };
   } catch {
@@ -76,22 +80,13 @@ export function hasVietnameseProgress(store: KeyValueStore): boolean {
 }
 
 /**
- * First launch returns null (show Welcome).
- * A device that already has Vietnamese progress and no course key is mapped to
- * `en_to_vi` without reading or writing the progress payload.
+ * Welcome stays up until the learner explicitly picks a language.
+ * Vietnamese letter progress is left untouched either way.
  */
 export function loadCourse(store: KeyValueStore): { record: CourseRecord | null; migrated: boolean } {
   const existing = parseCourse(store.getItem(COURSE_KEY));
-  if (existing) return { record: existing, migrated: false };
-  if (!hasVietnameseProgress(store)) return { record: null, migrated: false };
-  const record: CourseRecord = {
-    version: 1,
-    active: "en_to_vi",
-    textSize: "standard",
-    updatedAt: nowIso(),
-  };
-  store.setItem(COURSE_KEY, JSON.stringify(record));
-  return { record, migrated: true };
+  if (existing?.chosen) return { record: existing, migrated: false };
+  return { record: null, migrated: false };
 }
 
 export function saveCourse(store: KeyValueStore, record: CourseRecord): CourseRecord {
@@ -112,6 +107,7 @@ export function setActiveCourse(store: KeyValueStore, active: ExperienceId): Cou
     version: 1,
     active,
     textSize: current?.textSize ?? readTextSize(store),
+    chosen: true,
     updatedAt: nowIso(),
   });
 }
@@ -123,7 +119,7 @@ export function setTextSize(store: KeyValueStore, textSize: TextSize): TextSize 
     store.setItem(TEXT_SIZE_KEY, textSize);
     return textSize;
   }
-  saveCourse(store, { ...current, textSize, updatedAt: nowIso() });
+  saveCourse(store, { ...current, textSize, chosen: true, updatedAt: nowIso() });
   return textSize;
 }
 
