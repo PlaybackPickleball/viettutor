@@ -13,6 +13,7 @@ import {
   loadEnglishProgress,
   type EnglishProgress,
 } from "@/lib/english/progress";
+import { FoundationsMark } from "./FoundationsMark";
 import { primaryBtn, secondaryBtn } from "./EnShell";
 
 export function EnglishHome() {
@@ -43,48 +44,49 @@ export function EnglishHome() {
 
   return (
     <div className="en-ui studio-shell">
-      <header className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-base font-semibold">Học Tiếng Anh</p>
-          <h1 className="mt-2 font-display text-4xl text-[var(--en-navy)]">{greetingVi(hour)}</h1>
+      <header>
+        <div className="flex justify-end">
+          <Link href="/settings" className={secondaryBtn}>
+            Cài đặt
+          </Link>
         </div>
-        <Link href="/settings" className={secondaryBtn}>
-          Cài đặt
-        </Link>
+        <FoundationsMark compact />
       </header>
-      <p className="mt-4 text-lg">
-        Bài đã xong: {done}/{total}
-      </p>
-      <div className="mt-2 h-3 overflow-hidden rounded-full bg-[#1b2a4a]/10" aria-hidden>
-        <div className="h-full bg-[#115e59]" style={{ width: `${Math.round((done / total) * 100)}%` }} />
-      </div>
-      {!progress.onboardingCompleted ? (
-        <p className="mt-4 text-lg">
-          Bạn có thể làm quen với lớp, hoặc học thử bài chào hỏi ngay.
+      <p className="mt-5 text-base font-semibold text-[var(--en-leaf)]">Học Tiếng Anh</p>
+      <h1 className="mt-1 font-display text-4xl text-[var(--en-navy)]">{greetingVi(hour)}</h1>
+      <section className="en-panel mt-5 p-4">
+        <p className="text-lg">
+          Bài đã xong: {done}/{total}
         </p>
-      ) : null}
-      <div className="mt-5 flex flex-col gap-3">
-        <Link href={`/en/lesson/${next.lessonId}`} className={primaryBtn}>
+        <div className="mt-2 h-3 overflow-hidden rounded-full bg-[#1c3a2a]/10" aria-hidden>
+          <div className="h-full rounded-full bg-[var(--en-teal)]" style={{ width: `${Math.round((done / total) * 100)}%` }} />
+        </div>
+        {!progress.onboardingCompleted ? (
+          <p className="mt-3 text-base">Bạn có thể làm quen với lớp, hoặc học thử bài chào hỏi ngay.</p>
+        ) : null}
+        <Link href={`/en/lesson/${next.lessonId}`} className={`${primaryBtn} mt-4 w-full`}>
           Tiếp tục học
         </Link>
+      </section>
+      <div className="mt-4 grid grid-cols-2 gap-3">
         {!progress.onboardingCompleted ? (
-          <Link href="/en/onboarding" className={secondaryBtn}>
+          <Link href="/en/onboarding" className={`${secondaryBtn} col-span-2 w-full`}>
             Làm quen với lớp học
           </Link>
         ) : null}
-        <Link href={`/en/lesson/${next.lessonId}`} className={secondaryBtn}>
+        <Link href={`/en/lesson/${next.lessonId}`} className={`${secondaryBtn} w-full`}>
           Luyện phát âm
         </Link>
-        <Link href="/en/speak" className={secondaryBtn}>
+        <Link href="/en/speak" className={`${secondaryBtn} w-full`}>
           Nói với giáo viên
         </Link>
-        <Link href="/en/review" className={secondaryBtn}>
-          Ôn từ vựng{due.length ? ` · ${due.length}` : ""}
+        <Link href="/en/review" className={`${secondaryBtn} w-full`}>
+          Ôn từ{due.length ? ` · ${due.length}` : ""}
         </Link>
-        <Link href="/en/sing" className={secondaryBtn}>
+        <Link href="/en/sing" className={`${secondaryBtn} w-full`}>
           Bài hát
         </Link>
-        <Link href="/en/lessons" className={secondaryBtn}>
+        <Link href="/en/lessons" className={`${secondaryBtn} col-span-2 w-full`}>
           Tất cả các bài
         </Link>
       </div>
@@ -95,7 +97,7 @@ export function EnglishHome() {
           <ul className="mt-3 space-y-2">
             {suggestions.map((lesson) => (
               <li key={lesson.id}>
-                <Link href={`/en/lesson/${lesson.id}`} className="text-lg underline">
+                <Link href={`/en/lesson/${lesson.id}`} className="en-panel block px-4 py-3 text-lg font-semibold">
                   Ngày {lesson.day}: {lesson.titleVi}
                 </Link>
               </li>

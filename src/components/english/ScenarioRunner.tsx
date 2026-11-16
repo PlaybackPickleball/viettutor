@@ -5,6 +5,7 @@ import type { EnglishFeedback } from "@/lib/english/feedback";
 import { getScenario } from "@/lib/english/scenarios";
 import { speakEnglish } from "@/lib/english/speakClient";
 import { CONTINUE_LABEL, REPLAY_LABEL } from "@/lib/english/a11y";
+import { HearPhrase } from "./HearPhrase";
 import { primaryBtn, secondaryBtn } from "./EnShell";
 import { SpeakTake } from "./SpeakTake";
 
@@ -74,9 +75,10 @@ export function ScenarioRunner({ scenarioId, lessonId, onDone }: Props) {
       <p className="quiet-label text-[var(--en-navy)]">
         Câu {step + 1} / {scenario.steps.length}
       </p>
-      <p className="en-instruction" lang="en">
-        {current.en}
-      </p>
+      <div className="en-panel p-4">
+        <HearPhrase text={current.en} size="display" />
+        <p className="mt-2 text-base">Bấm từng từ để nghe.</p>
+      </div>
       {showVi ? <p className="text-lg">{current.vi}</p> : null}
       <div className="flex flex-wrap gap-3">
         <button type="button" className={secondaryBtn} onClick={() => void speakEnglish(current.en, true)}>
@@ -96,7 +98,7 @@ export function ScenarioRunner({ scenarioId, lessonId, onDone }: Props) {
       </div>
       {showSuggestion ? (
         <p>
-          Câu gợi ý: <span lang="en">{scenario.suggestedEn}</span> — {scenario.suggestedVi}
+          Câu gợi ý: <HearPhrase text={scenario.suggestedEn} /> — {scenario.suggestedVi}
         </p>
       ) : null}
       {aiNote ? <p role="status">{aiNote}</p> : null}

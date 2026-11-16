@@ -25,7 +25,7 @@ export function LessonIndex() {
           <li key={lesson.id}>
             <Link
               href={`/en/lesson/${lesson.id}`}
-              className="flex min-h-14 items-center justify-between gap-3 rounded-2xl border-2 border-[#1b2a4a] px-4 py-3"
+              className="en-panel flex min-h-14 items-center justify-between gap-3 px-4 py-3"
             >
               <span>
                 <span className="block text-sm">Ngày {lesson.day}</span>

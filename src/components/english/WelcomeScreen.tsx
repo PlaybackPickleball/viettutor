@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { browserStore, setActiveCourse, type ExperienceId } from "@/lib/experience/store";
 import { loadEnglishProgress } from "@/lib/english/progress";
+import { ArrowRight, FoundationsMark, OutlineBook, OutlineLotus } from "./FoundationsMark";
 import { primaryBtn } from "./EnShell";
 
 export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => void }) {
@@ -25,30 +26,40 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
 
   return (
     <div className="en-ui studio-shell">
-      <main id="en-main">
-        <p className="text-base font-semibold tracking-wide">ÁMi Lingua</p>
-        <p className="mt-3 font-display text-3xl leading-tight text-[var(--en-navy)]">
-          Welcome
-          <span className="mt-1 block">Chào mừng</span>
-        </p>
-        <h1 className="en-instruction mt-4">What do you want to learn?</h1>
-        <p className="mt-2 text-lg">Bạn muốn học gì? Chọn một. Đổi sau không xóa tiến độ.</p>
-        <div className="mt-6 space-y-4">
-          <article className="rounded-[1.5rem] border-2 border-[#1b2a4a] bg-[#fffaf3] p-5">
-            <h2 className="font-display text-3xl">Learn Vietnamese</h2>
-            <p className="mt-1 text-lg">For English Speakers</p>
-            <p className="mt-3 text-base">Hear, say, and write Southern Vietnamese. Your current path stays as it is.</p>
-            <button type="button" className={`${primaryBtn} mt-5 w-full`} onClick={() => choose("en_to_vi")}>
-              Start Learning Vietnamese
-            </button>
+      <main id="en-main" className="flex flex-col items-center">
+        <FoundationsMark />
+        <h1 className="mt-6 text-center font-display text-5xl font-semibold leading-none text-[var(--en-navy)]">Welcome</h1>
+        <p className="en-welcome-vi">Chào mừng</p>
+        <p className="en-instruction mt-5 text-center">What do you want to learn?</p>
+        <p className="mt-2 text-center text-lg">Bạn muốn học gì? Chọn một. Đổi sau không xóa tiến độ.</p>
+        <div className="mt-6 w-full space-y-4 text-left">
+          <article className="en-choice-card">
+            <OutlineLotus />
+            <div className="min-w-0 flex-1">
+              <h2 className="font-display text-[1.7rem] leading-tight">Learn Vietnamese</h2>
+              <p className="text-lg font-semibold">For English Speakers</p>
+              <p className="mt-1 text-base leading-snug text-[var(--en-leaf)]">
+                Hear, say, and write Southern Vietnamese at your own pace.
+              </p>
+              <button type="button" className={`${primaryBtn} mt-4 w-full`} onClick={() => choose("en_to_vi")}>
+                Start Learning Vietnamese
+                <ArrowRight />
+              </button>
+            </div>
           </article>
-          <article className="rounded-[1.5rem] border-2 border-[#115e59] bg-[#fffaf3] p-5">
-            <h2 className="font-display text-3xl">Học Tiếng Anh</h2>
-            <p className="mt-1 text-lg">Dành cho người Việt</p>
-            <p className="mt-3 text-lg">Học tiếng Anh từ đầu. Nghe, nói và luyện tập cùng giáo viên AI.</p>
-            <button type="button" className={`${primaryBtn} mt-5 w-full`} onClick={() => choose("vi_to_en")}>
-              Bắt đầu học tiếng Anh
-            </button>
+          <article className="en-choice-card">
+            <OutlineBook />
+            <div className="min-w-0 flex-1">
+              <h2 className="font-display text-[1.7rem] leading-tight">Học Tiếng Anh</h2>
+              <p className="text-lg font-semibold">Dành cho người Việt</p>
+              <p className="mt-1 text-base leading-snug text-[var(--en-leaf)]">
+                Học tiếng Anh từ đầu. Nghe, nói và luyện tập cùng giáo viên AI.
+              </p>
+              <button type="button" className={`${primaryBtn} mt-4 w-full`} onClick={() => choose("vi_to_en")}>
+                Bắt đầu học tiếng Anh
+                <ArrowRight />
+              </button>
+            </div>
           </article>
         </div>
       </main>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
 import { getLatinLetter, LATIN_LETTERS } from "@/lib/english/alphabet";
 import { speakEnglish } from "@/lib/english/speakClient";
+import { HearPhrase } from "./HearPhrase";
 import { EnShell, secondaryBtn } from "./EnShell";
 
 export function EnglishWrite() {
@@ -21,7 +22,10 @@ export function EnglishWrite() {
             key={item.grapheme}
             type="button"
             className={item.grapheme === letter.grapheme ? "en-btn en-btn-primary px-3" : "en-btn en-btn-secondary px-3"}
-            onClick={() => setGrapheme(item.grapheme)}
+            onClick={() => {
+              setGrapheme(item.grapheme);
+              void speakEnglish(item.nameEn, true);
+            }}
           >
             {item.grapheme.toUpperCase()}
           </button>
@@ -30,7 +34,7 @@ export function EnglishWrite() {
       <div className="mt-5 space-y-2">
         <p className="en-instruction">{letter.nameVi}</p>
         <p>
-          Ví dụ: <span lang="en">{letter.exampleEn}</span> — {letter.exampleVi}
+          Ví dụ: <HearPhrase text={letter.exampleEn} /> — {letter.exampleVi}
         </p>
         <div className="flex flex-wrap gap-3">
           <button type="button" className={secondaryBtn} onClick={() => void speakEnglish(letter.nameEn, true)}>

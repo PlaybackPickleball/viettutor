@@ -11,6 +11,7 @@ import { clearStage, loadEnglishProgress, recordAttempt, saveEnglishProgress, up
 import { getScenario } from "@/lib/english/scenarios";
 import { speakEnglish } from "@/lib/english/speakClient";
 import type { LessonStage } from "@/lib/english/lessonTypes";
+import { HearPhrase } from "./HearPhrase";
 import { EnShell, primaryBtn, secondaryBtn } from "./EnShell";
 import { ScenarioRunner } from "./ScenarioRunner";
 import { SpeakTake } from "./SpeakTake";
@@ -155,9 +156,10 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
       <section className="mt-6 space-y-4" aria-live="polite">
         <h2 className="en-instruction">{stage.instruction}</h2>
         {modelText ? (
-          <p className="font-display text-4xl leading-tight" lang="en">
-            {modelText}
-          </p>
+          <div className="en-panel p-4">
+            <HearPhrase text={modelText} size="display" />
+            <p className="mt-2 text-base">Bấm từng từ tiếng Anh để nghe.</p>
+          </div>
         ) : null}
         {"vi" in stage && stage.vi ? <p className="text-xl">{stage.vi}</p> : null}
         {"ipa" in stage && stage.ipa ? (
@@ -185,15 +187,10 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
           <div className="space-y-3">
             {stage.kind === "review"
               ? stage.items.map((item) => (
-                  <button
-                    key={item.en}
-                    type="button"
-                    className={`${secondaryBtn} w-full justify-between`}
-                    onClick={() => void replay(item.en, true)}
-                  >
-                    <span lang="en">{item.en}</span>
+                  <div key={item.en} className="en-panel flex flex-wrap items-center justify-between gap-3 p-4">
+                    <HearPhrase text={item.en} />
                     <span>{item.vi}</span>
-                  </button>
+                  </div>
                 ))
               : null}
             <button type="button" className={primaryBtn} onClick={() => goNext(null)}>
@@ -236,7 +233,7 @@ export function LessonPlayer({ lessonId }: { lessonId: string }) {
             {stage.lines.map((line) => (
               <p key={`${line.who}-${line.en}`}>
                 <span className="font-semibold">{line.who === "teacher" ? "Giáo viên" : "Bạn"}: </span>
-                <span lang="en">{line.en}</span>
+                <HearPhrase text={line.en} />
                 <span> — {line.vi}</span>
               </p>
             ))}
@@ -359,7 +356,7 @@ function CombineStep({
   const correct = chips.length === tokens.length && combineCorrect(tokens, chips);
   return (
     <div className="space-y-3">
-      <p className="min-h-14 rounded-2xl border-2 border-[#1b2a4a] px-4 py-3 text-xl" lang="en">
+      <p className="en-panel min-h-14 px-4 py-3 text-xl" lang="en">
         {chips.join(" ") || "…"}
       </p>
       <div className="flex flex-wrap gap-3">
@@ -372,7 +369,10 @@ function CombineStep({
               type="button"
               className={secondaryBtn}
               disabled={taken}
-              onClick={() => setChips([...chips, token])}
+              onClick={() => {
+                setChips([...chips, token]);
+                void speakEnglish(token, false).catch(() => undefined);
+              }}
             >
               {token}
             </button>
@@ -409,8 +409,8 @@ function SummaryStep({ phrases, onContinue }: { phrases: string[]; onContinue: (
     <div className="space-y-3">
       <ul className="space-y-2">
         {rows.map((row) => (
-          <li key={row.phrase} className="flex items-center justify-between gap-3 rounded-2xl border-2 border-[#1b2a4a] px-4 py-3">
-            <span lang="en">{row.phrase}</span>
+          <li key={row.phrase} className="en-panel flex flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <HearPhrase text={row.phrase} />
             <span>{row.label}</span>
           </li>
         ))}

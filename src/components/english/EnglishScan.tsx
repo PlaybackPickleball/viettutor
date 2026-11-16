@@ -9,6 +9,7 @@ import { loadEnglishProgress, saveEnglishProgress, upsertReview } from "@/lib/en
 import { speakEnglish } from "@/lib/english/speakClient";
 import { dataUrlToBlob, fileToCompressedDataUrl, type CropRect } from "@/lib/services/imageCompress";
 import { extractEnglishFromImage } from "@/lib/services/ocrService";
+import { HearPhrase } from "./HearPhrase";
 import { EnShell, primaryBtn, secondaryBtn } from "./EnShell";
 
 type Teach = {
@@ -165,7 +166,7 @@ export function EnglishScan() {
           </label>
           <textarea
             id="ocr-draft"
-            className="min-h-28 w-full rounded-2xl border-2 border-[#1b2a4a] bg-white p-3 text-lg"
+            className="en-panel min-h-28 w-full bg-white p-3 text-lg"
             value={draft}
             onChange={(event) => {
               setDraft(event.target.value);
@@ -179,9 +180,10 @@ export function EnglishScan() {
       ) : null}
       {teach && confirmed ? (
         <div className="mt-5 space-y-4">
-          <p className="text-2xl" lang="en">
-            {teach.text}
-          </p>
+          <div className="en-panel p-4">
+            <HearPhrase text={teach.text} size="display" />
+            <p className="mt-2 text-base">Bấm từng từ để nghe.</p>
+          </div>
           <div className="flex flex-wrap gap-3">
             <button type="button" className={primaryBtn} onClick={() => void speakEnglish(teach.text, false)}>
               Nghe lại

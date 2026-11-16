@@ -24,12 +24,15 @@ export function EnShell({
         <Link href={backHref} className={`${secondaryBtn} px-4`}>
           {backLabel}
         </Link>
+        <Link href="/en" className="font-display text-2xl leading-none text-[var(--en-navy)]">
+          A&apos;Mi
+        </Link>
         <Link href="/settings" className="text-base font-semibold underline decoration-2 underline-offset-4">
           Cài đặt
         </Link>
       </header>
       <main id="en-main">
-        <h1 className="font-display text-3xl leading-tight text-[var(--en-navy)]">{title}</h1>
+        <h1 className="font-display text-4xl leading-tight text-[var(--en-navy)]">{title}</h1>
         <div className="mt-5">{children}</div>
       </main>
     </div>

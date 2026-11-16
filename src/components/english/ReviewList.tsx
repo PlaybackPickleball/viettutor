@@ -5,6 +5,7 @@ import { browserStore } from "@/lib/experience/store";
 import { dueReviews, loadEnglishProgress, saveEnglishProgress, scheduleReview, type ReviewItem } from "@/lib/english/progress";
 import { speakEnglish } from "@/lib/english/speakClient";
 import { REPLAY_LABEL, SLOW_LABEL } from "@/lib/english/a11y";
+import { HearPhrase } from "./HearPhrase";
 import { EnShell, primaryBtn, secondaryBtn } from "./EnShell";
 
 export function ReviewList() {
@@ -38,10 +39,9 @@ export function ReviewList() {
       ) : (
         <ul className="space-y-4">
           {items.map((item) => (
-            <li key={item.id} className="rounded-2xl border-2 border-[#1b2a4a] p-4">
-              <p className="text-2xl" lang="en">
-                {item.en}
-              </p>
+            <li key={item.id} className="en-panel p-4">
+              <HearPhrase text={item.en} size="display" />
+              <p className="mt-2 text-base">Bấm từng từ để nghe.</p>
               <p className="mt-1 text-lg">{item.vi}</p>
               <div className="mt-3 flex flex-wrap gap-3">
                 <button type="button" className={secondaryBtn} onClick={() => void speakEnglish(item.en, false)}>
