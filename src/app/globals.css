@@ -85,18 +85,16 @@ body {
   }
 }
 
-/* English course for Vietnamese adults. The Vietnamese studio keeps its own palette. */
+/* English course uses the same ink, coral, and paper as the Vietnamese studio. */
 .en-ui {
-  --en-ivory: #f6f3ea;
-  --en-navy: #1c3a2a;
-  --en-teal: #1e6b45;
-  --en-leaf: #3f6b4e;
-  --en-card: #fffdf8;
-  --en-line: #ddd4c4;
-  background:
-    radial-gradient(ellipse 80% 40% at 50% 0%, #fffaf2 0%, transparent 70%),
-    var(--en-ivory);
-  color: var(--en-navy);
+  --en-ivory: #f8f1e7;
+  --en-navy: #3d2e24;
+  --en-teal: #e07a4a;
+  --en-leaf: #8d6b5a;
+  --en-card: #fffaf3;
+  --en-line: #e8d9c8;
+  background: transparent;
+  color: var(--ink);
   font-size: 17px;
   line-height: 1.5;
 }
@@ -125,24 +123,24 @@ body {
 }
 
 .en-btn-primary {
-  background: var(--en-teal);
-  color: #fff;
-  border-radius: 999px;
-  box-shadow: 0 8px 18px rgb(30 107 69 / 0.16);
+  background: var(--coral);
+  color: var(--paper);
+  border-radius: 1rem;
+  box-shadow: 0 8px 18px rgb(224 122 74 / 0.22);
 }
 
 .en-btn-secondary {
-  background: #fff;
-  color: var(--en-navy);
-  border: 1.5px solid var(--en-line);
-  border-radius: 999px;
+  background: rgb(255 250 243 / 0.8);
+  color: var(--ink);
+  border: 1px solid #e0d0bc;
+  border-radius: 1rem;
 }
 
 .en-panel {
-  border: 1.5px solid var(--en-line);
-  background: var(--en-card);
-  border-radius: 1.4rem;
-  box-shadow: 0 8px 20px rgb(60 40 20 / 0.04);
+  border: 1px solid #e8d9c8;
+  background: rgb(255 250 243 / 0.95);
+  border-radius: 1.75rem;
+  box-shadow: 0 8px 20px rgb(61 46 36 / 0.06);
 }
 
 .en-choice-card {
@@ -151,10 +149,10 @@ body {
   align-items: center;
   gap: 0.85rem;
   padding: 1.05rem 1rem 1.1rem;
-  border: 1.5px solid var(--en-line);
-  border-radius: 1.6rem;
-  background: var(--en-card);
-  box-shadow: 0 10px 24px rgb(60 40 20 / 0.05);
+  border: 1px solid #e8d9c8;
+  border-radius: 1.75rem;
+  background: rgb(255 250 243 / 0.95);
+  box-shadow: 0 8px 20px rgb(61 46 36 / 0.06);
 }
 
 .en-welcome-vi {
@@ -166,7 +164,7 @@ body {
   font-style: italic;
   font-weight: 560;
   line-height: 1.15;
-  color: var(--en-leaf);
+  color: var(--ink);
 }
 
 .en-welcome-vi::after {
@@ -176,7 +174,7 @@ body {
   right: 8%;
   bottom: 0.05rem;
   height: 0.55rem;
-  border-bottom: 3px solid #e15b5b;
+  border-bottom: 3px solid var(--coral);
   border-radius: 50%;
 }
 
@@ -207,8 +205,8 @@ body {
 }
 
 .en-hear[data-speaking="true"] {
-  border-color: var(--en-teal);
-  background: #e7f3ea;
+  border-color: var(--coral);
+  background: var(--soft);
 }
 
 .en-hear-error {
@@ -218,7 +216,7 @@ body {
 }
 
 .en-ui :focus-visible {
-  outline: 3px solid #0f766e;
+  outline: 3px solid var(--coral);
   outline-offset: 3px;
 }
 

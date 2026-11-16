@@ -3,7 +3,8 @@
 import { useRouter } from "next/navigation";
 import { browserStore, setActiveCourse, type ExperienceId } from "@/lib/experience/store";
 import { loadEnglishProgress } from "@/lib/english/progress";
-import { ArrowRight, FoundationsMark, OutlineBook, OutlineLotus } from "./FoundationsMark";
+import { BrandMark } from "@/components/BrandMark";
+import { ArrowRight, OutlineBook, OutlineLotus } from "./FoundationsMark";
 import { primaryBtn } from "./EnShell";
 
 export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => void }) {
@@ -25,9 +26,9 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
   }
 
   return (
-    <div className="en-ui studio-shell">
+    <div className="en-ui studio-shell scene-wash">
       <main id="en-main" className="flex flex-col items-center">
-        <FoundationsMark />
+        <BrandMark size="lg" href={undefined} tagline={null} />
         <h1 className="mt-6 text-center font-display text-5xl font-semibold leading-none text-[var(--en-navy)]">Welcome</h1>
         <p className="en-welcome-vi">Chào mừng</p>
         <p className="en-instruction mt-5 text-center">What do you want to learn?</p>

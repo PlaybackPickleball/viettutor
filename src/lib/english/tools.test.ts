@@ -2,7 +2,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { LATIN_LETTERS } from "./alphabet";
 import { interpretOcr, splitWords, teachGate } from "./ocrGate";
-import { BEGINNER_SONG, wordSyncClaimed } from "./song";
+import { sameModeIdsAsVietnameseSing } from "./karaokeModes";
+import { ENGLISH_SONGS, BEGINNER_SONG, wordSyncClaimed } from "./song";
 
 describe("English OCR gate", () => {
   it("does not replace an OCR error or an empty read with practice text", () => {
@@ -31,6 +32,17 @@ describe("beginner song", () => {
     expect(text).toMatch(/thank you/);
     expect(text).toMatch(/goodbye/);
     expect(BEGINNER_SONG.wordSync.noteVi).toMatch(/Chưa khớp từng từ/);
+  });
+
+  it("offers the same five karaoke options for every original English song", () => {
+    expect(sameModeIdsAsVietnameseSing()).toBe(true);
+    expect(ENGLISH_SONGS.length).toBeGreaterThan(1);
+    for (const song of ENGLISH_SONGS) {
+      expect(song.original).toBe(true);
+      expect(song.copyrighted).toBe(false);
+      expect(wordSyncClaimed(song)).toBe(false);
+      expect(song.lines.length).toBeGreaterThan(0);
+    }
   });
 });
 

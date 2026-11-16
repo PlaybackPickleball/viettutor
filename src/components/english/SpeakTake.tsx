@@ -247,7 +247,7 @@ export function SpeakTake({ expected, lessonId, score, onContinue }: Props) {
             {phase === "recording" ? "Đang nghe…" : RECORD_LABEL}
           </button>
           {phase === "recording" ? (
-            <div className="h-3 overflow-hidden rounded-full bg-[#1c3a2a]/10" aria-hidden>
+            <div className="h-3 overflow-hidden rounded-full bg-ink/10" aria-hidden>
               <div className="h-full rounded-full bg-[var(--en-teal)]" style={{ width: `${Math.round(level * 100)}%` }} />
             </div>
           ) : null}

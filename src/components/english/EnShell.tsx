@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BrandMark } from "@/components/BrandMark";
 
 export const primaryBtn = "en-btn en-btn-primary";
 export const secondaryBtn = "en-btn en-btn-secondary";
@@ -16,20 +17,20 @@ export function EnShell({
   backLabel?: string;
 }) {
   return (
-    <div className="en-ui studio-shell">
+    <div className="en-ui studio-shell scene-wash">
       <a href="#en-main" className="sr-only focus:not-sr-only">
         Tới nội dung
       </a>
-      <header className="mb-5 flex items-center justify-between gap-3">
-        <Link href={backHref} className={`${secondaryBtn} px-4`}>
-          {backLabel}
-        </Link>
-        <Link href="/en" className="font-display text-2xl leading-none text-[var(--en-navy)]">
-          A&apos;Mi
-        </Link>
-        <Link href="/settings" className="text-base font-semibold underline decoration-2 underline-offset-4">
-          Cài đặt
-        </Link>
+      <header className="mb-5 flex items-start justify-between gap-3">
+        <BrandMark href="/en" />
+        <div className="flex flex-col items-end gap-2">
+          <Link href={backHref} className={`${secondaryBtn} px-4`}>
+            {backLabel}
+          </Link>
+          <Link href="/settings" className="text-sm font-medium text-ink/70 underline decoration-[#e0d0bc] underline-offset-4">
+            Cài đặt
+          </Link>
+        </div>
       </header>
       <main id="en-main">
         <h1 className="font-display text-4xl leading-tight text-[var(--en-navy)]">{title}</h1>
