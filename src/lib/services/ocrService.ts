@@ -38,6 +38,34 @@ async function extractWithTesseract(image: File | Blob | string): Promise<OcrRes
   }
 }
 
+/**
+ * On-device English OCR. Empty text stays empty — callers must not invent a sentence.
+ */
+export async function extractEnglishFromImage(image: File | Blob | string): Promise<OcrResult> {
+  if (typeof window === "undefined") {
+    return {
+      text: "",
+      provider: "demo",
+      note: "OCR runs in the browser. No text was invented on the server.",
+    };
+  }
+  const { createWorker } = await import("tesseract.js");
+  const worker = await createWorker("eng");
+  try {
+    const {
+      data: { text, confidence },
+    } = await worker.recognize(image);
+    return {
+      text: cleanupOcrText(text),
+      provider: "tesseract",
+      confidence: typeof confidence === "number" ? confidence : undefined,
+      note: "OCR via Tesseract (English). Confirm the text before studying it.",
+    };
+  } finally {
+    await worker.terminate();
+  }
+}
+
 export function cleanupOcrText(raw: string): string {
   return raw
     .replace(/\u00a0/g, " ")

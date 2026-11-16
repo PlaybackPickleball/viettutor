@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "ami-lingua.get-started.v1";
@@ -9,8 +10,11 @@ const STORAGE_KEY = "ami-lingua.get-started.v1";
  * Lightweight first-run popup + reopenable tip for how to use ÁMi Lingua.
  */
 export function GetStartedGuide() {
+  const path = usePathname();
   const [open, setOpen] = useState(false);
   const [ready, setReady] = useState(false);
+  const englishRoute =
+    path.startsWith("/en") || path.startsWith("/welcome") || path.startsWith("/settings");
 
   useEffect(() => {
     try {
@@ -35,7 +39,7 @@ export function GetStartedGuide() {
     setOpen(true);
   }
 
-  if (!ready) return null;
+  if (!ready || englishRoute) return null;
 
   return (
     <>

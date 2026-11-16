@@ -6,9 +6,20 @@ type Props = {
   strokes: string[];
   grapheme: string;
   onTraceComplete?: () => void;
+  /** Studio copy stays the default so the Vietnamese Write path is unchanged. */
+  praiseMode?: "studio" | "unrecognized";
+  clearLabel?: string;
+  idleHint?: string;
 };
 
-export function LetterTraceCanvas({ strokes, grapheme, onTraceComplete }: Props) {
+export function LetterTraceCanvas({
+  strokes,
+  grapheme,
+  onTraceComplete,
+  praiseMode = "studio",
+  clearLabel = "Clear / reset",
+  idleHint = "Trace the handwritten model with finger or mouse.",
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drawing = useRef(false);
   const [hasInk, setHasInk] = useState(false);
@@ -126,10 +137,18 @@ export function LetterTraceCanvas({ strokes, grapheme, onTraceComplete }: Props)
   function onPointerUp() {
     drawing.current = false;
     if (pointCount.current > 40) {
-      setFeedback("Shape looks intentional — nice tracing. ★");
+      setFeedback(
+        praiseMode === "unrecognized"
+          ? "Đã có nét viết. Ứng dụng chưa nhận dạng chữ cái."
+          : "Shape looks intentional — nice tracing. ★",
+      );
       onTraceComplete?.();
     } else if (pointCount.current > 8) {
-      setFeedback("Keep going — follow the handwritten guide a little more fully.");
+      setFeedback(
+        praiseMode === "unrecognized"
+          ? "Viết thêm theo mẫu. Chưa có nhận dạng chữ."
+          : "Keep going — follow the handwritten guide a little more fully.",
+      );
     }
   }
 
@@ -157,7 +176,7 @@ export function LetterTraceCanvas({ strokes, grapheme, onTraceComplete }: Props)
       />
       <div className="flex flex-wrap gap-3">
         <button type="button" className="teacher-btn-secondary" onClick={clear} disabled={!hasInk}>
-          Clear / reset
+          {clearLabel}
         </button>
       </div>
       {feedback ? (
@@ -165,9 +184,7 @@ export function LetterTraceCanvas({ strokes, grapheme, onTraceComplete }: Props)
           {feedback}
         </p>
       ) : (
-        <p className="text-sm text-ink/45">
-          Trace the handwritten model with finger or mouse.
-        </p>
+        <p className="text-sm text-ink/45">{idleHint}</p>
       )}
     </div>
   );

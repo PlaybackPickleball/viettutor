@@ -264,6 +264,11 @@ export function DashboardClient() {
           Progress saves on this device
           {isSupabaseConfigured() ? " · Supabase connected" : " · Supabase stub ready"}.
         </p>
+        <p className="mt-3">
+          <Link href="/settings" className="font-medium text-ink underline">
+            Settings / Đổi khóa học
+          </Link>
+        </p>
       </section>
     </div>
   );

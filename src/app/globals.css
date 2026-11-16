@@ -84,3 +84,74 @@ body {
     @apply flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-coral text-paper shadow-soft transition active:scale-95;
   }
 }
+
+/* English course for Vietnamese adults. The Vietnamese studio keeps its own palette. */
+.en-ui {
+  --en-ivory: #f6f1e7;
+  --en-navy: #1b2a4a;
+  --en-teal: #115e59;
+  background: var(--en-ivory);
+  color: var(--en-navy);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.en-instruction {
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.en-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0.75rem 1.1rem;
+  border-radius: 1rem;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.en-btn:disabled {
+  opacity: 0.45;
+}
+
+.en-btn-primary {
+  background: var(--en-teal);
+  color: #f8f4ec;
+}
+
+.en-btn-secondary {
+  background: transparent;
+  color: var(--en-navy);
+  border: 2px solid var(--en-navy);
+}
+
+.en-ui :focus-visible {
+  outline: 3px solid #0f766e;
+  outline-offset: 3px;
+}
+
+html[data-text-size="large"] .en-ui {
+  font-size: 20px;
+}
+
+html[data-text-size="large"] .en-ui .en-instruction {
+  font-size: 24px;
+}
+
+html[data-text-size="large"] .en-ui .en-btn {
+  min-height: 56px;
+  font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .en-ui,
+  .en-ui * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
