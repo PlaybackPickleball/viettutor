@@ -50,10 +50,10 @@ export function StudioChrome({
           </p>
         </div>
         <Link
-          href="/"
-          className="rounded-full border border-[#e0d0bc] bg-paper/80 px-3 py-1.5 text-sm text-ink/70 hover:bg-soft"
+          href="/welcome"
+          className="teacher-btn-secondary px-4 py-2 text-sm"
         >
-          Home
+          Main screen
         </Link>
       </header>
 

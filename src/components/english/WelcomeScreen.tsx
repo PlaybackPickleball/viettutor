@@ -27,12 +27,12 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
     <div className="en-ui studio-shell">
       <main id="en-main">
         <p className="text-base font-semibold tracking-wide">ÁMi Lingua</p>
-        <h1 className="mt-3 font-display text-4xl leading-tight text-[var(--en-navy)]">
+        <p className="mt-3 font-display text-3xl leading-tight text-[var(--en-navy)]">
           Welcome
           <span className="mt-1 block">Chào mừng</span>
-        </h1>
-        <p className="en-instruction mt-4">Which language do you want to learn?</p>
-        <p className="mt-2 text-lg">Bạn muốn học ngôn ngữ nào? Chọn một. Đổi sau không xóa tiến độ.</p>
+        </p>
+        <h1 className="en-instruction mt-4">What do you want to learn?</h1>
+        <p className="mt-2 text-lg">Bạn muốn học gì? Chọn một. Đổi sau không xóa tiến độ.</p>
         <div className="mt-6 space-y-4">
           <article className="rounded-[1.5rem] border-2 border-[#1b2a4a] bg-[#fffaf3] p-5">
             <h2 className="font-display text-3xl">Learn Vietnamese</h2>

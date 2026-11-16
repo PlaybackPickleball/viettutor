@@ -85,6 +85,9 @@ export function DashboardClient() {
         <div className="relative z-[1] mt-8">
           <p className="font-display text-3xl text-ink">Xin chào, Nicola</p>
           <p className="mt-1 text-ink/55">Ready for today’s sounds?</p>
+          <Link href="/welcome" className="teacher-btn-secondary mt-4 w-full sm:w-auto">
+            Main screen
+          </Link>
         </div>
       </header>
 
