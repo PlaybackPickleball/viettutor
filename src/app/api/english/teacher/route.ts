@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireIdentity } from "../../../../../cursor/identity";
 import { chatJson, isAiConfigured } from "@/lib/services/aiProvider";
 import { takeRateLimitToken } from "@/lib/services/simpleRateLimit";
 
@@ -10,6 +11,9 @@ export const maxDuration = 30;
  * Refuses when no server key is configured. Does not invent a reply.
  */
 export async function POST(request: Request) {
+  const identity = await requireIdentity(request);
+  if (identity instanceof Response) return identity;
+
   if (!isAiConfigured()) {
     return NextResponse.json(
       {

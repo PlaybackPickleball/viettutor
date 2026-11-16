@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireIdentity } from "../../../../../cursor/identity";
 import { callAzurePronunciation, englishPhonemeConfigured } from "@/lib/english/azureAssess";
 import { isAzureAudioMime, resolveEnglishAssessment } from "@/lib/english/feedback";
 import { takeRateLimitToken } from "@/lib/services/simpleRateLimit";
@@ -9,6 +10,9 @@ export const maxDuration = 30;
 const MAX_AUDIO_CHARS = 1_500_000;
 
 export async function POST(request: Request) {
+  const identity = await requireIdentity(request);
+  if (identity instanceof Response) return identity;
+
   const limited = takeRateLimitToken("en-assess", { limit: 30, windowMs: 60_000 });
   if (!limited.ok) {
     return NextResponse.json(

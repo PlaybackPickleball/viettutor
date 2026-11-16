@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireIdentity } from "../../../../../cursor/identity";
 import { chatJson, isAiConfigured } from "@/lib/services/aiProvider";
 import { takeRateLimitToken } from "@/lib/services/simpleRateLimit";
 
@@ -6,6 +7,9 @@ export const runtime = "nodejs";
 
 /** Natural Vietnamese for text the learner already confirmed. No key material in the response. */
 export async function POST(request: Request) {
+  const identity = await requireIdentity(request);
+  if (identity instanceof Response) return identity;
+
   if (!isAiConfigured()) {
     return NextResponse.json(
       { ok: false, code: "ai_unconfigured", message: "Chưa có bản dịch tự động." },
