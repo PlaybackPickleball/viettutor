@@ -85,6 +85,9 @@ export function DashboardClient() {
         <div className="relative z-[1] mt-8">
           <p className="font-display text-3xl text-ink">Xin chào, Nicola</p>
           <p className="mt-1 text-ink/55">Ready for today’s sounds?</p>
+          <Link href="/welcome" className="teacher-btn-secondary mt-4 w-full sm:w-auto">
+            Main screen
+          </Link>
         </div>
       </header>
 
@@ -263,6 +266,11 @@ export function DashboardClient() {
         <p className="mt-1">
           Progress saves on this device
           {isSupabaseConfigured() ? " · Supabase connected" : " · Supabase stub ready"}.
+        </p>
+        <p className="mt-3">
+          <Link href="/settings" className="font-medium text-ink underline">
+            Settings / Đổi khóa học
+          </Link>
         </p>
       </section>
     </div>

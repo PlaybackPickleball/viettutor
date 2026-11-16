@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { browserStore, loadCourse } from "@/lib/experience/store";
+import { continueTarget, loadEnglishProgress } from "@/lib/english/progress";
 import { continueHref, loadProgress } from "@/lib/progress";
 
 function SingIcon({ active }: { active?: boolean }) {
@@ -25,15 +27,58 @@ export function BottomNav() {
   const path = usePathname();
   const [writeHref, setWriteHref] = useState("/studio/a/write");
   const [learnHref, setLearnHref] = useState("/");
+  const [englishLearn, setEnglishLearn] = useState("/en/lesson/d01");
+  const [course, setCourse] = useState<"loading" | "en_to_vi" | "vi_to_en" | null>("loading");
 
   useEffect(() => {
     const p = loadProgress();
     setLearnHref(continueHref(p));
     const id = p.currentLetterId || "a";
     setWriteHref(`/studio/${id}/write`);
+    const record = loadCourse(browserStore()).record;
+    setCourse(record?.active ?? null);
+    const next = continueTarget(loadEnglishProgress(browserStore()));
+    setEnglishLearn(`/en/lesson/${next.lessonId}`);
   }, [path]);
 
-  const items = [
+  if (
+    path.startsWith("/welcome") ||
+    path.startsWith("/en/onboarding") ||
+    (course === null && path === "/")
+  ) {
+    return null;
+  }
+
+  const english = path.startsWith("/en") || course === "vi_to_en";
+  const items = english
+    ? [
+        { href: "/en", label: "Trang chủ", icon: HomeIcon, match: (p: string) => p === "/en" },
+        {
+          href: englishLearn,
+          label: "Học",
+          icon: LearnIcon,
+          match: (p: string) => p.startsWith("/en/lesson"),
+        },
+        {
+          href: "/en/scan",
+          label: "Quét",
+          icon: ScanIcon,
+          match: (p: string) => p.startsWith("/en/scan"),
+        },
+        {
+          href: "/en/sing",
+          label: "Hát",
+          icon: SingIcon,
+          match: (p: string) => p.startsWith("/en/sing"),
+        },
+        {
+          href: "/en/write",
+          label: "Viết",
+          icon: WriteIcon,
+          match: (p: string) => p.startsWith("/en/write"),
+        },
+      ]
+    : [
     { href: "/", label: "Home", icon: HomeIcon, match: (p: string) => p === "/" },
     {
       href: learnHref,
