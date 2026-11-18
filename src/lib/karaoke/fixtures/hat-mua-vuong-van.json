@@ -3755,6 +3755,6 @@
   "reviews": [],
   "publishStatus": "approved",
   "pipelineVersion": "demucs-stable-whisper-align-v1",
-  "globalOffsetMs": 0,
+  "globalOffsetMs": -500,
   "approvedAt": "2026-11-14T03:03:09.643Z"
 }

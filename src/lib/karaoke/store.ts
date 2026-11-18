@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { withLicensedDemoOffset } from "./demoOffsets";
 import type { KaraokeSong } from "./types";
 import { assertSafeSongId, parseSafeSongId } from "./safeId";
 
@@ -58,7 +59,10 @@ export async function readApprovedSong(songId: string): Promise<KaraokeSong | nu
   if (!id) return null;
   try {
     const raw = await fs.readFile(approvedPath(id), "utf8");
-    return JSON.parse(raw) as KaraokeSong;
+    const song = JSON.parse(raw) as KaraokeSong;
+    // Prefer an admin-tuned offset when present; otherwise seed licensed demos.
+    if (typeof song.globalOffsetMs === "number") return song;
+    return withLicensedDemoOffset(song);
   } catch {
     return null;
   }

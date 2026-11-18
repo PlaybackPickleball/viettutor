@@ -58,10 +58,11 @@ describe("bilingual karaoke engine", () => {
   });
 
   it("reports vocals start for skip-intro", () => {
-    expect(vocalsStartAudioSec(XIN_CHAO_BILINGUAL)).toBe(0);
+    expect(vocalsStartAudioSec(XIN_CHAO_BILINGUAL)).toBeCloseTo(0.12, 5);
     expect(songHasIntro(XIN_CHAO_BILINGUAL)).toBe(false);
     const withIntro = {
       ...XIN_CHAO_BILINGUAL,
+      globalOffsetMs: 0,
       lines: XIN_CHAO_BILINGUAL.lines.map((l, i) =>
         i === 0 ? { ...l, startMs: 32000 } : l,
       ),
