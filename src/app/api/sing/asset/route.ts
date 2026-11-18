@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { requireSingViewer } from "@/lib/karaoke/adminAuth";
 import { getSong } from "@/lib/sing/catalog";
+import { isPublicSingAssetPath } from "@/lib/sing/masters";
 import { gateSongAsset } from "@/lib/sing/rights";
 
 export const runtime = "nodejs";
@@ -19,8 +21,12 @@ function isAssetType(v: string): v is AssetType {
 
 /**
  * Server-side rights gate. Unlicensed / expired assets never return a playable URL.
+ * Audio URLs always point at /api/sing/stream (never static /sing/*).
  */
 export async function GET(request: Request) {
+  const identity = await requireSingViewer(request);
+  if (identity instanceof Response) return identity;
+
   const { searchParams } = new URL(request.url);
   const songId = searchParams.get("songId")?.trim() ?? "";
   const type = searchParams.get("type")?.trim() ?? "";
@@ -39,6 +45,13 @@ export async function GET(request: Request) {
         denied: true,
       },
       { status: gate.status },
+    );
+  }
+
+  if (isPublicSingAssetPath(gate.url)) {
+    return NextResponse.json(
+      { error: "Refusing to expose a public static audio path", denied: true },
+      { status: 500 },
     );
   }
 

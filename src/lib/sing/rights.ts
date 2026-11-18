@@ -1,3 +1,4 @@
+import { gatedAudioStreamUrl } from "./masters";
 import type { AllowedUse, LicenseStatus, SingSong, SongRights } from "./types";
 
 /** Default DENY when rights are missing or ambiguous. */
@@ -102,7 +103,8 @@ export function gateSongAsset(
         licenseStatus: song.rights.status,
       };
     }
-    return { ok: true, url: song.audioUrl };
+    // Never return a static /sing/* URL — clients must hit the gated stream.
+    return { ok: true, url: gatedAudioStreamUrl(song.id, "audio_original") };
   }
   if (assetType === "audio_instrumental") {
     if (!canUseInstrumental(song) || !song.instrumentalUrl) {
@@ -113,7 +115,7 @@ export function gateSongAsset(
         licenseStatus: song.rights.status,
       };
     }
-    return { ok: true, url: song.instrumentalUrl };
+    return { ok: true, url: gatedAudioStreamUrl(song.id, "audio_instrumental") };
   }
   if (assetType === "lyric_timing") {
     if (!canShowLyrics(song)) {

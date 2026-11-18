@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
-import path from "path";
 import { beginAlignJob, endAlignJob, MAX_ALIGN_UPLOAD_BYTES } from "@/lib/karaoke/alignGuard";
 import { requireSingAdmin } from "@/lib/karaoke/adminAuth";
 import { getFixtureKaraokeSong } from "@/lib/karaoke/catalog";
@@ -12,6 +11,7 @@ import {
   resolveUnderRoot,
   uploadPath,
 } from "@/lib/karaoke/store";
+import { gatedAudioStreamUrl, MASTERS_DIR } from "@/lib/sing/masters";
 
 export const runtime = "nodejs";
 export const maxDuration = 800;
@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     }
 
     let audioPath: string | null = null;
-    let audioUrl = `/sing/${songId}.mp3`;
+    let audioUrl = gatedAudioStreamUrl(songId);
 
     const file = form.get("audio");
     if (file && typeof file !== "string" && "arrayBuffer" in file) {
@@ -73,18 +73,17 @@ export async function POST(req: Request) {
       await fs.writeFile(audioPath, buf);
       audioUrl = `/api/sing/media/${songId}`;
     } else {
-      const publicDir = path.join(/* turbopackIgnore: true */ process.cwd(), "public", "sing");
-      const publicMp3 = resolveUnderRoot(publicDir, `${songId}.mp3`);
-      const publicWav = resolveUnderRoot(publicDir, `${songId}.wav`);
+      const masterMp3 = resolveUnderRoot(MASTERS_DIR, `${songId}.mp3`);
+      const masterWav = resolveUnderRoot(MASTERS_DIR, `${songId}.wav`);
       try {
-        await fs.access(publicMp3);
-        audioPath = publicMp3;
-        audioUrl = `/sing/${songId}.mp3`;
+        await fs.access(masterMp3);
+        audioPath = masterMp3;
+        audioUrl = gatedAudioStreamUrl(songId);
       } catch {
         try {
-          await fs.access(publicWav);
-          audioPath = publicWav;
-          audioUrl = `/sing/${songId}.wav`;
+          await fs.access(masterWav);
+          audioPath = masterWav;
+          audioUrl = gatedAudioStreamUrl(songId);
         } catch {
           return NextResponse.json({ error: "audio_required" }, { status: 400 });
         }

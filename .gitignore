@@ -54,8 +54,10 @@ public/sing/private/
 /data/karaoke/*.log
 
 # Ignore MP3s by default; allow only licensed demo masters we intentionally ship
+# (under data/sing/masters — never public/sing, which is statically downloadable)
 *.mp3
 *.MP3
-!public/sing/*.wav
-!public/sing/ngay-mai-nguoi-ta-lay-chong.mp3
-!public/sing/hat-mua-vuong-van.mp3
+!data/sing/masters/*.wav
+!data/sing/masters/ngay-mai-nguoi-ta-lay-chong.mp3
+!data/sing/masters/hat-mua-vuong-van.mp3
+!data/sing/masters/xin-chao-moi-ngay.wav

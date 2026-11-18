@@ -10,11 +10,16 @@ import {
 } from "./rights";
 
 describe("sing rights", () => {
-  it("allows original demo audio + lyrics", () => {
+  it("allows original demo audio + lyrics via gated stream URL", () => {
     const song = getSong("xin-chao-moi-ngay")!;
     expect(canPlayAudio(song)).toBe(true);
     expect(canShowLyrics(song)).toBe(true);
-    expect(gateSongAsset(song, "audio_original").ok).toBe(true);
+    const gate = gateSongAsset(song, "audio_original");
+    expect(gate.ok).toBe(true);
+    if (gate.ok) {
+      expect(gate.url).toContain("/api/sing/stream?");
+      expect(gate.url).not.toMatch(/^\/sing\//);
+    }
   });
 
   it("treats licensed free-to-use ballads as Production-eligible", () => {
@@ -27,8 +32,12 @@ describe("sing rights", () => {
     expect(rightsAllowLyrics(male)).toBe(true);
     expect(canPlayAudio(male)).toBe(true);
     expect(canPlayAudio(female)).toBe(true);
-    expect(gateSongAsset(male, "audio_original").ok).toBe(true);
-    expect(gateSongAsset(female, "audio_original").ok).toBe(true);
+    const maleGate = gateSongAsset(male, "audio_original");
+    const femaleGate = gateSongAsset(female, "audio_original");
+    expect(maleGate.ok).toBe(true);
+    expect(femaleGate.ok).toBe(true);
+    if (maleGate.ok) expect(maleGate.url).toContain("/api/sing/stream?");
+    if (femaleGate.ok) expect(femaleGate.url).toContain("/api/sing/stream?");
     // Catalog lines empty until timed — lyrics gate needs lines, rights still allow
     expect(canShowLyrics(male)).toBe(false);
     expect(allowsUse(male.rights, "lyrics_display")).toBe(true);

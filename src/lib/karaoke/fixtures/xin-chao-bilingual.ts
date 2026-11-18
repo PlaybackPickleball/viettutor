@@ -9,7 +9,7 @@ export const XIN_CHAO_BILINGUAL: KaraokeSong = {
   title: "Xin chào mỗi ngày",
   artist: "ÁMi Lingua Originals",
   language: "vi",
-  audioUrl: "/sing/xin-chao-moi-ngay.wav",
+  audioUrl: "/api/sing/stream?songId=xin-chao-moi-ngay&type=audio_original",
   durationMs: 30000,
   publishStatus: "approved",
   pipelineVersion: "fixture-v1",

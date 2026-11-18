@@ -3,11 +3,16 @@ import { requireSingAdmin, requireSingViewer } from "@/lib/karaoke/adminAuth";
 import { getFixtureKaraokeSong } from "@/lib/karaoke/catalog";
 import { parseSafeSongId } from "@/lib/karaoke/safeId";
 import { readApprovedSong, writeApprovedSong } from "@/lib/karaoke/store";
+import { toGatedPlaybackUrl } from "@/lib/sing/masters";
 import type { KaraokeSong } from "@/lib/karaoke/types";
 
 export const runtime = "nodejs";
 
 type Ctx = { params: Promise<{ songId: string }> };
+
+function withGatedAudio(song: KaraokeSong): KaraokeSong {
+  return { ...song, audioUrl: toGatedPlaybackUrl(song.id, song.audioUrl) };
+}
 
 /** GET approved karaoke doc (filesystem override) or bundled fixture. */
 export async function GET(req: Request, ctx: Ctx) {
@@ -22,11 +27,11 @@ export async function GET(req: Request, ctx: Ctx) {
 
   const approved = await readApprovedSong(songId);
   if (approved) {
-    return NextResponse.json({ source: "approved", song: approved });
+    return NextResponse.json({ source: "approved", song: withGatedAudio(approved) });
   }
   const fixture = getFixtureKaraokeSong(songId);
   if (fixture) {
-    return NextResponse.json({ source: "fixture", song: fixture });
+    return NextResponse.json({ source: "fixture", song: withGatedAudio(fixture) });
   }
   return NextResponse.json({ error: "not_found" }, { status: 404 });
 }
