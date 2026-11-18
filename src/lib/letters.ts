@@ -144,7 +144,7 @@ function L(
   };
 }
 
-/** Shared TTS hints so look-alike Vietnamese letters are not flattened. */
+/** Shared TTS hints so look-alike Vietnamese letters / digraphs are not flattened. */
 export const LETTER_PHONETIC_HINTS: Record<string, string> = {
   ă: "Vietnamese letter ă (a with breve). Short central vowel like the ă in ăn. Say ă, never the open a of áo.",
   â: "Vietnamese letter â (a with circumflex). Soft deeper uh as in ấm. Not open a, not ă.",
@@ -153,7 +153,31 @@ export const LETTER_PHONETIC_HINTS: Record<string, string> = {
   ơ: "Vietnamese letter ơ (o with horn). Open uh with flat lips as in mơ. Not o or ô.",
   ư: "Vietnamese letter ư (u with horn). Spread eu as in chữ. Not u.",
   đ: "Vietnamese letter đ (d with crossbar). Soft d as in đèn. Not plain d.",
+  ph: "Vietnamese digraph ph. Say as English f, like phở. Never p then h as two sounds.",
+  th: "Vietnamese digraph th. Aspirated t with a puff of air, like thỏ. Not English th in the.",
+  kh: "Vietnamese digraph kh. Scratchy back-of-throat kh as in khế. Not plain k.",
+  ng: "Vietnamese digraph ng. Singing ng as in ngỗng or English singer. Never hard g alone.",
+  nh: "Vietnamese digraph nh. Soft ny as in nhà (like Spanish ñ). Not plain n then h.",
+  tr: "Vietnamese digraph tr. Southern ch-like blend as in trai. Not English tr in tree.",
+  ch: "Vietnamese digraph ch. Soft ch as in chó. Not English ch in church with a hard edge.",
+  qu: "Vietnamese digraph qu. kw / w before a vowel, like quả. Say the whole digraph, not q alone.",
+  gi: "Vietnamese digraph gi. Southern z / y feel as in gì. Not English soft g in giant.",
+  gh: "Vietnamese digraph gh. Hard g before e, ê, i — like ghế. Same g sound as gà, not silent h.",
 };
+
+/** Digraph graphemes that need TTS cues (Levels 4–8). */
+export const DIGRAPH_GRAPHEMES = [
+  "ph",
+  "th",
+  "kh",
+  "ng",
+  "nh",
+  "tr",
+  "ch",
+  "qu",
+  "gi",
+  "gh",
+] as const;
 
 /** Full Level 1–8 alphabet path (vowels + consonants). */
 export const ALL_LETTERS: LetterLesson[] = [
@@ -358,6 +382,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/f/",
     wordVi: "phở",
     wordEn: "noodle soup",
+    phoneticHint: LETTER_PHONETIC_HINTS.ph,
     order: 16,
     levelId: 4,
     strokes: S.ph,
@@ -394,6 +419,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/tʰ/",
     wordVi: "thỏ",
     wordEn: "rabbit",
+    phoneticHint: LETTER_PHONETIC_HINTS.th,
     order: 19,
     levelId: 4,
     strokes: S.th,
@@ -469,6 +495,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/x/",
     wordVi: "khế",
     wordEn: "starfruit",
+    phoneticHint: LETTER_PHONETIC_HINTS.kh,
     order: 25,
     levelId: 5,
     strokes: S.kh,
@@ -495,6 +522,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ŋ/",
     wordVi: "ngỗng",
     wordEn: "goose",
+    phoneticHint: LETTER_PHONETIC_HINTS.ng,
     order: 27,
     levelId: 6,
     strokes: S.ng,
@@ -507,6 +535,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɲ/",
     wordVi: "nhà",
     wordEn: "house",
+    phoneticHint: LETTER_PHONETIC_HINTS.nh,
     order: 28,
     levelId: 6,
     strokes: S.nh,
@@ -581,6 +610,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ʈ~tɕ/",
     wordVi: "trai",
     wordEn: "boy",
+    phoneticHint: LETTER_PHONETIC_HINTS.tr,
     order: 34,
     levelId: 7,
     strokes: S.tr,
@@ -593,6 +623,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/c~tɕ/",
     wordVi: "chó",
     wordEn: "dog",
+    phoneticHint: LETTER_PHONETIC_HINTS.ch,
     order: 35,
     levelId: 7,
     strokes: S.ch,
@@ -607,6 +638,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/kw~w/",
     wordVi: "quả",
     wordEn: "fruit",
+    phoneticHint: LETTER_PHONETIC_HINTS.qu,
     order: 36,
     levelId: 8,
     strokes: S.qu,
@@ -619,6 +651,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/z~j/",
     wordVi: "gì",
     wordEn: "what",
+    phoneticHint: LETTER_PHONETIC_HINTS.gi,
     order: 37,
     levelId: 8,
     strokes: S.gi,
@@ -631,6 +664,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɣ/",
     wordVi: "ghế",
     wordEn: "chair",
+    phoneticHint: LETTER_PHONETIC_HINTS.gh,
     order: 38,
     levelId: 8,
     strokes: S.gh,
