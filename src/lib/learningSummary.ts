@@ -15,16 +15,25 @@ import { loadPhonicsProgress, phonicsMastery } from "@/lib/phonics";
 import { listKaraokeSongs } from "@/lib/karaoke/catalog";
 import { getLearnLyricsProgress } from "@/lib/sing/learnLyrics/progress";
 import {
+  loadPracticeHistory,
   loadSingProgress,
   modeSlotCountForSong,
   modesCompletedDisplayCount,
 } from "@/lib/sing/progress";
 import { loadVocab } from "@/lib/vocab/store";
+import {
+  buildLastNDayActivity,
+  countPracticedDays,
+  type DayActivity,
+} from "@/lib/practiceActivity";
 
 export type ProgressSummary = {
   streakDays: number;
   minutesToday: number;
   practiceDates: string[];
+  /** Last 7 UTC days — practiced if alphabet, Đánh Vần, or Sing history touched that day. */
+  last7Days: DayActivity[];
+  daysPracticedLast7: number;
   alphabet: {
     mastered: number;
     inProgress: number;
@@ -108,10 +117,19 @@ export function buildProgressSummary(
     0,
   );
 
+  const singHistoryDays = loadPracticeHistory().map((h) => h.at);
+  const last7Days = buildLastNDayActivity([
+    progress.practiceDates,
+    phonicsState.practiceDates ?? [],
+    singHistoryDays,
+  ]);
+
   return {
     streakDays: practiceStreak(progress),
     minutesToday: progress.minutesToday,
     practiceDates: progress.practiceDates,
+    last7Days,
+    daysPracticedLast7: countPracticedDays(last7Days),
     alphabet: {
       mastered: counts.mastered,
       inProgress: counts.inProgress,

@@ -65,7 +65,35 @@ export function ProgressClient() {
         {dailyGoal != null ? ` Goal from setup: ${dailyGoal}m.` : null}
       </p>
 
-      <section className="ami-card mt-6 px-4 py-4">
+      <section className="ami-card mt-6 px-4 py-4" aria-label="Last 7 days of practice">
+        <div className="flex items-baseline justify-between gap-2">
+          <p className="quiet-label">Last 7 days</p>
+          <p className="text-xs text-ink/45">
+            {summary.daysPracticedLast7}/7 days with practice
+          </p>
+        </div>
+        <ul className="mt-3 flex items-end justify-between gap-1.5">
+          {summary.last7Days.map((day) => (
+            <li key={day.date} className="flex flex-1 flex-col items-center gap-1.5">
+              <span
+                className={`block h-8 w-full max-w-[2rem] rounded-md ${
+                  day.practiced ? "bg-coral" : "bg-ink/10"
+                }`}
+                title={day.practiced ? `Practiced ${day.date}` : `No practice ${day.date}`}
+                aria-label={
+                  day.practiced ? `Practiced on ${day.date}` : `No practice on ${day.date}`
+                }
+              />
+              <span className="text-[10px] text-ink/45">{day.label}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3 text-xs text-ink/40">
+          Marks days you opened alphabet, Đánh Vần, or Sing — not accuracy or minutes.
+        </p>
+      </section>
+
+      <section className="ami-card mt-4 px-4 py-4">
         <p className="quiet-label">Alphabet</p>
         <p className="mt-1 font-display text-xl text-ink">
           {summary.alphabet.mastered}/{summary.alphabet.total} sounds
