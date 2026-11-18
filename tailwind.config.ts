@@ -55,6 +55,10 @@ export default {
           "0%, 100%": { opacity: "0.35", transform: "scale(1)" },
           "50%": { opacity: "1", transform: "scale(1.12)" },
         },
+        welcomeGlow: {
+          "0%, 100%": { opacity: "0.55", transform: "translate3d(0,0,0) scale(1)" },
+          "50%": { opacity: "0.9", transform: "translate3d(12px,-10px,0) scale(1.06)" },
+        },
       },
       animation: {
         breathe: "breathe 5s ease-in-out infinite",
@@ -63,6 +67,8 @@ export default {
         pulseRing: "pulseRing 1.4s ease-out infinite",
         pop: "pop 0.45s ease-out both",
         sparkle: "sparkle 1.8s ease-in-out infinite",
+        welcomeGlow: "welcomeGlow 8s ease-in-out infinite",
+        welcomeGlowSlow: "welcomeGlow 10s ease-in-out infinite reverse",
       },
     },
   },
