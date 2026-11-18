@@ -1,10 +1,11 @@
+import { withLicensedDemoOffset } from "../demoOffsets";
 import type { KaraokeSong } from "../types";
 
 /**
  * Approved bilingual karaoke document for the original demo track.
  * Preprocessed offline — never regenerated during playback.
  */
-export const XIN_CHAO_BILINGUAL: KaraokeSong = {
+export const XIN_CHAO_BILINGUAL: KaraokeSong = withLicensedDemoOffset({
   id: "xin-chao-moi-ngay",
   title: "Xin chào mỗi ngày",
   artist: "ÁMi Lingua Originals",
@@ -225,4 +226,4 @@ export const XIN_CHAO_BILINGUAL: KaraokeSong = {
       ],
     },
   ],
-};
+});
