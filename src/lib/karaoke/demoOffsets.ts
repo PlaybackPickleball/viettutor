@@ -13,8 +13,8 @@ export const LICENSED_DEMO_GLOBAL_OFFSET_MS: Record<string, number> = {
   "hat-mua-vuong-van": -500,
   /** First lyric window already tracks the HP energy rise (~41800). */
   "ngay-mai-nguoi-ta-lay-chong": 0,
-  /** Short lead-in before the first syllable on the 30s demo. */
-  "xin-chao-moi-ngay": 120,
+  /** Hand-tuned word timings sit on the audio clock (see hand-tune-v1 fixture). */
+  "xin-chao-moi-ngay": 0,
 };
 
 export function licensedDemoOffsetMs(songId: string): number | undefined {
