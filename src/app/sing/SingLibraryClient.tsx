@@ -83,6 +83,9 @@ function SongCard({
                 {progress.modesCompleted.length}/{MODE_COUNT} modes
               </span>
             ) : null}
+            {song.rights.status === "approved" ? (
+              <span className="text-[11px] text-ink/40">Sing · Learn</span>
+            ) : null}
           </div>
         </div>
       </Link>
