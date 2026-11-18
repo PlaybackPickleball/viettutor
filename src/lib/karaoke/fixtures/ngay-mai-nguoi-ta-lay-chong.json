@@ -3,7 +3,7 @@
   "title": "Ngày Mai Người Ta Lấy Chồng",
   "artist": "Nguyễn Thành Đạt",
   "language": "vi",
-  "audioUrl": "/sing/ngay-mai-nguoi-ta-lay-chong.mp3",
+  "audioUrl": "/api/sing/stream?songId=ngay-mai-nguoi-ta-lay-chong&type=audio_original",
   "durationMs": 420362,
   "lines": [
     {

@@ -3,7 +3,7 @@
   "title": "Hạt Mưa Vương Vấn",
   "artist": "Kiều Chi",
   "language": "vi",
-  "audioUrl": "/sing/hat-mua-vuong-van.mp3",
+  "audioUrl": "/api/sing/stream?songId=hat-mua-vuong-van&type=audio_original",
   "durationMs": 272901,
   "lines": [
     {
