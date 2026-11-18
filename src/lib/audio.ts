@@ -1,13 +1,20 @@
 /** Vietnamese TTS — natural OpenAI voice when available, Web Speech fallback. */
 
-type SpeakOpts = { rate?: number; slow?: boolean };
+import { LETTER_PHONETIC_HINTS } from "@/lib/letters";
+
+type SpeakOpts = {
+  rate?: number;
+  slow?: boolean;
+  /** Extra cue so look-alike letters (ă vs a) are spoken correctly. */
+  phoneticHint?: string;
+};
 
 let cloudAudio: HTMLAudioElement | null = null;
 const cloudCache = new Map<string, string>(); // key → object URL
 const CACHE_MAX = 48;
 
-function cacheKey(text: string, slow?: boolean): string {
-  return `${slow ? "s" : "n"}:${text.trim()}`;
+function cacheKey(text: string, slow?: boolean, hint?: string): string {
+  return `${slow ? "s" : "n"}:${text.trim()}|${hint?.trim() ?? ""}`;
 }
 
 function rememberUrl(key: string, url: string) {
@@ -36,16 +43,30 @@ function stopCloudAudio() {
   cloudAudio = null;
 }
 
+function resolveHint(text: string, hint?: string): string | undefined {
+  if (hint?.trim()) return hint.trim();
+  const t = text.trim();
+  if (t.length <= 2) {
+    return LETTER_PHONETIC_HINTS[t.toLowerCase()] ?? LETTER_PHONETIC_HINTS[t];
+  }
+  return undefined;
+}
+
 async function speakWithCloudTts(text: string, opts?: SpeakOpts): Promise<boolean> {
   if (typeof window === "undefined") return false;
-  const key = cacheKey(text, opts?.slow);
+  const phoneticHint = resolveHint(text, opts?.phoneticHint);
+  const key = cacheKey(text, opts?.slow, phoneticHint);
   let url = cloudCache.get(key);
 
   if (!url) {
     const res = await fetch("/api/tts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, slow: Boolean(opts?.slow) }),
+      body: JSON.stringify({
+        text,
+        slow: Boolean(opts?.slow),
+        phoneticHint: phoneticHint ?? null,
+      }),
     });
     if (!res.ok) return false;
     const type = res.headers.get("content-type") || "";
@@ -63,8 +84,6 @@ async function speakWithCloudTts(text: string, opts?: SpeakOpts): Promise<boolea
 
   const audio = new Audio(url);
   cloudAudio = audio;
-  // Slightly slower playback for "slow" when using cached normal clip is handled server-side;
-  // for HD models we request slow separately.
   if (!opts?.slow && opts?.rate && opts.rate > 0) {
     audio.playbackRate = Math.min(1.25, Math.max(0.75, opts.rate));
   }
@@ -93,6 +112,16 @@ function pickVietnameseVoice(): SpeechSynthesisVoice | null {
   return vi ?? null;
 }
 
+/** Web Speech often flattens ă→a; repeat the grapheme with a native word cue softly avoided — speak grapheme twice. */
+function webSpeechText(text: string): string {
+  const t = text.trim();
+  if (t === "ă") return "ă, ă";
+  if (t === "â") return "â, â";
+  if (t === "ơ") return "ơ, ơ";
+  if (t === "ư") return "ư, ư";
+  return t;
+}
+
 function speakWithWebSpeech(text: string, opts?: SpeakOpts): Promise<void> {
   return new Promise((resolve, reject) => {
     if (typeof window === "undefined" || !window.speechSynthesis) {
@@ -100,7 +129,7 @@ function speakWithWebSpeech(text: string, opts?: SpeakOpts): Promise<void> {
       return;
     }
 
-    const utter = new SpeechSynthesisUtterance(text);
+    const utter = new SpeechSynthesisUtterance(webSpeechText(text));
     utter.lang = "vi-VN";
     const voice = pickVietnameseVoice();
     if (voice) utter.voice = voice;

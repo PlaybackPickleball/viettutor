@@ -5,10 +5,11 @@ import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 
 type Props = {
   text: string;
+  phoneticHint?: string;
   onListened?: () => void;
 };
 
-export function ListenControls({ text, onListened }: Props) {
+export function ListenControls({ text, phoneticHint, onListened }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,7 +18,7 @@ export function ListenControls({ text, onListened }: Props) {
     setBusy(true);
     try {
       await Promise.race([
-        speakVietnamese(text, { slow }),
+        speakVietnamese(text, { slow, phoneticHint }),
         new Promise<void>((_, reject) =>
           setTimeout(() => reject(new Error("TTS timeout")), 4500),
         ),

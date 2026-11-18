@@ -33,13 +33,13 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="write"
-      caption="Practice the letter shape — notebook cursive with stroke guidance."
+      caption="Practice the letter shape — Mali handwriting model with stroke guidance."
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("write", letter.order)} /> : null}
 
       <div className="ami-card mb-5 px-4 py-6 text-center">
-        <p className="font-hand text-6xl font-medium text-ink" lang="vi">
+        <p className="font-hand text-7xl font-medium text-ink animate-riseIn" lang="vi">
           {letter.grapheme}
         </p>
         <p className="mt-2 text-xs text-ink/40">
@@ -47,7 +47,7 @@ export function WriteClient({ letter }: { letter: LetterLesson }) {
         </p>
       </div>
 
-      <StrokeDemo strokes={letter.strokes} grapheme={letter.grapheme} />
+      <StrokeDemo strokes={letter.strokes} grapheme={letter.grapheme} autoPlay />
       <LetterTraceCanvas
         strokes={letter.strokes}
         grapheme={letter.grapheme}

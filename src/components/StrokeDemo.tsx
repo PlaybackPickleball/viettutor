@@ -1,15 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   strokes: string[];
   grapheme: string;
+  /** Auto-play Mali stroke demo when the write studio opens. */
+  autoPlay?: boolean;
 };
 
-export function StrokeDemo({ strokes, grapheme }: Props) {
+export function StrokeDemo({ strokes, grapheme, autoPlay = true }: Props) {
   const [playing, setPlaying] = useState(0);
   const [key, setKey] = useState(0);
+  const [fontsReady, setFontsReady] = useState(false);
 
   function replay() {
     setPlaying(0);
@@ -19,10 +22,35 @@ export function StrokeDemo({ strokes, grapheme }: Props) {
     });
   }
 
+  useEffect(() => {
+    let cancelled = false;
+    const markReady = () => {
+      if (!cancelled) setFontsReady(true);
+    };
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      void document.fonts.ready.then(markReady);
+    } else {
+      markReady();
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, [grapheme]);
+
+  useEffect(() => {
+    if (!autoPlay || !fontsReady) return;
+    const t = window.setTimeout(() => replay(), 280);
+    return () => window.clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoPlay, fontsReady, grapheme, strokes.join("|")]);
+
   return (
     <div className="mb-6">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <p className="quiet-label">Stroke order demo</p>
+        <div>
+          <p className="quiet-label">Mali stroke demo</p>
+          <p className="mt-0.5 text-xs text-ink/45">Handwriting model · single-storey Vietnamese</p>
+        </div>
         <button type="button" className="teacher-btn-secondary py-2 text-sm" onClick={replay}>
           Play demo
         </button>
@@ -31,16 +59,20 @@ export function StrokeDemo({ strokes, grapheme }: Props) {
         <svg
           key={key}
           viewBox="0 0 200 240"
-          className="h-40 w-40"
-          aria-label={`Stroke order for ${grapheme}`}
+          className="h-44 w-44 animate-riseIn"
+          aria-label={`Mali stroke order for ${grapheme}`}
         >
           <text
             x="100"
             y="168"
             textAnchor="middle"
             dominantBaseline="middle"
-            className="fill-ink/15"
-            style={{ fontSize: 128, fontFamily: "var(--font-hand), cursive", fontWeight: 500 }}
+            className="fill-coral/25"
+            style={{
+              fontSize: 128,
+              fontFamily: "var(--font-hand), Mali, cursive",
+              fontWeight: 600,
+            }}
             lang="vi"
           >
             {grapheme}

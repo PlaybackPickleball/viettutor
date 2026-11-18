@@ -3,6 +3,8 @@
  * Prefer gpt-4o-mini-tts (expressive) with tts-1-hd fallback.
  */
 
+import { LETTER_PHONETIC_HINTS } from "@/lib/letters";
+
 export function isTtsConfigured(): boolean {
   return Boolean(process.env.OPENAI_API_KEY);
 }
@@ -13,9 +15,39 @@ export type TtsResult =
   | { ok: true; audio: ArrayBuffer; contentType: string }
   | { ok: false; message: string; status?: number };
 
+function resolvePhoneticHint(text: string, hint?: string): string | undefined {
+  const trimmed = text.trim();
+  if (hint?.trim()) return hint.trim();
+  if (trimmed.length <= 2) {
+    const lower = trimmed.toLowerCase();
+    return LETTER_PHONETIC_HINTS[lower] ?? LETTER_PHONETIC_HINTS[trimmed];
+  }
+  return undefined;
+}
+
+/**
+ * For models without instruction support, nudge look-alike letters toward the
+ * correct Southern Vietnamese sound without inventing non-Vietnamese text.
+ * Prefer the bare grapheme when possible; only expand when necessary.
+ */
+function fallbackSpeakInput(text: string, phoneticHint?: string): string {
+  const t = text.trim();
+  if (t === "ă" || phoneticHint?.includes("ă (a with breve)")) {
+    // Carrier keeps the breve vowel; model often drops bare ă → a.
+    return "ă. ă.";
+  }
+  if (t === "â") return "â. â.";
+  if (t === "ơ") return "ơ. ơ.";
+  if (t === "ư") return "ư. ư.";
+  if (t === "ê") return "ê. ê.";
+  if (t === "ô") return "ô. ô.";
+  if (t === "đ") return "đ. đ.";
+  return t;
+}
+
 export async function synthesizeVietnameseSpeech(
   text: string,
-  opts?: { slow?: boolean },
+  opts?: { slow?: boolean; phoneticHint?: string },
 ): Promise<TtsResult> {
   const key = process.env.OPENAI_API_KEY;
   if (!key) {
@@ -27,14 +59,19 @@ export async function synthesizeVietnameseSpeech(
     return { ok: false, message: "Empty text", status: 400 };
   }
 
+  const phoneticHint = resolvePhoneticHint(input, opts?.phoneticHint);
   const base = (process.env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
   const voice = process.env.OPENAI_TTS_VOICE || "coral";
   const primaryModel = process.env.OPENAI_TTS_MODEL || "gpt-4o-mini-tts";
   const speed = opts?.slow ? 0.85 : 1;
 
+  const letterLine = phoneticHint
+    ? ` Critical letter cue: ${phoneticHint} Speak only the Vietnamese text given — do not translate to English.`
+    : "";
+
   const instructions = opts?.slow
-    ? "Speak clear Southern Vietnamese (giọng Nam), warm female language tutor. Slow and deliberate so a beginner can catch every tone mark. Natural and human, never robotic."
-    : "Speak natural Southern Vietnamese (giọng Nam), warm female language tutor. Conversational and human — clear tones, soft and friendly, never robotic or metallic.";
+    ? `Speak clear Southern Vietnamese (giọng Nam), warm female language tutor. Slow and deliberate so a beginner can catch every tone mark. Natural and human, never robotic.${letterLine}`
+    : `Speak natural Southern Vietnamese (giọng Nam), warm female language tutor. Conversational and human — clear tones, soft and friendly, never robotic or metallic.${letterLine}`;
 
   const primary = await requestSpeech(base, key, {
     model: primaryModel,
@@ -49,7 +86,7 @@ export async function synthesizeVietnameseSpeech(
   return requestSpeech(base, key, {
     model: "tts-1-hd",
     voice: process.env.OPENAI_TTS_FALLBACK_VOICE || "nova",
-    input,
+    input: fallbackSpeakInput(input, phoneticHint),
     speed,
   });
 }

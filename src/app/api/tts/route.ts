@@ -47,7 +47,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = (await request.json()) as { text?: string; slow?: boolean };
+    const body = (await request.json()) as {
+      text?: string;
+      slow?: boolean;
+      phoneticHint?: string | null;
+    };
     const text = typeof body.text === "string" ? body.text.trim() : "";
     if (!text) {
       return NextResponse.json(
@@ -62,7 +66,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = await synthesizeVietnameseSpeech(text, { slow: Boolean(body.slow) });
+    const phoneticHint =
+      typeof body.phoneticHint === "string" && body.phoneticHint.trim()
+        ? body.phoneticHint.trim().slice(0, 400)
+        : undefined;
+
+    const result = await synthesizeVietnameseSpeech(text, {
+      slow: Boolean(body.slow),
+      phoneticHint,
+    });
     if (!result.ok) {
       return NextResponse.json(
         { ok: false, message: result.message },

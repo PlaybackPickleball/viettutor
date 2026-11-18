@@ -84,7 +84,8 @@ export function BottomNav() {
       href: learnHref,
       label: "Learn",
       icon: LearnIcon,
-      match: (p: string) => p.startsWith("/studio") && !p.includes("/write"),
+      match: (p: string) =>
+        (p.startsWith("/studio") && !p.includes("/write")) || p.startsWith("/danh-van"),
     },
     {
       href: "/scan",

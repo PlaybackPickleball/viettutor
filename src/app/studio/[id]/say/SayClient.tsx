@@ -81,7 +81,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
 
   async function replayTeacher() {
     try {
-      await speakVietnamese(letter.listenText);
+      await speakVietnamese(letter.listenText, { phoneticHint: letter.phoneticHint });
     } catch {
       /* optional */
     }
@@ -122,7 +122,11 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       </div>
 
       <div className="mb-4">
-        <ListenControls text={letter.listenText} onListened={() => setListened(true)} />
+        <ListenControls
+          text={letter.listenText}
+          phoneticHint={letter.phoneticHint}
+          onListened={() => setListened(true)}
+        />
       </div>
 
       <div className="mb-2 flex justify-center">
