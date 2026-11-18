@@ -7,6 +7,9 @@ export type SavedVocabItem = {
   savedAt: string;
   practiceCount: number;
   reviewStatus: "new" | "learning" | "review";
+  /** YYYY-MM-DD when due for self-grade review; missing = due now. */
+  due?: string;
+  intervalDays?: number;
 };
 
 export type ReadingLessonDraft = {
@@ -65,6 +68,62 @@ export function removeVocabItem(id: string): SavedVocabItem[] {
   const out = loadVocab().filter((v) => v.id !== id);
   localStorage.setItem(VOCAB_KEY, JSON.stringify(out));
   return out;
+}
+
+function todayKey(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function addDays(day: string, days: number): string {
+  const date = new Date(`${day}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+export function isSongVocab(item: SavedVocabItem): boolean {
+  const src = item.sourceLessonId ?? "";
+  return (
+    src.startsWith("learn-lyrics:") ||
+    src.startsWith("karaoke:") ||
+    src.startsWith("sing:")
+  );
+}
+
+export function dueVocab(items: SavedVocabItem[] = loadVocab(), today = todayKey()): SavedVocabItem[] {
+  return items
+    .filter((item) => !item.due || item.due <= today)
+    .sort((a, b) => (a.due ?? "").localeCompare(b.due ?? "") || a.savedAt.localeCompare(b.savedAt));
+}
+
+/** Self-grade flashcard: know → longer interval; again → due tomorrow. */
+export function gradeVocabItem(
+  id: string,
+  grade: "know" | "again",
+  today = todayKey(),
+): SavedVocabItem[] {
+  const list = loadVocab();
+  const next = list.map((item) => {
+    if (item.id !== id) return item;
+    if (grade === "again") {
+      return {
+        ...item,
+        practiceCount: item.practiceCount + 1,
+        reviewStatus: "learning" as const,
+        intervalDays: 1,
+        due: addDays(today, 1),
+      };
+    }
+    const intervalDays = Math.min(14, Math.max(1, (item.intervalDays ?? 0) || 1) * 2);
+    return {
+      ...item,
+      practiceCount: item.practiceCount + 1,
+      reviewStatus: "review" as const,
+      intervalDays,
+      due: addDays(today, intervalDays),
+    };
+  });
+  localStorage.setItem(VOCAB_KEY, JSON.stringify(next));
+  return next;
 }
 
 export function saveReadingLesson(lesson: ReadingLessonDraft) {

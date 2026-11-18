@@ -53,6 +53,13 @@ export function ProgressClient() {
         <Stat value={`${summary.minutesToday}m`} label="Active today" />
         <Stat value={String(summary.vocab.wordsSaved)} label="Words saved" />
       </section>
+      {summary.vocab.wordsSaved > 0 ? (
+        <p className="mt-2 text-center text-sm">
+          <Link href="/vocab" className="font-medium text-coral underline-offset-2 hover:underline">
+            Review song & scan words
+          </Link>
+        </p>
+      ) : null}
       <p className="mt-2 text-center text-[11px] text-ink/40">
         Active today is wall-clock practice while you stay on a lesson — not a tap counter.
         {dailyGoal != null ? ` Goal from setup: ${dailyGoal}m.` : null}
