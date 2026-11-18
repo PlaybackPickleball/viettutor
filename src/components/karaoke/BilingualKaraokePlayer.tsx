@@ -457,10 +457,14 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
                 </button>
               ) : null}
               <div className="mt-4">
+                <p className="mb-2 text-xs text-ink/45">
+                  After you speak, keep your take and Hear teacher — compare by ear (no pitch %).
+                </p>
                 <SingSpeakMic
                   phrase={practiceLine.textVi}
                   songId={song.id}
                   attemptIndex={0}
+                  onPlayTeacher={() => void hearFullSentence(practiceLine)}
                   onScored={() => undefined}
                 />
               </div>
