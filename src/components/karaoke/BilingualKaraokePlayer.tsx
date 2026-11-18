@@ -39,19 +39,30 @@ const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
 
 type Props = {
   song: KaraokeSong;
+  /** Optional seek when returning from Learn-the-Lyrics “Sing this phrase”. */
+  initialSeekSec?: number | null;
+  seekNonce?: number;
 };
 
 /**
  * Modular bilingual karaoke engine: HTMLAudio clock + rAF via KaraokePlayer,
  * progressive word fill, Learn / Sing / Practice.
  */
-export function BilingualKaraokePlayer({ song }: Props) {
+export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce: externalSeekNonce = 0 }: Props) {
   const [mode, setMode] = useState<KaraokeMode>("learn");
   const [playing, setPlaying] = useState(false);
   const [tSec, setTSec] = useState(0);
   const [speed, setSpeed] = useState<(typeof SPEEDS)[number]>(1);
   const [seekTo, setSeekTo] = useState<number | null>(null);
   const [seekNonce, setSeekNonce] = useState(0);
+
+  useEffect(() => {
+    if (initialSeekSec == null || externalSeekNonce <= 0) return;
+    setSeekTo(initialSeekSec);
+    setSeekNonce((n) => n + 1);
+    setTSec(initialSeekSec);
+    setPlaying(true);
+  }, [initialSeekSec, externalSeekNonce]);
   const [loop, setLoop] = useState<{ start: number; end: number } | null>(null);
   const [selected, setSelected] = useState<LyricToken | null>(null);
   const [speakingId, setSpeakingId] = useState<string | null>(null);

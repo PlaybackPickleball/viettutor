@@ -5,12 +5,14 @@ import { useEffect, useRef, useState } from "react";
 type Props = {
   disabled?: boolean;
   label?: string;
+  /** Fired after a non-empty local take is saved (never uploaded). */
+  onRecorded?: () => void;
 };
 
 /**
  * Private mic take: MediaRecorder → local blob URL playback. Never uploaded.
  */
-export function LocalMicRecorder({ disabled, label = "Record yourself" }: Props) {
+export function LocalMicRecorder({ disabled, label = "Record yourself", onRecorded }: Props) {
   const [recording, setRecording] = useState(false);
   const [url, setUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -43,6 +45,7 @@ export function LocalMicRecorder({ disabled, label = "Record yourself" }: Props)
         if (url) URL.revokeObjectURL(url);
         setUrl(URL.createObjectURL(blob));
         setRecording(false);
+        if (blob.size > 0) onRecorded?.();
       };
       mediaRef.current = rec;
       rec.start();
