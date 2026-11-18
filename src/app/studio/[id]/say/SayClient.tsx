@@ -95,13 +95,13 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="say"
-      caption="Listen, then compare 10 times. Record/replay only — no invented scores."
+      caption={`Finish ${SAY_TARGET_REPS} listen→record→compare cycles (by ear). No AI “correct” score yet.`}
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("say", letter.order)} /> : null}
 
       <div className="ami-card mb-6 flex flex-col items-center px-4 py-8">
-        <p className="quiet-label mb-2">Vowel sound · Southern</p>
+        <p className="quiet-label mb-2">{soundKindLabel(letter)} · Southern</p>
         <p className="font-hand text-7xl font-medium text-ink" lang="vi">
           {letter.grapheme}
         </p>
@@ -175,6 +175,12 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       </div>
     </StudioChrome>
   );
+}
+
+function soundKindLabel(letter: LetterLesson): string {
+  if (letter.grapheme.length > 1) return "Letter group";
+  if (letter.levelId <= 2 || letter.id === "u" || letter.id === "ư") return "Vowel sound";
+  return "Consonant sound";
 }
 
 function SpeakerIcon() {

@@ -31,16 +31,19 @@ export function DemoScript() {
             <strong>Hear:</strong> Listen, then Next.
           </li>
           <li>
-            <strong>Say:</strong> complete <strong>{SAY_TARGET_REPS} takes</strong> (Record or Demo
-            practice take). Each tip is Simulated scoring; after {SAY_TARGET_REPS}, read the{" "}
-            <em>AI set average</em>, then Write unlocks.
+            <strong>Say:</strong> finish <strong>{SAY_TARGET_REPS} listen→record→compare</strong>{" "}
+            cycles by ear (no invented AI score). After the set, Write unlocks.
           </li>
           <li>
             <strong>Write:</strong> Play demo / trace / Mark written.
           </li>
           <li>
             <strong>Link:</strong> shirt for <span lang="vi">áo</span>, then next sound. Finish a
-            level to unlock the next few letters.
+            level to unlock the next letters — all 8 levels use the same Hear·Say·Write·Link path.
+          </li>
+          <li>
+            Optional: <strong>Đánh Vần</strong> intro <span lang="vi">bá</span> stays open for demos;
+            open <strong>Progress</strong> for streak, active minutes, and practice volume.
           </li>
         </ol>
       ) : null}

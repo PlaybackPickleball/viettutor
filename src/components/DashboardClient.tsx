@@ -16,6 +16,7 @@ import {
   starsForLetter,
   totalStars,
 } from "@/lib/motivation";
+import { usePracticeClock } from "@/hooks/usePracticeClock";
 import {
   continueHref,
   currentLevelId,
@@ -31,9 +32,12 @@ import { isSupabaseConfigured } from "@/lib/supabase/client";
 
 export function DashboardClient() {
   const [progress, setProgress] = useState<ProgressState | null>(null);
+  usePracticeClock(true);
 
   useEffect(() => {
     setProgress(loadProgress());
+    const id = window.setInterval(() => setProgress(loadProgress()), 15_000);
+    return () => window.clearInterval(id);
   }, []);
 
   if (!progress) {
@@ -136,7 +140,7 @@ export function DashboardClient() {
       <section className="mt-6 grid grid-cols-3 gap-3" id="progress" aria-label="Practice stats">
         <StatCircle value={String(counts.mastered)} label="Sounds mastered" icon="book" />
         <StatCircle value={`${streak} days`} label="Practice streak" icon="flame" />
-        <StatCircle value={`${progress.minutesToday} min`} label="Time today" icon="clock" />
+        <StatCircle value={`${progress.minutesToday} min`} label="Active today" icon="clock" />
       </section>
       <p className="mt-3 text-center text-sm">
         <Link href="/progress" className="font-medium text-coral underline-offset-2 hover:underline">
@@ -212,7 +216,7 @@ export function DashboardClient() {
 
       <section className="mb-4 mt-8 space-y-5" aria-labelledby="levels-heading">
         <h2 id="levels-heading" className="quiet-label">
-          Alphabet path · Levels 1–3 demo-ready · {LEVELS.length} total
+          Alphabet path · all {LEVELS.length} levels playable (paced unlock)
         </h2>
         {LEVELS.map((level) => {
           const unlocked = isLevelUnlocked(progress, level.id);
@@ -227,11 +231,9 @@ export function DashboardClient() {
                 <div>
                   <p className="font-display text-lg text-ink">
                     Level {level.id} · {level.title}
-                    {level.id <= 3 ? (
-                      <span className="ml-2 align-middle text-[10px] font-sans font-medium uppercase tracking-wider text-coral">
-                        Demo
-                      </span>
-                    ) : null}
+                    <span className="ml-2 align-middle text-[10px] font-sans font-medium uppercase tracking-wider text-coral">
+                      Hear·Say·Write
+                    </span>
                   </p>
                   <p className="text-xs text-ink/50">{level.subtitle}</p>
                 </div>

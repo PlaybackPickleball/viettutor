@@ -5,7 +5,6 @@
 
 import { ALL_LETTERS, LEVELS } from "@/lib/letters";
 import {
-  isLetterComplete,
   isLevelComplete,
   loadProgress,
   masteryCounts,
@@ -46,6 +45,8 @@ export type ProgressSummary = {
   pronunciation: {
     compareAttempts: number;
     lettersWithSayPractice: number;
+    saySetsFinished: number;
+    phonicsAttempts: number;
     note: string;
   };
 };
@@ -55,7 +56,7 @@ export function buildProgressSummary(
 ): ProgressSummary {
   const progress = alphabetState ?? loadProgress();
   const counts = masteryCounts(progress);
-  const phonics = phonicsMastery(loadPhonicsProgress());
+  const phonicsState = loadPhonicsProgress();
   const vocab = loadVocab();
   const sing = loadSingProgress();
   const karaoke = listKaraokeSongs();
@@ -95,6 +96,10 @@ export function buildProgressSummary(
   }
 
   const levelsComplete = LEVELS.filter((l) => isLevelComplete(progress, l.id)).length;
+  const phonicsAttempts = Object.values(phonicsState.attemptsByLesson ?? {}).reduce(
+    (a, n) => a + (typeof n === "number" ? n : 0),
+    0,
+  );
 
   return {
     streakDays: practiceStreak(progress),
@@ -108,7 +113,7 @@ export function buildProgressSummary(
       levelsTotal: LEVELS.length,
       saySetsFinished,
     },
-    phonics,
+    phonics: phonicsMastery(phonicsState),
     vocab: { wordsSaved: vocab.length },
     sing: {
       songsTouched,
@@ -124,6 +129,8 @@ export function buildProgressSummary(
     pronunciation: {
       compareAttempts,
       lettersWithSayPractice,
+      saySetsFinished,
+      phonicsAttempts,
       note: "Compare/replay attempts only — no automatic accuracy score until Azure is validated.",
     },
   };

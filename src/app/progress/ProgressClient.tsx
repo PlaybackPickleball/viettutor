@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { usePracticeClock } from "@/hooks/usePracticeClock";
 import { buildProgressSummary, type ProgressSummary } from "@/lib/learningSummary";
 
 export function ProgressClient() {
   const [summary, setSummary] = useState<ProgressSummary | null>(null);
+  usePracticeClock(true);
 
   useEffect(() => {
     setSummary(buildProgressSummary());
+    const id = window.setInterval(() => setSummary(buildProgressSummary()), 15_000);
+    return () => window.clearInterval(id);
   }, []);
 
   if (!summary) {
@@ -43,9 +47,12 @@ export function ProgressClient() {
 
       <section className="grid grid-cols-3 gap-3">
         <Stat value={`${summary.streakDays}d`} label="Streak" />
-        <Stat value={`${summary.minutesToday}m`} label="Today" />
+        <Stat value={`${summary.minutesToday}m`} label="Active today" />
         <Stat value={String(summary.vocab.wordsSaved)} label="Words saved" />
       </section>
+      <p className="mt-2 text-center text-[11px] text-ink/40">
+        Active today is wall-clock practice while you stay on a lesson — not a tap counter.
+      </p>
 
       <section className="ami-card mt-6 px-4 py-4">
         <p className="quiet-label">Alphabet</p>
@@ -114,19 +121,22 @@ export function ProgressClient() {
       </section>
 
       <section className="ami-card mt-4 px-4 py-4">
-        <p className="quiet-label">Pronunciation practice</p>
+        <p className="quiet-label">Practice volume</p>
         <p className="mt-1 font-display text-xl text-ink">
           {summary.pronunciation.compareAttempts} compare takes
         </p>
-        <p className="mt-1 text-sm text-ink/55">
-          {summary.pronunciation.lettersWithSayPractice} letters practiced ·{" "}
-          {summary.pronunciation.note}
-        </p>
+        <ul className="mt-3 grid grid-cols-2 gap-2 text-sm text-ink/60">
+          <li>{summary.pronunciation.lettersWithSayPractice} letters practiced</li>
+          <li>{summary.pronunciation.saySetsFinished} say sets finished</li>
+          <li>{summary.pronunciation.phonicsAttempts} Đánh Vần attempts</li>
+          <li>{summary.alphabet.levelsComplete}/{summary.alphabet.levelsTotal} alphabet levels</li>
+        </ul>
+        <p className="mt-3 text-sm text-ink/55">{summary.pronunciation.note}</p>
       </section>
 
       <p className="mt-6 text-xs text-ink/40">
         Progress saves on this device. Tone accuracy % and AI pronunciation grades stay off until
-        validated.
+        Azure (or another validated scorer) is wired.
       </p>
     </div>
   );

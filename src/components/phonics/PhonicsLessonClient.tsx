@@ -6,6 +6,7 @@ import { BrandMark } from "@/components/BrandMark";
 import { SyllableBuilder } from "@/components/phonics/SyllableBuilder";
 import { ToneFamilyBoard } from "@/components/phonics/ToneFamilyBoard";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
+import { usePracticeClock } from "@/hooks/usePracticeClock";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import {
   getNextPhonicsLesson,
@@ -23,6 +24,7 @@ export function PhonicsLessonClient({ lesson }: { lesson: PhonicsLesson }) {
   const [progress, setProgress] = useState<PhonicsProgressState | null>(null);
   const [ready, setReady] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  usePracticeClock(true);
 
   useEffect(() => {
     setProgress(loadPhonicsProgress());
