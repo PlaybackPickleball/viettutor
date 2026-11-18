@@ -9,6 +9,11 @@ export type LetterLesson = {
   wordEn: string;
   listenText: string;
   wordListenText: string;
+  /**
+   * TTS pronunciation cue for letters that look-alike voices misread
+   * (e.g. ă → open a). Sent to /api/tts; never shown as English TTS text.
+   */
+  phoneticHint?: string;
   /** Global curriculum order */
   order: number;
   levelId: number;
@@ -129,6 +134,7 @@ function L(
   partial: Omit<LetterLesson, "listenText" | "wordListenText"> & {
     listenText?: string;
     wordListenText?: string;
+    phoneticHint?: string;
   },
 ): LetterLesson {
   return {
@@ -137,6 +143,17 @@ function L(
     ...partial,
   };
 }
+
+/** Shared TTS hints so look-alike Vietnamese letters are not flattened. */
+export const LETTER_PHONETIC_HINTS: Record<string, string> = {
+  ă: "Vietnamese letter ă (a with breve). Short central vowel like the ă in ăn. Say ă, never the open a of áo.",
+  â: "Vietnamese letter â (a with circumflex). Soft deeper uh as in ấm. Not open a, not ă.",
+  ê: "Vietnamese letter ê (e with circumflex). Closed ay as in ghế. Not open e.",
+  ô: "Vietnamese letter ô (o with circumflex). Closed oh as in hồ. Not open o.",
+  ơ: "Vietnamese letter ơ (o with horn). Open uh with flat lips as in mơ. Not o or ô.",
+  ư: "Vietnamese letter ư (u with horn). Spread eu as in chữ. Not u.",
+  đ: "Vietnamese letter đ (d with crossbar). Soft d as in đèn. Not plain d.",
+};
 
 /** Full Level 1–8 alphabet path (vowels + consonants). */
 export const ALL_LETTERS: LetterLesson[] = [
@@ -160,6 +177,8 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ă/",
     wordVi: "ăn",
     wordEn: "to eat",
+    listenText: "ă",
+    phoneticHint: LETTER_PHONETIC_HINTS["ă"],
     order: 2,
     levelId: 1,
     strokes: S.breveA,
@@ -172,6 +191,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɤ/",
     wordVi: "ấm",
     wordEn: "warm",
+    phoneticHint: LETTER_PHONETIC_HINTS["â"],
     order: 3,
     levelId: 1,
     strokes: S.hatA,
@@ -196,6 +216,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/e/",
     wordVi: "ghế",
     wordEn: "chair",
+    phoneticHint: LETTER_PHONETIC_HINTS["ê"],
     order: 5,
     levelId: 1,
     strokes: S.hatE,
@@ -246,6 +267,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/o/",
     wordVi: "hồ",
     wordEn: "lake",
+    phoneticHint: LETTER_PHONETIC_HINTS["ô"],
     order: 9,
     levelId: 2,
     strokes: S.hatO,
@@ -258,6 +280,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɤː/",
     wordVi: "mơ",
     wordEn: "dream",
+    phoneticHint: LETTER_PHONETIC_HINTS["ơ"],
     order: 10,
     levelId: 2,
     strokes: S.hornO,
@@ -284,6 +307,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɯ/",
     wordVi: "chữ",
     wordEn: "letter / character",
+    phoneticHint: LETTER_PHONETIC_HINTS["ư"],
     order: 12,
     levelId: 3,
     strokes: S.hornU,
@@ -382,6 +406,7 @@ export const ALL_LETTERS: LetterLesson[] = [
     ipa: "/ɗ/",
     wordVi: "đèn",
     wordEn: "lamp",
+    phoneticHint: LETTER_PHONETIC_HINTS["đ"],
     order: 20,
     levelId: 4,
     strokes: S.dBar,

@@ -38,7 +38,11 @@ export function HearClient({ letter }: { letter: LetterLesson }) {
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("hear", letter.order)} /> : null}
       <GraphemeHero grapheme={letter.grapheme} hint={`${letter.soundHint} · ${letter.ipa}`} />
-      <ListenControls text={letter.listenText} onListened={onListened} />
+      <ListenControls
+        text={letter.listenText}
+        phoneticHint={letter.phoneticHint}
+        onListened={onListened}
+      />
       <div className="mt-auto pt-10">
         <Link
           href={`/studio/${letter.id}/say`}

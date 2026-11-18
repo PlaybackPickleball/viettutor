@@ -170,6 +170,23 @@ export function DashboardClient() {
         </div>
       </section>
 
+      <section className="ami-card mt-6 px-4 py-5" aria-labelledby="danh-van-heading">
+        <p className="quiet-label" id="danh-van-heading">
+          Next after alphabet
+        </p>
+        <p className="mt-1 font-display text-xl text-ink">Build Vietnamese Words</p>
+        <p className="mt-1 text-sm text-ink/60">
+          Learn how letters and tones come together — Đánh Vần builder, six tones, and 12 intro
+          lessons.
+        </p>
+        <p className="mt-1 text-sm text-ink/45" lang="vi">
+          Ghép chữ và thanh thành tiếng — Đánh Vần.
+        </p>
+        <Link href="/danh-van" className="teacher-btn-primary mt-4 w-full sm:w-auto">
+          Start Practicing
+        </Link>
+      </section>
+
       <section className="mt-6 grid grid-cols-3 gap-2.5" aria-label="Ways to practice">
         <FeatureThumb
           href="/scan"
@@ -190,7 +207,7 @@ export function DashboardClient() {
 
       <section className="mb-4 mt-8 space-y-5" aria-labelledby="levels-heading">
         <h2 id="levels-heading" className="quiet-label">
-          Alphabet path · {LEVELS.length} levels
+          Alphabet path · Levels 1–3 demo-ready · {LEVELS.length} total
         </h2>
         {LEVELS.map((level) => {
           const unlocked = isLevelUnlocked(progress, level.id);
@@ -205,6 +222,11 @@ export function DashboardClient() {
                 <div>
                   <p className="font-display text-lg text-ink">
                     Level {level.id} · {level.title}
+                    {level.id <= 3 ? (
+                      <span className="ml-2 align-middle text-[10px] font-sans font-medium uppercase tracking-wider text-coral">
+                        Demo
+                      </span>
+                    ) : null}
                   </p>
                   <p className="text-xs text-ink/50">{level.subtitle}</p>
                 </div>
