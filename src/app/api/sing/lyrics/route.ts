@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireSingViewer } from "@/lib/karaoke/adminAuth";
 import { getSong } from "@/lib/sing/catalog";
 import { canShowLyrics } from "@/lib/sing/rights";
 
@@ -6,6 +7,9 @@ export const runtime = "nodejs";
 
 /** Serve timed lyrics only when lyrics_display rights are approved. */
 export async function GET(request: Request) {
+  const identity = await requireSingViewer(request);
+  if (identity instanceof Response) return identity;
+
   const songId = new URL(request.url).searchParams.get("songId")?.trim() ?? "";
   if (!songId) {
     return NextResponse.json({ error: "songId required" }, { status: 400 });
