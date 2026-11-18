@@ -6,7 +6,8 @@ import {
   sequenceLabel,
   stripTones,
 } from "./engine";
-import { getPhonicsLesson, PHONICS_LESSONS } from "./lessons";
+import { getIntroLesson, getPhonicsLesson, PHONICS_LESSONS } from "./lessons";
+import { defaultPhonicsProgress, isLessonUnlocked } from "./progress";
 
 describe("phonics engine", () => {
   it("detects six tones on ma family", () => {
@@ -44,5 +45,13 @@ describe("phonics engine", () => {
 
   it("does not invent sequences for unknown closed syllables", () => {
     expect(resolveSequence("bánh")).toBeNull();
+  });
+
+  it("keeps intro bá lesson unlocked for fresh learners", () => {
+    const fresh = defaultPhonicsProgress();
+    expect(getIntroLesson().id).toBe("ba-sac");
+    expect(isLessonUnlocked(fresh, "ba-open")).toBe(true);
+    expect(isLessonUnlocked(fresh, "ba-sac")).toBe(true);
+    expect(isLessonUnlocked(fresh, "ma-six-tones")).toBe(false);
   });
 });
