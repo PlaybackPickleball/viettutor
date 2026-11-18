@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashboardClient } from "@/components/DashboardClient";
 import { browserStore, loadCourse, type ExperienceId } from "@/lib/experience/store";
+import { isViOnboardingComplete } from "@/lib/viOnboarding";
 import { WelcomeScreen } from "./WelcomeScreen";
 
 export function HomeSwitch() {
@@ -20,6 +21,10 @@ export function HomeSwitch() {
       router.replace("/en");
       return;
     }
+    if (!isViOnboardingComplete()) {
+      router.replace("/onboarding");
+      return;
+    }
     setMode("vi");
   }, [router]);
 
@@ -34,7 +39,7 @@ export function HomeSwitch() {
     return (
       <WelcomeScreen
         onSelect={(id: ExperienceId) => {
-          if (id === "en_to_vi") setMode("vi");
+          if (id === "en_to_vi") router.push("/onboarding");
           else router.push("/en/onboarding");
         }}
       />

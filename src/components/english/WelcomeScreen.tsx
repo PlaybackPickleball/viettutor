@@ -16,7 +16,7 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
       return;
     }
     if (id === "en_to_vi") {
-      router.push("/");
+      router.push("/onboarding");
       return;
     }
     const ready = loadEnglishProgress(store).onboardingCompleted;

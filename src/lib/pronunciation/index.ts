@@ -6,4 +6,6 @@ export type {
   ScoreResult,
 } from "./types";
 export { averageScores } from "./types";
-export { MockPronunciationScorer, pronunciationScorer } from "./mockScorer";
+export { MockPronunciationScorer } from "./mockScorer";
+export { HonestCompareScorer, honestCompareScorer } from "./honestScorer";
+export { pronunciationScorer } from "./mockScorer";

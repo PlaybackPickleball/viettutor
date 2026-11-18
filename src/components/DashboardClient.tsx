@@ -138,6 +138,11 @@ export function DashboardClient() {
         <StatCircle value={`${streak} days`} label="Practice streak" icon="flame" />
         <StatCircle value={`${progress.minutesToday} min`} label="Time today" icon="clock" />
       </section>
+      <p className="mt-3 text-center text-sm">
+        <Link href="/progress" className="font-medium text-coral underline-offset-2 hover:underline">
+          See all progress
+        </Link>
+      </p>
 
       <section className="ami-card relative mt-6 overflow-hidden px-4 py-4">
         <div className="relative z-[1] flex items-center justify-between gap-3 pr-20">

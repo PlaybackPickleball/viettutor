@@ -88,10 +88,10 @@ export function BottomNav() {
         (p.startsWith("/studio") && !p.includes("/write")) || p.startsWith("/danh-van"),
     },
     {
-      href: "/scan",
-      label: "Scan",
-      icon: ScanIcon,
-      match: (p: string) => p.startsWith("/scan") || p.startsWith("/vocab"),
+      href: "/progress",
+      label: "Progress",
+      icon: ProgressIcon,
+      match: (p: string) => p.startsWith("/progress"),
     },
     {
       href: "/sing",
@@ -103,7 +103,7 @@ export function BottomNav() {
       href: writeHref,
       label: "Write",
       icon: WriteIcon,
-      match: (p: string) => p.includes("/write"),
+      match: (p: string) => p.includes("/write") || p.startsWith("/scan"),
     },
   ] as const;
 
@@ -185,6 +185,19 @@ function WriteIcon({ active }: { active?: boolean }) {
         strokeLinejoin="round"
       />
       <path d="M13.5 6.5 17.5 10.5" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
+function ProgressIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M4 19V10M10 19V5M16 19v-7M22 19H2"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

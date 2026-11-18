@@ -1,4 +1,5 @@
 import type { ScoreResult } from "@/lib/pronunciation";
+import { CompareReplayPanel } from "@/components/CompareReplayPanel";
 
 const DIMENSION_LABEL: Record<ScoreResult["dimension"], string> = {
   tone: "Tone / pitch",
@@ -13,9 +14,30 @@ type Props = {
   result: ScoreResult;
   takeNumber?: number;
   takeTotal?: number;
+  blobUrl?: string | null;
+  onPlayTeacher?: () => void;
 };
 
-export function FeedbackCue({ result, takeNumber, takeTotal }: Props) {
+export function FeedbackCue({
+  result,
+  takeNumber,
+  takeTotal,
+  blobUrl,
+  onPlayTeacher,
+}: Props) {
+  if (!result.scoringAvailable || result.quality == null) {
+    return (
+      <CompareReplayPanel
+        tip={result.tip}
+        experimentalLabel={result.experimentalLabel ?? "Scoring unavailable"}
+        takeNumber={takeNumber}
+        takeTotal={takeTotal}
+        blobUrl={blobUrl}
+        onPlayTeacher={onPlayTeacher}
+      />
+    );
+  }
+
   const good = result.passed && result.dimension === "ok";
   return (
     <div
@@ -26,9 +48,11 @@ export function FeedbackCue({ result, takeNumber, takeTotal }: Props) {
     >
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <span className="quiet-label">{DIMENSION_LABEL[result.dimension]}</span>
-        <span className="rounded-md bg-ink/80 px-2 py-0.5 text-[10px] uppercase tracking-wider text-paper">
-          Simulated scoring
-        </span>
+        {result.simulated ? (
+          <span className="rounded-md bg-ink/80 px-2 py-0.5 text-[10px] uppercase tracking-wider text-paper">
+            Simulated scoring
+          </span>
+        ) : null}
         {takeNumber != null && takeTotal != null ? (
           <span className="text-xs text-ink/45">
             Take {takeNumber}/{takeTotal}

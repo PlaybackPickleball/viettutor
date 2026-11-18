@@ -33,7 +33,7 @@ const OK_TIPS = [
   "Nice work — your mouth shape and timing lined up.",
 ];
 
-/** Varied mock qualities across a 10-take set so averages look realistic. */
+/** Varied mock qualities — only when DEMO_FAKE_SCORES=1. */
 const DEMO_SEQUENCE: { dimension: ErrorDimension; quality: number }[] = [
   { dimension: "vowel", quality: 58 },
   { dimension: "timing", quality: 62 },
@@ -48,8 +48,7 @@ const DEMO_SEQUENCE: { dimension: ErrorDimension; quality: number }[] = [
 ];
 
 /**
- * Modular mock acoustic diagnosis — separate from any LLM tutoring.
- * Scores each take so a 10-rep set can be averaged. Label Simulated scoring in UI.
+ * Legacy mock acoustic diagnosis. Off by default — product uses HonestCompareScorer.
  */
 export class MockPronunciationScorer implements PronunciationScorer {
   async score(request: ScoreRequest): Promise<ScoreResult> {
@@ -80,23 +79,26 @@ function result(
   if (dimension === "ok") {
     return {
       simulated: true,
+      scoringAvailable: true,
       dimension,
       tip: OK_TIPS[attemptIndex % OK_TIPS.length],
       passed: true,
       quality,
       evidence: evidence ?? "Mock acoustic check: within expected range.",
+      experimentalLabel: "Simulated scoring",
     };
   }
   const pool = TIPS[dimension];
   return {
     simulated: true,
+    scoringAvailable: true,
     dimension,
     tip: pool[attemptIndex % pool.length],
     passed,
     quality,
     evidence,
+    experimentalLabel: "Simulated scoring",
   };
 }
 
-export const pronunciationScorer: PronunciationScorer =
-  new MockPronunciationScorer();
+export { honestCompareScorer as pronunciationScorer } from "./honestScorer";

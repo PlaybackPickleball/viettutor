@@ -272,8 +272,8 @@ export function MicRecorder({
 
       <p className="text-center text-sm text-ink/55">
         {disabled
-          ? "Set complete — see your average below."
-          : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound, then pause. No Stop button needed.`}
+          ? "Set complete — compare cycles finished."
+          : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound, then pause. Compare by ear (no fake scores).`}
       </p>
 
       {status ? <p className="text-center text-sm text-ink/60">{status}</p> : null}
@@ -297,7 +297,7 @@ export function MicRecorder({
 
       {micBlocked ? (
         <p className="text-center text-xs text-ink/45">
-          Mic needs HTTPS (or localhost) and permission. Demo takes still feed the 10-rep average.
+          Mic needs HTTPS (or localhost) and permission. Demo takes still count toward the 10 compare cycles.
         </p>
       ) : null}
 
@@ -309,11 +309,17 @@ export function MicRecorder({
       ) : null}
 
       {scoring ? (
-        <p className="text-center text-sm text-ink/55">Checking pronunciation…</p>
+        <p className="text-center text-sm text-ink/55">Saving your take…</p>
       ) : null}
 
       {result ? (
-        <FeedbackCue result={result} takeNumber={attemptIndex + 1} takeTotal={takeTotal} />
+        <FeedbackCue
+          result={result}
+          takeNumber={attemptIndex + 1}
+          takeTotal={takeTotal}
+          blobUrl={blobUrl}
+          onPlayTeacher={onReplayLast}
+        />
       ) : null}
       {error ? <p className="text-center text-sm text-coral">{error}</p> : null}
     </div>
