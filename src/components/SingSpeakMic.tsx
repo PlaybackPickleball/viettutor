@@ -144,7 +144,7 @@ export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) 
           onClick={() => void start()}
           disabled={scoring}
         >
-          {scoring ? "Scoring…" : "Hold to speak — tap to start"}
+          {scoring ? "Saving take…" : "Tap to speak — pause to stop"}
         </button>
       ) : (
         <div>

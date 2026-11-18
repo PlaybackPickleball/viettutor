@@ -136,15 +136,21 @@ export function recordSayAttempt(
   state: ProgressState,
   id: string,
   passed: boolean,
-  quality: number,
+  quality: number | null,
 ): ProgressState {
   const prev = state.letters[id] ?? emptyLetter();
-  const qualities = [...prev.sayQualities, quality].slice(-SAY_TARGET_REPS);
+  /** Store 0 for compare-only cycles (no invented quality). */
+  const q = typeof quality === "number" ? quality : 0;
+  const qualities = [...prev.sayQualities, q].slice(-SAY_TARGET_REPS);
   const attempts = prev.attempts + 1;
   const complete = qualities.length >= SAY_TARGET_REPS;
-  const sayAverage = complete
-    ? Math.round(qualities.reduce((a, b) => a + b, 0) / qualities.length)
-    : prev.sayAverage;
+  const scoredQualities = qualities.filter((n) => n > 0);
+  const sayAverage =
+    complete && scoredQualities.length === qualities.length
+      ? Math.round(scoredQualities.reduce((a, b) => a + b, 0) / scoredQualities.length)
+      : complete
+        ? null
+        : prev.sayAverage;
   const sayStreak = passed ? prev.sayStreak + 1 : 0;
   const sayMastered = prev.sayMastered || complete;
   const letter: LetterProgress = {

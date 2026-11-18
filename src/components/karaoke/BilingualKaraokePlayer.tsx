@@ -16,6 +16,7 @@ import {
 } from "@/lib/karaoke/engine";
 import { AiSayInput } from "@/components/karaoke/AiSayInput";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
+import { bumpSingVocab, markSingMode, pushPracticeHistory } from "@/lib/sing/progress";
 import { saveVocabItem } from "@/lib/vocab/store";
 
 const SPEEDS = [0.75, 1, 1.25] as const;
@@ -183,6 +184,7 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
       originalSentence: activeLine.textVi,
       sourceLessonId: `karaoke:${song.id}`,
     });
+    bumpSingVocab(song.id);
   }
 
   const audioPlaying = playing && Date.now() > duckUntil;
@@ -211,6 +213,15 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
             onClick={() => {
               setMode(m.id);
               if (m.id === "practice") setPlaying(false);
+              // Map karaoke surfaces onto legacy sing progress stamps.
+              const stamp =
+                m.id === "learn" ? "understand" : m.id === "sing" ? "sing" : "speak";
+              markSingMode(song.id, stamp);
+              pushPracticeHistory({
+                songId: song.id,
+                songTitle: song.title,
+                mode: stamp,
+              });
             }}
             className={`rounded-2xl px-2 py-2.5 text-sm font-medium ${
               mode === m.id ? "bg-coral text-paper shadow-soft" : "bg-soft text-ink/70"

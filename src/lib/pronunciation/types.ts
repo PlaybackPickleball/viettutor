@@ -16,27 +16,37 @@ export type ScoreRequest = {
 };
 
 export type ScoreResult = {
-  /** Always true for MVP mock path */
-  simulated: true;
+  /**
+   * True only for the legacy mock path (default off in product UI).
+   * Honest compare/replay sets this false.
+   */
+  simulated: boolean;
+  /** False until Azure / validated acoustics are wired. */
+  scoringAvailable: boolean;
   dimension: ErrorDimension;
   /** Plain-language teacher cue — one primary tip */
   tip: string;
-  /** Soft pass for mastery loop; false for unscoreable / clear miss */
+  /**
+   * For compare/replay: true when the take was long enough to practice.
+   * Not an accuracy grade.
+   */
   passed: boolean;
-  /** 0–100 quality for averaging across the 10-take set */
-  quality: number;
+  /** 0–100 only when scoringAvailable; otherwise null */
+  quality: number | null;
   /** Optional light evidence note */
   evidence?: string;
+  experimentalLabel?: string;
 };
 
 export type AverageReport = {
   count: number;
-  averageQuality: number;
-  passRate: number;
+  averageQuality: number | null;
+  passRate: number | null;
   dominantIssue: ErrorDimension | "ok";
   tip: string;
   qualities: number[];
   dimensions: ErrorDimension[];
+  scoringAvailable: boolean;
 };
 
 export interface PronunciationScorer {
@@ -45,11 +55,16 @@ export interface PronunciationScorer {
 
 export function averageScores(results: ScoreResult[]): AverageReport {
   const count = results.length;
-  const qualities = results.map((r) => r.quality);
+  const scored = results.filter((r) => r.scoringAvailable && typeof r.quality === "number");
+  const qualities = scored.map((r) => r.quality as number);
   const averageQuality =
-    count === 0 ? 0 : Math.round(qualities.reduce((a, b) => a + b, 0) / count);
+    scored.length === 0
+      ? null
+      : Math.round(qualities.reduce((a, b) => a + b, 0) / scored.length);
   const passRate =
-    count === 0 ? 0 : Math.round((results.filter((r) => r.passed).length / count) * 100);
+    scored.length === 0
+      ? null
+      : Math.round((scored.filter((r) => r.passed).length / scored.length) * 100);
   const dimensions = results.map((r) => r.dimension);
 
   const issueCounts = new Map<ErrorDimension, number>();
@@ -67,9 +82,20 @@ export function averageScores(results: ScoreResult[]): AverageReport {
   }
 
   const tip =
-    dominantIssue === "ok"
-      ? "Across your 10 takes, the sound stayed mostly steady — keep that mouth shape."
-      : `Across your 10 takes, the main pattern was ${dominantIssue}. Focus on that next set.`;
+    scored.length === 0
+      ? `You finished ${count} compare cycles. Listen to the teacher, play your take, and try again — automatic scoring needs a validated provider.`
+      : dominantIssue === "ok"
+        ? "Across your takes, the sound stayed mostly steady — keep that mouth shape."
+        : `Across your takes, the main pattern was ${dominantIssue}. Focus on that next set.`;
 
-  return { count, averageQuality, passRate, dominantIssue, tip, qualities, dimensions };
+  return {
+    count,
+    averageQuality,
+    passRate,
+    dominantIssue,
+    tip,
+    qualities,
+    dimensions,
+    scoringAvailable: scored.length > 0,
+  };
 }

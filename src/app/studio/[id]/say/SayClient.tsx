@@ -31,12 +31,14 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
     const quals = p.letters[letter.id]?.sayQualities ?? [];
     if (quals.length >= SAY_TARGET_REPS) {
       setSessionResults(
-        quals.map((quality, i) => ({
-          simulated: true as const,
-          dimension: quality >= 75 ? ("ok" as const) : ("vowel" as const),
-          tip: "",
-          passed: quality >= 75,
-          quality,
+        quals.map((quality) => ({
+          simulated: false,
+          scoringAvailable: quality > 0,
+          dimension: "ok" as const,
+          tip: "Compare set already finished on this device.",
+          passed: true,
+          quality: quality > 0 ? quality : null,
+          experimentalLabel: "Scoring unavailable",
         })),
       );
     } else {
@@ -53,14 +55,15 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
   const report = useMemo(() => {
     if (sessionResults.length >= SAY_TARGET_REPS) return averageScores(sessionResults.slice(0, SAY_TARGET_REPS));
     if ((letterProg?.sayQualities?.length ?? 0) >= SAY_TARGET_REPS) {
-      const fake = (letterProg?.sayQualities ?? []).map((quality) => ({
-        simulated: true as const,
-        dimension: (quality >= 75 ? "ok" : "vowel") as ScoreResult["dimension"],
+      const cycles = (letterProg?.sayQualities ?? []).map((quality) => ({
+        simulated: false,
+        scoringAvailable: quality > 0,
+        dimension: "ok" as ScoreResult["dimension"],
         tip: "",
-        passed: quality >= 75,
-        quality,
+        passed: true,
+        quality: quality > 0 ? quality : null,
       }));
-      return averageScores(fake);
+      return averageScores(cycles);
     }
     return null;
   }, [sessionResults, letterProg]);
@@ -70,8 +73,8 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
     const next = recordSayAttempt(
       loadProgress(),
       letter.id,
-      result.passed && result.dimension === "ok",
-      result.quality,
+      result.passed,
+      result.scoringAvailable ? result.quality : null,
     );
     setProgress(next);
     setSessionResults((prev) => [...prev, result].slice(0, SAY_TARGET_REPS));
@@ -92,7 +95,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="say"
-      caption="Listen, then repeat 10 times. AI scores each take and averages the set."
+      caption="Listen, then compare 10 times. Record/replay only — no invented scores."
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("say", letter.order)} /> : null}
@@ -152,7 +155,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
         </div>
       ) : (
         <p className="mt-6 text-center text-sm text-ink/50">
-          Finish all {SAY_TARGET_REPS} takes to unlock Write and see your average.
+          Finish all {SAY_TARGET_REPS} compare cycles to unlock Write.
         </p>
       )}
 
