@@ -1,4 +1,4 @@
-import { PHONICS_LESSONS } from "./lessons";
+import { getIntroLesson, PHONICS_LESSONS } from "./lessons";
 import type { PhonicsProgressState } from "./types";
 
 const STORAGE_KEY = "ami-lingua.phonics.v1";
@@ -86,11 +86,16 @@ export function isLessonComplete(state: PhonicsProgressState, lessonId: string):
   return state.completedLessonIds.includes(lessonId);
 }
 
-/** Lesson N unlocks when lesson N-1 is complete (lesson 1 always open). */
+/**
+ * Lesson N unlocks when lesson N-1 is complete.
+ * Lesson 1 and the featured intro (ba-sac / bá) stay open so demos
+ * can hit “bờ → a → ba → sắc → bá” without a prior stamp.
+ */
 export function isLessonUnlocked(state: PhonicsProgressState, lessonId: string): boolean {
   const lesson = PHONICS_LESSONS.find((l) => l.id === lessonId);
   if (!lesson) return false;
   if (lesson.order <= 1) return true;
+  if (lesson.id === getIntroLesson().id) return true;
   const prev = PHONICS_LESSONS.find((l) => l.order === lesson.order - 1);
   if (!prev) return true;
   return isLessonComplete(state, prev.id);
@@ -105,11 +110,15 @@ export function phonicsMastery(state: PhonicsProgressState) {
 }
 
 export function continuePhonicsHref(state: PhonicsProgressState): string {
+  const intro = getIntroLesson();
+  if (!isLessonComplete(state, intro.id)) {
+    return `/danh-van/lesson/${intro.id}`;
+  }
   for (const lesson of PHONICS_LESSONS) {
     if (!isLessonComplete(state, lesson.id) && isLessonUnlocked(state, lesson.id)) {
       return `/danh-van/lesson/${lesson.id}`;
     }
   }
   if (state.lastLessonId) return `/danh-van/lesson/${state.lastLessonId}`;
-  return "/danh-van/lesson/ba-sac";
+  return `/danh-van/lesson/${intro.id}`;
 }

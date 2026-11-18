@@ -98,7 +98,13 @@ export function DanhVanHomeClient() {
                   </p>
                 </div>
                 <p className="text-xs text-ink/45">
-                  {complete ? "Done ★" : unlocked ? "Open" : "Locked"}
+                  {complete
+                    ? "Done ★"
+                    : unlocked
+                      ? lesson.id === "ba-sac"
+                        ? "Intro · Open"
+                        : "Open"
+                      : "Locked"}
                 </p>
               </div>
               {unlocked ? (
