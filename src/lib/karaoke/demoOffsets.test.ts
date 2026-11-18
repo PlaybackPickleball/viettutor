@@ -27,12 +27,9 @@ describe("licensed demo globalOffsetMs", () => {
     expect(withLicensedDemoOffset(NGAY_MAI_KARAOKE).globalOffsetMs).toBe(0);
   });
 
-  it("adds a short Xin chào lead-in", () => {
-    const seeded = withLicensedDemoOffset({
-      ...XIN_CHAO_BILINGUAL,
-      globalOffsetMs: undefined,
-    });
-    expect(seeded.globalOffsetMs).toBe(120);
-    expect(vocalsStartAudioSec(seeded)).toBeCloseTo(0.12, 5);
+  it("keeps Xin chào on the audio clock after hand-tune", () => {
+    expect(XIN_CHAO_BILINGUAL.globalOffsetMs).toBe(0);
+    expect(XIN_CHAO_BILINGUAL.pipelineVersion).toBe("hand-tune-v1");
+    expect(vocalsStartAudioSec(XIN_CHAO_BILINGUAL)).toBeCloseTo(0.1, 5);
   });
 });
