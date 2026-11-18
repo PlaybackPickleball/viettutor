@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { BrandMark } from "@/components/BrandMark";
 import {
   browserStore,
   hasVietnameseProgress,
@@ -13,7 +14,6 @@ import {
   isViOnboardingComplete,
   markViOnboardingSkippedForReturner,
 } from "@/lib/viOnboarding";
-import { primaryBtn } from "./EnShell";
 
 export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => void }) {
   const router = useRouter();
@@ -48,39 +48,72 @@ export function WelcomeScreen({ onSelect }: { onSelect?: (id: ExperienceId) => v
   }
 
   return (
-    <div className="en-ui studio-shell">
-      <main id="en-main">
-        <p className="text-base font-semibold tracking-wide">ÁMi Lingua</p>
-        <p className="mt-3 font-display text-3xl leading-tight text-[var(--en-navy)]">
-          Welcome
-          <span className="mt-1 block">Chào mừng</span>
+    <div className="studio-shell scene-wash relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-16 -top-10 h-56 w-56 animate-welcomeGlow rounded-full bg-coral/15 blur-2xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-20 top-40 h-64 w-64 animate-welcomeGlowSlow rounded-full bg-[rgba(90,140,120,0.16)] blur-2xl"
+      />
+
+      <main className="relative z-[1] flex flex-1 flex-col justify-center pb-10 pt-8">
+        <div className="animate-riseIn">
+          <BrandMark href="" size="lg" />
+        </div>
+
+        <p className="mt-8 max-w-sm font-display text-2xl leading-snug text-ink/80 animate-riseIn [animation-delay:80ms] sm:text-3xl">
+          Southern Vietnamese you can hear, say, and write — or English for Vietnamese speakers.
         </p>
-        <h1 className="en-instruction mt-4">What do you want to learn?</h1>
-        <p className="mt-2 text-lg">Bạn muốn học gì? Chọn một. Đổi sau không xóa tiến độ.</p>
-        <div className="mt-6 space-y-4">
-          <article className="rounded-[1.5rem] border-2 border-[#1b2a4a] bg-[#fffaf3] p-5">
-            <h2 className="font-display text-3xl">Learn Vietnamese</h2>
-            <p className="mt-1 text-lg">For English Speakers</p>
-            <p className="mt-3 text-base">
-              Hear, say, and write Southern Vietnamese. Your current path stays as it is.
+        <p
+          className="mt-3 text-sm text-ink/50 animate-riseIn [animation-delay:140ms]"
+          lang="vi"
+        >
+          Chọn một đường. Đổi sau không xóa tiến độ.
+        </p>
+
+        <div
+          className="mt-10 flex flex-col gap-3 animate-riseIn [animation-delay:200ms]"
+          role="group"
+          aria-label="Choose a learning path"
+        >
+          <button
+            type="button"
+            className="teacher-btn-primary w-full justify-between px-5 py-4 text-left"
+            onClick={() => choose("en_to_vi")}
+          >
+            <span className="flex flex-col items-start gap-0.5">
+              <span className="font-display text-xl leading-none">
+                {returningVi ? "Continue Vietnamese" : "Learn Vietnamese"}
+              </span>
+              <span className="text-sm font-normal text-paper/85">For English speakers</span>
+            </span>
+            <span aria-hidden className="text-lg opacity-80">
+              →
+            </span>
+          </button>
+          {returningVi ? (
+            <p className="px-1 text-xs text-ink/45">
+              Progress on this device — skip setup and jump back in.
             </p>
-            <button type="button" className={`${primaryBtn} mt-5 w-full`} onClick={() => choose("en_to_vi")}>
-              {returningVi ? "Continue Vietnamese" : "Start Learning Vietnamese"}
-            </button>
-            {returningVi ? (
-              <p className="mt-2 text-sm text-[#1b2a4a]/70">
-                Progress found on this device — skip setup and jump back in.
-              </p>
-            ) : null}
-          </article>
-          <article className="rounded-[1.5rem] border-2 border-[#115e59] bg-[#fffaf3] p-5">
-            <h2 className="font-display text-3xl">Học Tiếng Anh</h2>
-            <p className="mt-1 text-lg">Dành cho người Việt</p>
-            <p className="mt-3 text-lg">Học tiếng Anh từ đầu. Nghe, nói và luyện tập cùng giáo viên AI.</p>
-            <button type="button" className={`${primaryBtn} mt-5 w-full`} onClick={() => choose("vi_to_en")}>
-              Bắt đầu học tiếng Anh
-            </button>
-          </article>
+          ) : null}
+
+          <button
+            type="button"
+            className="teacher-btn-secondary w-full justify-between px-5 py-4 text-left"
+            onClick={() => choose("vi_to_en")}
+          >
+            <span className="flex flex-col items-start gap-0.5">
+              <span className="font-display text-xl leading-none text-ink" lang="vi">
+                Học Tiếng Anh
+              </span>
+              <span className="text-sm font-normal text-ink/55">Dành cho người Việt</span>
+            </span>
+            <span aria-hidden className="text-lg text-ink/45">
+              →
+            </span>
+          </button>
         </div>
       </main>
     </div>
