@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { BrandMark } from "./BrandMark";
 import { StepStars } from "./StepStars";
+import { usePracticeClock } from "@/hooks/usePracticeClock";
 import { getLetter } from "@/lib/letters";
 import { loadProgress, type LetterProgress } from "@/lib/progress";
 
@@ -34,6 +35,7 @@ export function StudioChrome({
   progressTick = 0,
 }: Props) {
   const [letterProgress, setLetterProgress] = useState<LetterProgress | undefined>();
+  usePracticeClock(true);
 
   useEffect(() => {
     const p = loadProgress();

@@ -24,12 +24,20 @@ export type ProgressState = {
   currentLetterId: LetterId;
   letters: Record<string, LetterProgress>;
   practiceDates: string[];
+  /** Whole minutes derived from practiceSecondsToday (display). */
   minutesToday: number;
+  /** Accumulated active practice seconds for minutesDate. */
+  practiceSecondsToday: number;
   minutesDate: string;
+  /** ISO timestamp of last credited activity (wall-clock gaps). */
+  lastActiveAt: string | null;
   updatedAt: string;
 };
 
 const STORAGE_KEY = "ami-lingua.progress.v2";
+
+/** Max seconds credited between two activity stamps (tab left open). */
+export const MAX_GAP_SECONDS = 120;
 
 function todayKey(): string {
   return new Date().toISOString().slice(0, 10);
@@ -59,7 +67,9 @@ export function defaultProgress(): ProgressState {
     letters,
     practiceDates: [],
     minutesToday: 0,
+    practiceSecondsToday: 0,
     minutesDate: todayKey(),
+    lastActiveAt: null,
     updatedAt: new Date().toISOString(),
   };
 }
@@ -76,13 +86,19 @@ export function loadProgress(): ProgressState {
       letters[id] = { ...emptyLetter(), ...p, sayQualities: p.sayQualities ?? [] };
     }
     const minutesDate = parsed.minutesDate ?? todayKey();
+    const sameDay = minutesDate === todayKey();
+    const practiceSecondsToday = sameDay
+      ? Math.max(0, parsed.practiceSecondsToday ?? (parsed.minutesToday ?? 0) * 60)
+      : 0;
     return {
       ...base,
       ...parsed,
       letters,
       practiceDates: parsed.practiceDates ?? [],
-      minutesToday: minutesDate === todayKey() ? (parsed.minutesToday ?? 0) : 0,
+      practiceSecondsToday,
+      minutesToday: Math.floor(practiceSecondsToday / 60),
       minutesDate: todayKey(),
+      lastActiveAt: sameDay ? (parsed.lastActiveAt ?? null) : null,
       dialect: "southern",
       currentLetterId: (parsed.currentLetterId as LetterId) ?? base.currentLetterId,
       updatedAt: parsed.updatedAt ?? base.updatedAt,
@@ -98,14 +114,46 @@ export function saveProgress(state: ProgressState) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
 
-function touchPractice(state: ProgressState): ProgressState {
+/**
+ * Credit wall-clock practice since lastActiveAt (capped), mark today as practiced.
+ * Does not invent minutes from sparse +1 touch counters.
+ */
+export function creditPracticeTime(
+  state: ProgressState,
+  nowMs: number = Date.now(),
+): ProgressState {
   const day = todayKey();
   const dates = state.practiceDates.includes(day)
     ? state.practiceDates
     : [...state.practiceDates, day].slice(-60);
-  const minutesToday =
-    state.minutesDate === day ? state.minutesToday + 1 : 1;
-  return { ...state, practiceDates: dates, minutesToday, minutesDate: day };
+
+  let practiceSecondsToday =
+    state.minutesDate === day ? Math.max(0, state.practiceSecondsToday ?? 0) : 0;
+  const lastMs = state.lastActiveAt ? Date.parse(state.lastActiveAt) : NaN;
+  if (state.minutesDate === day && Number.isFinite(lastMs) && nowMs > lastMs) {
+    const gapSec = Math.floor((nowMs - lastMs) / 1000);
+    practiceSecondsToday += Math.min(MAX_GAP_SECONDS, Math.max(0, gapSec));
+  }
+
+  return {
+    ...state,
+    practiceDates: dates,
+    practiceSecondsToday,
+    minutesToday: Math.floor(practiceSecondsToday / 60),
+    minutesDate: day,
+    lastActiveAt: new Date(nowMs).toISOString(),
+  };
+}
+
+function touchPractice(state: ProgressState): ProgressState {
+  return creditPracticeTime(state);
+}
+
+/** Persist a wall-clock tick while a practice surface is open. */
+export function tickPracticeClock(nowMs: number = Date.now()): ProgressState {
+  const next = creditPracticeTime(loadProgress(), nowMs);
+  saveProgress(next);
+  return next;
 }
 
 export function practiceStreak(state: ProgressState): number {
