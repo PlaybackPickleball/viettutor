@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
 import { requireSingViewer } from "@/lib/karaoke/adminAuth";
 import { getSong } from "@/lib/sing/catalog";
-import { resolveMasterFile } from "@/lib/sing/masters";
+import { resolveMasterFile } from "@/lib/sing/masters.server";
 import { gateSongAsset } from "@/lib/sing/rights";
 import { resolveUnderRoot, UPLOAD_DIR } from "@/lib/karaoke/store";
 import { parseSafeSongId } from "@/lib/karaoke/safeId";
