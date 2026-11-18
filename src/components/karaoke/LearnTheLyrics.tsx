@@ -200,7 +200,10 @@ export function LearnTheLyrics({ song, onReturnToSing }: Props) {
         <p className="mt-1 text-xs text-ink/45">
           Record and compare to the teacher model. No invented scores.
         </p>
-        <LocalMicRecorder label="Record this sentence" onRecorded={onRecorded} />
+        <LocalMicRecorder
+          label="Record this sentence (local only — no pitch score)"
+          onRecorded={onRecorded}
+        />
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">

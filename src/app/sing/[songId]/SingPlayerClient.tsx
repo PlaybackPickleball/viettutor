@@ -656,7 +656,7 @@ export function SingPlayerClient({ songId }: { songId: string }) {
           <p className="mt-1 text-xs text-ink/45">
             Optional mic take stays on this device. Pitch ≠ Vietnamese tone accuracy.
           </p>
-          <LocalMicRecorder />
+          <LocalMicRecorder label="Optional singing take (local only — no pitch score)" />
         </section>
       ) : null}
 
