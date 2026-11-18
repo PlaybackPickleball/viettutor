@@ -3,8 +3,16 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashboardClient } from "@/components/DashboardClient";
-import { browserStore, loadCourse, type ExperienceId } from "@/lib/experience/store";
-import { isViOnboardingComplete } from "@/lib/viOnboarding";
+import {
+  browserStore,
+  hasVietnameseProgress,
+  loadCourse,
+  type ExperienceId,
+} from "@/lib/experience/store";
+import {
+  isViOnboardingComplete,
+  markViOnboardingSkippedForReturner,
+} from "@/lib/viOnboarding";
 import { WelcomeScreen } from "./WelcomeScreen";
 
 export function HomeSwitch() {
@@ -12,7 +20,8 @@ export function HomeSwitch() {
   const [mode, setMode] = useState<"loading" | "welcome" | "vi">("loading");
 
   useEffect(() => {
-    const { record } = loadCourse(browserStore());
+    const store = browserStore();
+    const { record } = loadCourse(store);
     if (!record) {
       setMode("welcome");
       return;
@@ -22,6 +31,11 @@ export function HomeSwitch() {
       return;
     }
     if (!isViOnboardingComplete()) {
+      if (hasVietnameseProgress(store)) {
+        markViOnboardingSkippedForReturner();
+        setMode("vi");
+        return;
+      }
       router.replace("/onboarding");
       return;
     }
@@ -39,8 +53,17 @@ export function HomeSwitch() {
     return (
       <WelcomeScreen
         onSelect={(id: ExperienceId) => {
-          if (id === "en_to_vi") router.push("/onboarding");
-          else router.push("/en/onboarding");
+          if (id === "en_to_vi") {
+            const store = browserStore();
+            if (hasVietnameseProgress(store) || isViOnboardingComplete()) {
+              if (!isViOnboardingComplete()) markViOnboardingSkippedForReturner();
+              router.push("/");
+              return;
+            }
+            router.push("/onboarding");
+            return;
+          }
+          router.push("/en/onboarding");
         }}
       />
     );

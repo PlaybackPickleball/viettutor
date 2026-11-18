@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { usePracticeClock } from "@/hooks/usePracticeClock";
 import { buildProgressSummary, type ProgressSummary } from "@/lib/learningSummary";
+import { loadViOnboarding } from "@/lib/viOnboarding";
 
 export function ProgressClient() {
   const [summary, setSummary] = useState<ProgressSummary | null>(null);
+  const [dailyGoal, setDailyGoal] = useState<number | null>(null);
   usePracticeClock(true);
 
   useEffect(() => {
     setSummary(buildProgressSummary());
+    setDailyGoal(loadViOnboarding().dailyMinutes ?? null);
     const id = window.setInterval(() => setSummary(buildProgressSummary()), 15_000);
     return () => window.clearInterval(id);
   }, []);
@@ -52,6 +55,7 @@ export function ProgressClient() {
       </section>
       <p className="mt-2 text-center text-[11px] text-ink/40">
         Active today is wall-clock practice while you stay on a lesson — not a tap counter.
+        {dailyGoal != null ? ` Goal from setup: ${dailyGoal}m.` : null}
       </p>
 
       <section className="ami-card mt-6 px-4 py-4">
