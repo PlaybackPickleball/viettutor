@@ -123,8 +123,11 @@ export function ProgressClient() {
           {summary.sing.songsTouched} songs touched
         </p>
         <p className="text-sm text-ink/55">
-          {summary.sing.modesCompletedTotal} modes stamped · {summary.sing.vocabSaved} song words
-          saved
+          {summary.sing.modesCompletedTotal}/{summary.sing.modeSlots || "—"} mode slots stamped ·{" "}
+          {summary.sing.vocabSaved} song words saved
+        </p>
+        <p className="mt-1 text-xs text-ink/40">
+          Karaoke songs count Learn·Sing·Practice (3). Legacy songs use the five-tab path.
         </p>
         <Link href="/sing" className="teacher-btn-secondary mt-3 w-full text-center text-sm">
           Open Sing
