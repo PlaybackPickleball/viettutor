@@ -10,16 +10,25 @@ type Props = {
   songId: string;
   attemptIndex: number;
   onScored?: (result: ScoreResult) => void;
+  /** Pause track + speak the teacher model for this practice phrase. */
+  onPlayTeacher?: () => void;
 };
 
 /** Speak Mode mic — clear speech practice (not singing pitch scoring). */
-export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) {
+export function SingSpeakMic({
+  phrase,
+  songId,
+  attemptIndex,
+  onScored,
+  onPlayTeacher,
+}: Props) {
   const [recording, setRecording] = useState(false);
   const [scoring, setScoring] = useState(false);
   const [level, setLevel] = useState(0);
   const [result, setResult] = useState<ScoreResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState<string | null>(null);
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
 
   const mediaRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -28,13 +37,23 @@ export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) 
   const vadRef = useRef<{ stop: () => void } | null>(null);
   const stoppingRef = useRef(false);
   const mimeRef = useRef("audio/webm");
+  const blobUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
     return () => {
       cleanup();
+      revokeTake();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function revokeTake() {
+    if (blobUrlRef.current) {
+      URL.revokeObjectURL(blobUrlRef.current);
+      blobUrlRef.current = null;
+    }
+    setBlobUrl(null);
+  }
 
   function cleanup() {
     vadRef.current?.stop();
@@ -88,9 +107,15 @@ export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) 
       return;
     }
 
+    const blob = new Blob(chunksRef.current, { type: mimeRef.current });
+    revokeTake();
+    const url = URL.createObjectURL(blob);
+    blobUrlRef.current = url;
+    setBlobUrl(url);
+
     setScoring(true);
     setError(null);
-    setStatus(reason === "silence" ? "Stopped after silence." : "Stopped.");
+    setStatus(reason === "silence" ? "Stopped after silence — compare by ear." : "Stopped — compare by ear.");
     try {
       const scored = await pronunciationScorer.score({
         letterId: `sing:${songId}`,
@@ -108,6 +133,7 @@ export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) 
   async function start() {
     setError(null);
     setResult(null);
+    revokeTake();
     setStatus("Listening… speak the line, then pause.");
     chunksRef.current = [];
     stoppingRef.current = false;
@@ -165,9 +191,14 @@ export function SingSpeakMic({ phrase, songId, attemptIndex, onScored }: Props) 
         </div>
       )}
       {error ? <p className="mt-2 text-sm text-coral">{error}</p> : null}
+      {status && !recording ? <p className="mt-2 text-sm text-ink/50">{status}</p> : null}
       {result ? (
         <div className="mt-3">
-          <FeedbackCue result={result} />
+          <FeedbackCue
+            result={result}
+            blobUrl={blobUrl}
+            onPlayTeacher={onPlayTeacher}
+          />
         </div>
       ) : null}
     </div>
