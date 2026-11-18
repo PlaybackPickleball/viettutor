@@ -1,3 +1,4 @@
+import { getKaraokeSong } from "@/lib/karaoke/catalog";
 import { normalizeStoredMode } from "./modes";
 import type { PracticeHistoryEntry, SingMode, SingProgress } from "./types";
 
@@ -92,4 +93,40 @@ export function loadPracticeHistory(): PracticeHistoryEntry[] {
   }
 }
 
+/** Legacy SingPlayerClient tabs (non-karaoke / local). */
 export const MODE_COUNT = 5;
+
+/** KaraokeSongShell surfaces: Learn → Sing → Practice (stamped as understand/sing/speak). */
+export const KARAOKE_MODE_COUNT = 3;
+export const KARAOKE_MODE_IDS: SingMode[] = ["understand", "sing", "speak"];
+
+export function isKaraokeCatalogSong(songId: string): boolean {
+  return Boolean(getKaraokeSong(songId));
+}
+
+export function modeSlotCountForSong(songId: string): number {
+  return isKaraokeCatalogSong(songId) ? KARAOKE_MODE_COUNT : MODE_COUNT;
+}
+
+/** Count only the karaoke Learn/Sing/Practice stamps for a song. */
+export function karaokeModesCompletedCount(progress: SingProgress | null | undefined): number {
+  if (!progress?.modesCompleted?.length) return 0;
+  const set = new Set(progress.modesCompleted);
+  return KARAOKE_MODE_IDS.filter((id) => set.has(id)).length;
+}
+
+export function modesCompletedDisplayCount(
+  songId: string,
+  progress: SingProgress | null | undefined,
+): number {
+  if (!progress) return 0;
+  if (isKaraokeCatalogSong(songId)) return karaokeModesCompletedCount(progress);
+  return progress.modesCompleted?.length ?? 0;
+}
+
+export function isSongModesComplete(
+  songId: string,
+  progress: SingProgress | null | undefined,
+): boolean {
+  return modesCompletedDisplayCount(songId, progress) >= modeSlotCountForSong(songId);
+}

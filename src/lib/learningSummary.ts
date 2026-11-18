@@ -14,7 +14,11 @@ import {
 import { loadPhonicsProgress, phonicsMastery } from "@/lib/phonics";
 import { listKaraokeSongs } from "@/lib/karaoke/catalog";
 import { getLearnLyricsProgress } from "@/lib/sing/learnLyrics/progress";
-import { loadSingProgress, MODE_COUNT } from "@/lib/sing/progress";
+import {
+  loadSingProgress,
+  modeSlotCountForSong,
+  modesCompletedDisplayCount,
+} from "@/lib/sing/progress";
 import { loadVocab } from "@/lib/vocab/store";
 
 export type ProgressSummary = {
@@ -62,11 +66,14 @@ export function buildProgressSummary(
   const karaoke = listKaraokeSongs();
 
   let modesCompletedTotal = 0;
+  let modeSlots = 0;
   let vocabSaved = 0;
   let songsTouched = 0;
-  for (const p of Object.values(sing)) {
-    if (p.modesCompleted?.length || p.vocabSaved) songsTouched += 1;
-    modesCompletedTotal += p.modesCompleted?.length ?? 0;
+  for (const [songId, p] of Object.entries(sing)) {
+    if (!(p.modesCompleted?.length || p.vocabSaved)) continue;
+    songsTouched += 1;
+    modesCompletedTotal += modesCompletedDisplayCount(songId, p);
+    modeSlots += modeSlotCountForSong(songId);
     vocabSaved += p.vocabSaved ?? 0;
   }
 
@@ -118,7 +125,7 @@ export function buildProgressSummary(
     sing: {
       songsTouched,
       modesCompletedTotal,
-      modeSlots: Math.max(MODE_COUNT, songsTouched * MODE_COUNT),
+      modeSlots,
       vocabSaved,
     },
     learnLyrics: {

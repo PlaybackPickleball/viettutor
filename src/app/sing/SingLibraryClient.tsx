@@ -9,7 +9,8 @@ import {
   loadPracticeHistory,
   loadSavedSongIds,
   loadSingProgress,
-  MODE_COUNT,
+  modeSlotCountForSong,
+  modesCompletedDisplayCount,
 } from "@/lib/sing/progress";
 import { availabilityLabel, canPlayAudio } from "@/lib/sing/rights";
 import type {
@@ -80,11 +81,14 @@ function SongCard({
             </span>
             {progress?.modesCompleted?.length ? (
               <span className="text-[11px] text-ink/40">
-                {progress.modesCompleted.length}/{MODE_COUNT} modes
+                {modesCompletedDisplayCount(song.id, progress)}/
+                {modeSlotCountForSong(song.id)} modes
               </span>
             ) : null}
-            {song.rights.status === "approved" ? (
-              <span className="text-[11px] text-ink/40">Sing · Learn</span>
+            {karaoke ? (
+              <span className="text-[11px] text-ink/40">Learn · Sing · Practice</span>
+            ) : song.rights.status === "approved" ? (
+              <span className="text-[11px] text-ink/40">Listen · Sing · Speak</span>
             ) : null}
           </div>
         </div>
@@ -180,8 +184,9 @@ export function SingLibraryClient() {
       <h1 className="mt-6 font-display text-3xl text-ink">ÁMi Sing</h1>
       <p className="mt-2 text-ink/60">Learn Vietnamese Through Music</p>
       <p className="mt-2 text-xs leading-relaxed text-ink/45">
-        Flow: Listen → Understand → Sing → Speak → Improve. Licensed songs play in Production Mode;
-        use the on-device importer or timing editor when you need local assets.
+        Karaoke titles: Learn → Sing → Practice. Other songs keep Listen → Understand → Sing → Speak
+        → Improve. Licensed audio plays only through the rights gate; use the on-device importer when
+        you need local assets.
       </p>
 
       <label className="quiet-label mt-6 block" htmlFor="sing-search">
