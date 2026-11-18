@@ -11,7 +11,8 @@ import {
   resolveUnderRoot,
   uploadPath,
 } from "@/lib/karaoke/store";
-import { gatedAudioStreamUrl, MASTERS_DIR } from "@/lib/sing/masters";
+import { gatedAudioStreamUrl } from "@/lib/sing/masters";
+import { MASTERS_DIR } from "@/lib/sing/masters.server";
 
 export const runtime = "nodejs";
 export const maxDuration = 800;
