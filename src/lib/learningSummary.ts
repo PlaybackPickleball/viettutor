@@ -12,6 +12,7 @@ import {
   type ProgressState,
 } from "@/lib/progress";
 import { loadPhonicsProgress, phonicsMastery } from "@/lib/phonics";
+import { loadPathProgress, pathMastery } from "@/lib/phonics/learningPath";
 import { listKaraokeSongs } from "@/lib/karaoke/catalog";
 import { getLearnLyricsProgress } from "@/lib/sing/learnLyrics/progress";
 import {
@@ -70,6 +71,7 @@ export function buildProgressSummary(
   const progress = alphabetState ?? loadProgress();
   const counts = masteryCounts(progress);
   const phonicsState = loadPhonicsProgress();
+  const pathState = loadPathProgress();
   const vocab = loadVocab();
   const sing = loadSingProgress();
   const karaoke = listKaraokeSongs();
@@ -112,20 +114,31 @@ export function buildProgressSummary(
   }
 
   const levelsComplete = LEVELS.filter((l) => isLevelComplete(progress, l.id)).length;
-  const phonicsAttempts = Object.values(phonicsState.attemptsByLesson ?? {}).reduce(
+  const classicAttempts = Object.values(phonicsState.attemptsByLesson ?? {}).reduce(
     (a, n) => a + (typeof n === "number" ? n : 0),
     0,
   );
+  const pathAttempts = Object.values(pathState.lessons ?? {}).reduce(
+    (a, rec) => a + (rec.attempts ?? 0),
+    0,
+  );
+  const phonicsAttempts = classicAttempts + pathAttempts;
 
+  const pathDays = pathState.lastPracticeDate ? [pathState.lastPracticeDate] : [];
   const singHistoryDays = loadPracticeHistory().map((h) => h.at);
   const last7Days = buildLastNDayActivity([
     progress.practiceDates,
     phonicsState.practiceDates ?? [],
+    pathDays,
     singHistoryDays,
   ]);
 
+  const pathPhonics = pathMastery(pathState);
+  const phonics =
+    pathPhonics.total > 0 ? pathPhonics : phonicsMastery(phonicsState);
+
   return {
-    streakDays: practiceStreak(progress),
+    streakDays: Math.max(practiceStreak(progress), pathState.streakDays),
     minutesToday: progress.minutesToday,
     practiceDates: progress.practiceDates,
     last7Days,
@@ -138,7 +151,7 @@ export function buildProgressSummary(
       levelsTotal: LEVELS.length,
       saySetsFinished,
     },
-    phonics: phonicsMastery(phonicsState),
+    phonics,
     vocab: { wordsSaved: vocab.length },
     sing: {
       songsTouched,
