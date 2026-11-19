@@ -45,6 +45,11 @@ export function ToneFamilyBoard({ cards, onHeardAll, onAttempt }: Props) {
             <p className="mt-3 font-hand text-6xl text-ink animate-riseIn" lang="vi">
               {active.written}
             </p>
+            {active.meaningEn ? (
+              <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
+                {active.meaningEn}
+              </p>
+            ) : null}
             <p className="mt-2 font-display text-xl text-ink">
               {active.nameVi}
               <span className="text-base font-sans font-normal text-ink/45"> · {active.nameEn}</span>
@@ -78,6 +83,16 @@ export function ToneFamilyBoard({ cards, onHeardAll, onAttempt }: Props) {
               >
                 <span className="font-hand text-2xl font-medium">{card.written}</span>
                 <span className="mt-1 text-[10px] opacity-90">{card.nameVi}</span>
+                {card.meaningEn ? (
+                  <span
+                    className={`mt-1 line-clamp-2 text-center text-[9px] leading-tight ${
+                      on ? "text-paper/80" : "text-ink/40"
+                    }`}
+                    lang="en"
+                  >
+                    {card.meaningEn}
+                  </span>
+                ) : null}
               </button>
             </li>
           );

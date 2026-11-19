@@ -28,6 +28,8 @@ export type ToneCard = {
   written: string;
   nameVi: string;
   nameEn: string;
+  /** Authored vocabulary gloss for this written form (Southern-first contexts). */
+  meaningEn?: string;
   /** Contour hint for Southern dialect viz (not a score). */
   contourHint: string;
   utterance: string;

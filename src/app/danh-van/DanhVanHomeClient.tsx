@@ -96,6 +96,17 @@ export function DanhVanHomeClient() {
                   <p className="text-sm text-ink/50" lang="vi">
                     {lesson.titleVi}
                   </p>
+                  {lesson.meaningEn ? (
+                    <p className="mt-1 text-xs leading-snug text-ink/40" lang="en">
+                      {lesson.target ? (
+                        <>
+                          <span lang="vi">{lesson.target}</span>
+                          {" · "}
+                        </>
+                      ) : null}
+                      {lesson.meaningEn}
+                    </p>
+                  ) : null}
                 </div>
                 <p className="text-xs text-ink/45">
                   {complete
