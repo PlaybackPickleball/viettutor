@@ -1,5 +1,6 @@
 import type { PhonicsStep } from "../types";
 import type { SyllableDef, VocabularyEntry } from "./types";
+import { PATH_SYLLABLES_EXTRA } from "./syllablesExtra";
 
 function step(
   display: string,
@@ -322,6 +323,7 @@ export const PATH_SYLLABLES: SyllableDef[] = [
     ],
     vocab: vocab("v-ca-sac", "cá", "fish", true),
   },
+  ...PATH_SYLLABLES_EXTRA,
 ];
 
 export function getSyllable(id: string): SyllableDef | undefined {

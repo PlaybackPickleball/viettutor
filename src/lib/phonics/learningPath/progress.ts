@@ -202,14 +202,22 @@ export function isPathLessonComplete(state: PathProgressState, lessonId: string)
 }
 
 /**
+ * Nicola testing: all playable lessons/worlds open (mastery gates off).
+ * Flip to false to restore sequential unlock pacing.
+ */
+export const DEMO_UNLOCK_ALL_PATH = true;
+
+/**
  * Unlock: prior lesson in same world complete; world N unlocks when world N-1 badge earned
  * (all playable lessons complete). Lesson 1 of world 1 always open.
+ * When DEMO_UNLOCK_ALL_PATH is true, every playable lesson is available.
  */
 export function isPathLessonUnlocked(state: PathProgressState, lessonId: string): boolean {
   const lesson = getPathLesson(lessonId);
   if (!lesson || !lesson.playable) return false;
   const world = getWorld(lesson.worldId);
   if (!world || !world.playable) return false;
+  if (DEMO_UNLOCK_ALL_PATH) return true;
 
   if (world.order > 1) {
     const prevWorld = LEARNING_WORLDS.find((w) => w.order === world.order - 1);
@@ -266,4 +274,13 @@ export const BADGE_LABELS: Record<string, string> = {
   "badge-w1": "World 1 — ba & ma",
   "badge-w2": "World 2 — Tone mastery",
   "badge-w3": "World 3 — New consonants",
+  "badge-w4": "World 4 — Finals n / ng",
+  "badge-w5": "World 5 — nh / ch",
+  "badge-w6": "World 6 — th / ph / kh",
+  "badge-w7": "World 7 — ng / ngh / gh",
+  "badge-w8": "World 8 — ă / â / ê",
+  "badge-w9": "World 9 — ô / ơ / ư",
+  "badge-w10": "World 10 — Everyday words",
+  "badge-w11": "World 11 — Reading fluency",
+  "badge-w12": "World 12 — Path mastery",
 };

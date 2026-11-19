@@ -6,6 +6,7 @@ import { BrandMark } from "@/components/BrandMark";
 import {
   BADGE_LABELS,
   continuePathHref,
+  DEMO_UNLOCK_ALL_PATH,
   getWorldLessons,
   LEARNING_WORLDS,
   lessonMapStatus,
@@ -84,6 +85,11 @@ export function DanhVanHomeClient() {
             style={{ width: `${mastery.pct}%` }}
           />
         </div>
+        {DEMO_UNLOCK_ALL_PATH ? (
+          <p className="mt-4 rounded-2xl bg-soft px-3 py-2 text-xs text-ink/60">
+            Demo unlock on — all 12 worlds and 144 lessons open for testing (mastery gates off).
+          </p>
+        ) : null}
         <Link href={href} className="teacher-btn-primary mt-5 w-full text-center">
           Continue path
         </Link>
@@ -122,7 +128,7 @@ export function DanhVanHomeClient() {
           World map · 12 worlds
         </h2>
         <p className="mt-1 text-sm text-ink/55">
-          Worlds 1–3 playable now. Later worlds show the course evolution (locked definitions).
+          All 12 worlds playable · Southern-first path · 144 micro-lessons.
         </p>
 
         <ol className="relative mt-6 space-y-8 border-l-2 border-coral/25 pl-5">
