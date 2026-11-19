@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { PHONICS_LESSONS, MA_TONE_FAMILY } from "./lessons";
+import { getPhonicsLesson, PHONICS_LESSONS, MA_TONE_FAMILY } from "./lessons";
 
 describe("Đánh Vần authored EN glosses", () => {
   it("gives every build step a glossEn", () => {
@@ -28,5 +28,30 @@ describe("Đánh Vần authored EN glosses", () => {
     for (const w of read?.readWords ?? []) {
       expect(w.en.length).toBeGreaterThan(2);
     }
+  });
+
+  it("glosses bá as paternal aunt (regional), never uncle", () => {
+    const baSac = getPhonicsLesson("ba-sac");
+    expect(baSac?.meaningEn?.toLowerCase()).toContain("paternal aunt");
+    expect(baSac?.meaningEn?.toLowerCase()).not.toContain("uncle");
+    expect(baSac?.meaningEn?.toLowerCase()).not.toContain("embrace");
+    for (const step of baSac?.steps ?? []) {
+      if (step.display === "bá") {
+        expect(step.glossEn?.toLowerCase()).toContain("paternal aunt");
+        expect(step.glossEn?.toLowerCase()).not.toContain("uncle");
+      }
+    }
+    const baFamily = getPhonicsLesson("ba-six-tones")?.toneFamily?.find((c) => c.written === "bá");
+    expect(baFamily?.meaningEn?.toLowerCase()).toContain("paternal aunt");
+    expect(baFamily?.meaningEn?.toLowerCase()).not.toContain("uncle");
+    const read = getPhonicsLesson("read-familiar")?.readWords?.find((w) => w.vi === "bá");
+    expect(read?.en.toLowerCase()).toContain("paternal aunt");
+    expect(read?.en.toLowerCase()).not.toContain("uncle");
+  });
+
+  it("never uses uncle for any authored gloss", () => {
+    const blob = JSON.stringify(PHONICS_LESSONS).toLowerCase();
+    expect(blob).not.toContain("uncle");
+    expect(blob).not.toContain("embrace");
   });
 });
