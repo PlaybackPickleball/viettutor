@@ -84,14 +84,13 @@ export function BottomNav() {
       href: learnHref,
       label: "Learn",
       icon: LearnIcon,
-      match: (p: string) =>
-        (p.startsWith("/studio") && !p.includes("/write")) || p.startsWith("/danh-van"),
+      match: (p: string) => p.startsWith("/studio") && !p.includes("/write"),
     },
     {
-      href: "/progress",
-      label: "Progress",
-      icon: ProgressIcon,
-      match: (p: string) => p.startsWith("/progress"),
+      href: "/danh-van",
+      label: "Đánh Vần",
+      icon: PhonicsIcon,
+      match: (p: string) => p.startsWith("/danh-van"),
     },
     {
       href: "/sing",
@@ -100,10 +99,10 @@ export function BottomNav() {
       match: (p: string) => p.startsWith("/sing"),
     },
     {
-      href: writeHref,
-      label: "Write",
-      icon: WriteIcon,
-      match: (p: string) => p.includes("/write") || p.startsWith("/scan"),
+      href: "/progress",
+      label: "Progress",
+      icon: ProgressIcon,
+      match: (p: string) => p.startsWith("/progress"),
     },
   ] as const;
 
@@ -198,6 +197,29 @@ function ProgressIcon({ active }: { active?: boolean }) {
         strokeWidth="1.8"
         strokeLinecap="round"
       />
+    </svg>
+  );
+}
+
+function PhonicsIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M7 17V7h3.2c2.2 0 3.6 1.2 3.6 3s-1.4 3-3.6 3H9.2"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.5 17c.9-1.8 2.6-3 4.5-3"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <circle cx="7" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
+      <circle cx="12" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
+      <circle cx="17" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
     </svg>
   );
 }

@@ -181,18 +181,18 @@ export function DashboardClient() {
 
       <section className="ami-card mt-6 px-4 py-5" aria-labelledby="danh-van-heading">
         <p className="quiet-label" id="danh-van-heading">
-          Next after alphabet
+          Đánh Vần
         </p>
-        <p className="mt-1 font-display text-xl text-ink">Build Vietnamese Words</p>
+        <p className="mt-1 font-display text-xl text-ink">Build Vietnamese words</p>
         <p className="mt-1 text-sm text-ink/60">
-          Learn how letters and tones come together — Đánh Vần builder, six tones, and 12 intro
-          lessons.
+          Letters + tones → syllables. Open Đánh Vần for the builder, six tones, and 12 intro
+          lessons (intro <span lang="vi">bá</span> unlocked for demos).
         </p>
         <p className="mt-1 text-sm text-ink/45" lang="vi">
           Ghép chữ và thanh thành tiếng — Đánh Vần.
         </p>
         <Link href="/danh-van" className="teacher-btn-primary mt-4 w-full sm:w-auto">
-          Start Practicing
+          Open Đánh Vần
         </Link>
       </section>
 
