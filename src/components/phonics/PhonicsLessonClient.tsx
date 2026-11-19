@@ -93,9 +93,24 @@ export function PhonicsLessonClient({ lesson }: { lesson: PhonicsLesson }) {
       </header>
 
       <p className="mb-2 text-base text-ink/70">{lesson.explanationEn}</p>
-      <p className="mb-6 text-sm text-ink/50" lang="vi">
+      <p className="mb-2 text-sm text-ink/50" lang="vi">
         {lesson.explanationVi}
       </p>
+      {lesson.meaningEn && lesson.kind !== "build" ? (
+        <p className="mb-6 text-sm leading-snug text-ink/55" lang="en">
+          {lesson.target ? (
+            <>
+              <span className="font-hand text-lg text-ink" lang="vi">
+                {lesson.target}
+              </span>
+              <span className="mx-1.5 text-ink/30">·</span>
+            </>
+          ) : null}
+          {lesson.meaningEn}
+        </p>
+      ) : (
+        <div className="mb-6" />
+      )}
 
       {lesson.kind === "build" && lesson.steps ? (
         <SyllableBuilder
@@ -159,6 +174,12 @@ export function PhonicsLessonClient({ lesson }: { lesson: PhonicsLesson }) {
                     <span className="mt-0.5 block text-xs text-ink/45" lang="vi">
                       {item.titleVi}
                     </span>
+                    {item.meaningEn ? (
+                      <span className="mt-0.5 block text-xs text-ink/40" lang="en">
+                        {item.target ? `${item.target} · ` : ""}
+                        {item.meaningEn}
+                      </span>
+                    ) : null}
                   </span>
                   <span className="text-coral">→</span>
                 </Link>
@@ -246,17 +267,26 @@ function RecognitionDrill({
         Play teaching sound
       </button>
       <div className="grid grid-cols-4 gap-2">
-        {options.map((opt) => (
-          <button
-            key={opt}
-            type="button"
-            className="ami-card py-4 text-center font-hand text-3xl"
-            lang="vi"
-            onClick={() => choose(opt)}
-          >
-            {opt}
-          </button>
-        ))}
+        {options.map((opt) => {
+          const gloss = steps.find((s) => s.display === opt)?.glossEn;
+          return (
+            <button
+              key={opt}
+              type="button"
+              className="ami-card flex flex-col items-center py-3"
+              onClick={() => choose(opt)}
+            >
+              <span className="font-hand text-3xl text-ink" lang="vi">
+                {opt}
+              </span>
+              {gloss ? (
+                <span className="mt-1 px-1 text-center text-[10px] leading-tight text-ink/40" lang="en">
+                  {gloss}
+                </span>
+              ) : null}
+            </button>
+          );
+        })}
       </div>
       {msg ? <p className="text-sm text-ink/70">{msg}</p> : null}
       <button type="button" className="teacher-btn-secondary" onClick={() => stopSpeaking()}>
@@ -360,7 +390,9 @@ function ReadWords({
                 <span className="font-hand text-3xl text-ink" lang="vi">
                   {w.vi}
                 </span>
-                <span className="mt-0.5 block text-xs text-ink/45">{w.en}</span>
+                <span className="mt-1 block text-sm leading-snug text-ink/50" lang="en">
+                  {w.en}
+                </span>
               </span>
               <span className="text-coral text-sm">Listen</span>
             </button>

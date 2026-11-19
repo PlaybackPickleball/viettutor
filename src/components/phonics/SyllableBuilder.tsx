@@ -93,7 +93,11 @@ export function SyllableBuilder({ steps, target, meaningEn, onComplete, onAttemp
             {target}
           </p>
         ) : null}
-        {meaningEn ? <p className="mt-2 text-sm text-ink/50">{meaningEn}</p> : null}
+        {meaningEn ? (
+          <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
+            {meaningEn}
+          </p>
+        ) : null}
       </div>
 
       <div className="flex flex-wrap justify-center gap-2" aria-label="Build steps">
@@ -109,17 +113,30 @@ export function SyllableBuilder({ steps, target, meaningEn, onComplete, onAttemp
                 setIndex(i);
                 void playStep(i, speed !== "normal");
               }}
-              className={`min-w-[3.25rem] rounded-2xl px-3 py-3 transition ${
+              className={`flex min-w-[3.5rem] max-w-[5.5rem] flex-col items-center rounded-2xl px-2.5 py-3 transition ${
                 active
                   ? "bg-coral text-paper shadow-soft scale-105"
                   : done
                     ? "bg-amber/25 text-ink ring-1 ring-coral/30"
                     : "bg-soft text-ink/55"
               }`}
-              lang="vi"
             >
-              <span className="block font-hand text-2xl font-medium leading-none">{step.display}</span>
-              <span className="mt-1 block text-[10px] opacity-80">{step.utterance}</span>
+              <span className="font-hand text-2xl font-medium leading-none" lang="vi">
+                {step.display}
+              </span>
+              <span className="mt-1 text-[10px] opacity-80" lang="vi">
+                {step.utterance}
+              </span>
+              {step.glossEn ? (
+                <span
+                  className={`mt-1 line-clamp-2 text-center text-[10px] leading-tight ${
+                    active ? "text-paper/85" : "text-ink/45"
+                  }`}
+                  lang="en"
+                >
+                  {step.glossEn}
+                </span>
+              ) : null}
             </button>
           );
         })}
@@ -134,7 +151,11 @@ export function SyllableBuilder({ steps, target, meaningEn, onComplete, onAttemp
           <p className="mt-1 text-sm text-ink/55" lang="vi">
             Say: {current.utterance}
           </p>
-          {current.glossEn ? <p className="mt-1 text-xs text-ink/40">{current.glossEn}</p> : null}
+          {current.glossEn ? (
+            <p className="mt-2 text-sm leading-snug text-ink/50" lang="en">
+              {current.glossEn}
+            </p>
+          ) : null}
         </div>
       ) : null}
 
