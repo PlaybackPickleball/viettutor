@@ -8,6 +8,9 @@ import {
   EXERCISE_TYPE_LABEL,
   type PathExercise,
 } from "@/lib/phonics/learningPath";
+import { WordArt } from "@/components/phonics/WordArt";
+import { WordGloss } from "@/components/phonics/WordGloss";
+import { resolveWordArt } from "@/lib/phonics/wordArt";
 
 type Props = {
   exercise: PathExercise;
@@ -118,16 +121,26 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
       {exercise.type === "speak-compare" ? (
         <div className="space-y-3">
           {exercise.targetWritten ? (
-            <p className="text-center">
-              <span className="font-hand text-5xl text-ink" lang="vi">
-                {exercise.targetWritten}
-              </span>
-              {exercise.targetGlossEn ? (
-                <span className="mt-1 block text-sm text-ink/50" lang="en">
-                  {exercise.targetGlossEn}
+            resolveWordArt(exercise.targetWritten) ? (
+              <WordGloss
+                vi={exercise.targetWritten}
+                en={exercise.targetGlossEn}
+                size="lg"
+                viClassName="font-hand text-5xl text-ink"
+                enClassName="text-sm text-ink/50"
+              />
+            ) : (
+              <p className="text-center">
+                <span className="font-hand text-5xl text-ink" lang="vi">
+                  {exercise.targetWritten}
                 </span>
-              ) : null}
-            </p>
+                {exercise.targetGlossEn ? (
+                  <span className="mt-1 block text-sm text-ink/50" lang="en">
+                    {exercise.targetGlossEn}
+                  </span>
+                ) : null}
+              </p>
+            )
           ) : null}
           <LocalMicRecorder label="Record & replay — judge by ear" />
           {!solved ? (
@@ -140,14 +153,25 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
 
       {exercise.type === "read-without-help" ? (
         <div className="space-y-3 text-center">
-          <p className="font-hand text-5xl text-ink" lang="vi">
-            {exercise.targetWritten}
-          </p>
-          {revealed && exercise.targetGlossEn ? (
+          {resolveWordArt(exercise.targetWritten) ? (
+            <WordGloss
+              vi={exercise.targetWritten}
+              en={revealed ? exercise.targetGlossEn : undefined}
+              size="lg"
+              viClassName="font-hand text-5xl text-ink"
+              enClassName="text-sm text-ink/55"
+            />
+          ) : (
+            <p className="font-hand text-5xl text-ink" lang="vi">
+              {exercise.targetWritten}
+            </p>
+          )}
+          {revealed && exercise.targetGlossEn && !resolveWordArt(exercise.targetWritten) ? (
             <p className="text-sm text-ink/55" lang="en">
               {exercise.targetGlossEn}
             </p>
-          ) : (
+          ) : null}
+          {!revealed ? (
             <button
               type="button"
               className="teacher-btn-secondary w-full"
@@ -155,7 +179,7 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
             >
               Reveal meaning
             </button>
-          )}
+          ) : null}
           {!solved ? (
             <button
               type="button"
@@ -174,24 +198,36 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
 
       {choiceTypes.has(exercise.type) && exercise.options ? (
         <div className="grid grid-cols-2 gap-2">
-          {exercise.options.map((opt) => (
-            <button
-              key={opt.id}
-              type="button"
-              disabled={solved}
-              className="ami-card flex flex-col items-center px-3 py-4 text-center transition hover:bg-paper disabled:opacity-60"
-              onClick={() => judgeChoice(opt.id)}
-            >
-              <span className="font-hand text-2xl text-ink" lang="vi">
-                {opt.label}
-              </span>
-              {opt.glossEn ? (
-                <span className="mt-1 text-[11px] leading-snug text-ink/40" lang="en">
-                  {opt.glossEn}
+          {exercise.options.map((opt) => {
+            const art = resolveWordArt(opt.label);
+            return (
+              <button
+                key={opt.id}
+                type="button"
+                disabled={solved}
+                className="ami-card flex flex-col items-center px-3 py-4 text-center transition hover:bg-paper disabled:opacity-60"
+                onClick={() => judgeChoice(opt.id)}
+              >
+                <span className="font-hand text-2xl text-ink" lang="vi">
+                  {opt.label}
                 </span>
-              ) : null}
-            </button>
-          ))}
+                {art ? (
+                  <WordArt
+                    artId={art.artId}
+                    kind={art.kind}
+                    alt={art.alt}
+                    size="sm"
+                    className="mt-2"
+                  />
+                ) : null}
+                {opt.glossEn ? (
+                  <span className="mt-1 text-[11px] leading-snug text-ink/40" lang="en">
+                    {opt.glossEn}
+                  </span>
+                ) : null}
+              </button>
+            );
+          })}
         </div>
       ) : null}
 

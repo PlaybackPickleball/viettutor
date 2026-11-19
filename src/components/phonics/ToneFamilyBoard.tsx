@@ -4,6 +4,9 @@ import { useState } from "react";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import type { ToneCard } from "@/lib/phonics";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
+import { WordArt } from "@/components/phonics/WordArt";
+import { WordGloss } from "@/components/phonics/WordGloss";
+import { resolveWordArt } from "@/lib/phonics/wordArt";
 
 type Props = {
   cards: ToneCard[];
@@ -42,14 +45,27 @@ export function ToneFamilyBoard({ cards, onHeardAll, onAttempt }: Props) {
         <p className="quiet-label">Six tones · Southern</p>
         {active ? (
           <>
-            <p className="mt-3 font-hand text-6xl text-ink animate-riseIn" lang="vi">
-              {active.written}
-            </p>
-            {active.meaningEn ? (
-              <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
-                {active.meaningEn}
-              </p>
-            ) : null}
+            {resolveWordArt(active.written) ? (
+              <WordGloss
+                vi={active.written}
+                en={active.meaningEn}
+                size="lg"
+                className="mt-3 animate-riseIn"
+                viClassName="font-hand text-6xl text-ink"
+                enClassName="text-base leading-snug text-ink/55"
+              />
+            ) : (
+              <>
+                <p className="mt-3 font-hand text-6xl text-ink animate-riseIn" lang="vi">
+                  {active.written}
+                </p>
+                {active.meaningEn ? (
+                  <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
+                    {active.meaningEn}
+                  </p>
+                ) : null}
+              </>
+            )}
             <p className="mt-2 font-display text-xl text-ink">
               {active.nameVi}
               <span className="text-base font-sans font-normal text-ink/45"> · {active.nameEn}</span>
@@ -82,6 +98,18 @@ export function ToneFamilyBoard({ cards, onHeardAll, onAttempt }: Props) {
                 lang="vi"
               >
                 <span className="font-hand text-2xl font-medium">{card.written}</span>
+                {(() => {
+                  const art = resolveWordArt(card.written);
+                  return art ? (
+                    <WordArt
+                      artId={art.artId}
+                      kind={art.kind}
+                      alt={art.alt}
+                      size="sm"
+                      className={`mt-1 ${on ? "ring-1 ring-paper/30" : ""}`}
+                    />
+                  ) : null;
+                })()}
                 <span className="mt-1 text-[10px] opacity-90">{card.nameVi}</span>
                 {card.meaningEn ? (
                   <span
