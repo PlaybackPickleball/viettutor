@@ -7,6 +7,7 @@ import {
   LEARNING_WORLDS,
 } from "./catalog";
 import {
+  DEMO_UNLOCK_ALL_PATH,
   defaultPathProgress,
   isPathLessonUnlocked,
   starsFromRatio,
@@ -16,24 +17,34 @@ import {
 import { PATH_SYLLABLES } from "./syllables";
 
 describe("Đánh Vần learning path catalog", () => {
-  it("defines 12 worlds with W1–W3 playable and W4–W12 not", () => {
+  it("defines 12 worlds all playable", () => {
     expect(LEARNING_WORLDS).toHaveLength(12);
-    expect(LEARNING_WORLDS.filter((w) => w.playable).map((w) => w.id)).toEqual([
+    expect(LEARNING_WORLDS.every((w) => w.playable)).toBe(true);
+    expect(LEARNING_WORLDS.map((w) => w.id)).toEqual([
       "w1",
       "w2",
       "w3",
+      "w4",
+      "w5",
+      "w6",
+      "w7",
+      "w8",
+      "w9",
+      "w10",
+      "w11",
+      "w12",
     ]);
-    expect(LEARNING_WORLDS.slice(3).every((w) => !w.playable)).toBe(true);
   });
 
-  it("ships 36 playable micro-lessons (12×3) and stub defs after", () => {
-    expect(getPlayableLessons()).toHaveLength(36);
-    expect(LEARNING_LESSONS).toHaveLength(12 * 12);
+  it("ships 144 playable micro-lessons (12×12)", () => {
+    expect(getPlayableLessons()).toHaveLength(144);
+    expect(LEARNING_LESSONS).toHaveLength(144);
     expect(getWorldLessons("w1")).toHaveLength(12);
+    expect(getWorldLessons("w12")).toHaveLength(12);
     expect(getPathLesson("w1-l01")?.titleEn).toMatch(/Meet ba and ma/i);
-    expect(getPathLesson("w1-l12")?.playable).toBe(true);
-    expect(getPathLesson("w4-l01")?.playable).toBe(false);
-    expect(getPathLesson("w4-l01")?.exercises).toHaveLength(0);
+    expect(getPathLesson("w4-l01")?.playable).toBe(true);
+    expect(getPathLesson("w4-l01")?.exercises.length).toBeGreaterThanOrEqual(2);
+    expect(getPathLesson("w12-l12")?.playable).toBe(true);
   });
 
   it("gives every playable lesson 2–6 exercises with hints", () => {
@@ -57,13 +68,14 @@ describe("Đánh Vần learning path catalog", () => {
     expect(titles[11]).toMatch(/mastery challenge/i);
   });
 
-  it("unlocks only lesson 1 until prior complete", () => {
+  it("demo-unlocks every playable lesson for testing", () => {
+    expect(DEMO_UNLOCK_ALL_PATH).toBe(true);
     const fresh = defaultPathProgress();
     expect(isPathLessonUnlocked(fresh, "w1-l01")).toBe(true);
-    expect(isPathLessonUnlocked(fresh, "w1-l02")).toBe(false);
-    expect(isPathLessonUnlocked(fresh, "w2-l01")).toBe(false);
+    expect(isPathLessonUnlocked(fresh, "w1-l12")).toBe(true);
+    expect(isPathLessonUnlocked(fresh, "w6-l05")).toBe(true);
+    expect(isPathLessonUnlocked(fresh, "w12-l12")).toBe(true);
     const after = completePathLesson(fresh, "w1-l01", 4, 4, false);
-    expect(isPathLessonUnlocked(after, "w1-l02")).toBe(true);
     expect(after.xp).toBe(10);
   });
 
@@ -74,8 +86,8 @@ describe("Đánh Vần learning path catalog", () => {
     expect(starsFromRatio(0, { two: 0.7, three: 0.9 })).toBe(0);
   });
 
-  it("reports mastery over playable set only", () => {
-    expect(pathMastery(defaultPathProgress())).toEqual({ completed: 0, total: 36, pct: 0 });
+  it("reports mastery over full playable set", () => {
+    expect(pathMastery(defaultPathProgress())).toEqual({ completed: 0, total: 144, pct: 0 });
   });
 
   it("glosses bá as paternal aunt and never uncle/embrace", () => {
