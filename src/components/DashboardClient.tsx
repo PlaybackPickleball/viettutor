@@ -185,8 +185,8 @@ export function DashboardClient() {
         </p>
         <p className="mt-1 font-display text-xl text-ink">Build Vietnamese words</p>
         <p className="mt-1 text-sm text-ink/60">
-          Letters + tones → syllables. Open Đánh Vần for the builder, six tones, and 12 intro
-          lessons (intro <span lang="vi">bá</span> unlocked for demos).
+          Letters + tones → syllables. Open Đánh Vần for the Southern learning path (Worlds 1–3
+          playable) plus the classic intro <span lang="vi">bá</span> demo.
         </p>
         <p className="mt-1 text-sm text-ink/45" lang="vi">
           Ghép chữ và thanh thành tiếng — Đánh Vần.
