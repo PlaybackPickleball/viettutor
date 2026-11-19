@@ -19,6 +19,8 @@ import {
   type PhonicsLesson,
   type PhonicsProgressState,
 } from "@/lib/phonics";
+import { WordGloss } from "@/components/phonics/WordGloss";
+import { resolveWordArt } from "@/lib/phonics/wordArt";
 
 export function PhonicsLessonClient({ lesson }: { lesson: PhonicsLesson }) {
   const [progress, setProgress] = useState<PhonicsProgressState | null>(null);
@@ -97,17 +99,29 @@ export function PhonicsLessonClient({ lesson }: { lesson: PhonicsLesson }) {
         {lesson.explanationVi}
       </p>
       {lesson.meaningEn && lesson.kind !== "build" ? (
-        <p className="mb-6 text-sm leading-snug text-ink/55" lang="en">
-          {lesson.target ? (
-            <>
-              <span className="font-hand text-lg text-ink" lang="vi">
-                {lesson.target}
-              </span>
-              <span className="mx-1.5 text-ink/30">·</span>
-            </>
-          ) : null}
-          {lesson.meaningEn}
-        </p>
+        resolveWordArt(lesson.target) ? (
+          <WordGloss
+            vi={lesson.target}
+            en={lesson.meaningEn}
+            size="md"
+            stacked={false}
+            className="mb-6"
+            viClassName="font-hand text-lg text-ink"
+            enClassName="text-sm leading-snug text-ink/55"
+          />
+        ) : (
+          <p className="mb-6 text-sm leading-snug text-ink/55" lang="en">
+            {lesson.target ? (
+              <>
+                <span className="font-hand text-lg text-ink" lang="vi">
+                  {lesson.target}
+                </span>
+                <span className="mx-1.5 text-ink/30">·</span>
+              </>
+            ) : null}
+            {lesson.meaningEn}
+          </p>
+        )
       ) : (
         <div className="mb-6" />
       )}
@@ -386,14 +400,25 @@ function ReadWords({
                 heard[w.vi] ? "ring-1 ring-coral/35" : ""
               }`}
             >
-              <span>
-                <span className="font-hand text-3xl text-ink" lang="vi">
-                  {w.vi}
+              {resolveWordArt(w.vi) ? (
+                <WordGloss
+                  vi={w.vi}
+                  en={w.en}
+                  size="sm"
+                  stacked={false}
+                  viClassName="font-hand text-3xl text-ink"
+                  enClassName="mt-1 text-sm leading-snug text-ink/50"
+                />
+              ) : (
+                <span>
+                  <span className="font-hand text-3xl text-ink" lang="vi">
+                    {w.vi}
+                  </span>
+                  <span className="mt-1 block text-sm leading-snug text-ink/50" lang="en">
+                    {w.en}
+                  </span>
                 </span>
-                <span className="mt-1 block text-sm leading-snug text-ink/50" lang="en">
-                  {w.en}
-                </span>
-              </span>
+              )}
               <span className="text-coral text-sm">Listen</span>
             </button>
           </li>

@@ -5,6 +5,8 @@ import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import type { PhonicsStep } from "@/lib/phonics";
 import { sequenceLabel } from "@/lib/phonics";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
+import { WordGloss } from "@/components/phonics/WordGloss";
+import { resolveWordArt } from "@/lib/phonics/wordArt";
 
 type Speed = "normal" | "slow" | "step";
 
@@ -88,16 +90,29 @@ export function SyllableBuilder({ steps, target, meaningEn, onComplete, onAttemp
         <p className="mt-2 font-display text-lg text-ink/70" lang="vi">
           {label}
         </p>
-        {target ? (
-          <p className="mt-4 font-hand text-6xl font-medium text-ink animate-riseIn" lang="vi">
-            {target}
-          </p>
-        ) : null}
-        {meaningEn ? (
-          <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
-            {meaningEn}
-          </p>
-        ) : null}
+        {target && resolveWordArt(target) ? (
+          <WordGloss
+            vi={target}
+            en={meaningEn}
+            size="lg"
+            className="mt-4 animate-riseIn"
+            viClassName="font-hand text-6xl font-medium text-ink"
+            enClassName="text-base leading-snug text-ink/55"
+          />
+        ) : (
+          <>
+            {target ? (
+              <p className="mt-4 font-hand text-6xl font-medium text-ink animate-riseIn" lang="vi">
+                {target}
+              </p>
+            ) : null}
+            {meaningEn ? (
+              <p className="mt-2 text-base leading-snug text-ink/55" lang="en">
+                {meaningEn}
+              </p>
+            ) : null}
+          </>
+        )}
       </div>
 
       <div className="flex flex-wrap justify-center gap-2" aria-label="Build steps">
