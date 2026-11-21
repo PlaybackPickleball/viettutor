@@ -54,6 +54,31 @@ describe("journey unlock", () => {
     ).toBe(false);
   });
 
+  it("keeps Unit 7 locked until Unit 2 tones finish", () => {
+    expect(
+      isJourneyUnitUnlocked("u7", defaultJourneyProgress(), defaultProgress(), emptyPath()),
+    ).toBe(false);
+  });
+
+  it("unlocks Unit 7 after Unit 2 live lessons complete", () => {
+    const u2Ids = JOURNEY_UNITS.find((u) => u.id === "u2")!
+      .lessons.filter((l) => l.kind === "live")
+      .map((l) => l.id);
+    const journey = { ...defaultJourneyProgress(), completedIds: u2Ids };
+    expect(isJourneyUnitUnlocked("u7", journey, defaultProgress(), emptyPath())).toBe(true);
+  });
+
+  it("soft-completes karaoke hook lessons from Sing mode stamps", () => {
+    const lesson = JOURNEY_UNITS.find((u) => u.id === "u7")!.lessons.find(
+      (l) => l.id === "u7-l01",
+    )!;
+    expect(lesson.karaokeSongId).toBe("xin-chao-moi-ngay");
+    // Without Sing stamps, not complete
+    expect(
+      isJourneyLessonComplete(lesson, defaultJourneyProgress(), defaultProgress(), emptyPath()),
+    ).toBe(false);
+  });
+
   it("Continue Learning points at first available live lesson", () => {
     const target = resolveContinueLearning(defaultJourneyProgress(), defaultProgress(), emptyPath());
     expect(target.lessonId).toBe("u1-l01");

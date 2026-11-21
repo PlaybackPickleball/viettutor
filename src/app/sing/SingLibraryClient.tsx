@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { getKaraokeSong } from "@/lib/karaoke/catalog";
+import {
+  isKaraokeHookTouched,
+  listKaraokeCurriculumHooks,
+} from "@/lib/journey/karaokeCurriculum";
 import { formatLessonDuration, listCatalogSongs, searchSongs } from "@/lib/sing/catalog";
 import {
   loadPracticeHistory,
@@ -36,6 +40,55 @@ const EMPTY_FILTERS: Filters = {
   topic: "",
   dialect: "all",
 };
+
+/** Journey curriculum picks — rights-approved karaoke only; does not change Sing filters. */
+function CurriculumHooks({ progress }: { progress: Record<string, SingProgress> }) {
+  const hooks = useMemo(() => listKaraokeCurriculumHooks(), []);
+  if (hooks.length === 0) return null;
+  return (
+    <section className="ami-card mt-6 px-4 py-4" aria-label="Journey curriculum karaoke">
+      <p className="quiet-label">From your journey</p>
+      <p className="mt-1 font-display text-xl text-ink">Curriculum karaoke</p>
+      <p className="mt-1 text-sm text-ink/55">
+        Rights-approved songs mapped to Learn units. Existing Sing modes stay the same.
+      </p>
+      <ul className="mt-3 space-y-2">
+        {hooks.map((hook) => {
+          const touched =
+            (progress[hook.songId]?.modesCompleted?.length ?? 0) > 0 ||
+            isKaraokeHookTouched(hook.songId);
+          return (
+            <li key={hook.id}>
+              <Link
+                href={hook.href}
+                className={`flex items-start justify-between gap-3 rounded-2xl px-3 py-2.5 text-sm ring-1 ${
+                  touched
+                    ? "bg-coral/10 ring-coral/25"
+                    : "bg-soft ring-transparent hover:bg-paper"
+                }`}
+              >
+                <span>
+                  <span className="font-medium text-ink" lang="vi">
+                    {hook.titleVi}
+                  </span>
+                  <span className="mt-0.5 block text-[11px] text-ink/45">
+                    {hook.focusEn}
+                    {hook.source === "licensed" ? " · licensed" : " · original"}
+                    {touched ? " · stamped" : ""}
+                  </span>
+                </span>
+                <span className="shrink-0 text-[11px] text-coral">Open</span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+      <Link href="/learn" className="mt-3 inline-block text-xs text-coral underline-offset-2 hover:underline">
+        See Unit 7 on Learn
+      </Link>
+    </section>
+  );
+}
 
 function SongCard({
   song,
@@ -188,6 +241,8 @@ export function SingLibraryClient() {
         → Improve. Licensed audio plays only through the rights gate; use the on-device importer when
         you need local assets.
       </p>
+
+      <CurriculumHooks progress={progress} />
 
       <label className="quiet-label mt-6 block" htmlFor="sing-search">
         Search songs

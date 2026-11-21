@@ -17,6 +17,7 @@ import {
   practiceStreak,
   type ProgressState,
 } from "@/lib/progress";
+import { loadSingProgress } from "@/lib/sing/progress";
 import { JOURNEY_UNITS, getJourneyUnit } from "./catalog";
 import type {
   ContinueLearningTarget,
@@ -97,8 +98,18 @@ export function isJourneyLessonComplete(
   if (lesson.id === "u3-more" && Object.values(path.lessons).some((r) => r?.completed)) {
     return true;
   }
-  if (lesson.id === "u7-karaoke") {
-    return journey.completedIds.includes("u7-karaoke");
+  // Karaoke hook: any Sing mode stamp on the rights-approved song
+  if (lesson.karaokeSongId) {
+    const sing = loadSingProgress();
+    if ((sing[lesson.karaokeSongId]?.modesCompleted?.length ?? 0) > 0) return true;
+  }
+  // Library hub: any curriculum song touched, or explicit visit mark
+  if (lesson.id === "u7-library") {
+    if (journey.completedIds.includes("u7-library") || journey.completedIds.includes("u7-karaoke")) {
+      return true;
+    }
+    const sing = loadSingProgress();
+    return Object.values(sing).some((p) => (p.modesCompleted?.length ?? 0) > 0);
   }
   return false;
 }
@@ -120,6 +131,16 @@ export function isJourneyUnitUnlocked(
   const unit = getJourneyUnit(unitId);
   if (!unit) return false;
   if (unit.order <= 1) return true;
+
+  // Unit 7 karaoke hooks unlock after Unit 2 tones — early communicative win,
+  // without waiting on full Foundations (U3). Sing library itself stays ungated.
+  if (unitId === "u7") {
+    const u2 = getJourneyUnit("u2");
+    if (!u2) return false;
+    return liveLessonsInUnit(u2).every((l) =>
+      isJourneyLessonComplete(l, journey, alphabet, path),
+    );
+  }
 
   const priorsWithLive = JOURNEY_UNITS.filter(
     (u) => u.order < unit.order && liveLessonsInUnit(u).length > 0,

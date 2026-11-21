@@ -88,7 +88,7 @@ export function LearnPathClient() {
           href={continueTarget.href}
           className="teacher-btn-primary mt-4 w-full text-center"
           onClick={() => {
-            if (continueTarget.lessonId === "u7-karaoke" || continueTarget.lessonId === "u3-more") {
+            if (continueTarget.lessonId === "u7-library" || continueTarget.lessonId === "u3-more") {
               markJourneyLessonComplete(continueTarget.lessonId);
             }
           }}
@@ -130,7 +130,11 @@ export function LearnPathClient() {
                 </div>
 
                 {!unlocked ? (
-                  <p className="mt-3 text-sm text-ink/50">Finish the previous unit’s live lessons to unlock.</p>
+                  <p className="mt-3 text-sm text-ink/50">
+                    {unit.id === "u7"
+                      ? "Finish Unit 2 · Six tones to unlock karaoke hooks."
+                      : "Finish the previous unit’s live lessons to unlock."}
+                  </p>
                 ) : (
                   <ul className="mt-4 space-y-2">
                     {unit.lessons.map((lesson) => {
@@ -157,7 +161,7 @@ export function LearnPathClient() {
                                   : "bg-soft ring-transparent hover:bg-paper"
                               }`}
                               onClick={() => {
-                                if (lesson.id === "u7-karaoke" || lesson.id === "u3-more") {
+                                if (lesson.id === "u7-library" || lesson.id === "u3-more") {
                                   markJourneyLessonComplete(lesson.id);
                                 }
                               }}

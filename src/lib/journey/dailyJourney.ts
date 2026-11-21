@@ -3,15 +3,14 @@
  * Not a fixed routine: warm-up · learn · speak · fun challenge.
  */
 
-import { listKaraokeSongs } from "@/lib/karaoke/catalog";
 import {
   continuePathHref,
   loadPathProgress,
   skillsDueForReview,
 } from "@/lib/phonics/learningPath";
 import { loadProgress } from "@/lib/progress";
-import { loadSingProgress } from "@/lib/sing/progress";
 import { loadVocab } from "@/lib/vocab/store";
+import { nextUntouchedKaraokeHook } from "./karaokeCurriculum";
 import { resolveContinueLearning, loadJourneyProgress } from "./progress";
 
 export type DailyJourneyPhase = "warmup" | "learn" | "speak" | "fun";
@@ -83,25 +82,22 @@ export function assembleDailyJourney(): DailyJourneyPlan {
       : `/studio/${letter}/say`,
   };
 
-  const songs = listKaraokeSongs();
-  const sing = loadSingProgress();
-  const touched = songs.find((s) => (sing[s.id]?.modesCompleted?.length ?? 0) > 0);
-  const funSong = touched ?? songs[0];
+  const karaokeHook = nextUntouchedKaraokeHook();
 
-  const fun: DailyJourneyBlock = funSong
+  const fun: DailyJourneyBlock = karaokeHook
     ? {
         phase: "fun",
-        titleEn: `Fun · ${funSong.title}`,
-        blurb: "Karaoke lyric challenge (~2 min).",
+        titleEn: `Fun · ${karaokeHook.titleVi}`,
+        blurb: `${karaokeHook.focusEn} — karaoke lyric (~2 min).`,
         durationMin: 2,
-        href: `/sing/${funSong.id}`,
+        href: karaokeHook.href,
       }
     : {
         phase: "fun",
         titleEn: "Fun · path challenge",
         blurb: "A short Đánh Vần challenge (~2 min).",
         durationMin: 2,
-        href: continuePathHref(path),
+        href: continuePathHref(path) || "/danh-van",
       };
 
   const blocks = [warmup, learn, speak, fun];
