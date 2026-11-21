@@ -4,18 +4,32 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { usePracticeClock } from "@/hooks/usePracticeClock";
+import {
+  journeyUnitAnalytics,
+  listJourneyAchievements,
+  type JourneyAchievement,
+} from "@/lib/journey/achievements";
 import { buildProgressSummary, type ProgressSummary } from "@/lib/learningSummary";
 import { loadViOnboarding } from "@/lib/viOnboarding";
+
+type JourneyAnalytics = ReturnType<typeof journeyUnitAnalytics>;
 
 export function ProgressClient({ heading = "Progress" }: { heading?: string }) {
   const [summary, setSummary] = useState<ProgressSummary | null>(null);
   const [dailyGoal, setDailyGoal] = useState<number | null>(null);
+  const [achievements, setAchievements] = useState<JourneyAchievement[]>([]);
+  const [journeyAnalytics, setJourneyAnalytics] = useState<JourneyAnalytics | null>(null);
   usePracticeClock(true);
 
   useEffect(() => {
-    setSummary(buildProgressSummary());
+    const refresh = () => {
+      setSummary(buildProgressSummary());
+      setAchievements(listJourneyAchievements());
+      setJourneyAnalytics(journeyUnitAnalytics());
+    };
+    refresh();
     setDailyGoal(loadViOnboarding().dailyMinutes ?? null);
-    const id = window.setInterval(() => setSummary(buildProgressSummary()), 15_000);
+    const id = window.setInterval(refresh, 15_000);
     return () => window.clearInterval(id);
   }, []);
 
@@ -65,7 +79,56 @@ export function ProgressClient({ heading = "Progress" }: { heading?: string }) {
         {dailyGoal != null ? ` Goal from setup: ${dailyGoal}m.` : null}
       </p>
 
-      <section className="ami-card mt-6 px-4 py-4" aria-label="Last 7 days of practice">
+      {journeyAnalytics ? (
+        <section className="ami-card mt-6 px-4 py-4" aria-label="Guided journey analytics">
+          <p className="quiet-label">Guided journey</p>
+          <p className="mt-1 font-display text-xl text-ink">
+            {journeyAnalytics.liveLessonsComplete}/{journeyAnalytics.liveLessonsTotal} live lessons
+          </p>
+          <p className="text-sm text-ink/55">
+            {journeyAnalytics.unitsComplete}/{journeyAnalytics.unitsTotal} units finished ·{" "}
+            {journeyAnalytics.unitsUnlocked} unlocked · karaoke hooks{" "}
+            {journeyAnalytics.karaokeHooksTouched}/{journeyAnalytics.karaokeHooksTotal}
+          </p>
+          <p className="mt-2 text-xs text-ink/40">{journeyAnalytics.note}</p>
+          <Link href="/learn" className="teacher-btn-secondary mt-3 w-full text-center text-sm">
+            Open Learn path
+          </Link>
+        </section>
+      ) : null}
+
+      <section className="ami-card mt-4 px-4 py-4" aria-label="Achievements">
+        <div className="flex items-baseline justify-between gap-2">
+          <p className="quiet-label">Achievements</p>
+          <p className="text-xs text-ink/45">
+            {achievements.filter((a) => a.earned).length}/{achievements.length}
+          </p>
+        </div>
+        <ul className="mt-3 space-y-2">
+          {achievements.map((a) => (
+            <li
+              key={a.id}
+              className={`rounded-2xl px-3 py-2.5 text-sm ring-1 ${
+                a.earned ? "bg-coral/10 ring-coral/25" : "bg-ink/[0.03] ring-transparent text-ink/45"
+              }`}
+            >
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className={`font-medium ${a.earned ? "text-ink" : ""}`}>{a.titleEn}</p>
+                  <p className="mt-0.5 text-[11px] text-ink/45">{a.blurb}</p>
+                </div>
+                {a.href && a.earned ? (
+                  <Link href={a.href} className="shrink-0 text-[11px] text-coral underline-offset-2 hover:underline">
+                    Open
+                  </Link>
+                ) : null}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="ami-card mt-4 px-4 py-4" aria-label="Last 7 days of practice">
         <div className="flex items-baseline justify-between gap-2">
           <p className="quiet-label">Last 7 days</p>
           <p className="text-xs text-ink/45">

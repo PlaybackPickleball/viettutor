@@ -5,3 +5,5 @@ export * from "./engine";
 export * from "./unit1Lessons";
 export * from "./unit2Lessons";
 export * from "./dailyJourney";
+export * from "./karaokeCurriculum";
+export * from "./achievements";

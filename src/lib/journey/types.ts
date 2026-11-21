@@ -25,6 +25,11 @@ export type JourneyLesson = {
   hearWriteTouched?: boolean;
   /** Playable via `/learn/[id]` reusable engine — completion via journey.completedIds. */
   engine?: boolean;
+  /**
+   * Soft-complete when any Sing mode is stamped on this rights-approved karaoke song.
+   * Does not invent scores — mode stamps only.
+   */
+  karaokeSongId?: string;
 };
 
 export type JourneyUnit = {
