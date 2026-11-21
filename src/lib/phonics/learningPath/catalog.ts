@@ -1,3 +1,4 @@
+import { ensureHearWriteSayReview } from "./lessonLoop";
 import { WORLD_0, WORLD_0_LESSONS } from "./worlds/world0";
 import { WORLD_1, WORLD_1_LESSONS } from "./worlds/world1";
 import { WORLD_2, WORLD_2_LESSONS } from "./worlds/world2";
@@ -13,13 +14,14 @@ export const LEARNING_WORLDS: LearningWorld[] = [
   ...WORLDS_4_TO_12,
 ];
 
+/** Every playable lesson is wired with Hear → Write → Say → Review. */
 export const LEARNING_LESSONS: LearningLesson[] = [
   ...WORLD_0_LESSONS,
   ...WORLD_1_LESSONS,
   ...WORLD_2_LESSONS,
   ...WORLD_3_LESSONS,
   ...LESSONS_4_TO_12,
-];
+].map(ensureHearWriteSayReview);
 
 export function getWorld(id: string): LearningWorld | undefined {
   return LEARNING_WORLDS.find((w) => w.id === id);

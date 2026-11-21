@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { BrandMark } from "@/components/BrandMark";
 import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
 import { ListenControls } from "@/components/ListenControls";
 import {
+  HEAR_WRITE_ITEMS,
   HEAR_WRITE_LEVELS,
   answersMatch,
   getHearWriteLevel,
@@ -26,6 +28,9 @@ export function HearWriteClient({
   initialLevel?: HearWriteLevelId;
   initialWritten?: string;
 } = {}) {
+  const searchParams = useSearchParams();
+  const writtenParam =
+    initialWritten ?? searchParams.get("written") ?? undefined;
   const [progress, setProgress] = useState<HearWriteProgressState | null>(null);
   const [level, setLevel] = useState<HearWriteLevelId>(initialLevel ?? 1);
   const [index, setIndex] = useState(0);
@@ -38,17 +43,26 @@ export function HearWriteClient({
   useEffect(() => {
     const p = loadHearWriteProgress();
     setProgress(p);
-    const startLevel = initialLevel ?? p.unlockedLevel;
-    setLevel(startLevel);
-  }, [initialLevel]);
+    if (writtenParam) {
+      const hit = HEAR_WRITE_ITEMS.find(
+        (x) => x.written.normalize("NFC") === writtenParam.normalize("NFC"),
+      );
+      if (hit) {
+        setLevel(hit.level);
+        return;
+      }
+    }
+    setLevel(initialLevel ?? p.unlockedLevel);
+  }, [initialLevel, writtenParam]);
 
   const pool = useMemo(() => itemsForLevel(level), [level]);
 
   useEffect(() => {
     if (!pool.length) return;
-    if (initialWritten) {
-      const i = pool.findIndex((x) => x.written === initialWritten.normalize("NFC"));
+    if (writtenParam) {
+      const i = pool.findIndex((x) => x.written === writtenParam.normalize("NFC"));
       if (i >= 0) setIndex(i);
+      else setIndex(0);
     } else {
       setIndex(0);
     }
@@ -57,7 +71,7 @@ export function HearWriteClient({
     setFeedback(null);
     setRevealed(false);
     setShowPad(false);
-  }, [level, pool, initialWritten]);
+  }, [level, pool, writtenParam]);
 
   if (!progress) {
     return (

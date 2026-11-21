@@ -156,11 +156,12 @@ export function soundMatch(args: {
   correctId: string;
   hintEn: string;
   skillIds: string[];
+  stepRole?: StepRole;
 }): PathExercise {
   return {
     id: eid(`${args.lessonKey}-D`),
     type: "sound-match",
-    stepRole: "recognize",
+    stepRole: args.stepRole ?? "recognize",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
     audioAssetId: args.audioAssetId,
@@ -285,7 +286,8 @@ export const EXERCISE_TYPE_LABEL: Record<ExerciseType, string> = {
 
 export const STEP_ROLE_LABEL: Record<StepRole, string> = {
   hear: "HEAR",
-  repeat: "REPEAT",
+  /** Product loop label — Deepgram match, not a pronunciation score. */
+  repeat: "SAY",
   blend: "BLEND",
   recognize: "RECOGNIZE",
   read: "READ",

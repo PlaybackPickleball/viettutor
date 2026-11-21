@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { LessonLoopRail } from "@/components/phonics/path/LessonLoopRail";
 import { PathExerciseView } from "@/components/phonics/path/PathExerciseView";
 import { usePracticeClock } from "@/hooks/usePracticeClock";
 import {
@@ -156,6 +157,9 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
               Next: {next.titleEn}
             </Link>
           ) : null}
+          <Link href="/danh-van/review" className="teacher-btn-secondary w-full text-center">
+            Daily Review — spaced revisit
+          </Link>
           <Link href="/danh-van" className="teacher-btn-secondary w-full text-center">
             Path map
           </Link>
@@ -182,7 +186,8 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
         </Link>
       </header>
 
-      <p className="mb-5 text-sm text-ink/60">{lesson.summaryEn}</p>
+      <p className="mb-3 text-sm text-ink/60">{lesson.summaryEn}</p>
+      <LessonLoopRail lesson={lesson} currentIndex={exIndex} />
 
       {exercise ? (
         <PathExerciseView

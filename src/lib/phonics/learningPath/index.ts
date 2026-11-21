@@ -3,6 +3,7 @@ export * from "./skills";
 export * from "./syllables";
 export * from "./audioAssets";
 export * from "./exerciseBuilders";
+export * from "./lessonLoop";
 export * from "./catalog";
 export * from "./progress";
 export * from "./learnedStatus";
