@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess";
 import { speakVietnamese } from "@/lib/audio";
-import type { PackWord } from "@/lib/vocabulary";
+import { packImageUrl, type PackWord } from "@/lib/vocabulary";
 
 type Props = {
   word: PackWord;
@@ -56,17 +56,17 @@ export function VocabFlashcard({
       className="ami-card flex w-full flex-col overflow-hidden px-4 py-4"
       aria-label={`${word.vi} — ${word.en}`}
     >
-      <div className="mx-auto aspect-square w-full max-w-[14rem] overflow-hidden rounded-2xl bg-soft">
+      <div className="mx-auto flex aspect-square w-full max-w-[16rem] items-center justify-center overflow-hidden rounded-2xl bg-soft sm:max-w-[18rem]">
         {inView ? (
           // eslint-disable-next-line @next/next/no-img-element -- lazy public WebP; keep aspect via CSS
           <img
-            src={word.imageSrc}
+            src={packImageUrl(word)}
             alt=""
-            width={128}
-            height={128}
+            width={512}
+            height={512}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-contain"
+            className="h-full w-full object-contain object-center"
           />
         ) : (
           <div className="h-full w-full animate-pulse bg-ink/5" aria-hidden />
