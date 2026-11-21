@@ -252,12 +252,16 @@ function RecognitionDrill({
 }) {
   const [prompt, setPrompt] = useState(steps[0]);
   const [msg, setMsg] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [solved, setSolved] = useState(false);
 
   async function playPrompt() {
     onAttempt();
     const step = steps[Math.floor(Math.random() * steps.length)] ?? steps[0];
     setPrompt(step);
     setMsg(null);
+    setSelected(null);
+    setSolved(false);
     try {
       await speakVietnamese(step.utterance);
     } catch {
@@ -266,9 +270,12 @@ function RecognitionDrill({
   }
 
   function choose(opt: string) {
+    if (solved) return;
     onAttempt();
+    setSelected(opt);
     if (opt === prompt.display) {
       setMsg("Correct — teaching sound matched.");
+      setSolved(true);
       onSolved();
     } else {
       setMsg(`Not ${opt}. That teaching sound was ${prompt.utterance}.`);
@@ -283,11 +290,17 @@ function RecognitionDrill({
       <div className="grid grid-cols-4 gap-2">
         {options.map((opt) => {
           const gloss = steps.find((s) => s.display === opt)?.glossEn;
+          const isSelected = selected === opt;
           return (
             <button
               key={opt}
               type="button"
-              className="ami-card flex flex-col items-center py-3"
+              aria-pressed={isSelected}
+              className={`ami-card flex flex-col items-center py-3 transition ${
+                isSelected
+                  ? "bg-coral/15 ring-2 ring-coral border-coral shadow-[0_0_0_1px_rgba(224,122,74,0.45)]"
+                  : "hover:bg-paper hover:ring-1 hover:ring-coral/30"
+              }`}
               onClick={() => choose(opt)}
             >
               <span className="font-hand text-3xl text-ink" lang="vi">
@@ -321,12 +334,14 @@ function ToneQuiz({
 }) {
   const [answer, setAnswer] = useState(cards[0]);
   const [msg, setMsg] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   async function play() {
     onAttempt();
     const card = cards[Math.floor(Math.random() * cards.length)] ?? cards[0];
     setAnswer(card);
     setMsg(null);
+    setSelectedId(null);
     try {
       await speakVietnamese(card.utterance);
     } catch {
@@ -341,24 +356,33 @@ function ToneQuiz({
         Play a tone
       </button>
       <div className="grid grid-cols-3 gap-2">
-        {cards.map((card) => (
-          <button
-            key={card.id}
-            type="button"
-            className="rounded-2xl bg-soft py-3 text-sm"
-            onClick={() => {
-              onAttempt();
-              if (card.id === answer.id) {
-                setMsg(`Yes — ${card.nameVi} (${card.written}).`);
-                onSolved();
-              } else {
-                setMsg(`That was ${answer.nameVi} · ${answer.written}.`);
-              }
-            }}
-          >
-            {card.nameVi}
-          </button>
-        ))}
+        {cards.map((card) => {
+          const selected = selectedId === card.id;
+          return (
+            <button
+              key={card.id}
+              type="button"
+              aria-pressed={selected}
+              className={`rounded-2xl py-3 text-sm transition ${
+                selected
+                  ? "bg-coral/15 ring-2 ring-coral border border-coral"
+                  : "bg-soft hover:ring-1 hover:ring-coral/30"
+              }`}
+              onClick={() => {
+                onAttempt();
+                setSelectedId(card.id);
+                if (card.id === answer.id) {
+                  setMsg(`Yes — ${card.nameVi} (${card.written}).`);
+                  onSolved();
+                } else {
+                  setMsg(`That was ${answer.nameVi} · ${answer.written}.`);
+                }
+              }}
+            >
+              {card.nameVi}
+            </button>
+          );
+        })}
       </div>
       {msg ? <p className="text-sm text-ink/70">{msg}</p> : null}
     </div>

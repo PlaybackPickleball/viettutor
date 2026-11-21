@@ -33,6 +33,7 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const [revealed, setRevealed] = useState(false);
   const [buildReady, setBuildReady] = useState(false);
   const [heard, setHeard] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const stepRole = resolveStepRole(exercise);
   const asset = exercise.audioAssetId ? getAudioAsset(exercise.audioAssetId) : undefined;
@@ -49,6 +50,7 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
 
   function judgeChoice(optionId: string) {
     if (solved) return;
+    setSelectedId(optionId);
     const ok = optionId === exercise.correctOptionId;
     onResult(ok);
     if (ok) {
@@ -302,12 +304,19 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
         <div className="grid grid-cols-2 gap-2">
           {exercise.options.map((opt) => {
             const art = resolveWordArt(opt.label);
+            const selected = selectedId === opt.id;
+            const correctPick = solved && opt.id === exercise.correctOptionId;
             return (
               <button
                 key={opt.id}
                 type="button"
                 disabled={solved}
-                className="ami-card flex flex-col items-center px-3 py-4 text-center transition hover:bg-paper disabled:opacity-60"
+                aria-pressed={selected}
+                className={`ami-card flex flex-col items-center px-3 py-4 text-center transition disabled:opacity-100 ${
+                  selected || correctPick
+                    ? "bg-coral/15 ring-2 ring-coral border-coral shadow-[0_0_0_1px_rgba(224,122,74,0.45)]"
+                    : "hover:bg-paper hover:ring-1 hover:ring-coral/30"
+                } ${solved && !correctPick ? "opacity-45" : ""}`}
                 onClick={() => judgeChoice(opt.id)}
               >
                 <span className="font-hand text-2xl text-ink" lang="vi">
