@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
 import { ListenControls } from "@/components/ListenControls";
-import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { StrokeDemo } from "@/components/StrokeDemo";
+import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess";
 import { SyllableBuilder } from "@/components/phonics/SyllableBuilder";
 import { WordArt } from "@/components/phonics/WordArt";
 import { WordGloss } from "@/components/phonics/WordGloss";
@@ -200,17 +200,27 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
               </p>
             )
           ) : null}
-          <LocalMicRecorder label="Record & replay — judge by ear" />
-          <p className="text-xs text-ink/45">
-            Conservative feedback only — we never invent a pronunciation score.
-          </p>
+          <SpeakCompareAssess
+            itemId={exercise.id}
+            expectedText={exercise.targetWritten || exercise.audioUtterance || ""}
+            onPlayNative={() => void playAudio(false)}
+            onPracticed={() => {
+              if (!solved) {
+                finishUngraded(
+                  "Practice saved — Azure score when configured; otherwise compare by ear.",
+                );
+              }
+            }}
+          />
           {!solved ? (
             <button
               type="button"
-              className="teacher-btn-primary w-full"
-              onClick={() => finishUngraded("Saved — compare by ear only (no fake score).")}
+              className="teacher-btn-secondary w-full"
+              onClick={() =>
+                finishUngraded("Continue without a new take — you can retry any time (no XP farm).")
+              }
             >
-              I compared — continue
+              Continue
             </button>
           ) : null}
         </div>
