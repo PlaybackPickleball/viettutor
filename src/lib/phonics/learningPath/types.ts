@@ -5,15 +5,27 @@
 
 import type { Dialect, PhonicsStep, ToneId } from "../types";
 
+/** Pedagogical role in the Đánh Vần 2.0 HEAR→…→REVIEW engine. */
+export type StepRole =
+  | "hear"
+  | "repeat"
+  | "blend"
+  | "recognize"
+  | "read"
+  | "write"
+  | "review";
+
 export type ExerciseType =
-  | "listen-choose" // A
-  | "build-syllable" // B
-  | "tone-detective" // C
-  | "sound-match" // D
-  | "speak-compare" // E
-  | "missing-component" // F
-  | "read-without-help" // G
-  | "review-challenge"; // H
+  | "hear-sound" // HEAR — listen / slow / replay
+  | "listen-choose" // A — HEAR/RECOGNIZE by ear
+  | "build-syllable" // B — BLEND
+  | "tone-detective" // C — HEAR tones
+  | "sound-match" // D — RECOGNIZE sound→letter
+  | "speak-compare" // E — REPEAT (ear compare, no fake score)
+  | "missing-component" // F — RECOGNIZE missing piece
+  | "read-without-help" // G — READ
+  | "write-trace" // WRITE — Mali trace (no accuracy claim)
+  | "review-challenge"; // H — REVIEW
 
 export type SkillKind = "letter" | "tone" | "pattern" | "vocab" | "listening";
 
@@ -56,10 +68,17 @@ export type ExerciseOption = {
 export type PathExercise = {
   id: string;
   type: ExerciseType;
+  /** 2.0 pedagogical role — drives labels; defaults from `type` when omitted. */
+  stepRole?: StepRole;
   promptEn: string;
   promptVi?: string;
   /** Native/TTS reference utterance. */
   audioUtterance?: string;
+  /**
+   * Stable audio asset id (e.g. `vi.south.vowel.a`).
+   * Prefer verified native file when present; otherwise TTS placeholder — never silent “verified”.
+   */
+  audioAssetId?: string;
   options?: ExerciseOption[];
   correctOptionId?: string;
   /** For build / missing-component. */
@@ -67,6 +86,10 @@ export type PathExercise = {
   targetWritten?: string;
   targetGlossEn?: string;
   missingKind?: "initial" | "vowel" | "tone" | "final";
+  /** Mali write target (letter or syllable). */
+  traceGrapheme?: string;
+  /** Optional stroke paths from alphabet curriculum; empty → Mali guide only. */
+  traceStrokes?: string[];
   hintEn: string;
   skillIds: string[];
   /** When true, successful completion awards review-challenge bonus XP. */

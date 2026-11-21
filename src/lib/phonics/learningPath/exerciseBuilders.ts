@@ -1,5 +1,6 @@
+import { getLetter } from "@/lib/letters";
 import { getSyllable } from "./syllables";
-import type { PathExercise, ExerciseOption, ExerciseType } from "./types";
+import type { PathExercise, ExerciseOption, ExerciseType, StepRole } from "./types";
 
 let exerciseSeq = 0;
 
@@ -17,22 +18,79 @@ function opts(labels: { id: string; label: string; glossEn?: string }[]): Exerci
   return labels.map((l) => ({ id: l.id, label: l.label, glossEn: l.glossEn }));
 }
 
+export function hearSound(args: {
+  lessonKey: string;
+  promptEn: string;
+  promptVi?: string;
+  audio: string;
+  audioAssetId?: string;
+  hintEn?: string;
+  skillIds: string[];
+  written?: string;
+  glossEn?: string;
+}): PathExercise {
+  return {
+    id: eid(`${args.lessonKey}-HEAR`),
+    type: "hear-sound",
+    stepRole: "hear",
+    promptEn: args.promptEn,
+    promptVi: args.promptVi,
+    audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
+    targetWritten: args.written,
+    targetGlossEn: args.glossEn,
+    hintEn: args.hintEn ?? "Listen at normal speed, then Slow if you need another pass.",
+    skillIds: args.skillIds,
+  };
+}
+
+export function writeTrace(args: {
+  lessonKey: string;
+  grapheme: string;
+  /** Alphabet letter id for strokes; omit for Mali-guide-only syllable write. */
+  letterId?: string;
+  promptEn: string;
+  hintEn?: string;
+  skillIds: string[];
+  glossEn?: string;
+}): PathExercise {
+  const letter = args.letterId ? getLetter(args.letterId) : undefined;
+  return {
+    id: eid(`${args.lessonKey}-WRITE`),
+    type: "write-trace",
+    stepRole: "write",
+    promptEn: args.promptEn,
+    targetWritten: args.grapheme,
+    targetGlossEn: args.glossEn,
+    traceGrapheme: args.grapheme,
+    traceStrokes: letter?.strokes ?? [],
+    hintEn:
+      args.hintEn ??
+      "Trace the Mali model — practice the shape; we do not grade handwriting accuracy.",
+    skillIds: args.skillIds,
+  };
+}
+
 export function listenChoose(args: {
   lessonKey: string;
   promptEn: string;
   promptVi?: string;
   audio: string;
+  audioAssetId?: string;
   choices: { id: string; label: string; glossEn?: string }[];
   correctId: string;
   hintEn: string;
   skillIds: string[];
+  stepRole?: StepRole;
 }): PathExercise {
   return {
     id: eid(`${args.lessonKey}-A`),
     type: "listen-choose",
+    stepRole: args.stepRole ?? "recognize",
     promptEn: args.promptEn,
     promptVi: args.promptVi,
     audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
     options: opts(args.choices),
     correctOptionId: args.correctId,
     hintEn: args.hintEn,
@@ -46,14 +104,17 @@ export function buildSyllable(args: {
   promptEn: string;
   skillIds: string[];
   hintEn?: string;
+  audioAssetId?: string;
 }): PathExercise {
   const syl = getSyllable(args.syllableId);
   if (!syl) throw new Error(`Unknown syllable ${args.syllableId}`);
   return {
     id: eid(`${args.lessonKey}-B`),
     type: "build-syllable",
+    stepRole: "blend",
     promptEn: args.promptEn,
     audioUtterance: syl.written,
+    audioAssetId: args.audioAssetId,
     buildSteps: syl.sequence,
     targetWritten: syl.written,
     targetGlossEn: syl.vocab?.glossEn,
@@ -66,6 +127,7 @@ export function toneDetective(args: {
   lessonKey: string;
   promptEn: string;
   audio: string;
+  audioAssetId?: string;
   choices: { id: string; label: string; glossEn?: string }[];
   correctId: string;
   hintEn: string;
@@ -74,8 +136,10 @@ export function toneDetective(args: {
   return {
     id: eid(`${args.lessonKey}-C`),
     type: "tone-detective",
+    stepRole: "hear",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
     options: opts(args.choices),
     correctOptionId: args.correctId,
     hintEn: args.hintEn,
@@ -87,6 +151,7 @@ export function soundMatch(args: {
   lessonKey: string;
   promptEn: string;
   audio: string;
+  audioAssetId?: string;
   choices: { id: string; label: string; glossEn?: string }[];
   correctId: string;
   hintEn: string;
@@ -95,8 +160,10 @@ export function soundMatch(args: {
   return {
     id: eid(`${args.lessonKey}-D`),
     type: "sound-match",
+    stepRole: "recognize",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
     options: opts(args.choices),
     correctOptionId: args.correctId,
     hintEn: args.hintEn,
@@ -110,12 +177,15 @@ export function speakCompare(args: {
   glossEn?: string;
   promptEn: string;
   skillIds: string[];
+  audioAssetId?: string;
 }): PathExercise {
   return {
     id: eid(`${args.lessonKey}-E`),
     type: "speak-compare",
+    stepRole: "repeat",
     promptEn: args.promptEn,
     audioUtterance: args.written,
+    audioAssetId: args.audioAssetId,
     targetWritten: args.written,
     targetGlossEn: args.glossEn,
     hintEn: "Listen to the reference, record yourself, then replay both — judge by ear (no fake score).",
@@ -138,6 +208,7 @@ export function missingComponent(args: {
   return {
     id: eid(`${args.lessonKey}-F`),
     type: "missing-component",
+    stepRole: "recognize",
     promptEn: args.promptEn,
     audioUtterance: syl.written,
     buildSteps: syl.sequence,
@@ -157,14 +228,17 @@ export function readWithoutHelp(args: {
   glossEn: string;
   promptEn?: string;
   skillIds: string[];
+  audioAssetId?: string;
 }): PathExercise {
   return {
     id: eid(`${args.lessonKey}-G`),
     type: "read-without-help",
+    stepRole: "read",
     promptEn: args.promptEn ?? "Read this syllable, then reveal the meaning.",
     targetWritten: args.written,
     targetGlossEn: args.glossEn,
     audioUtterance: args.written,
+    audioAssetId: args.audioAssetId,
     hintEn: "Try reading first — then tap Reveal to check.",
     skillIds: args.skillIds,
   };
@@ -174,6 +248,7 @@ export function reviewChallenge(args: {
   lessonKey: string;
   promptEn: string;
   audio: string;
+  audioAssetId?: string;
   choices: { id: string; label: string; glossEn?: string }[];
   correctId: string;
   hintEn: string;
@@ -182,8 +257,10 @@ export function reviewChallenge(args: {
   return {
     id: eid(`${args.lessonKey}-H`),
     type: "review-challenge",
+    stepRole: "review",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
     options: opts(args.choices),
     correctOptionId: args.correctId,
     hintEn: args.hintEn,
@@ -193,6 +270,7 @@ export function reviewChallenge(args: {
 }
 
 export const EXERCISE_TYPE_LABEL: Record<ExerciseType, string> = {
+  "hear-sound": "Hear",
   "listen-choose": "Listen & Choose",
   "build-syllable": "Build the Syllable",
   "tone-detective": "Tone Detective",
@@ -200,5 +278,33 @@ export const EXERCISE_TYPE_LABEL: Record<ExerciseType, string> = {
   "speak-compare": "Speak & Compare",
   "missing-component": "Missing Component",
   "read-without-help": "Read Without Help",
+  "write-trace": "Write (Mali)",
   "review-challenge": "Review Challenge",
 };
+
+export const STEP_ROLE_LABEL: Record<StepRole, string> = {
+  hear: "HEAR",
+  repeat: "REPEAT",
+  blend: "BLEND",
+  recognize: "RECOGNIZE",
+  read: "READ",
+  write: "WRITE",
+  review: "REVIEW",
+};
+
+const TYPE_DEFAULT_ROLE: Record<ExerciseType, StepRole> = {
+  "hear-sound": "hear",
+  "listen-choose": "recognize",
+  "build-syllable": "blend",
+  "tone-detective": "hear",
+  "sound-match": "recognize",
+  "speak-compare": "repeat",
+  "missing-component": "recognize",
+  "read-without-help": "read",
+  "write-trace": "write",
+  "review-challenge": "review",
+};
+
+export function resolveStepRole(exercise: PathExercise): StepRole {
+  return exercise.stepRole ?? TYPE_DEFAULT_ROLE[exercise.type];
+}

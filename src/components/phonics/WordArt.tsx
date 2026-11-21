@@ -188,6 +188,17 @@ function renderArt(artId: string, p: Palette) {
           <circle cx="26" cy="28" r="1.8" fill={p.ink} stroke="none" />
         </g>
       );
+    case "cow":
+      return (
+        <g fill="none" stroke={p.ink} strokeWidth="2.2" strokeLinecap="round">
+          <ellipse cx="32" cy="34" rx="16" ry="11" fill={p.soft} />
+          <circle cx="18" cy="26" r="7" fill={p.cream} />
+          <path d="M14 20l-3-6M22 20l3-6" stroke={p.coral} />
+          <circle cx="16" cy="25" r="1.5" fill={p.ink} stroke="none" />
+          <path d="M24 44l-2 10M40 44l2 10" />
+          <ellipse cx="38" cy="36" rx="3" ry="2.5" fill={p.coral} stroke="none" />
+        </g>
+      );
     case "scale":
       return (
         <g fill="none" stroke={p.ink} strokeWidth="2.2" strokeLinecap="round">
