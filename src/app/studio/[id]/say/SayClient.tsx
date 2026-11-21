@@ -70,14 +70,20 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
 
   function onScored(result: ScoreResult) {
     const before = loadProgress().letters[letter.id]?.sayMastered;
+    const alreadyDone =
+      Boolean(before) ||
+      (loadProgress().letters[letter.id]?.sayQualities?.length ?? 0) >= SAY_TARGET_REPS;
     const next = recordSayAttempt(
       loadProgress(),
       letter.id,
       result.passed,
       result.scoringAvailable ? result.quality : null,
+      { countTowardSet: !alreadyDone },
     );
     setProgress(next);
-    setSessionResults((prev) => [...prev, result].slice(0, SAY_TARGET_REPS));
+    if (!alreadyDone) {
+      setSessionResults((prev) => [...prev, result].slice(0, SAY_TARGET_REPS));
+    }
     setTick((t) => t + 1);
     if (!before && next.letters[letter.id]?.sayMastered) setJustEarned(true);
   }
@@ -95,7 +101,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="say"
-      caption={`Finish ${SAY_TARGET_REPS} listen→record→compare cycles (by ear). No AI “correct” score yet.`}
+      caption={`Finish ${SAY_TARGET_REPS} listen→record→compare cycles. Azure vi-VN scores when configured — never invented.`}
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("say", letter.order)} /> : null}
@@ -141,10 +147,14 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       <MicRecorder
         letterId={letter.id}
         grapheme={letter.grapheme}
+        expectedText={letter.listenText || letter.grapheme}
         listened={listened}
         attemptIndex={setDone ? SAY_TARGET_REPS - 1 : completedCount}
         takeTotal={SAY_TARGET_REPS}
         disabled={setDone}
+        allowExtraTakes={setDone}
+        bestScore={letterProg?.sayBestScore ?? null}
+        latestScore={letterProg?.sayLatestScore ?? null}
         onScored={onScored}
         onReplayLast={replayTeacher}
       />

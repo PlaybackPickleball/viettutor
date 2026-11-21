@@ -188,7 +188,8 @@ export function speakCompare(args: {
     audioAssetId: args.audioAssetId,
     targetWritten: args.written,
     targetGlossEn: args.glossEn,
-    hintEn: "Listen to the reference, record yourself, then replay both — judge by ear (no fake score).",
+    hintEn:
+      "Listen to the reference, record yourself, then replay both. Azure vi-VN scores when configured — never invented.",
     skillIds: args.skillIds,
   };
 }

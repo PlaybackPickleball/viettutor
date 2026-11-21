@@ -17,6 +17,10 @@ export type LetterProgress = {
   sayQualities: number[];
   /** Average after completing SAY_TARGET_REPS */
   sayAverage: number | null;
+  /** Latest Azure (or provider) overall score — null when unscored. */
+  sayLatestScore: number | null;
+  /** Best provider overall score for this letter — null when none scored. */
+  sayBestScore: number | null;
 };
 
 export type ProgressState = {
@@ -53,6 +57,8 @@ function emptyLetter(): LetterProgress {
     attempts: 0,
     sayQualities: [],
     sayAverage: null,
+    sayLatestScore: null,
+    sayBestScore: null,
   };
 }
 
@@ -185,11 +191,19 @@ export function recordSayAttempt(
   id: string,
   passed: boolean,
   quality: number | null,
+  options?: { countTowardSet?: boolean },
 ): ProgressState {
   const prev = state.letters[id] ?? emptyLetter();
+  const countTowardSet = options?.countTowardSet !== false;
   /** Store 0 for compare-only cycles (no invented quality). */
   const q = typeof quality === "number" ? quality : 0;
-  const qualities = [...prev.sayQualities, q].slice(-SAY_TARGET_REPS);
+  const alreadyComplete =
+    prev.sayMastered || (prev.sayQualities?.length ?? 0) >= SAY_TARGET_REPS;
+  /** Unlimited retries after the set: update best/latest only — no XP/mastery farm. */
+  const qualities =
+    countTowardSet && !alreadyComplete
+      ? [...prev.sayQualities, q].slice(-SAY_TARGET_REPS)
+      : prev.sayQualities;
   const attempts = prev.attempts + 1;
   const complete = qualities.length >= SAY_TARGET_REPS;
   const scoredQualities = qualities.filter((n) => n > 0);
@@ -201,6 +215,13 @@ export function recordSayAttempt(
         : prev.sayAverage;
   const sayStreak = passed ? prev.sayStreak + 1 : 0;
   const sayMastered = prev.sayMastered || complete;
+  const sayLatestScore = typeof quality === "number" ? quality : prev.sayLatestScore;
+  const sayBestScore =
+    typeof quality === "number"
+      ? prev.sayBestScore == null
+        ? quality
+        : Math.max(prev.sayBestScore, quality)
+      : prev.sayBestScore;
   const letter: LetterProgress = {
     ...prev,
     attempts,
@@ -208,6 +229,8 @@ export function recordSayAttempt(
     sayAverage,
     sayStreak,
     sayMastered,
+    sayLatestScore,
+    sayBestScore,
   };
   const next = touchPractice({
     ...state,

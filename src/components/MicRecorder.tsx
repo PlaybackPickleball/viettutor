@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { pickRecorderMime, watchVoiceActivity } from "@/lib/audioRecord";
 import { pronunciationScorer, type ScoreResult } from "@/lib/pronunciation";
 import { FeedbackCue } from "./FeedbackCue";
+import { PronunciationFeedbackCard } from "./PronunciationFeedbackCard";
+import type { ViPronunciationFeedback } from "@/lib/vi/feedback";
 
 type Props = {
   letterId: string;
@@ -12,6 +14,12 @@ type Props = {
   attemptIndex: number;
   takeTotal: number;
   disabled?: boolean;
+  /** When true, recording still works after the set — for unlimited practice. */
+  allowExtraTakes?: boolean;
+  expectedText?: string;
+  bestScore?: number | null;
+  latestScore?: number | null;
+  improvement?: number | null;
   onScored: (result: ScoreResult) => void;
   onReplayLast?: () => void;
 };
@@ -23,6 +31,11 @@ export function MicRecorder({
   attemptIndex,
   takeTotal,
   disabled,
+  allowExtraTakes,
+  expectedText,
+  bestScore,
+  latestScore,
+  improvement,
   onScored,
   onReplayLast,
 }: Props) {
@@ -42,6 +55,8 @@ export function MicRecorder({
   const vadRef = useRef<{ stop: () => void } | null>(null);
   const stoppingRef = useRef(false);
   const mimeRef = useRef<string>("audio/webm");
+
+  const practiceLocked = Boolean(disabled) && !allowExtraTakes;
 
   useEffect(() => {
     return () => {
@@ -67,7 +82,7 @@ export function MicRecorder({
     stoppingRef.current = false;
   }
 
-  async function runScore(durationMs: number) {
+  async function runScore(durationMs: number, audioBlob: Blob | null, mime: string) {
     setScoring(true);
     try {
       const scored = await pronunciationScorer.score({
@@ -75,6 +90,10 @@ export function MicRecorder({
         grapheme,
         durationMs,
         attemptIndex,
+        audioBlob,
+        mime,
+        expectedText: expectedText ?? grapheme,
+        dialect: "southern",
       });
       setResult(scored);
       onScored(scored);
@@ -97,7 +116,6 @@ export function MicRecorder({
       return;
     }
 
-    // Flush final chunk before stop (fixes empty blobs in some browsers)
     try {
       recorder.requestData();
     } catch {
@@ -139,7 +157,7 @@ export function MicRecorder({
           : null,
     );
     stoppingRef.current = false;
-    await runScore(durationMs);
+    await runScore(durationMs, blob, mime);
   }
 
   async function start() {
@@ -151,7 +169,7 @@ export function MicRecorder({
       setError("Listen to the teacher first — then open the mic.");
       return;
     }
-    if (disabled || recording || scoring) return;
+    if (practiceLocked || recording || scoring) return;
 
     if (typeof window !== "undefined" && !window.isSecureContext) {
       setMicBlocked(true);
@@ -196,7 +214,6 @@ export function MicRecorder({
 
       mediaRef.current = recorder;
       startedAt.current = Date.now();
-      // timeslice keeps chunks flowing so the blob isn’t empty
       recorder.start(120);
       setRecording(true);
       setMicBlocked(false);
@@ -219,13 +236,38 @@ export function MicRecorder({
   }
 
   async function simulatePractice() {
-    if (!listened || scoring || recording || disabled) return;
+    if (!listened || scoring || recording || practiceLocked) return;
     setError(null);
     setResult(null);
     setBlobUrl(null);
     setStatus(null);
-    await runScore(1200);
+    await runScore(1200, null, "audio/webm");
   }
+
+  function tryAgain() {
+    setResult(null);
+    setError(null);
+    setStatus(null);
+    void start();
+  }
+
+  const cardFeedback: ViPronunciationFeedback | null =
+    result && (result.scoringAvailable || result.assessStatus)
+      ? {
+          status: (result.assessStatus as ViPronunciationFeedback["status"]) ||
+            (result.scoringAvailable ? "scored" : "unavailable"),
+          scoringAvailable: result.scoringAvailable,
+          suitableForAutoGrade: result.scoringAvailable,
+          overallScore: result.quality,
+          accuracyScore: result.accuracyScore ?? null,
+          fluencyScore: null,
+          recognizedText: null,
+          tip: result.tip,
+          experimentalLabel: result.experimentalLabel,
+          toneScore: null,
+          toneStatus: "not_validated",
+        }
+      : null;
 
   return (
     <div className="flex flex-col gap-4">
@@ -241,7 +283,7 @@ export function MicRecorder({
           <button
             type="button"
             className="circle-btn-primary disabled:opacity-40"
-            disabled={!listened || scoring || disabled || recording}
+            disabled={!listened || scoring || practiceLocked || recording}
             onClick={start}
             aria-label={recording ? "Recording" : "Record"}
           >
@@ -271,9 +313,11 @@ export function MicRecorder({
       </div>
 
       <p className="text-center text-sm text-ink/55">
-        {disabled
+        {practiceLocked
           ? "Set complete — compare cycles finished."
-          : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound, then pause. Compare by ear (no fake scores).`}
+          : disabled && allowExtraTakes
+            ? "Set complete — keep practicing (retries don’t re-award progress)."
+            : `Take ${Math.min(attemptIndex + 1, takeTotal)} of ${takeTotal} — say the sound, then pause.`}
       </p>
 
       {status ? <p className="text-center text-sm text-ink/60">{status}</p> : null}
@@ -284,7 +328,7 @@ export function MicRecorder({
         </p>
       ) : null}
 
-      {(micBlocked || listened) && !recording && !disabled ? (
+      {(micBlocked || listened) && !recording && !practiceLocked ? (
         <button
           type="button"
           className="teacher-btn-secondary w-full text-sm"
@@ -301,18 +345,21 @@ export function MicRecorder({
         </p>
       ) : null}
 
-      {blobUrl ? (
-        <div className="ami-card px-4 py-3">
-          <p className="quiet-label mb-2">Your take</p>
-          <audio controls src={blobUrl} className="w-full" />
-        </div>
-      ) : null}
-
       {scoring ? (
-        <p className="text-center text-sm text-ink/55">Saving your take…</p>
+        <p className="text-center text-sm text-ink/55">Checking pronunciation…</p>
       ) : null}
 
-      {result ? (
+      {cardFeedback ? (
+        <PronunciationFeedbackCard
+          feedback={cardFeedback}
+          studentUrl={blobUrl}
+          onPlayNative={onReplayLast}
+          onTryAgain={practiceLocked ? undefined : tryAgain}
+          bestScore={bestScore}
+          latestScore={latestScore ?? result?.quality ?? null}
+          improvement={improvement}
+        />
+      ) : result ? (
         <FeedbackCue
           result={result}
           takeNumber={attemptIndex + 1}
@@ -320,6 +367,11 @@ export function MicRecorder({
           blobUrl={blobUrl}
           onPlayTeacher={onReplayLast}
         />
+      ) : blobUrl ? (
+        <div className="ami-card px-4 py-3">
+          <p className="quiet-label mb-2">Your take</p>
+          <audio controls src={blobUrl} className="w-full" />
+        </div>
       ) : null}
       {error ? <p className="text-center text-sm text-coral">{error}</p> : null}
     </div>

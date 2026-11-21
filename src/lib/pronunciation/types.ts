@@ -13,6 +13,12 @@ export type ScoreRequest = {
   durationMs: number;
   /** Attempt index for this letter (0-based) */
   attemptIndex: number;
+  /** Optional student take for Azure vi-VN assessment (client → /api/vi/assess). */
+  audioBlob?: Blob | null;
+  mime?: string | null;
+  /** Reference text override; defaults to grapheme. */
+  expectedText?: string;
+  dialect?: "southern" | "northern";
 };
 
 export type ScoreResult = {
@@ -33,9 +39,14 @@ export type ScoreResult = {
   passed: boolean;
   /** 0–100 only when scoringAvailable; otherwise null */
   quality: number | null;
+  /** Provider AccuracyScore when Azure returns it. */
+  accuracyScore?: number | null;
   /** Optional light evidence note */
   evidence?: string;
   experimentalLabel?: string;
+  /** Phase 2 — always null until tone validation. */
+  toneScore?: number | null;
+  assessStatus?: string;
 };
 
 export type AverageReport = {
