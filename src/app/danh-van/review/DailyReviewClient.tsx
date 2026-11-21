@@ -259,10 +259,10 @@ export function DailyReviewClient() {
                 <img
                   src={packImageUrl(current.word)}
                   alt=""
-                  width={512}
-                  height={512}
+                  width={1254}
+                  height={1254}
                   loading="lazy"
-                  className="mx-auto mt-3 h-28 w-28 object-contain object-center sm:h-32 sm:w-32"
+                  className="mx-auto mt-3 h-28 w-28 rounded-xl bg-paper object-contain object-center sm:h-32 sm:w-32"
                 />
               ) : null}
               <div className="mt-3">
