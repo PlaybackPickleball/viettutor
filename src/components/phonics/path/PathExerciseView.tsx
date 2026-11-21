@@ -38,13 +38,22 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const stepRole = resolveStepRole(exercise);
   const asset = exercise.audioAssetId ? getAudioAsset(exercise.audioAssetId) : undefined;
   const audioText = exercise.audioUtterance;
+  const nativePath =
+    asset?.status === "native" && asset.nativePath
+      ? asset.nativePath
+      : // Still try placeholder nativePath if present; 404 falls through to TTS.
+        asset?.nativePath;
 
   async function playAudio(slow = false) {
-    if (!audioText) return;
+    if (!audioText && !nativePath) return;
     try {
-      await speakVietnamese(audioText, { slow });
+      await speakVietnamese(audioText || asset?.utterance || "", {
+        slow,
+        nativePath,
+        preferNative: Boolean(nativePath),
+      });
     } catch {
-      /* TTS optional */
+      /* TTS optional — never invent a silent verified take */
     }
   }
 
@@ -107,7 +116,9 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
       {asset ? (
         <p className="text-[11px] text-ink/40">
           Audio · {asset.id}
-          {asset.status === "tts-placeholder" ? " · TTS placeholder (native pending)" : " · native"}
+          {asset.status === "native"
+            ? " · verified native"
+            : " · TTS placeholder (native pending — never silent fake verified)"}
         </p>
       ) : null}
 
@@ -125,7 +136,11 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
               ) : null}
             </p>
           ) : null}
-          <ListenControls text={audioText} onListened={() => setHeard(true)} />
+          <ListenControls
+            text={audioText}
+            nativePath={nativePath}
+            onListened={() => setHeard(true)}
+          />
           {!solved ? (
             <button
               type="button"

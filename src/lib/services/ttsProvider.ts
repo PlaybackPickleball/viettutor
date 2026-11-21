@@ -3,7 +3,7 @@
  * Prefer gpt-4o-mini-tts (expressive) with tts-1-hd fallback.
  */
 
-import { LETTER_PHONETIC_HINTS } from "@/lib/letters";
+import { DIGRAPH_GRAPHEMES, LETTER_PHONETIC_HINTS } from "@/lib/letters";
 
 export function isTtsConfigured(): boolean {
   return Boolean(process.env.OPENAI_API_KEY);
@@ -15,12 +15,19 @@ export type TtsResult =
   | { ok: true; audio: ArrayBuffer; contentType: string }
   | { ok: false; message: string; status?: number };
 
+/**
+ * Letter/digraph cues only. Open syllables like "ba"/"bò" must not pick up
+ * digraph hints just because `length <= 2`.
+ */
 function resolvePhoneticHint(text: string, hint?: string): string | undefined {
-  const trimmed = text.trim();
   if (hint?.trim()) return hint.trim();
-  if (trimmed.length <= 2) {
-    const lower = trimmed.toLowerCase();
-    return LETTER_PHONETIC_HINTS[lower] ?? LETTER_PHONETIC_HINTS[trimmed];
+  const trimmed = text.trim().normalize("NFC");
+  if (!trimmed) return undefined;
+  if (LETTER_PHONETIC_HINTS[trimmed]) return LETTER_PHONETIC_HINTS[trimmed];
+  const lower = trimmed.toLocaleLowerCase("vi");
+  if (LETTER_PHONETIC_HINTS[lower]) return LETTER_PHONETIC_HINTS[lower];
+  if ((DIGRAPH_GRAPHEMES as readonly string[]).includes(lower)) {
+    return LETTER_PHONETIC_HINTS[lower];
   }
   return undefined;
 }
