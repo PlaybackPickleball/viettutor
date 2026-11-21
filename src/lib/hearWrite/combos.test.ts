@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { alphabetPlaybackPathForGrapheme } from "@/lib/alphabetAudio";
 import {
   HEAR_WRITE_ITEMS,
   answersMatch,
@@ -30,5 +31,14 @@ describe("hear-write combos", () => {
     expect(answersMatch("Âng", "âng")).toBe(true);
     expect(answersMatch("ch", " ch ")).toBe(true);
     expect(answersMatch("ơi", "oi")).toBe(false);
+  });
+
+  it("maps every level-1 letter to an ElevenLabs alphabet clip path", () => {
+    const level1 = itemsForLevel(1);
+    expect(level1.length).toBeGreaterThan(0);
+    for (const item of level1) {
+      const path = alphabetPlaybackPathForGrapheme(item.listenText);
+      expect(path, item.listenText).toMatch(/^\/audio\/vi\/alphabet\/alphabet_\d{2}_.+\.mp3$/);
+    }
   });
 });
