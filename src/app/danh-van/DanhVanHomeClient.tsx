@@ -11,6 +11,7 @@ import {
   LEARNING_WORLDS,
   lessonMapStatus,
   loadPathProgress,
+  masteredSkillSummaries,
   pathMastery,
   skillsDueForReview,
   type LessonMapStatus,
@@ -46,7 +47,8 @@ export function DanhVanHomeClient() {
 
   const mastery = pathMastery(progress);
   const href = continuePathHref(progress);
-  const due = skillsDueForReview(progress, 3);
+  const due = skillsDueForReview(progress, 6);
+  const mastered = masteredSkillSummaries(progress, 8);
 
   return (
     <div className="studio-shell scene-wash animate-riseIn">
@@ -94,6 +96,9 @@ export function DanhVanHomeClient() {
         <Link href={href} className="teacher-btn-primary mt-5 w-full text-center">
           Continue path
         </Link>
+        <Link href="/danh-van/review" className="teacher-btn-secondary mt-3 w-full text-center">
+          Daily Review{due.length ? ` · ${due.length} due` : ""}
+        </Link>
         <Link
           href="/danh-van/lesson/ba-sac"
           className="teacher-btn-secondary mt-3 w-full text-center text-sm"
@@ -117,10 +122,30 @@ export function DanhVanHomeClient() {
         </section>
       ) : null}
 
+      {mastered.length ? (
+        <section className="mt-5 ami-card px-4 py-4">
+          <p className="quiet-label">Mastery · familiar & mastered</p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {mastered.map((s) => (
+              <li
+                key={s.id}
+                className="rounded-full bg-coral/10 px-2.5 py-1 text-[11px] text-ink/70 ring-1 ring-coral/25"
+              >
+                {s.labelEn}
+                <span className="ml-1 text-coral/80">· {s.level}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {due.length ? (
         <p className="mt-4 text-xs text-ink/45">
-          Spaced review due: {due.length} skill{due.length === 1 ? "" : "s"} — interleaved in upcoming
-          lessons.
+          Spaced review due: {due.length} skill{due.length === 1 ? "" : "s"} — open{" "}
+          <Link href="/danh-van/review" className="text-coral underline-offset-2 hover:underline">
+            Daily Review
+          </Link>
+          .
         </p>
       ) : null}
 

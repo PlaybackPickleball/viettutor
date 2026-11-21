@@ -1,5 +1,12 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { dueVocab, gradeVocabItem, isSongVocab, type SavedVocabItem } from "./store";
+import {
+  dueVocab,
+  ensureVocabSaved,
+  findVocabByExpression,
+  gradeVocabItem,
+  isSongVocab,
+  type SavedVocabItem,
+} from "./store";
 
 function install(seed: SavedVocabItem[] = []) {
   const mem = new Map<string, string>([["ami-lingua.vocab.v1", JSON.stringify(seed)]]);
@@ -24,6 +31,26 @@ describe("vocab review", () => {
   it("detects song sources", () => {
     expect(isSongVocab({ sourceLessonId: "learn-lyrics:hat-mua" } as SavedVocabItem)).toBe(true);
     expect(isSongVocab({ sourceLessonId: "scan:1" } as SavedVocabItem)).toBe(false);
+  });
+
+  it("ensureVocabSaved creates once without farming practice on re-tap", () => {
+    install();
+    const first = ensureVocabSaved({
+      expression: "bò",
+      meaningEn: "cow",
+      originalSentence: "con bò",
+      sourceLessonId: "karaoke:demo",
+    });
+    expect(first.created).toBe(true);
+    expect(findVocabByExpression("bò")?.practiceCount).toBe(0);
+    const second = ensureVocabSaved({
+      expression: "bò",
+      meaningEn: "cow",
+      originalSentence: "con bò",
+      sourceLessonId: "karaoke:demo",
+    });
+    expect(second.created).toBe(false);
+    expect(second.item.practiceCount).toBe(0);
   });
 
   it("schedules know vs again", () => {

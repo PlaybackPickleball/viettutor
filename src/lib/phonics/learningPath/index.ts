@@ -5,3 +5,4 @@ export * from "./audioAssets";
 export * from "./exerciseBuilders";
 export * from "./catalog";
 export * from "./progress";
+export * from "./learnedStatus";

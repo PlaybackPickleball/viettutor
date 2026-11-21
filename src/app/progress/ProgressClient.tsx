@@ -118,9 +118,14 @@ export function ProgressClient() {
             style={{ width: `${summary.phonics.pct}%` }}
           />
         </div>
-        <Link href="/danh-van" className="teacher-btn-secondary mt-3 w-full text-center text-sm">
-          Open Đánh Vần
-        </Link>
+        <div className="mt-3 flex flex-col gap-2">
+          <Link href="/danh-van" className="teacher-btn-secondary w-full text-center text-sm">
+            Open Đánh Vần
+          </Link>
+          <Link href="/danh-van/review" className="teacher-btn-secondary w-full text-center text-sm">
+            Daily Review
+          </Link>
+        </div>
       </section>
 
       <section className="ami-card mt-4 px-4 py-4">

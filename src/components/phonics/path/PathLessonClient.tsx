@@ -25,6 +25,8 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
   const [praise, setPraise] = useState<string | null>(null);
   const [stars, setStars] = useState(0);
   const [gotReviewBonus, setGotReviewBonus] = useState(false);
+  const [xpAwarded, setXpAwarded] = useState(0);
+  const [wasReplay, setWasReplay] = useState(false);
 
   const correctRef = useRef(0);
   const gradedRef = useRef(0);
@@ -39,6 +41,8 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
     setPraise(null);
     setStars(0);
     setGotReviewBonus(false);
+    setXpAwarded(0);
+    setWasReplay(false);
     correctRef.current = 0;
     gradedRef.current = 0;
     reviewBonusRef.current = false;
@@ -101,17 +105,22 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
 
   function handleContinue() {
     if (exIndex + 1 >= lesson.exercises.length) {
+      const before = loadPathProgress();
+      const replay = Boolean(before.lessons[lesson.id]?.completed);
       const once = completePathLesson(
-        loadPathProgress(),
+        before,
         lesson.id,
         correctRef.current,
         gradedRef.current,
         reviewBonusRef.current,
       );
+      const gain = once.xp - before.xp;
       setProgress(once);
+      setXpAwarded(gain);
+      setWasReplay(replay);
       const earned = once.lessons[lesson.id]?.stars ?? 1;
       setStars(earned);
-      setPraise(praiseFor(earned, once.xp));
+      setPraise(praiseFor(earned, once.xp, gain, replay));
       setFinished(true);
       return;
     }
@@ -132,8 +141,11 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
           <span className="text-ink/20">{"★".repeat(Math.max(0, 3 - stars))}</span>
         </p>
         <p className="mt-2 text-center text-sm text-ink/50">
-          +{XP_PER_LESSON}
-          {gotReviewBonus ? ` (+${XP_REVIEW_BONUS} review)` : ""} XP · teacher-paced
+          {xpAwarded > 0
+            ? `+${xpAwarded}${gotReviewBonus && xpAwarded > XP_PER_LESSON ? ` (incl. +${XP_REVIEW_BONUS} review)` : ""} XP · teacher-paced`
+            : wasReplay
+              ? "Replay — no extra XP (stars can still improve)"
+              : `+${XP_PER_LESSON} XP · teacher-paced`}
         </p>
         <div className="mt-8 flex flex-col gap-3">
           {next?.playable ? (
@@ -186,8 +198,12 @@ export function PathLessonClient({ lesson }: { lesson: LearningLesson }) {
   );
 }
 
-function praiseFor(starCount: number, xp: number): string {
+function praiseFor(starCount: number, xp: number, xpGain: number, replay: boolean): string {
+  if (replay && xpGain === 0) {
+    if (starCount >= 3) return `Three stars locked — replay complete, no XP farm. Path XP ${xp}.`;
+    return `Replay stamped — stars updated if higher. No extra XP. Path XP ${xp}.`;
+  }
   if (starCount >= 3) return `Excellent work — three stars. Path XP ${xp}.`;
   if (starCount >= 2) return `Solid practice — two stars. Keep the steady pace.`;
-  return `Lesson stamped — one star. Replay anytime for a stronger set.`;
+  return `Lesson stamped — one star. Replay anytime for a stronger set (no XP farm).`;
 }
