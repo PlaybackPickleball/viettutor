@@ -12,6 +12,12 @@
 
 # testing
 /coverage
+/qa-reports/playwright-html/
+/qa-reports/test-results/
+/qa-reports/playwright-results.json
+/test-results/
+/playwright-report/
+# Keep committed markdown summaries under qa-reports/
 
 # next.js
 /.next/

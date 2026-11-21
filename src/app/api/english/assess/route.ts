@@ -13,7 +13,12 @@ export async function POST(request: Request) {
   const identity = await requireIdentity(request);
   if (identity instanceof Response) return identity;
 
-  const limited = takeRateLimitToken("en-assess", { limit: 30, windowMs: 60_000 });
+  const viewerKey =
+    identity.kind === "person" ? `u:${identity.userId}` : `k:${identity.idp.sub}`;
+  const limited = takeRateLimitToken(`en-assess:${viewerKey}`, {
+    limit: 30,
+    windowMs: 60_000,
+  });
   if (!limited.ok) {
     return NextResponse.json(
       { ok: false, message: "Quá nhiều lần chấm. Chờ một chút rồi thử lại." },

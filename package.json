@@ -8,7 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:critical": "playwright test --project=desktop-chrome e2e/journey-a-new-student.spec.ts e2e/journey-b-returning.spec.ts e2e/journey-c-pronunciation.spec.ts e2e/journey-d-karaoke.spec.ts e2e/journey-e-english.spec.ts e2e/smoke-routes.spec.ts",
+    "test:qa": "node scripts/run-qa.mjs",
+    "test:qa:report": "node scripts/qa-report.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
@@ -19,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.65.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

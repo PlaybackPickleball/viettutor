@@ -43,8 +43,8 @@ const STORAGE_KEY = "ami-lingua.progress.v2";
 /** Max seconds credited between two activity stamps (tab left open). */
 export const MAX_GAP_SECONDS = 120;
 
-function todayKey(): string {
-  return new Date().toISOString().slice(0, 10);
+function todayKey(nowMs: number = Date.now()): string {
+  return new Date(nowMs).toISOString().slice(0, 10);
 }
 
 function emptyLetter(): LetterProgress {
@@ -128,7 +128,7 @@ export function creditPracticeTime(
   state: ProgressState,
   nowMs: number = Date.now(),
 ): ProgressState {
-  const day = todayKey();
+  const day = todayKey(nowMs);
   const dates = state.practiceDates.includes(day)
     ? state.practiceDates
     : [...state.practiceDates, day].slice(-60);
