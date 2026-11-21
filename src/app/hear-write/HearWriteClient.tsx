@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { BrandMark } from "@/components/BrandMark";
 import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
 import { ListenControls } from "@/components/ListenControls";
+import { alphabetPlaybackPathForGrapheme } from "@/lib/alphabetAudio";
 import {
   HEAR_WRITE_ITEMS,
   HEAR_WRITE_LEVELS,
@@ -187,7 +188,16 @@ export function HearWriteClient({
             No letter preview until you check — train memory, not copying.
           </p>
 
-          <ListenControls text={item.listenText} onListened={() => setHeard(true)} />
+          <ListenControls
+            text={item.listenText}
+            nativePath={
+              // Level 1 (1 letter): Thanh Ngọc ElevenLabs letter clips when present.
+              item.level === 1
+                ? alphabetPlaybackPathForGrapheme(item.listenText)
+                : null
+            }
+            onListened={() => setHeard(true)}
+          />
 
           <label className="block">
             <span className="quiet-label">Your writing</span>
