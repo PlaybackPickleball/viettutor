@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { usePracticeClock } from "@/hooks/usePracticeClock";
 import {
+  assembleDailyJourney,
   journeyHomeStats,
   nextLessonPreview,
   resolveContinueLearning,
   type ContinueLearningTarget,
+  type DailyJourneyPlan,
 } from "@/lib/journey";
 import { loadProgress } from "@/lib/progress";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
@@ -25,6 +27,7 @@ export function DashboardClient() {
   const [continueTarget, setContinueTarget] = useState<ContinueLearningTarget | null>(null);
   const [stats, setStats] = useState<HomeStats | null>(null);
   const [nextLesson, setNextLesson] = useState<{ title: string; href: string } | null>(null);
+  const [daily, setDaily] = useState<DailyJourneyPlan | null>(null);
   const [speakHref, setSpeakHref] = useState("/studio/a/say");
   usePracticeClock(true);
 
@@ -34,6 +37,7 @@ export function DashboardClient() {
       setContinueTarget(target);
       setStats(journeyHomeStats());
       setNextLesson(nextLessonPreview(target));
+      setDaily(assembleDailyJourney());
       const letter = loadProgress().currentLetterId || "a";
       setSpeakHref(`/studio/${letter}/say`);
     };
@@ -42,7 +46,7 @@ export function DashboardClient() {
     return () => window.clearInterval(id);
   }, []);
 
-  if (!continueTarget || !stats) {
+  if (!continueTarget || !stats || !daily) {
     return (
       <div className="studio-shell scene-wash">
         <BrandMark size="lg" href={undefined} />
@@ -137,11 +141,40 @@ export function DashboardClient() {
         <Shortcut href="/sing" label="Karaoke" />
       </section>
 
+      <section className="ami-card mt-6 px-4 py-5" aria-labelledby="daily-journey-heading">
+        <p className="quiet-label" id="daily-journey-heading">
+          Daily Journey · ~{daily.totalMin} min
+        </p>
+        <p className="mt-1 font-display text-xl text-ink">Personalized for you</p>
+        <p className="mt-1 text-sm text-ink/55">
+          Warm up · learn · speak & listen · fun — pulled from your progress.
+        </p>
+        <ol className="mt-4 space-y-2">
+          {daily.blocks.map((block) => (
+            <li key={block.phase}>
+              <Link
+                href={block.href}
+                className="flex items-center justify-between gap-2 rounded-2xl bg-soft px-3 py-2.5 text-sm transition hover:bg-paper"
+              >
+                <span>
+                  <span className="font-medium text-ink">{block.titleEn}</span>
+                  <span className="mt-0.5 block text-[11px] text-ink/45">{block.blurb}</span>
+                </span>
+                <span className="shrink-0 text-[11px] text-coral">~{block.durationMin}m</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <Link href={daily.blocks[0]?.href ?? continueTarget.href} className="teacher-btn-primary mt-4 w-full text-center">
+          Start Daily Journey
+        </Link>
+      </section>
+
       <section className="mt-6 ami-card px-4 py-4">
         <p className="quiet-label">Path</p>
         <p className="mt-1 font-display text-lg text-ink">See all units</p>
         <p className="mt-1 text-sm text-ink/55">
-          Unlocking Learn path · Đánh Vần Foundations · karaoke later.
+          Unit 1 Discover · Đánh Vần Foundations · karaoke later.
         </p>
         <Link href="/learn" className="teacher-btn-secondary mt-4 w-full text-center sm:w-auto">
           Open Learn

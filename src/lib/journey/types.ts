@@ -23,6 +23,8 @@ export type JourneyLesson = {
   letterGate?: "letter" | "heard" | "said";
   /** True when Hear & Write has any attempt recorded. */
   hearWriteTouched?: boolean;
+  /** Playable via `/learn/[id]` reusable engine — completion via journey.completedIds. */
+  engine?: boolean;
 };
 
 export type JourneyUnit = {

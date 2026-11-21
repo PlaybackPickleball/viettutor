@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { defaultProgress, type LetterProgress, type ProgressState } from "@/lib/progress";
+import { defaultProgress } from "@/lib/progress";
 import type { PathProgressState } from "@/lib/phonics/learningPath";
 import { JOURNEY_UNITS } from "./catalog";
 import {
@@ -24,21 +24,6 @@ function emptyPath(): PathProgressState {
   };
 }
 
-function heardLetter(): LetterProgress {
-  return {
-    heard: true,
-    sayStreak: 0,
-    sayMastered: false,
-    written: false,
-    objectSeen: false,
-    attempts: 0,
-    sayQualities: [],
-    sayAverage: null,
-    sayLatestScore: null,
-    sayBestScore: null,
-  };
-}
-
 describe("journey unlock", () => {
   it("keeps Unit 1 first live lesson available", () => {
     const first = JOURNEY_UNITS[0]!.lessons.find((l) => l.kind === "live")!;
@@ -47,22 +32,20 @@ describe("journey unlock", () => {
     ).toBe("available");
   });
 
-  it("locks later Unit 1 lessons until prior heard", () => {
+  it("locks later Unit 1 lessons until prior complete", () => {
     const second = JOURNEY_UNITS[0]!.lessons.find((l) => l.id === "u1-l02")!;
     expect(
       journeyLessonStatus(second, defaultJourneyProgress(), defaultProgress(), emptyPath()),
     ).toBe("locked");
   });
 
-  it("unlocks next after soft heard gate", () => {
-    const alphabet: ProgressState = {
-      ...defaultProgress(),
-      letters: { ...defaultProgress().letters, a: heardLetter() },
+  it("unlocks next after engine lesson marked complete", () => {
+    const journey = {
+      ...defaultJourneyProgress(),
+      completedIds: ["u1-l01"],
     };
     const second = JOURNEY_UNITS[0]!.lessons.find((l) => l.id === "u1-l02")!;
-    expect(journeyLessonStatus(second, defaultJourneyProgress(), alphabet, emptyPath())).toBe(
-      "available",
-    );
+    expect(journeyLessonStatus(second, journey, defaultProgress(), emptyPath())).toBe("available");
   });
 
   it("locks Unit 3 until Unit 1 live lessons finish", () => {
@@ -74,7 +57,7 @@ describe("journey unlock", () => {
   it("Continue Learning points at first available live lesson", () => {
     const target = resolveContinueLearning(defaultJourneyProgress(), defaultProgress(), emptyPath());
     expect(target.lessonId).toBe("u1-l01");
-    expect(target.href).toContain("/studio/a/hear");
+    expect(target.href).toBe("/learn/u1-l01");
   });
 
   it("marks path lesson complete from path store", () => {
