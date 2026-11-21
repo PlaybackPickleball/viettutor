@@ -106,8 +106,8 @@ export function VocabPackHubClient() {
       </ol>
 
       <p className="mt-6 text-xs text-ink/40">
-        Illustrations are 512×512 HD WebPs (cache-busted) — see project docs for art QA. Karaoke
-        and guided journey stay unchanged.
+        Illustrations are cache-busted WebPs — see project docs for art QA. Karaoke and guided
+        journey stay unchanged.
       </p>
 
       <div className="mt-4 flex flex-col gap-2">

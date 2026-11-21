@@ -53,27 +53,28 @@ export function VocabFlashcard({
   return (
     <article
       ref={rootRef}
-      className="ami-card flex w-full flex-col overflow-hidden px-4 py-4"
+      className="ami-card flex w-full flex-col overflow-hidden p-3 sm:p-4"
       aria-label={`${word.vi} — ${word.en}`}
     >
-      <div className="mx-auto flex aspect-square w-full max-w-[16rem] items-center justify-center overflow-hidden rounded-2xl bg-soft sm:max-w-[18rem]">
+      {/* Square frame: warm paper fill, rounded corners only — no border/clip padding; text stays below */}
+      <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-2xl bg-paper">
         {inView ? (
           // eslint-disable-next-line @next/next/no-img-element -- lazy public WebP; keep aspect via CSS
           <img
             src={packImageUrl(word)}
             alt=""
-            width={512}
-            height={512}
+            width={1254}
+            height={1254}
             loading="lazy"
             decoding="async"
-            className="h-full w-full object-contain object-center"
+            className="absolute inset-0 h-full w-full object-contain object-center"
           />
         ) : (
-          <div className="h-full w-full animate-pulse bg-ink/5" aria-hidden />
+          <div className="absolute inset-0 h-full w-full animate-pulse bg-ink/5" aria-hidden />
         )}
       </div>
 
-      <p className="mt-4 text-center font-display text-3xl text-ink" lang="vi">
+      <p className="mt-3 text-center font-display text-3xl text-ink" lang="vi">
         {word.vi}
       </p>
       <p className="mt-1 text-center text-sm text-ink/55">{word.en}</p>

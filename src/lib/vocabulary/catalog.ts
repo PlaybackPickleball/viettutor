@@ -6,8 +6,8 @@ const LESSONS = generated.lessons as PackLesson[];
 
 const byId = new Map(WORDS.map((w) => [w.id, w]));
 
-/** Bump when replacing image binaries so browsers drop the prior 128×128 set. */
-export const PACK_IMAGE_CACHE_BUST = "hd1";
+/** Bump when replacing image binaries so browsers drop the prior set. */
+export const PACK_IMAGE_CACHE_BUST = "ind3";
 
 /** Public image URL with cache-bust query (disk path stays `word.imageSrc`). */
 export function packImageUrl(word: PackWord): string {
