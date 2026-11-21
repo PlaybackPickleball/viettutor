@@ -1,11 +1,20 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import { resolveSequence, sequenceLabel } from "@/lib/phonics";
+import {
+  loadPathProgress,
+  pathStatusForWritten,
+  type PathItemLearnStatus,
+} from "@/lib/phonics/learningPath";
 import type { LyricLine, LyricToken } from "@/lib/karaoke/types";
-import { saveVocabItem } from "@/lib/vocab/store";
+import {
+  ensureVocabSaved,
+  findVocabByExpression,
+  type SavedVocabItem,
+} from "@/lib/vocab/store";
 
 type Props = {
   token: LyricToken;
@@ -18,10 +27,44 @@ type Props = {
 export function WordLessonPanel({ token, line, songId, onSavedVocab, onClose }: Props) {
   const [busy, setBusy] = useState(false);
   const [showBreak, setShowBreak] = useState(false);
+  const [vocabItem, setVocabItem] = useState<SavedVocabItem | null>(null);
+  const [saveNote, setSaveNote] = useState<string | null>(null);
+  const [pathStatus, setPathStatus] = useState<PathItemLearnStatus | null>(null);
+  const autoSaved = useRef(false);
 
   const steps = useMemo(() => resolveSequence(token.text), [token.text]);
   const tone = token.toneMetadata?.label ?? "unknown";
   const meaning = token.contextualEnglish?.trim() || "—";
+
+  useEffect(() => {
+    autoSaved.current = false;
+    setShowBreak(false);
+    const existing = findVocabByExpression(token.text) ?? null;
+    setVocabItem(existing);
+    setPathStatus(pathStatusForWritten(loadPathProgress(), token.text));
+
+    if (existing) {
+      setSaveNote(
+        existing.reviewStatus === "new"
+          ? "Already saved for review"
+          : `In your review deck · ${existing.reviewStatus}`,
+      );
+      return;
+    }
+
+    // New word: save for review without stopping the song / panel flow.
+    const result = ensureVocabSaved({
+      expression: token.text,
+      meaningEn: meaning === "—" ? token.text : meaning,
+      originalSentence: line.textVi,
+      sourceLessonId: `learn-lyrics:${songId}`,
+    });
+    autoSaved.current = result.created;
+    setVocabItem(result.item);
+    setSaveNote(result.created ? "Saved for Daily Review" : "Already saved for review");
+    if (result.created) onSavedVocab?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per tapped token
+  }, [token.id, token.text, songId, line.textVi]);
 
   async function speak(slow = false) {
     setBusy(true);
@@ -51,14 +94,19 @@ export function WordLessonPanel({ token, line, songId, onSavedVocab, onClose }: 
   }
 
   function saveWord() {
-    saveVocabItem({
+    const result = ensureVocabSaved({
       expression: token.text,
       meaningEn: meaning === "—" ? token.text : meaning,
       originalSentence: line.textVi,
       sourceLessonId: `learn-lyrics:${songId}`,
     });
-    onSavedVocab?.();
+    setVocabItem(result.item);
+    setSaveNote(result.created ? "Saved for Daily Review" : "Already in your review deck");
+    if (result.created) onSavedVocab?.();
   }
+
+  const studied =
+    (pathStatus && pathStatus.level !== "unseen") || Boolean(vocabItem);
 
   return (
     <div className="ami-card mt-4 px-4 py-4 animate-riseIn">
@@ -68,13 +116,22 @@ export function WordLessonPanel({ token, line, songId, onSavedVocab, onClose }: 
           <p className="mt-1 font-hand text-4xl font-medium text-ink" lang="vi">
             {token.text}
           </p>
+          {studied ? (
+            <p className="mt-2 inline-flex rounded-full bg-coral/15 px-2.5 py-0.5 text-[11px] font-medium text-coral ring-1 ring-coral/40">
+              {pathStatus && pathStatus.level !== "unseen"
+                ? pathStatus.labelEn
+                : "Saved · in review"}
+            </p>
+          ) : null}
         </div>
         {onClose ? (
-          <button type="button" className="teacher-btn-secondary py-1.5 px-3 text-sm" onClick={onClose}>
+          <button type="button" className="teacher-btn-secondary px-3 py-1.5 text-sm" onClick={onClose}>
             Close
           </button>
         ) : null}
       </div>
+
+      {saveNote ? <p className="mt-2 text-xs text-ink/50">{saveNote}</p> : null}
 
       <dl className="mt-4 space-y-2 text-sm">
         <div className="flex justify-between gap-3">
@@ -113,7 +170,7 @@ export function WordLessonPanel({ token, line, songId, onSavedVocab, onClose }: 
           Stop
         </button>
         <button type="button" className="teacher-btn-secondary py-2 text-sm" onClick={saveWord}>
-          Save word
+          {vocabItem ? "In review deck" : "Save word"}
         </button>
       </div>
 

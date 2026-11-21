@@ -16,8 +16,12 @@ import {
 } from "@/lib/karaoke/engine";
 import { AiSayInput } from "@/components/karaoke/AiSayInput";
 import { SingSpeakMic } from "@/components/SingSpeakMic";
+import {
+  loadPathProgress,
+  pathStatusForWritten,
+} from "@/lib/phonics/learningPath";
 import { bumpSingVocab, markSingMode, pushPracticeHistory } from "@/lib/sing/progress";
-import { saveVocabItem } from "@/lib/vocab/store";
+import { ensureVocabSaved, findVocabByExpression } from "@/lib/vocab/store";
 
 const SPEEDS = [0.75, 1, 1.25] as const;
 const MODES: { id: KaraokeMode; label: string; hint: string }[] = [
@@ -66,6 +70,7 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
   }, [initialSeekSec, externalSeekNonce]);
   const [loop, setLoop] = useState<{ start: number; end: number } | null>(null);
   const [selected, setSelected] = useState<LyricToken | null>(null);
+  const [wordBadge, setWordBadge] = useState<string | null>(null);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
   const [saySeed, setSaySeed] = useState("");
   const [duckUntil, setDuckUntil] = useState(0);
@@ -77,6 +82,38 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
   const activeLine = useMemo(() => findLineAtMs(song.lines, tMs), [song.lines, tMs]);
 
   useEffect(() => () => stopSpeaking(), []);
+
+  /** Tap word → meaning panel; auto-save new words for review without farming counters. */
+  useEffect(() => {
+    if (!selected || !activeLine) {
+      setWordBadge(null);
+      return;
+    }
+    const path = pathStatusForWritten(loadPathProgress(), selected.text);
+    const existing = findVocabByExpression(selected.text);
+    if (existing) {
+      setWordBadge(
+        path.level !== "unseen"
+          ? path.labelEn
+          : `In review · ${existing.reviewStatus}`,
+      );
+      return;
+    }
+    const result = ensureVocabSaved({
+      expression: selected.text,
+      meaningEn: selected.contextualEnglish || selected.text,
+      originalSentence: activeLine.textVi,
+      sourceLessonId: `karaoke:${song.id}`,
+    });
+    if (result.created) bumpSingVocab(song.id);
+    setWordBadge(
+      path.level !== "unseen"
+        ? path.labelEn
+        : result.created
+          ? "Saved for Daily Review"
+          : "In review deck",
+    );
+  }, [selected, activeLine, song.id]);
 
   function seek(sec: number) {
     setSeekTo(sec);
@@ -178,13 +215,14 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
 
   function saveSelected() {
     if (!selected || !activeLine) return;
-    saveVocabItem({
+    const result = ensureVocabSaved({
       expression: selected.text,
       meaningEn: selected.contextualEnglish || selected.text,
       originalSentence: activeLine.textVi,
       sourceLessonId: `karaoke:${song.id}`,
     });
-    bumpSingVocab(song.id);
+    if (result.created) bumpSingVocab(song.id);
+    setWordBadge(result.created ? "Saved for Daily Review" : "Already in review deck");
   }
 
   const audioPlaying = playing && Date.now() > duckUntil;
@@ -484,6 +522,11 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
               <p className="mt-1 font-display text-3xl text-ink" lang="vi">
                 {selected.text}
               </p>
+              {wordBadge ? (
+                <p className="mt-2 inline-flex rounded-full bg-coral/15 px-2.5 py-0.5 text-[11px] font-medium text-coral ring-1 ring-coral/40">
+                  {wordBadge}
+                </p>
+              ) : null}
               <p className="mt-1 text-lg text-ink/65">{selected.contextualEnglish}</p>
               <p className="mt-2 text-sm text-ink/50">
                 Tone: {selected.toneMetadata.label}
@@ -505,7 +548,7 @@ export function BilingualKaraokePlayer({ song, initialSeekSec = null, seekNonce:
                   Hear slowly
                 </button>
                 <button type="button" className="teacher-btn-amber py-2 text-sm" onClick={saveSelected}>
-                  Save word
+                  {findVocabByExpression(selected.text) ? "In review deck" : "Save word"}
                 </button>
               </div>
             </>

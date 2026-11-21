@@ -38,6 +38,42 @@ export function loadVocab(): SavedVocabItem[] {
   }
 }
 
+export function findVocabByExpression(expression: string): SavedVocabItem | undefined {
+  const key = expression.trim().toLowerCase();
+  if (!key) return undefined;
+  return loadVocab().find((v) => v.expression.toLowerCase() === key);
+}
+
+/**
+ * Save for review if new. Existing items are left alone (no practice bump) so
+ * karaoke taps stay non-blocking and do not farm review counters.
+ */
+export function ensureVocabSaved(
+  item: Omit<SavedVocabItem, "id" | "savedAt" | "practiceCount" | "reviewStatus">,
+): { list: SavedVocabItem[]; created: boolean; item: SavedVocabItem } {
+  const list = loadVocab();
+  const existing = list.find(
+    (v) => v.expression.toLowerCase() === item.expression.toLowerCase(),
+  );
+  if (existing) {
+    if (item.meaningEn && item.meaningEn !== existing.meaningEn) {
+      existing.meaningEn = item.meaningEn;
+      localStorage.setItem(VOCAB_KEY, JSON.stringify(list));
+    }
+    return { list, created: false, item: existing };
+  }
+  const next: SavedVocabItem = {
+    ...item,
+    id: `vocab-${Date.now()}`,
+    savedAt: new Date().toISOString(),
+    practiceCount: 0,
+    reviewStatus: "new",
+  };
+  const out = [next, ...list];
+  localStorage.setItem(VOCAB_KEY, JSON.stringify(out));
+  return { list: out, created: true, item: next };
+}
+
 export function saveVocabItem(
   item: Omit<SavedVocabItem, "id" | "savedAt" | "practiceCount" | "reviewStatus">,
 ): SavedVocabItem[] {
