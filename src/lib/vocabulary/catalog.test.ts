@@ -5,6 +5,8 @@ import {
   getPackLesson,
   listPackLessons,
   listPackWords,
+  PACK_IMAGE_CACHE_BUST,
+  packImageUrl,
   packLessonWords,
   packWordCount,
 } from "./catalog";
@@ -19,6 +21,9 @@ describe("vocabulary pack catalog", () => {
     expect(first.en).toBe("I");
     expect(first.imageSrc).toBe("/vocabulary/images/001.webp");
     expect(first.skillId).toBe("pack-v-001");
+    expect(packImageUrl(first)).toBe(
+      `/vocabulary/images/001.webp?v=${PACK_IMAGE_CACHE_BUST}`,
+    );
   });
 
   it("builds 16 progressive lessons with 5–7 new words and prior review", () => {

@@ -24,6 +24,7 @@ import {
   getPackWord,
   gradePackWord,
   loadPackProgress,
+  packImageUrl,
   type PackWord,
 } from "@/lib/vocabulary";
 
@@ -256,12 +257,12 @@ export function DailyReviewClient() {
               {current.kind === "pack" ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={current.word.imageSrc}
+                  src={packImageUrl(current.word)}
                   alt=""
-                  width={96}
-                  height={96}
+                  width={512}
+                  height={512}
                   loading="lazy"
-                  className="mt-3 h-24 w-24 object-contain"
+                  className="mx-auto mt-3 h-28 w-28 object-contain object-center sm:h-32 sm:w-32"
                 />
               ) : null}
               <div className="mt-3">
