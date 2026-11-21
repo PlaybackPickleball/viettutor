@@ -2,10 +2,13 @@ import { expect, test } from "@playwright/test";
 import { mockPaidServices, seedVietnameseLearner } from "./fixtures/seed";
 
 const ROUTES: { path: string; expectText: RegExp }[] = [
-  { path: "/", expectText: /Xin chào|Đánh Vần|Continue|Learn/i },
+  { path: "/", expectText: /ÁMi Lingua|Continue Learning|Learn/i },
+  { path: "/learn", expectText: /Learn|Unit|Continue/i },
+  { path: "/practice", expectText: /Practice|Hear|Speak|Review/i },
+  { path: "/profile", expectText: /Profile|Progress|Streak/i },
   { path: "/danh-van", expectText: /Đánh Vần/i },
   { path: "/hear-write", expectText: /Hear|Write|vần|combo/i },
-  { path: "/progress", expectText: /progress|star|practice/i },
+  { path: "/progress", expectText: /progress|star|practice|Profile/i },
   { path: "/settings", expectText: /setting|course|English|Vietnamese/i },
   { path: "/sing", expectText: /Sing|karaoke|song/i },
   { path: "/studio/a/hear", expectText: /Hear|Listen|a/i },

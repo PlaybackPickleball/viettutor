@@ -7,7 +7,7 @@ import { usePracticeClock } from "@/hooks/usePracticeClock";
 import { buildProgressSummary, type ProgressSummary } from "@/lib/learningSummary";
 import { loadViOnboarding } from "@/lib/viOnboarding";
 
-export function ProgressClient() {
+export function ProgressClient({ heading = "Progress" }: { heading?: string }) {
   const [summary, setSummary] = useState<ProgressSummary | null>(null);
   const [dailyGoal, setDailyGoal] = useState<number | null>(null);
   usePracticeClock(true);
@@ -41,7 +41,7 @@ export function ProgressClient() {
         <div>
           <BrandMark />
           <p className="quiet-label mt-3">Your learning</p>
-          <h1 className="mt-1 font-display text-3xl text-ink">Progress</h1>
+          <h1 className="mt-1 font-display text-3xl text-ink">{heading}</h1>
         </div>
         <Link href="/" className="teacher-btn-secondary px-4 py-2 text-sm">
           Home

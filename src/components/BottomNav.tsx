@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { browserStore, loadCourse } from "@/lib/experience/store";
 import { continueTarget, loadEnglishProgress } from "@/lib/english/progress";
-import { continueHref, loadProgress } from "@/lib/progress";
 
 function SingIcon({ active }: { active?: boolean }) {
   return (
@@ -25,16 +24,10 @@ function SingIcon({ active }: { active?: boolean }) {
 
 export function BottomNav() {
   const path = usePathname();
-  const [writeHref, setWriteHref] = useState("/studio/a/write");
-  const [learnHref, setLearnHref] = useState("/");
   const [englishLearn, setEnglishLearn] = useState("/en/lesson/d01");
   const [course, setCourse] = useState<"loading" | "en_to_vi" | "vi_to_en" | null>("loading");
 
   useEffect(() => {
-    const p = loadProgress();
-    setLearnHref(continueHref(p));
-    const id = p.currentLetterId || "a";
-    setWriteHref(`/studio/${id}/write`);
     const record = loadCourse(browserStore()).record;
     setCourse(record?.active ?? null);
     const next = continueTarget(loadEnglishProgress(browserStore()));
@@ -79,32 +72,34 @@ export function BottomNav() {
         },
       ]
     : [
-    { href: "/", label: "Home", icon: HomeIcon, match: (p: string) => p === "/" },
-    {
-      href: learnHref,
-      label: "Learn",
-      icon: LearnIcon,
-      match: (p: string) => p.startsWith("/studio") && !p.includes("/write"),
-    },
-    {
-      href: "/danh-van",
-      label: "Đánh Vần",
-      icon: PhonicsIcon,
-      match: (p: string) => p.startsWith("/danh-van"),
-    },
-    {
-      href: "/sing",
-      label: "Sing",
-      icon: SingIcon,
-      match: (p: string) => p.startsWith("/sing"),
-    },
-    {
-      href: "/progress",
-      label: "Progress",
-      icon: ProgressIcon,
-      match: (p: string) => p.startsWith("/progress"),
-    },
-  ] as const;
+        { href: "/", label: "Home", icon: HomeIcon, match: (p: string) => p === "/" },
+        {
+          href: "/learn",
+          label: "Learn",
+          icon: LearnIcon,
+          match: (p: string) =>
+            p.startsWith("/learn") || p.startsWith("/danh-van") || p.startsWith("/studio"),
+        },
+        {
+          href: "/practice",
+          label: "Practice",
+          icon: PracticeIcon,
+          match: (p: string) =>
+            p.startsWith("/practice") || p.startsWith("/hear-write") || p.startsWith("/scan"),
+        },
+        {
+          href: "/sing",
+          label: "Karaoke",
+          icon: SingIcon,
+          match: (p: string) => p.startsWith("/sing"),
+        },
+        {
+          href: "/profile",
+          label: "Profile",
+          icon: ProgressIcon,
+          match: (p: string) => p.startsWith("/profile") || p.startsWith("/progress") || p.startsWith("/settings"),
+        },
+      ] as const;
 
   return (
     <nav
@@ -160,6 +155,20 @@ function LearnIcon({ active }: { active?: boolean }) {
   );
 }
 
+function PracticeIcon({ active }: { active?: boolean }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path
+        d="M12 4v4M12 16v4M4 12h4M16 12h4"
+        stroke={active ? "#e07a4a" : "currentColor"}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+      <circle cx="12" cy="12" r="3.2" stroke={active ? "#e07a4a" : "currentColor"} strokeWidth="1.8" />
+    </svg>
+  );
+}
+
 function ScanIcon({ active }: { active?: boolean }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -197,29 +206,6 @@ function ProgressIcon({ active }: { active?: boolean }) {
         strokeWidth="1.8"
         strokeLinecap="round"
       />
-    </svg>
-  );
-}
-
-function PhonicsIcon({ active }: { active?: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M7 17V7h3.2c2.2 0 3.6 1.2 3.6 3s-1.4 3-3.6 3H9.2"
-        stroke={active ? "#e07a4a" : "currentColor"}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M14.5 17c.9-1.8 2.6-3 4.5-3"
-        stroke={active ? "#e07a4a" : "currentColor"}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-      <circle cx="7" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
-      <circle cx="12" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
-      <circle cx="17" cy="19.5" r="1.2" fill={active ? "#e07a4a" : "currentColor"} />
     </svg>
   );
 }
