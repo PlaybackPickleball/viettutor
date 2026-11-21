@@ -99,6 +99,9 @@ export function DanhVanHomeClient() {
         <Link href="/danh-van/review" className="teacher-btn-secondary mt-3 w-full text-center">
           Daily Review{due.length ? ` · ${due.length} due` : ""}
         </Link>
+        <Link href="/hear-write" className="teacher-btn-secondary mt-3 w-full text-center">
+          Hear & Write · vần combos
+        </Link>
         <Link
           href="/danh-van/lesson/ba-sac"
           className="teacher-btn-secondary mt-3 w-full text-center text-sm"

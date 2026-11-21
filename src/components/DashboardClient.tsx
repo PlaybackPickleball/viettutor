@@ -208,9 +208,9 @@ export function DashboardClient() {
           title="Learn through karaoke"
         />
         <FeatureThumb
-          href={href.includes("/write") ? href : `/studio/${progress.currentLetterId || "a"}/write`}
+          href="/hear-write"
           src="/home/home-feature-write.jpg"
-          title={`Letter ${current?.grapheme ?? "a"} live path`}
+          title="Hear & Write sounds"
         />
       </section>
 
