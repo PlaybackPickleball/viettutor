@@ -52,6 +52,11 @@ export function PracticeHubClient() {
           blurb={due ? `${due} skills due for spaced revisit.` : "Spaced skills when due."}
         />
         <PracticeLink
+          href="/vocab/pack"
+          title="First 100 words"
+          blurb="Illustrated flashcards · 5–7 new + review · Deepgram Say."
+        />
+        <PracticeLink
           href={pathHref}
           title="Đánh Vần lesson"
           blurb="Continue Hear → Write → Say → Review on the path."

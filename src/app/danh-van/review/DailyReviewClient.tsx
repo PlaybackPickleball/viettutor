@@ -19,10 +19,18 @@ import {
   loadVocab,
   type SavedVocabItem,
 } from "@/lib/vocab/store";
+import {
+  duePackWordIds,
+  getPackWord,
+  gradePackWord,
+  loadPackProgress,
+  type PackWord,
+} from "@/lib/vocabulary";
 
 type QueueItem =
   | { kind: "skill"; id: string; labelEn: string; labelVi: string; listenText: string }
-  | { kind: "vocab"; item: SavedVocabItem };
+  | { kind: "vocab"; item: SavedVocabItem }
+  | { kind: "pack"; word: PackWord };
 
 function skillListenText(skillId: string, labelVi: string): string {
   if (skillId === "letter-a") return "a";
@@ -31,12 +39,17 @@ function skillListenText(skillId: string, labelVi: string): string {
   if (skillId === "vocab-bo") return "bò";
   if (skillId === "vocab-ba-ma") return "ba";
   if (skillId.startsWith("tone-")) return labelVi;
+  if (skillId.startsWith("pack-v-")) {
+    const id = skillId.replace("pack-v-", "v");
+    return getPackWord(id)?.vi ?? labelVi;
+  }
   return labelVi || skillId;
 }
 
 /** Prefer a short written form for write/say practice (not teaching-sound spellings). */
 function practiceWritten(item: QueueItem): string {
   if (item.kind === "vocab") return item.item.expression;
+  if (item.kind === "pack") return item.word.vi;
   if (item.id === "letter-a") return "a";
   if (item.id === "letter-b") return "b";
   if (item.id === "letter-o") return "o";
@@ -79,9 +92,14 @@ export function DailyReviewClient() {
     });
     const words: QueueItem[] = dueVocab(vocab)
       .filter(isSongVocab)
-      .slice(0, 6)
+      .slice(0, 4)
       .map((item) => ({ kind: "vocab", item }));
-    return [...skills, ...words];
+    const packDue: QueueItem[] = duePackWordIds(loadPackProgress())
+      .slice(0, 4)
+      .map((id) => getPackWord(id))
+      .filter((w): w is NonNullable<typeof w> => Boolean(w))
+      .map((word) => ({ kind: "pack", word }));
+    return [...skills, ...packDue, ...words];
   }, [progress, vocab]);
 
   if (!progress) {
@@ -114,9 +132,16 @@ export function DailyReviewClient() {
   }
 
   function gradeWord(grade: "know" | "again") {
-    if (!current || current.kind !== "vocab") return;
-    const next = gradeVocabItem(current.item.id, grade);
-    setVocab(next);
+    if (!current) return;
+    if (current.kind === "vocab") {
+      const next = gradeVocabItem(current.item.id, grade);
+      setVocab(next);
+    } else if (current.kind === "pack") {
+      gradePackWord(current.word.id, grade);
+      setProgress(loadPathProgress());
+    } else {
+      return;
+    }
     setDoneNote(grade === "know" ? "Nice — longer interval." : "Again tomorrow.");
     window.setTimeout(advance, 500);
   }
@@ -226,10 +251,23 @@ export function DailyReviewClient() {
             <div>
               <p className="quiet-label">1 · Hear</p>
               <p className="mt-1 font-hand text-5xl text-ink" lang="vi">
-                {current.item.expression}
+                {current.kind === "pack" ? current.word.vi : current.item.expression}
               </p>
+              {current.kind === "pack" ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={current.word.imageSrc}
+                  alt=""
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                  className="mt-3 h-24 w-24 object-contain"
+                />
+              ) : null}
               <div className="mt-3">
-                <ListenControls text={current.item.expression} />
+                <ListenControls
+                  text={current.kind === "pack" ? current.word.vi : current.item.expression}
+                />
               </div>
             </div>
 
@@ -244,7 +282,11 @@ export function DailyReviewClient() {
               <p className="quiet-label mb-2">3 · Say</p>
               <SpeakCompareAssess
                 expectedText={written}
-                itemId={`review-vocab-${current.item.id}`}
+                itemId={
+                  current.kind === "pack"
+                    ? `review-pack-${current.word.id}`
+                    : `review-vocab-${current.item.id}`
+                }
                 onPracticed={() => setSaid(true)}
               />
             </div>
@@ -261,7 +303,7 @@ export function DailyReviewClient() {
                 </button>
               ) : (
                 <p className="mb-3 text-sm text-ink/70" lang="en">
-                  {current.item.meaningEn}
+                  {current.kind === "pack" ? current.word.en : current.item.meaningEn}
                 </p>
               )}
               <div className="grid grid-cols-2 gap-2">
@@ -287,7 +329,8 @@ export function DailyReviewClient() {
       </div>
 
       <p className="mt-4 text-xs text-ink/45">
-        Spaced skills + song words. Deepgram match is transcription only — never a pronunciation %.
+        Spaced skills + First 100 pack + song words. Deepgram match is transcription only — never a
+        pronunciation %.
       </p>
     </div>
   );
