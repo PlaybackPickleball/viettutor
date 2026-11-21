@@ -21,6 +21,8 @@ const BY_WRITTEN: Record<string, WordArtEntry> = {
   bà: { artId: "grandmother", kind: "vocab", alt: "bà — grandmother" },
   má: { artId: "mother", kind: "vocab", alt: "má — mother (Southern)" },
   mà: { artId: "but", kind: "vocab", alt: "mà — but / which" },
+  bò: { artId: "cow", kind: "vocab", alt: "bò — cow" },
+  bo: { artId: "abstract-wave", kind: "training", alt: "bo — sound training" },
   bố: { artId: "dad", kind: "vocab", alt: "bố — dad (Southern)" },
   cha: { artId: "dad", kind: "vocab", alt: "cha — father (Southern)" },
   cô: { artId: "aunt", kind: "vocab", alt: "cô — aunt / Miss" },

@@ -1,3 +1,4 @@
+import { WORLD_0, WORLD_0_LESSONS } from "./worlds/world0";
 import { WORLD_1, WORLD_1_LESSONS } from "./worlds/world1";
 import { WORLD_2, WORLD_2_LESSONS } from "./worlds/world2";
 import { WORLD_3, WORLD_3_LESSONS } from "./worlds/world3";
@@ -5,6 +6,7 @@ import { LESSONS_4_TO_12, WORLDS_4_TO_12 } from "./worlds/worlds4to12";
 import type { LearningLesson, LearningWorld } from "./types";
 
 export const LEARNING_WORLDS: LearningWorld[] = [
+  WORLD_0,
   WORLD_1,
   WORLD_2,
   WORLD_3,
@@ -12,6 +14,7 @@ export const LEARNING_WORLDS: LearningWorld[] = [
 ];
 
 export const LEARNING_LESSONS: LearningLesson[] = [
+  ...WORLD_0_LESSONS,
   ...WORLD_1_LESSONS,
   ...WORLD_2_LESSONS,
   ...WORLD_3_LESSONS,

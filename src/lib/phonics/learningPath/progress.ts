@@ -208,8 +208,8 @@ export function isPathLessonComplete(state: PathProgressState, lessonId: string)
 export const DEMO_UNLOCK_ALL_PATH = true;
 
 /**
- * Unlock: prior lesson in same world complete; world N unlocks when world N-1 badge earned
- * (all playable lessons complete). Lesson 1 of world 1 always open.
+ * Unlock: prior lesson in same world complete; world N unlocks when prior world
+ * (by order) is fully complete. First lesson of the first world always open.
  * When DEMO_UNLOCK_ALL_PATH is true, every playable lesson is available.
  */
 export function isPathLessonUnlocked(state: PathProgressState, lessonId: string): boolean {
@@ -219,9 +219,8 @@ export function isPathLessonUnlocked(state: PathProgressState, lessonId: string)
   if (!world || !world.playable) return false;
   if (DEMO_UNLOCK_ALL_PATH) return true;
 
-  if (world.order > 1) {
-    const prevWorld = LEARNING_WORLDS.find((w) => w.order === world.order - 1);
-    if (!prevWorld?.playable) return false;
+  const prevWorld = LEARNING_WORLDS.find((w) => w.order === world.order - 1);
+  if (prevWorld?.playable) {
     const prevLessons = getWorldLessons(prevWorld.id).filter((l) => l.playable);
     if (!prevLessons.every((l) => isPathLessonComplete(state, l.id))) return false;
   }
@@ -271,6 +270,7 @@ export function skillsDueForReview(state: PathProgressState, limit = 5): string[
 }
 
 export const BADGE_LABELS: Record<string, string> = {
+  "badge-w0": "Foundations — a, b, o",
   "badge-w1": "World 1 — ba & ma",
   "badge-w2": "World 2 — Tone mastery",
   "badge-w3": "World 3 — New consonants",

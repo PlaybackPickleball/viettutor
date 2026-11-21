@@ -1,15 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import { LetterTraceCanvas } from "@/components/LetterTraceCanvas";
+import { ListenControls } from "@/components/ListenControls";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
+import { StrokeDemo } from "@/components/StrokeDemo";
 import { SyllableBuilder } from "@/components/phonics/SyllableBuilder";
+import { WordArt } from "@/components/phonics/WordArt";
+import { WordGloss } from "@/components/phonics/WordGloss";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import {
   EXERCISE_TYPE_LABEL,
+  STEP_ROLE_LABEL,
+  getAudioAsset,
+  resolveStepRole,
   type PathExercise,
 } from "@/lib/phonics/learningPath";
-import { WordArt } from "@/components/phonics/WordArt";
-import { WordGloss } from "@/components/phonics/WordGloss";
 import { resolveWordArt } from "@/lib/phonics/wordArt";
 
 type Props = {
@@ -26,11 +32,16 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const [solved, setSolved] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [buildReady, setBuildReady] = useState(false);
+  const [heard, setHeard] = useState(false);
 
-  async function playAudio() {
-    if (!exercise.audioUtterance) return;
+  const stepRole = resolveStepRole(exercise);
+  const asset = exercise.audioAssetId ? getAudioAsset(exercise.audioAssetId) : undefined;
+  const audioText = exercise.audioUtterance;
+
+  async function playAudio(slow = false) {
+    if (!audioText) return;
     try {
-      await speakVietnamese(exercise.audioUtterance);
+      await speakVietnamese(audioText, { slow });
     } catch {
       /* TTS optional */
     }
@@ -50,11 +61,11 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
     }
   }
 
-  function finishUngraded() {
+  function finishUngraded(message: string) {
     if (solved) return;
     onResult(true);
     setSolved(true);
-    setFeedback("Saved — compare by ear only (no fake score).");
+    setFeedback(message);
   }
 
   const choiceTypes = new Set([
@@ -65,13 +76,18 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
     "review-challenge",
   ]);
 
+  const showListenReplay =
+    Boolean(audioText) &&
+    exercise.type !== "build-syllable" &&
+    exercise.type !== "hear-sound";
+
   return (
     <div className="animate-riseIn space-y-4">
       <div className="flex items-center justify-between gap-2 text-xs text-ink/45">
         <span>
-          {index + 1} / {total} · {EXERCISE_TYPE_LABEL[exercise.type]}
+          {index + 1} / {total} · {STEP_ROLE_LABEL[stepRole]} · {EXERCISE_TYPE_LABEL[exercise.type]}
         </span>
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-ink/10 mx-3">
+        <div className="mx-3 h-1.5 flex-1 overflow-hidden rounded-full bg-ink/10">
           <div
             className="h-full rounded-full bg-coral transition-all"
             style={{ width: `${((index + (solved ? 1 : 0)) / total) * 100}%` }}
@@ -86,10 +102,50 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
         </p>
       ) : null}
 
-      {exercise.audioUtterance && exercise.type !== "build-syllable" ? (
-        <button type="button" className="teacher-btn-primary w-full" onClick={() => void playAudio()}>
-          Play audio
-        </button>
+      {asset ? (
+        <p className="text-[11px] text-ink/40">
+          Audio · {asset.id}
+          {asset.status === "tts-placeholder" ? " · TTS placeholder (native pending)" : " · native"}
+        </p>
+      ) : null}
+
+      {exercise.type === "hear-sound" && audioText ? (
+        <div className="space-y-3">
+          {exercise.targetWritten ? (
+            <p className="text-center">
+              <span className="font-hand text-6xl text-ink" lang="vi">
+                {exercise.targetWritten}
+              </span>
+              {exercise.targetGlossEn ? (
+                <span className="mt-1 block text-sm text-ink/50" lang="en">
+                  {exercise.targetGlossEn}
+                </span>
+              ) : null}
+            </p>
+          ) : null}
+          <ListenControls text={audioText} onListened={() => setHeard(true)} />
+          {!solved ? (
+            <button
+              type="button"
+              className="teacher-btn-primary w-full"
+              disabled={!heard}
+              onClick={() => finishUngraded("Heard — continue when ready.")}
+            >
+              {heard ? "I heard it — continue" : "Listen first"}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      {showListenReplay ? (
+        <div className="flex flex-wrap gap-2">
+          <button type="button" className="teacher-btn-primary flex-1" onClick={() => void playAudio(false)}>
+            Play audio
+          </button>
+          <button type="button" className="teacher-btn-secondary" onClick={() => void playAudio(true)}>
+            Slow
+          </button>
+        </div>
       ) : null}
 
       {exercise.type === "build-syllable" && exercise.buildSteps ? (
@@ -143,9 +199,55 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
             )
           ) : null}
           <LocalMicRecorder label="Record & replay — judge by ear" />
+          <p className="text-xs text-ink/45">
+            Conservative feedback only — we never invent a pronunciation score.
+          </p>
           {!solved ? (
-            <button type="button" className="teacher-btn-primary w-full" onClick={finishUngraded}>
+            <button
+              type="button"
+              className="teacher-btn-primary w-full"
+              onClick={() => finishUngraded("Saved — compare by ear only (no fake score).")}
+            >
               I compared — continue
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+
+      {exercise.type === "write-trace" && exercise.traceGrapheme ? (
+        <div className="space-y-3">
+          <p className="text-center text-xs text-ink/45">
+            Mali handwriting · shape practice — no accuracy claim
+          </p>
+          {(exercise.traceStrokes?.length ?? 0) > 0 ? (
+            <StrokeDemo
+              strokes={exercise.traceStrokes!}
+              grapheme={exercise.traceGrapheme}
+              autoPlay
+            />
+          ) : (
+            <p className="text-center font-hand text-6xl text-ink/30" lang="vi">
+              {exercise.traceGrapheme}
+            </p>
+          )}
+          <LetterTraceCanvas
+            strokes={exercise.traceStrokes ?? []}
+            grapheme={exercise.traceGrapheme}
+            praiseMode="unrecognized"
+            idleHint="Trace the Mali model — practice only."
+            onTraceComplete={() =>
+              finishUngraded("Trace stamped — handwriting is practice, not scored.")
+            }
+          />
+          {!solved ? (
+            <button
+              type="button"
+              className="teacher-btn-secondary w-full"
+              onClick={() =>
+                finishUngraded("Write stamped — continue (no handwriting accuracy score).")
+              }
+            >
+              Skip trace / continue
             </button>
           ) : null}
         </div>

@@ -36,6 +36,38 @@ export const PATH_SYLLABLES: SyllableDef[] = [
     vocab: vocab("v-ba", "ba", "three / dad (Southern context)", true),
   },
   {
+    id: "bo",
+    written: "bo",
+    tone: "ngang",
+    dialect: "southern",
+    sequence: [
+      step("b", "bờ", "initial", "teaching sound for b"),
+      step("o", "o", "vowel", "round “aw” vowel"),
+      step("bo", "bo", "syllable", "practice syllable (level tone)"),
+    ],
+    vocab: vocab(
+      "v-bo",
+      "bo",
+      "practice syllable (level tone)",
+      false,
+      "Sound-training base before bò — not essential beginner vocab",
+    ),
+  },
+  {
+    id: "bo-huyen",
+    written: "bò",
+    tone: "huyen",
+    dialect: "southern",
+    sequence: [
+      step("b", "bờ", "initial", "teaching sound for b"),
+      step("o", "o", "vowel", "round “aw” vowel"),
+      step("bo", "bo", "combine", "combined before tone"),
+      step("`", "huyền", "tone", "falling tone name"),
+      step("bò", "bò", "syllable", "cow"),
+    ],
+    vocab: vocab("v-bo-huyen", "bò", "cow", true),
+  },
+  {
     id: "ba-sac",
     written: "bá",
     tone: "sac",

@@ -53,9 +53,9 @@ export function DanhVanHomeClient() {
       <header className="mb-6 flex items-start justify-between gap-3">
         <div>
           <BrandMark />
-          <p className="quiet-label mt-3">Learn · Build syllables</p>
+          <p className="quiet-label mt-3">Learn · Foundations → Worlds</p>
           <h1 className="mt-1 font-display text-3xl text-ink">Đánh Vần</h1>
-          <p className="mt-1 text-ink/60">Learning path · Southern first</p>
+          <p className="mt-1 text-ink/60">2.0 path · Southern first · HEAR→WRITE→REVIEW</p>
         </div>
         <Link href="/" className="teacher-btn-secondary px-4 py-2 text-sm">
           Home
@@ -87,7 +87,8 @@ export function DanhVanHomeClient() {
         </div>
         {DEMO_UNLOCK_ALL_PATH ? (
           <p className="mt-4 rounded-2xl bg-soft px-3 py-2 text-xs text-ink/60">
-            Demo unlock on — all 12 worlds and 144 lessons open for testing (mastery gates off).
+            Demo unlock on — Foundations + 12 worlds (149 lessons) open for testing (mastery gates
+            off).
           </p>
         ) : null}
         <Link href={href} className="teacher-btn-primary mt-5 w-full text-center">
@@ -125,10 +126,10 @@ export function DanhVanHomeClient() {
 
       <section className="mt-8" aria-labelledby="world-map-heading">
         <h2 id="world-map-heading" className="quiet-label">
-          World map · 12 worlds
+          World map · Foundations + 12 worlds
         </h2>
         <p className="mt-1 text-sm text-ink/55">
-          All 12 worlds playable · Southern-first path · 144 micro-lessons.
+          Foundations pilots + Worlds 1–12 · Southern-first · 149 micro-lessons.
         </p>
 
         <ol className="relative mt-6 space-y-8 border-l-2 border-coral/25 pl-5">
