@@ -71,3 +71,7 @@ public/sing/private/
 # ALPHABET_LETTER_AUDIO_ENABLED in src/lib/alphabetAudio.ts.
 !public/audio/vi/alphabet/*.mp3
 !public/audio/vi/alphabet/source/*.mp3
+# VLA-110 First-100 vocab clips — Nicola approved; pack Hear gated by
+# VOCAB_PACK_AUDIO_ENABLED in src/lib/vocabulary/audio.ts.
+!public/audio/vi/vocabulary/*.mp3
+!public/audio/vi/vocabulary/source/*.mp3
