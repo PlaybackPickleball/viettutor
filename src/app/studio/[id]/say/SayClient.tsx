@@ -14,6 +14,7 @@ import {
   type ScoreResult,
 } from "@/lib/pronunciation";
 import { loadProgress, recordSayAttempt, type ProgressState } from "@/lib/progress";
+import { alphabetNativePathForLetter } from "@/lib/alphabetAudio";
 import { speakVietnamese } from "@/lib/audio";
 
 export function SayClient({ letter }: { letter: LetterLesson }) {
@@ -88,9 +89,15 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
     if (!before && next.letters[letter.id]?.sayMastered) setJustEarned(true);
   }
 
+  const nativePath = alphabetNativePathForLetter(letter.id);
+
   async function replayTeacher() {
     try {
-      await speakVietnamese(letter.listenText, { phoneticHint: letter.phoneticHint });
+      await speakVietnamese(letter.listenText, {
+        phoneticHint: letter.phoneticHint,
+        nativePath: nativePath ?? undefined,
+        preferNative: Boolean(nativePath),
+      });
     } catch {
       /* optional */
     }
@@ -134,6 +141,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
         <ListenControls
           text={letter.listenText}
           phoneticHint={letter.phoneticHint}
+          nativePath={nativePath}
           onListened={() => setListened(true)}
         />
       </div>

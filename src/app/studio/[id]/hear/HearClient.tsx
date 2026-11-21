@@ -6,6 +6,7 @@ import { CelebrateBanner } from "@/components/CelebrateBanner";
 import { GraphemeHero } from "@/components/GraphemeHero";
 import { ListenControls } from "@/components/ListenControls";
 import { StudioChrome } from "@/components/StudioChrome";
+import { alphabetNativePathForLetter } from "@/lib/alphabetAudio";
 import type { LetterLesson } from "@/lib/letters";
 import { praiseForStep } from "@/lib/motivation";
 import { loadProgress, markHeard } from "@/lib/progress";
@@ -41,6 +42,7 @@ export function HearClient({ letter }: { letter: LetterLesson }) {
       <ListenControls
         text={letter.listenText}
         phoneticHint={letter.phoneticHint}
+        nativePath={alphabetNativePathForLetter(letter.id)}
         onListened={onListened}
       />
       <div className="mt-auto pt-10">
