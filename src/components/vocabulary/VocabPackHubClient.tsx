@@ -110,6 +110,19 @@ export function VocabPackHubClient() {
         journey stay unchanged.
       </p>
 
+      <section className="ami-card mt-6 px-4 py-4" aria-labelledby="sentences-cta">
+        <p className="quiet-label" id="sentences-cta">
+          Next
+        </p>
+        <p className="mt-1 font-display text-xl text-ink">Ready to Speak Vietnamese?</p>
+        <p className="mt-1 text-sm text-ink/55">
+          100 Essential Sentences — start with greetings after First 100 Words.
+        </p>
+        <Link href="/sentences" className="teacher-btn-primary mt-4 w-full text-center">
+          Start Speaking
+        </Link>
+      </section>
+
       <div className="mt-4 flex flex-col gap-2">
         <Link href="/danh-van/review" className="teacher-btn-secondary w-full text-center text-sm">
           Daily Review (SRS)

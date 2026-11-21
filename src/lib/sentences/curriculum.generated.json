@@ -1,0 +1,2371 @@
+{
+  "version": 1,
+  "moduleId": "essential-sentences",
+  "pronounNote": "MVP uses tôi/bạn. In real life, Vietnamese often uses anh/chị/em (and other kinship terms) instead — you'll meet those next.",
+  "lessons": [
+    {
+      "id": "s-l01",
+      "order": 1,
+      "titleEn": "Greetings & Politeness",
+      "titleVi": "Chào hỏi & lịch sự",
+      "sentenceIds": [
+        "sentence_001",
+        "sentence_002",
+        "sentence_003",
+        "sentence_004",
+        "sentence_005",
+        "sentence_006",
+        "sentence_007",
+        "sentence_008",
+        "sentence_009",
+        "sentence_010"
+      ]
+    },
+    {
+      "id": "s-l02",
+      "order": 2,
+      "titleEn": "Understanding & Speaking",
+      "titleVi": "Hiểu & nói",
+      "sentenceIds": [
+        "sentence_011",
+        "sentence_012",
+        "sentence_013",
+        "sentence_014",
+        "sentence_015",
+        "sentence_016",
+        "sentence_017",
+        "sentence_018",
+        "sentence_019",
+        "sentence_020"
+      ]
+    },
+    {
+      "id": "s-l03",
+      "order": 3,
+      "titleEn": "Food & Drinks",
+      "titleVi": "Đồ ăn & thức uống",
+      "sentenceIds": [
+        "sentence_021",
+        "sentence_022",
+        "sentence_023",
+        "sentence_024",
+        "sentence_025",
+        "sentence_026",
+        "sentence_027",
+        "sentence_028",
+        "sentence_029",
+        "sentence_030"
+      ]
+    },
+    {
+      "id": "s-l04",
+      "order": 4,
+      "titleEn": "Shopping & Money",
+      "titleVi": "Mua sắm & tiền",
+      "sentenceIds": [
+        "sentence_031",
+        "sentence_032",
+        "sentence_033",
+        "sentence_034",
+        "sentence_035",
+        "sentence_036",
+        "sentence_037",
+        "sentence_038",
+        "sentence_039",
+        "sentence_040"
+      ]
+    },
+    {
+      "id": "s-l05",
+      "order": 5,
+      "titleEn": "Directions & Transportation",
+      "titleVi": "Đường đi & đi lại",
+      "sentenceIds": [
+        "sentence_041",
+        "sentence_042",
+        "sentence_043",
+        "sentence_044",
+        "sentence_045",
+        "sentence_046",
+        "sentence_047",
+        "sentence_048",
+        "sentence_049",
+        "sentence_050"
+      ]
+    }
+  ],
+  "sentences": [
+    {
+      "id": "sentence_001",
+      "order": 1,
+      "lessonId": "s-l01",
+      "vi": "Xin chào.",
+      "en": "Hello.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Xin chào",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Xin chào.”",
+        "choices": [
+          "Hello."
+        ],
+        "correctEn": "Hello."
+      }
+    },
+    {
+      "id": "sentence_002",
+      "order": 2,
+      "lessonId": "s-l01",
+      "vi": "Bạn khỏe không?",
+      "en": "How are you?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "khỏe",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn khỏe không?”",
+        "choices": [
+          "How are you?"
+        ],
+        "correctEn": "How are you?"
+      }
+    },
+    {
+      "id": "sentence_003",
+      "order": 3,
+      "lessonId": "s-l01",
+      "vi": "Tôi khỏe, cảm ơn.",
+      "en": "I'm fine, thank you.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "khỏe",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ",",
+          "kind": "punct"
+        },
+        {
+          "surface": "cảm ơn",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi khỏe, cảm ơn.”",
+        "choices": [
+          "I'm fine, thank you."
+        ],
+        "correctEn": "I'm fine, thank you."
+      }
+    },
+    {
+      "id": "sentence_004",
+      "order": 4,
+      "lessonId": "s-l01",
+      "vi": "Bạn tên gì?",
+      "en": "What's your name?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "tên",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "gì",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn tên gì?”",
+        "choices": [
+          "What's your name?"
+        ],
+        "correctEn": "What's your name?"
+      }
+    },
+    {
+      "id": "sentence_005",
+      "order": 5,
+      "lessonId": "s-l01",
+      "vi": "Tôi tên là…",
+      "en": "My name is…",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "tên",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "là",
+          "kind": "word",
+          "packWordId": "v072",
+          "glossEn": null
+        },
+        {
+          "surface": "…",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi tên là…”",
+        "choices": [
+          "My name is…"
+        ],
+        "correctEn": "My name is…"
+      }
+    },
+    {
+      "id": "sentence_006",
+      "order": 6,
+      "lessonId": "s-l01",
+      "vi": "Rất vui được gặp bạn.",
+      "en": "Nice to meet you.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Rất vui",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "gặp",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Rất vui được gặp bạn.”",
+        "choices": [
+          "Nice to meet you."
+        ],
+        "correctEn": "Nice to meet you."
+      }
+    },
+    {
+      "id": "sentence_007",
+      "order": 7,
+      "lessonId": "s-l01",
+      "vi": "Cảm ơn bạn.",
+      "en": "Thank you.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cảm ơn",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cảm ơn bạn.”",
+        "choices": [
+          "Thank you."
+        ],
+        "correctEn": "Thank you."
+      }
+    },
+    {
+      "id": "sentence_008",
+      "order": 8,
+      "lessonId": "s-l01",
+      "vi": "Không có gì.",
+      "en": "You're welcome.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Không có gì",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Không có gì.”",
+        "choices": [
+          "You're welcome."
+        ],
+        "correctEn": "You're welcome."
+      }
+    },
+    {
+      "id": "sentence_009",
+      "order": 9,
+      "lessonId": "s-l01",
+      "vi": "Xin lỗi.",
+      "en": "Sorry / Excuse me.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Xin lỗi",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Xin lỗi.”",
+        "choices": [
+          "Sorry / Excuse me."
+        ],
+        "correctEn": "Sorry / Excuse me."
+      }
+    },
+    {
+      "id": "sentence_010",
+      "order": 10,
+      "lessonId": "s-l01",
+      "vi": "Hẹn gặp lại.",
+      "en": "See you again.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Hẹn gặp lại",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Hẹn gặp lại.”",
+        "choices": [
+          "See you again."
+        ],
+        "correctEn": "See you again."
+      }
+    },
+    {
+      "id": "sentence_011",
+      "order": 11,
+      "lessonId": "s-l02",
+      "vi": "Tôi không hiểu.",
+      "en": "I don't understand.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "hiểu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi không hiểu.”",
+        "choices": [
+          "I don't understand."
+        ],
+        "correctEn": "I don't understand."
+      }
+    },
+    {
+      "id": "sentence_012",
+      "order": 12,
+      "lessonId": "s-l02",
+      "vi": "Bạn nói tiếng Anh không?",
+      "en": "Do you speak English?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "nói",
+          "kind": "word",
+          "packWordId": "v063",
+          "glossEn": null
+        },
+        {
+          "surface": "tiếng Anh",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn nói tiếng Anh không?”",
+        "choices": [
+          "Do you speak English?"
+        ],
+        "correctEn": "Do you speak English?"
+      }
+    },
+    {
+      "id": "sentence_013",
+      "order": 13,
+      "lessonId": "s-l02",
+      "vi": "Tôi nói tiếng Việt một chút.",
+      "en": "I speak a little Vietnamese.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "nói",
+          "kind": "word",
+          "packWordId": "v063",
+          "glossEn": null
+        },
+        {
+          "surface": "tiếng Việt",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "một chút",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi nói tiếng Việt một chút.”",
+        "choices": [
+          "I speak a little Vietnamese."
+        ],
+        "correctEn": "I speak a little Vietnamese."
+      }
+    },
+    {
+      "id": "sentence_014",
+      "order": 14,
+      "lessonId": "s-l02",
+      "vi": "Bạn nói chậm lại được không?",
+      "en": "Can you speak more slowly?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "nói",
+          "kind": "word",
+          "packWordId": "v063",
+          "glossEn": null
+        },
+        {
+          "surface": "chậm",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "lại",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn nói chậm lại được không?”",
+        "choices": [
+          "Can you speak more slowly?"
+        ],
+        "correctEn": "Can you speak more slowly?"
+      }
+    },
+    {
+      "id": "sentence_015",
+      "order": 15,
+      "lessonId": "s-l02",
+      "vi": "Bạn nói lại được không?",
+      "en": "Can you repeat that?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "nói",
+          "kind": "word",
+          "packWordId": "v063",
+          "glossEn": null
+        },
+        {
+          "surface": "lại",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn nói lại được không?”",
+        "choices": [
+          "Can you repeat that?"
+        ],
+        "correctEn": "Can you repeat that?"
+      }
+    },
+    {
+      "id": "sentence_016",
+      "order": 16,
+      "lessonId": "s-l02",
+      "vi": "Cái này nghĩa là gì?",
+      "en": "What does this mean?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nghĩa",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "là",
+          "kind": "word",
+          "packWordId": "v072",
+          "glossEn": null
+        },
+        {
+          "surface": "gì",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cái này nghĩa là gì?”",
+        "choices": [
+          "What does this mean?"
+        ],
+        "correctEn": "What does this mean?"
+      }
+    },
+    {
+      "id": "sentence_017",
+      "order": 17,
+      "lessonId": "s-l02",
+      "vi": "Cái này tiếng Việt nói sao?",
+      "en": "How do you say this in Vietnamese?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tiếng Việt",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nói",
+          "kind": "word",
+          "packWordId": "v063",
+          "glossEn": null
+        },
+        {
+          "surface": "sao",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cái này tiếng Việt nói sao?”",
+        "choices": [
+          "How do you say this in Vietnamese?"
+        ],
+        "correctEn": "How do you say this in Vietnamese?"
+      }
+    },
+    {
+      "id": "sentence_018",
+      "order": 18,
+      "lessonId": "s-l02",
+      "vi": "Tôi không biết.",
+      "en": "I don't know.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "biết",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi không biết.”",
+        "choices": [
+          "I don't know."
+        ],
+        "correctEn": "I don't know."
+      }
+    },
+    {
+      "id": "sentence_019",
+      "order": 19,
+      "lessonId": "s-l02",
+      "vi": "Tôi hiểu rồi.",
+      "en": "I understand now.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "hiểu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "rồi",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi hiểu rồi.”",
+        "choices": [
+          "I understand now."
+        ],
+        "correctEn": "I understand now."
+      }
+    },
+    {
+      "id": "sentence_020",
+      "order": 20,
+      "lessonId": "s-l02",
+      "vi": "Bạn có thể giúp tôi không?",
+      "en": "Can you help me?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bạn",
+          "kind": "word",
+          "packWordId": "v002",
+          "glossEn": null
+        },
+        {
+          "surface": "có",
+          "kind": "word",
+          "packWordId": "v070",
+          "glossEn": null
+        },
+        {
+          "surface": "thể",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "giúp",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bạn có thể giúp tôi không?”",
+        "choices": [
+          "Can you help me?"
+        ],
+        "correctEn": "Can you help me?"
+      }
+    },
+    {
+      "id": "sentence_021",
+      "order": 21,
+      "lessonId": "s-l03",
+      "vi": "Cho tôi một tô phở.",
+      "en": "One bowl of phở, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cho",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "một",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tô",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "phở",
+          "kind": "word",
+          "packWordId": "v043",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cho tôi một tô phở.”",
+        "choices": [
+          "One bowl of phở, please."
+        ],
+        "correctEn": "One bowl of phở, please."
+      }
+    },
+    {
+      "id": "sentence_022",
+      "order": 22,
+      "lessonId": "s-l03",
+      "vi": "Cho tôi một ly cà phê sữa đá.",
+      "en": "One iced Vietnamese milk coffee, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cho",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "một",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "ly",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "cà phê sữa đá",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cho tôi một ly cà phê sữa đá.”",
+        "choices": [
+          "One iced Vietnamese milk coffee, please."
+        ],
+        "correctEn": "One iced Vietnamese milk coffee, please."
+      }
+    },
+    {
+      "id": "sentence_023",
+      "order": 23,
+      "lessonId": "s-l03",
+      "vi": "Cho tôi xem thực đơn.",
+      "en": "Can I see the menu?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cho",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "xem",
+          "kind": "word",
+          "packWordId": "v061",
+          "glossEn": null
+        },
+        {
+          "surface": "thực đơn",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cho tôi xem thực đơn.”",
+        "choices": [
+          "Can I see the menu?"
+        ],
+        "correctEn": "Can I see the menu?"
+      }
+    },
+    {
+      "id": "sentence_024",
+      "order": 24,
+      "lessonId": "s-l03",
+      "vi": "Món này là món gì?",
+      "en": "What dish is this?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Món",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "là",
+          "kind": "word",
+          "packWordId": "v072",
+          "glossEn": null
+        },
+        {
+          "surface": "món",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "gì",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Món này là món gì?”",
+        "choices": [
+          "What dish is this?"
+        ],
+        "correctEn": "What dish is this?"
+      }
+    },
+    {
+      "id": "sentence_025",
+      "order": 25,
+      "lessonId": "s-l03",
+      "vi": "Món nào ngon?",
+      "en": "Which dish is good?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Món",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nào",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "ngon",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Món nào ngon?”",
+        "choices": [
+          "Which dish is good?"
+        ],
+        "correctEn": "Which dish is good?"
+      }
+    },
+    {
+      "id": "sentence_026",
+      "order": 26,
+      "lessonId": "s-l03",
+      "vi": "Không cay nhé.",
+      "en": "Not spicy, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "cay",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nhé",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Không cay nhé.”",
+        "choices": [
+          "Not spicy, please."
+        ],
+        "correctEn": "Not spicy, please."
+      }
+    },
+    {
+      "id": "sentence_027",
+      "order": 27,
+      "lessonId": "s-l03",
+      "vi": "Cho tôi thêm nước.",
+      "en": "More water, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cho",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "thêm",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nước",
+          "kind": "word",
+          "packWordId": "v041",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cho tôi thêm nước.”",
+        "choices": [
+          "More water, please."
+        ],
+        "correctEn": "More water, please."
+      }
+    },
+    {
+      "id": "sentence_028",
+      "order": 28,
+      "lessonId": "s-l03",
+      "vi": "Tôi ăn chay.",
+      "en": "I'm vegetarian.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "ăn",
+          "kind": "word",
+          "packWordId": "v051",
+          "glossEn": null
+        },
+        {
+          "surface": "chay",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi ăn chay.”",
+        "choices": [
+          "I'm vegetarian."
+        ],
+        "correctEn": "I'm vegetarian."
+      }
+    },
+    {
+      "id": "sentence_029",
+      "order": 29,
+      "lessonId": "s-l03",
+      "vi": "Tính tiền giúp tôi.",
+      "en": "The bill, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tính",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tiền",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "giúp",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tính tiền giúp tôi.”",
+        "choices": [
+          "The bill, please."
+        ],
+        "correctEn": "The bill, please."
+      }
+    },
+    {
+      "id": "sentence_030",
+      "order": 30,
+      "lessonId": "s-l03",
+      "vi": "Ngon quá!",
+      "en": "So delicious!",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Ngon",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "quá",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "!",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Ngon quá!”",
+        "choices": [
+          "So delicious!"
+        ],
+        "correctEn": "So delicious!"
+      }
+    },
+    {
+      "id": "sentence_031",
+      "order": 31,
+      "lessonId": "s-l04",
+      "vi": "Cái này bao nhiêu tiền?",
+      "en": "How much is this?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bao nhiêu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tiền",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cái này bao nhiêu tiền?”",
+        "choices": [
+          "How much is this?"
+        ],
+        "correctEn": "How much is this?"
+      }
+    },
+    {
+      "id": "sentence_032",
+      "order": 32,
+      "lessonId": "s-l04",
+      "vi": "Đắt quá!",
+      "en": "Too expensive!",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Đắt",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "quá",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "!",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Đắt quá!”",
+        "choices": [
+          "Too expensive!"
+        ],
+        "correctEn": "Too expensive!"
+      }
+    },
+    {
+      "id": "sentence_033",
+      "order": 33,
+      "lessonId": "s-l04",
+      "vi": "Bớt chút được không?",
+      "en": "Can you lower the price a little?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Bớt",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "chút",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Bớt chút được không?”",
+        "choices": [
+          "Can you lower the price a little?"
+        ],
+        "correctEn": "Can you lower the price a little?"
+      }
+    },
+    {
+      "id": "sentence_034",
+      "order": 34,
+      "lessonId": "s-l04",
+      "vi": "Tôi lấy cái này.",
+      "en": "I'll take this one.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "lấy",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi lấy cái này.”",
+        "choices": [
+          "I'll take this one."
+        ],
+        "correctEn": "I'll take this one."
+      }
+    },
+    {
+      "id": "sentence_035",
+      "order": 35,
+      "lessonId": "s-l04",
+      "vi": "Có cái nào rẻ hơn không?",
+      "en": "Do you have a cheaper one?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Có",
+          "kind": "word",
+          "packWordId": "v070",
+          "glossEn": null
+        },
+        {
+          "surface": "cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nào",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "rẻ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "hơn",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Có cái nào rẻ hơn không?”",
+        "choices": [
+          "Do you have a cheaper one?"
+        ],
+        "correctEn": "Do you have a cheaper one?"
+      }
+    },
+    {
+      "id": "sentence_036",
+      "order": 36,
+      "lessonId": "s-l04",
+      "vi": "Tôi chỉ xem thôi.",
+      "en": "I'm just looking.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "chỉ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "xem",
+          "kind": "word",
+          "packWordId": "v061",
+          "glossEn": null
+        },
+        {
+          "surface": "thôi",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi chỉ xem thôi.”",
+        "choices": [
+          "I'm just looking."
+        ],
+        "correctEn": "I'm just looking."
+      }
+    },
+    {
+      "id": "sentence_037",
+      "order": 37,
+      "lessonId": "s-l04",
+      "vi": "Có màu khác không?",
+      "en": "Do you have another color?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Có",
+          "kind": "word",
+          "packWordId": "v070",
+          "glossEn": null
+        },
+        {
+          "surface": "màu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "khác",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Có màu khác không?”",
+        "choices": [
+          "Do you have another color?"
+        ],
+        "correctEn": "Do you have another color?"
+      }
+    },
+    {
+      "id": "sentence_038",
+      "order": 38,
+      "lessonId": "s-l04",
+      "vi": "Tôi trả bằng thẻ được không?",
+      "en": "Can I pay by card?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "trả",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bằng",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "thẻ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi trả bằng thẻ được không?”",
+        "choices": [
+          "Can I pay by card?"
+        ],
+        "correctEn": "Can I pay by card?"
+      }
+    },
+    {
+      "id": "sentence_039",
+      "order": 39,
+      "lessonId": "s-l04",
+      "vi": "Có chuyển khoản được không?",
+      "en": "Can I pay by bank transfer?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Có",
+          "kind": "word",
+          "packWordId": "v070",
+          "glossEn": null
+        },
+        {
+          "surface": "chuyển khoản",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "được",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "không",
+          "kind": "word",
+          "packWordId": "v071",
+          "glossEn": null
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Có chuyển khoản được không?”",
+        "choices": [
+          "Can I pay by bank transfer?"
+        ],
+        "correctEn": "Can I pay by bank transfer?"
+      }
+    },
+    {
+      "id": "sentence_040",
+      "order": 40,
+      "lessonId": "s-l04",
+      "vi": "Cho tôi một cái túi.",
+      "en": "A bag, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Cho",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "một",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "cái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "túi",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Cho tôi một cái túi.”",
+        "choices": [
+          "A bag, please."
+        ],
+        "correctEn": "A bag, please."
+      }
+    },
+    {
+      "id": "sentence_041",
+      "order": 41,
+      "lessonId": "s-l05",
+      "vi": "Nhà vệ sinh ở đâu?",
+      "en": "Where is the bathroom?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Nhà vệ sinh",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "ở",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "đâu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Nhà vệ sinh ở đâu?”",
+        "choices": [
+          "Where is the bathroom?"
+        ],
+        "correctEn": "Where is the bathroom?"
+      }
+    },
+    {
+      "id": "sentence_042",
+      "order": 42,
+      "lessonId": "s-l05",
+      "vi": "Chỗ này ở đâu?",
+      "en": "Where is this place?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Chỗ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "này",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "ở",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "đâu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Chỗ này ở đâu?”",
+        "choices": [
+          "Where is this place?"
+        ],
+        "correctEn": "Where is this place?"
+      }
+    },
+    {
+      "id": "sentence_043",
+      "order": 43,
+      "lessonId": "s-l05",
+      "vi": "Đi đến đây giúp tôi.",
+      "en": "Please take me here.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Đi",
+          "kind": "word",
+          "packWordId": "v056",
+          "glossEn": null
+        },
+        {
+          "surface": "đến",
+          "kind": "word",
+          "packWordId": "v057",
+          "glossEn": null
+        },
+        {
+          "surface": "đây",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "giúp",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Đi đến đây giúp tôi.”",
+        "choices": [
+          "Please take me here."
+        ],
+        "correctEn": "Please take me here."
+      }
+    },
+    {
+      "id": "sentence_044",
+      "order": 44,
+      "lessonId": "s-l05",
+      "vi": "Dừng ở đây nhé.",
+      "en": "Stop here, please.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Dừng",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "ở",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "đây",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "nhé",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Dừng ở đây nhé.”",
+        "choices": [
+          "Stop here, please."
+        ],
+        "correctEn": "Stop here, please."
+      }
+    },
+    {
+      "id": "sentence_045",
+      "order": 45,
+      "lessonId": "s-l05",
+      "vi": "Rẽ trái.",
+      "en": "Turn left.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Rẽ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "trái",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Rẽ trái.”",
+        "choices": [
+          "Turn left."
+        ],
+        "correctEn": "Turn left."
+      }
+    },
+    {
+      "id": "sentence_046",
+      "order": 46,
+      "lessonId": "s-l05",
+      "vi": "Rẽ phải.",
+      "en": "Turn right.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Rẽ",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "phải",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Rẽ phải.”",
+        "choices": [
+          "Turn right."
+        ],
+        "correctEn": "Turn right."
+      }
+    },
+    {
+      "id": "sentence_047",
+      "order": 47,
+      "lessonId": "s-l05",
+      "vi": "Đi thẳng.",
+      "en": "Go straight.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Đi",
+          "kind": "word",
+          "packWordId": "v056",
+          "glossEn": null
+        },
+        {
+          "surface": "thẳng",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Đi thẳng.”",
+        "choices": [
+          "Go straight."
+        ],
+        "correctEn": "Go straight."
+      }
+    },
+    {
+      "id": "sentence_048",
+      "order": 48,
+      "lessonId": "s-l05",
+      "vi": "Còn bao xa?",
+      "en": "How much farther?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Còn",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bao",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "xa",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Còn bao xa?”",
+        "choices": [
+          "How much farther?"
+        ],
+        "correctEn": "How much farther?"
+      }
+    },
+    {
+      "id": "sentence_049",
+      "order": 49,
+      "lessonId": "s-l05",
+      "vi": "Mất bao lâu?",
+      "en": "How long does it take?",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Mất",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "bao",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "lâu",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "?",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Mất bao lâu?”",
+        "choices": [
+          "How long does it take?"
+        ],
+        "correctEn": "How long does it take?"
+      }
+    },
+    {
+      "id": "sentence_050",
+      "order": 50,
+      "lessonId": "s-l05",
+      "vi": "Tôi bị lạc đường.",
+      "en": "I'm lost.",
+      "dialect": "southern",
+      "contentStatus": "pending_review",
+      "audioMode": "tts_temporary",
+      "imageSrc": null,
+      "words": [
+        {
+          "surface": "Tôi",
+          "kind": "word",
+          "packWordId": "v001",
+          "glossEn": null
+        },
+        {
+          "surface": "bị",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": "lạc đường",
+          "kind": "word",
+          "packWordId": null,
+          "glossEn": "pending"
+        },
+        {
+          "surface": ".",
+          "kind": "punct"
+        }
+      ],
+      "comprehension": {
+        "promptEn": "What does this mean? “Tôi bị lạc đường.”",
+        "choices": [
+          "I'm lost."
+        ],
+        "correctEn": "I'm lost."
+      }
+    }
+  ]
+}
