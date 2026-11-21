@@ -205,12 +205,22 @@ export function AlphabetAudioReviewClient() {
         </Link>
       </header>
 
-      <div className="ami-card mb-5 border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-ink/80">
-        <p className="font-medium text-ink">Pending Nicola approval</p>
+      <div
+        className={`ami-card mb-5 border px-4 py-3 text-sm text-ink/80 ${
+          ALPHABET_LETTER_AUDIO_ENABLED
+            ? "border-jade/40 bg-jade/10"
+            : "border-amber/40 bg-amber/10"
+        }`}
+      >
+        <p className="font-medium text-ink">
+          {ALPHABET_LETTER_AUDIO_ENABLED
+            ? "Approved — studio Hear/Say use these clips"
+            : "Pending Nicola approval"}
+        </p>
         <p className="mt-1">
-          Studio Hear/Say will keep using TTS until{" "}
-          <code className="text-xs">ALPHABET_LETTER_AUDIO_ENABLED</code> is flipped after you
-          approve. Do not publish these clips as verified native audio yet.
+          {ALPHABET_LETTER_AUDIO_ENABLED
+            ? "Nicola approved this set. Learners hear the letter MP3 on Hear/Say when a clip exists; digraphs without a clip still fall back to TTS."
+            : "Studio Hear/Say will keep using TTS until ALPHABET_LETTER_AUDIO_ENABLED is flipped after you approve. Do not publish these clips as verified native audio yet."}
         </p>
         <p className="mt-2 text-ink/55">
           Flag status: {ALPHABET_LETTER_AUDIO_ENABLED ? "ENABLED in studio" : "disabled in studio"} ·

@@ -1,7 +1,8 @@
 /**
  * ElevenLabs alphabet letter clips (29 traditional letters).
  * Splitting is mechanical — not linguistic validation. Studio playback is
- * gated by ALPHABET_LETTER_AUDIO_ENABLED until Nicola approves the review page.
+ * Studio Hear/Say prefer these clips when ALPHABET_LETTER_AUDIO_ENABLED is true
+ * (enabled after Nicola approved `/review/alphabet-audio`).
  */
 
 export type AlphabetAudioFlag = "short" | "silent" | "overlap" | "overlap-risk" | "wrong-sound";
@@ -24,10 +25,10 @@ export type AlphabetAudioClip = {
 };
 
 /**
- * Flip to true only after Nicola approves `/review/alphabet-audio`.
- * Review page always plays clips; Hear/Say use native files only when enabled.
+ * Enabled after Nicola approved `/review/alphabet-audio` (VLA-109).
+ * Review page always plays clips; Hear/Say use native files when this is true.
  */
-export const ALPHABET_LETTER_AUDIO_ENABLED = false;
+export const ALPHABET_LETTER_AUDIO_ENABLED = true;
 
 export const ALPHABET_AUDIO_SOURCE_PATH = "/audio/vi/alphabet/source/elevenlabs-alphabet-29.mp3";
 

@@ -68,10 +68,12 @@ describe("alphabet audio catalog", () => {
     expect(alphabetPlaybackPathForLetter("ch")).toBeNull();
   });
 
-  it("gates studio native paths behind the approval flag", () => {
-    // Pending Nicola approval — Hear/Say must not prefer unvalidated clips yet.
-    expect(ALPHABET_LETTER_AUDIO_ENABLED).toBe(false);
-    expect(alphabetNativePathForLetter("a")).toBeNull();
+  it("exposes studio native paths when the approval flag is on", () => {
+    expect(ALPHABET_LETTER_AUDIO_ENABLED).toBe(true);
+    expect(alphabetNativePathForLetter("a")).toBe("/audio/vi/alphabet/alphabet_01_a.mp3");
+    expect(alphabetNativePathForLetter("a-breve")).toBe("/audio/vi/alphabet/alphabet_02_aw.mp3");
+    expect(alphabetNativePathForLetter("d-bar")).toBe("/audio/vi/alphabet/alphabet_07_dd.mp3");
+    expect(alphabetNativePathForLetter("ph")).toBeNull();
     expect(alphabetPlaybackPathForLetter("a")).toBe("/audio/vi/alphabet/alphabet_01_a.mp3");
   });
 
