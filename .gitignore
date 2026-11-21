@@ -67,7 +67,7 @@ public/sing/private/
 !data/sing/masters/ngay-mai-nguoi-ta-lay-chong.mp3
 !data/sing/masters/hat-mua-vuong-van.mp3
 !data/sing/masters/xin-chao-moi-ngay.wav
-# VLA-109 alphabet letter clips (ElevenLabs Thanh Ngọc) — pending Nicola audio approval
-# before enabling ALPHABET_LETTER_AUDIO_ENABLED / publishing as verified native.
+# VLA-109 alphabet letter clips (ElevenLabs Thanh Ngọc) — Nicola approved; studio gated by
+# ALPHABET_LETTER_AUDIO_ENABLED in src/lib/alphabetAudio.ts.
 !public/audio/vi/alphabet/*.mp3
 !public/audio/vi/alphabet/source/*.mp3
