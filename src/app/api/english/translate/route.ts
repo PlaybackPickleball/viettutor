@@ -17,7 +17,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const limited = takeRateLimitToken("en-translate", { limit: 20, windowMs: 60_000 });
+  const viewerKey =
+    identity.kind === "person" ? `u:${identity.userId}` : `k:${identity.idp.sub}`;
+  const limited = takeRateLimitToken(`en-translate:${viewerKey}`, {
+    limit: 20,
+    windowMs: 60_000,
+  });
   if (!limited.ok) {
     return NextResponse.json(
       { ok: false, message: "Xin chờ một chút rồi dịch lại." },

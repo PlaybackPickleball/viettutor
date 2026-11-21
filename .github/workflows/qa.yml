@@ -1,0 +1,81 @@
+name: QA
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: qa-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit:
+    name: Unit (Vitest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - run: npm run test:unit
+
+  e2e-critical:
+    name: Playwright critical (desktop)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - run: npx playwright install chromium --with-deps
+      - run: npm run build
+      - name: Critical e2e
+        run: npm run test:e2e:critical
+        env:
+          CI: "true"
+      - name: Write QA summary
+        if: always()
+        run: npm run test:qa:report
+      - name: Upload Playwright artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-failures
+          path: |
+            qa-reports/test-results/
+            qa-reports/playwright-html/
+            qa-reports/latest-summary.md
+          if-no-files-found: ignore
+
+  # Broader multi-viewport regression — manual / release workflow dispatch
+  e2e-full:
+    name: Playwright full (optional)
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[qa-full]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - run: npx playwright install chromium --with-deps
+      - run: npm run build
+      - run: npx playwright test
+        env:
+          CI: "true"
+          TEST_QA_FULL: "1"
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-full-failures
+          path: qa-reports/
+          if-no-files-found: ignore
