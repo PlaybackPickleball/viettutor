@@ -14,7 +14,8 @@ const ROUTES: { path: string; expectText: RegExp }[] = [
   { path: "/settings", expectText: /setting|course|English|Vietnamese/i },
   { path: "/sing", expectText: /Sing|karaoke|song/i },
   { path: "/studio/a/hear", expectText: /Hear|Listen|a/i },
-  { path: "/review/alphabet-audio", expectText: /Alphabet audio review|Pending Nicola|ElevenLabs/i },
+  { path: "/review/alphabet-audio", expectText: /Alphabet audio review|Pending Nicola|ElevenLabs|Enabled/i },
+  { path: "/review/vocab-audio", expectText: /Vocabulary audio review|Enabled for learners|First-pack|Pending Nicola/i },
   { path: "/vocab", expectText: /vocab|word|review/i },
 ];
 

@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { speakVietnamese } from "@/lib/audio";
-import type { PackWord } from "@/lib/vocabulary";
+import { vocabNativePathForWord, type PackWord } from "@/lib/vocabulary";
 import { gradeTypedVi } from "@/lib/vocabulary/mastery";
 
 type Props = {
@@ -17,7 +17,7 @@ export function ListenAndType({ word, onResult }: Props) {
   const [locked, setLocked] = useState(false);
 
   function play() {
-    void speakVietnamese(word.vi);
+    void speakVietnamese(word.vi, { nativePath: vocabNativePathForWord(word) });
   }
 
   function submit() {
