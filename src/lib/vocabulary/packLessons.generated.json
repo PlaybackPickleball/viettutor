@@ -1,0 +1,1326 @@
+{
+  "words": [
+    {
+      "id": "v001",
+      "packId": 1,
+      "vi": "tôi",
+      "en": "I",
+      "category": "People & family",
+      "imageFilename": "001.webp",
+      "imageSrc": "/vocabulary/images/001.webp",
+      "skillId": "pack-v-001"
+    },
+    {
+      "id": "v002",
+      "packId": 2,
+      "vi": "bạn",
+      "en": "you",
+      "category": "People & family",
+      "imageFilename": "002.webp",
+      "imageSrc": "/vocabulary/images/002.webp",
+      "skillId": "pack-v-002"
+    },
+    {
+      "id": "v003",
+      "packId": 3,
+      "vi": "anh",
+      "en": "older brother / male address",
+      "category": "People & family",
+      "imageFilename": "003.webp",
+      "imageSrc": "/vocabulary/images/003.webp",
+      "skillId": "pack-v-003"
+    },
+    {
+      "id": "v004",
+      "packId": 4,
+      "vi": "chị",
+      "en": "older sister / female address",
+      "category": "People & family",
+      "imageFilename": "004.webp",
+      "imageSrc": "/vocabulary/images/004.webp",
+      "skillId": "pack-v-004"
+    },
+    {
+      "id": "v005",
+      "packId": 5,
+      "vi": "em",
+      "en": "younger sibling / younger person",
+      "category": "People & family",
+      "imageFilename": "005.webp",
+      "imageSrc": "/vocabulary/images/005.webp",
+      "skillId": "pack-v-005"
+    },
+    {
+      "id": "v006",
+      "packId": 6,
+      "vi": "ba",
+      "en": "dad",
+      "category": "People & family",
+      "imageFilename": "006.webp",
+      "imageSrc": "/vocabulary/images/006.webp",
+      "skillId": "pack-v-006"
+    },
+    {
+      "id": "v007",
+      "packId": 7,
+      "vi": "má",
+      "en": "mom (Southern)",
+      "category": "People & family",
+      "imageFilename": "007.webp",
+      "imageSrc": "/vocabulary/images/007.webp",
+      "skillId": "pack-v-007"
+    },
+    {
+      "id": "v008",
+      "packId": 8,
+      "vi": "ông",
+      "en": "grandfather / older man",
+      "category": "People & family",
+      "imageFilename": "008.webp",
+      "imageSrc": "/vocabulary/images/008.webp",
+      "skillId": "pack-v-008"
+    },
+    {
+      "id": "v009",
+      "packId": 9,
+      "vi": "bà",
+      "en": "grandmother / older woman",
+      "category": "People & family",
+      "imageFilename": "009.webp",
+      "imageSrc": "/vocabulary/images/009.webp",
+      "skillId": "pack-v-009"
+    },
+    {
+      "id": "v010",
+      "packId": 10,
+      "vi": "gia đình",
+      "en": "family",
+      "category": "People & family",
+      "imageFilename": "010.webp",
+      "imageSrc": "/vocabulary/images/010.webp",
+      "skillId": "pack-v-010"
+    },
+    {
+      "id": "v011",
+      "packId": 11,
+      "vi": "con",
+      "en": "child",
+      "category": "People & family",
+      "imageFilename": "011.webp",
+      "imageSrc": "/vocabulary/images/011.webp",
+      "skillId": "pack-v-011"
+    },
+    {
+      "id": "v012",
+      "packId": 12,
+      "vi": "người",
+      "en": "person",
+      "category": "People & family",
+      "imageFilename": "012.webp",
+      "imageSrc": "/vocabulary/images/012.webp",
+      "skillId": "pack-v-012"
+    },
+    {
+      "id": "v013",
+      "packId": 13,
+      "vi": "trẻ em",
+      "en": "children",
+      "category": "People & family",
+      "imageFilename": "013.webp",
+      "imageSrc": "/vocabulary/images/013.webp",
+      "skillId": "pack-v-013"
+    },
+    {
+      "id": "v014",
+      "packId": 14,
+      "vi": "bạn bè",
+      "en": "friends",
+      "category": "People & family",
+      "imageFilename": "014.webp",
+      "imageSrc": "/vocabulary/images/014.webp",
+      "skillId": "pack-v-014"
+    },
+    {
+      "id": "v015",
+      "packId": 15,
+      "vi": "thầy",
+      "en": "male teacher",
+      "category": "People & family",
+      "imageFilename": "015.webp",
+      "imageSrc": "/vocabulary/images/015.webp",
+      "skillId": "pack-v-015"
+    },
+    {
+      "id": "v016",
+      "packId": 16,
+      "vi": "cô",
+      "en": "female teacher",
+      "category": "People & family",
+      "imageFilename": "016.webp",
+      "imageSrc": "/vocabulary/images/016.webp",
+      "skillId": "pack-v-016"
+    },
+    {
+      "id": "v017",
+      "packId": 17,
+      "vi": "học sinh",
+      "en": "student",
+      "category": "People & family",
+      "imageFilename": "017.webp",
+      "imageSrc": "/vocabulary/images/017.webp",
+      "skillId": "pack-v-017"
+    },
+    {
+      "id": "v018",
+      "packId": 18,
+      "vi": "học",
+      "en": "study / learn",
+      "category": "People & family",
+      "imageFilename": "018.webp",
+      "imageSrc": "/vocabulary/images/018.webp",
+      "skillId": "pack-v-018"
+    },
+    {
+      "id": "v019",
+      "packId": 19,
+      "vi": "trường",
+      "en": "school",
+      "category": "People & family",
+      "imageFilename": "019.webp",
+      "imageSrc": "/vocabulary/images/019.webp",
+      "skillId": "pack-v-019"
+    },
+    {
+      "id": "v020",
+      "packId": 20,
+      "vi": "lớp",
+      "en": "class",
+      "category": "People & family",
+      "imageFilename": "020.webp",
+      "imageSrc": "/vocabulary/images/020.webp",
+      "skillId": "pack-v-020"
+    },
+    {
+      "id": "v021",
+      "packId": 21,
+      "vi": "nhà",
+      "en": "house / home",
+      "category": "Home",
+      "imageFilename": "021.webp",
+      "imageSrc": "/vocabulary/images/021.webp",
+      "skillId": "pack-v-021"
+    },
+    {
+      "id": "v022",
+      "packId": 22,
+      "vi": "phòng",
+      "en": "room",
+      "category": "Home",
+      "imageFilename": "022.webp",
+      "imageSrc": "/vocabulary/images/022.webp",
+      "skillId": "pack-v-022"
+    },
+    {
+      "id": "v023",
+      "packId": 23,
+      "vi": "bếp",
+      "en": "kitchen",
+      "category": "Home",
+      "imageFilename": "023.webp",
+      "imageSrc": "/vocabulary/images/023.webp",
+      "skillId": "pack-v-023"
+    },
+    {
+      "id": "v024",
+      "packId": 24,
+      "vi": "phòng tắm",
+      "en": "bathroom",
+      "category": "Home",
+      "imageFilename": "024.webp",
+      "imageSrc": "/vocabulary/images/024.webp",
+      "skillId": "pack-v-024"
+    },
+    {
+      "id": "v025",
+      "packId": 25,
+      "vi": "cửa",
+      "en": "door",
+      "category": "Home",
+      "imageFilename": "025.webp",
+      "imageSrc": "/vocabulary/images/025.webp",
+      "skillId": "pack-v-025"
+    },
+    {
+      "id": "v026",
+      "packId": 26,
+      "vi": "bàn",
+      "en": "table",
+      "category": "Home",
+      "imageFilename": "026.webp",
+      "imageSrc": "/vocabulary/images/026.webp",
+      "skillId": "pack-v-026"
+    },
+    {
+      "id": "v027",
+      "packId": 27,
+      "vi": "ghế",
+      "en": "chair",
+      "category": "Home",
+      "imageFilename": "027.webp",
+      "imageSrc": "/vocabulary/images/027.webp",
+      "skillId": "pack-v-027"
+    },
+    {
+      "id": "v028",
+      "packId": 28,
+      "vi": "giường",
+      "en": "bed",
+      "category": "Home",
+      "imageFilename": "028.webp",
+      "imageSrc": "/vocabulary/images/028.webp",
+      "skillId": "pack-v-028"
+    },
+    {
+      "id": "v029",
+      "packId": 29,
+      "vi": "tủ",
+      "en": "cabinet",
+      "category": "Home",
+      "imageFilename": "029.webp",
+      "imageSrc": "/vocabulary/images/029.webp",
+      "skillId": "pack-v-029"
+    },
+    {
+      "id": "v030",
+      "packId": 30,
+      "vi": "đèn",
+      "en": "lamp",
+      "category": "Home",
+      "imageFilename": "030.webp",
+      "imageSrc": "/vocabulary/images/030.webp",
+      "skillId": "pack-v-030"
+    },
+    {
+      "id": "v031",
+      "packId": 31,
+      "vi": "sách",
+      "en": "book",
+      "category": "School & objects",
+      "imageFilename": "031.webp",
+      "imageSrc": "/vocabulary/images/031.webp",
+      "skillId": "pack-v-031"
+    },
+    {
+      "id": "v032",
+      "packId": 32,
+      "vi": "vở",
+      "en": "notebook",
+      "category": "School & objects",
+      "imageFilename": "032.webp",
+      "imageSrc": "/vocabulary/images/032.webp",
+      "skillId": "pack-v-032"
+    },
+    {
+      "id": "v033",
+      "packId": 33,
+      "vi": "bút",
+      "en": "pen",
+      "category": "School & objects",
+      "imageFilename": "033.webp",
+      "imageSrc": "/vocabulary/images/033.webp",
+      "skillId": "pack-v-033"
+    },
+    {
+      "id": "v034",
+      "packId": 34,
+      "vi": "bút chì",
+      "en": "pencil",
+      "category": "School & objects",
+      "imageFilename": "034.webp",
+      "imageSrc": "/vocabulary/images/034.webp",
+      "skillId": "pack-v-034"
+    },
+    {
+      "id": "v035",
+      "packId": 35,
+      "vi": "thước",
+      "en": "ruler",
+      "category": "School & objects",
+      "imageFilename": "035.webp",
+      "imageSrc": "/vocabulary/images/035.webp",
+      "skillId": "pack-v-035"
+    },
+    {
+      "id": "v036",
+      "packId": 36,
+      "vi": "cặp",
+      "en": "schoolbag",
+      "category": "School & objects",
+      "imageFilename": "036.webp",
+      "imageSrc": "/vocabulary/images/036.webp",
+      "skillId": "pack-v-036"
+    },
+    {
+      "id": "v037",
+      "packId": 37,
+      "vi": "điện thoại",
+      "en": "phone",
+      "category": "School & objects",
+      "imageFilename": "037.webp",
+      "imageSrc": "/vocabulary/images/037.webp",
+      "skillId": "pack-v-037"
+    },
+    {
+      "id": "v038",
+      "packId": 38,
+      "vi": "máy tính",
+      "en": "computer",
+      "category": "School & objects",
+      "imageFilename": "038.webp",
+      "imageSrc": "/vocabulary/images/038.webp",
+      "skillId": "pack-v-038"
+    },
+    {
+      "id": "v039",
+      "packId": 39,
+      "vi": "tivi",
+      "en": "television",
+      "category": "School & objects",
+      "imageFilename": "039.webp",
+      "imageSrc": "/vocabulary/images/039.webp",
+      "skillId": "pack-v-039"
+    },
+    {
+      "id": "v040",
+      "packId": 40,
+      "vi": "đồng hồ",
+      "en": "clock / watch",
+      "category": "School & objects",
+      "imageFilename": "040.webp",
+      "imageSrc": "/vocabulary/images/040.webp",
+      "skillId": "pack-v-040"
+    },
+    {
+      "id": "v041",
+      "packId": 41,
+      "vi": "nước",
+      "en": "water",
+      "category": "Food & drink",
+      "imageFilename": "041.webp",
+      "imageSrc": "/vocabulary/images/041.webp",
+      "skillId": "pack-v-041"
+    },
+    {
+      "id": "v042",
+      "packId": 42,
+      "vi": "cơm",
+      "en": "cooked rice / meal",
+      "category": "Food & drink",
+      "imageFilename": "042.webp",
+      "imageSrc": "/vocabulary/images/042.webp",
+      "skillId": "pack-v-042"
+    },
+    {
+      "id": "v043",
+      "packId": 43,
+      "vi": "phở",
+      "en": "pho noodle soup",
+      "category": "Food & drink",
+      "imageFilename": "043.webp",
+      "imageSrc": "/vocabulary/images/043.webp",
+      "skillId": "pack-v-043"
+    },
+    {
+      "id": "v044",
+      "packId": 44,
+      "vi": "bánh mì",
+      "en": "bread / baguette",
+      "category": "Food & drink",
+      "imageFilename": "044.webp",
+      "imageSrc": "/vocabulary/images/044.webp",
+      "skillId": "pack-v-044"
+    },
+    {
+      "id": "v045",
+      "packId": 45,
+      "vi": "trái cây",
+      "en": "fruit",
+      "category": "Food & drink",
+      "imageFilename": "045.webp",
+      "imageSrc": "/vocabulary/images/045.webp",
+      "skillId": "pack-v-045"
+    },
+    {
+      "id": "v046",
+      "packId": 46,
+      "vi": "rau",
+      "en": "vegetables",
+      "category": "Food & drink",
+      "imageFilename": "046.webp",
+      "imageSrc": "/vocabulary/images/046.webp",
+      "skillId": "pack-v-046"
+    },
+    {
+      "id": "v047",
+      "packId": 47,
+      "vi": "thịt",
+      "en": "meat",
+      "category": "Food & drink",
+      "imageFilename": "047.webp",
+      "imageSrc": "/vocabulary/images/047.webp",
+      "skillId": "pack-v-047"
+    },
+    {
+      "id": "v048",
+      "packId": 48,
+      "vi": "cá",
+      "en": "fish",
+      "category": "Food & drink",
+      "imageFilename": "048.webp",
+      "imageSrc": "/vocabulary/images/048.webp",
+      "skillId": "pack-v-048"
+    },
+    {
+      "id": "v049",
+      "packId": 49,
+      "vi": "trứng",
+      "en": "egg",
+      "category": "Food & drink",
+      "imageFilename": "049.webp",
+      "imageSrc": "/vocabulary/images/049.webp",
+      "skillId": "pack-v-049"
+    },
+    {
+      "id": "v050",
+      "packId": 50,
+      "vi": "sữa",
+      "en": "milk",
+      "category": "Food & drink",
+      "imageFilename": "050.webp",
+      "imageSrc": "/vocabulary/images/050.webp",
+      "skillId": "pack-v-050"
+    },
+    {
+      "id": "v051",
+      "packId": 51,
+      "vi": "ăn",
+      "en": "eat",
+      "category": "Actions",
+      "imageFilename": "051.webp",
+      "imageSrc": "/vocabulary/images/051.webp",
+      "skillId": "pack-v-051"
+    },
+    {
+      "id": "v052",
+      "packId": 52,
+      "vi": "uống",
+      "en": "drink",
+      "category": "Actions",
+      "imageFilename": "052.webp",
+      "imageSrc": "/vocabulary/images/052.webp",
+      "skillId": "pack-v-052"
+    },
+    {
+      "id": "v053",
+      "packId": 53,
+      "vi": "nấu",
+      "en": "cook",
+      "category": "Actions",
+      "imageFilename": "053.webp",
+      "imageSrc": "/vocabulary/images/053.webp",
+      "skillId": "pack-v-053"
+    },
+    {
+      "id": "v054",
+      "packId": 54,
+      "vi": "mua",
+      "en": "buy",
+      "category": "Actions",
+      "imageFilename": "054.webp",
+      "imageSrc": "/vocabulary/images/054.webp",
+      "skillId": "pack-v-054"
+    },
+    {
+      "id": "v055",
+      "packId": 55,
+      "vi": "bán",
+      "en": "sell",
+      "category": "Actions",
+      "imageFilename": "055.webp",
+      "imageSrc": "/vocabulary/images/055.webp",
+      "skillId": "pack-v-055"
+    },
+    {
+      "id": "v056",
+      "packId": 56,
+      "vi": "đi",
+      "en": "go / walk",
+      "category": "Actions",
+      "imageFilename": "056.webp",
+      "imageSrc": "/vocabulary/images/056.webp",
+      "skillId": "pack-v-056"
+    },
+    {
+      "id": "v057",
+      "packId": 57,
+      "vi": "đến",
+      "en": "arrive / come",
+      "category": "Actions",
+      "imageFilename": "057.webp",
+      "imageSrc": "/vocabulary/images/057.webp",
+      "skillId": "pack-v-057"
+    },
+    {
+      "id": "v058",
+      "packId": 58,
+      "vi": "về",
+      "en": "return / go home",
+      "category": "Actions",
+      "imageFilename": "058.webp",
+      "imageSrc": "/vocabulary/images/058.webp",
+      "skillId": "pack-v-058"
+    },
+    {
+      "id": "v059",
+      "packId": 59,
+      "vi": "làm",
+      "en": "do / work",
+      "category": "Actions",
+      "imageFilename": "059.webp",
+      "imageSrc": "/vocabulary/images/059.webp",
+      "skillId": "pack-v-059"
+    },
+    {
+      "id": "v060",
+      "packId": 60,
+      "vi": "chơi",
+      "en": "play",
+      "category": "Actions",
+      "imageFilename": "060.webp",
+      "imageSrc": "/vocabulary/images/060.webp",
+      "skillId": "pack-v-060"
+    },
+    {
+      "id": "v061",
+      "packId": 61,
+      "vi": "xem",
+      "en": "watch",
+      "category": "Actions",
+      "imageFilename": "061.webp",
+      "imageSrc": "/vocabulary/images/061.webp",
+      "skillId": "pack-v-061"
+    },
+    {
+      "id": "v062",
+      "packId": 62,
+      "vi": "nghe",
+      "en": "listen",
+      "category": "Actions",
+      "imageFilename": "062.webp",
+      "imageSrc": "/vocabulary/images/062.webp",
+      "skillId": "pack-v-062"
+    },
+    {
+      "id": "v063",
+      "packId": 63,
+      "vi": "nói",
+      "en": "speak",
+      "category": "Actions",
+      "imageFilename": "063.webp",
+      "imageSrc": "/vocabulary/images/063.webp",
+      "skillId": "pack-v-063"
+    },
+    {
+      "id": "v064",
+      "packId": 64,
+      "vi": "đọc",
+      "en": "read",
+      "category": "Actions",
+      "imageFilename": "064.webp",
+      "imageSrc": "/vocabulary/images/064.webp",
+      "skillId": "pack-v-064"
+    },
+    {
+      "id": "v065",
+      "packId": 65,
+      "vi": "viết",
+      "en": "write",
+      "category": "Actions",
+      "imageFilename": "065.webp",
+      "imageSrc": "/vocabulary/images/065.webp",
+      "skillId": "pack-v-065"
+    },
+    {
+      "id": "v066",
+      "packId": 66,
+      "vi": "thích",
+      "en": "like",
+      "category": "Feelings & grammar",
+      "imageFilename": "066.webp",
+      "imageSrc": "/vocabulary/images/066.webp",
+      "skillId": "pack-v-066"
+    },
+    {
+      "id": "v067",
+      "packId": 67,
+      "vi": "yêu",
+      "en": "love",
+      "category": "Feelings & grammar",
+      "imageFilename": "067.webp",
+      "imageSrc": "/vocabulary/images/067.webp",
+      "skillId": "pack-v-067"
+    },
+    {
+      "id": "v068",
+      "packId": 68,
+      "vi": "muốn",
+      "en": "want",
+      "category": "Feelings & grammar",
+      "imageFilename": "068.webp",
+      "imageSrc": "/vocabulary/images/068.webp",
+      "skillId": "pack-v-068"
+    },
+    {
+      "id": "v069",
+      "packId": 69,
+      "vi": "cần",
+      "en": "need",
+      "category": "Feelings & grammar",
+      "imageFilename": "069.webp",
+      "imageSrc": "/vocabulary/images/069.webp",
+      "skillId": "pack-v-069"
+    },
+    {
+      "id": "v070",
+      "packId": 70,
+      "vi": "có",
+      "en": "have / exist",
+      "category": "Feelings & grammar",
+      "imageFilename": "070.webp",
+      "imageSrc": "/vocabulary/images/070.webp",
+      "skillId": "pack-v-070"
+    },
+    {
+      "id": "v071",
+      "packId": 71,
+      "vi": "không",
+      "en": "no / not",
+      "category": "Feelings & grammar",
+      "imageFilename": "071.webp",
+      "imageSrc": "/vocabulary/images/071.webp",
+      "skillId": "pack-v-071"
+    },
+    {
+      "id": "v072",
+      "packId": 72,
+      "vi": "là",
+      "en": "be (identification)",
+      "category": "Feelings & grammar",
+      "imageFilename": "072.webp",
+      "imageSrc": "/vocabulary/images/072.webp",
+      "skillId": "pack-v-072"
+    },
+    {
+      "id": "v073",
+      "packId": 73,
+      "vi": "và",
+      "en": "and",
+      "category": "Feelings & grammar",
+      "imageFilename": "073.webp",
+      "imageSrc": "/vocabulary/images/073.webp",
+      "skillId": "pack-v-073"
+    },
+    {
+      "id": "v074",
+      "packId": 74,
+      "vi": "nhưng",
+      "en": "but",
+      "category": "Feelings & grammar",
+      "imageFilename": "074.webp",
+      "imageSrc": "/vocabulary/images/074.webp",
+      "skillId": "pack-v-074"
+    },
+    {
+      "id": "v075",
+      "packId": 75,
+      "vi": "vì",
+      "en": "because",
+      "category": "Feelings & grammar",
+      "imageFilename": "075.webp",
+      "imageSrc": "/vocabulary/images/075.webp",
+      "skillId": "pack-v-075"
+    },
+    {
+      "id": "v076",
+      "packId": 76,
+      "vi": "nếu",
+      "en": "if",
+      "category": "Feelings & grammar",
+      "imageFilename": "076.webp",
+      "imageSrc": "/vocabulary/images/076.webp",
+      "skillId": "pack-v-076"
+    },
+    {
+      "id": "v077",
+      "packId": 77,
+      "vi": "khi",
+      "en": "when",
+      "category": "Feelings & grammar",
+      "imageFilename": "077.webp",
+      "imageSrc": "/vocabulary/images/077.webp",
+      "skillId": "pack-v-077"
+    },
+    {
+      "id": "v078",
+      "packId": 78,
+      "vi": "đã",
+      "en": "past / completed marker",
+      "category": "Feelings & grammar",
+      "imageFilename": "078.webp",
+      "imageSrc": "/vocabulary/images/078.webp",
+      "skillId": "pack-v-078"
+    },
+    {
+      "id": "v079",
+      "packId": 79,
+      "vi": "sẽ",
+      "en": "future marker",
+      "category": "Feelings & grammar",
+      "imageFilename": "079.webp",
+      "imageSrc": "/vocabulary/images/079.webp",
+      "skillId": "pack-v-079"
+    },
+    {
+      "id": "v080",
+      "packId": 80,
+      "vi": "đang",
+      "en": "ongoing marker",
+      "category": "Feelings & grammar",
+      "imageFilename": "080.webp",
+      "imageSrc": "/vocabulary/images/080.webp",
+      "skillId": "pack-v-080"
+    },
+    {
+      "id": "v081",
+      "packId": 81,
+      "vi": "hôm nay",
+      "en": "today",
+      "category": "Time",
+      "imageFilename": "081.webp",
+      "imageSrc": "/vocabulary/images/081.webp",
+      "skillId": "pack-v-081"
+    },
+    {
+      "id": "v082",
+      "packId": 82,
+      "vi": "ngày mai",
+      "en": "tomorrow",
+      "category": "Time",
+      "imageFilename": "082.webp",
+      "imageSrc": "/vocabulary/images/082.webp",
+      "skillId": "pack-v-082"
+    },
+    {
+      "id": "v083",
+      "packId": 83,
+      "vi": "hôm qua",
+      "en": "yesterday",
+      "category": "Time",
+      "imageFilename": "083.webp",
+      "imageSrc": "/vocabulary/images/083.webp",
+      "skillId": "pack-v-083"
+    },
+    {
+      "id": "v084",
+      "packId": 84,
+      "vi": "buổi sáng",
+      "en": "morning",
+      "category": "Time",
+      "imageFilename": "084.webp",
+      "imageSrc": "/vocabulary/images/084.webp",
+      "skillId": "pack-v-084"
+    },
+    {
+      "id": "v085",
+      "packId": 85,
+      "vi": "buổi trưa",
+      "en": "noon / midday",
+      "category": "Time",
+      "imageFilename": "085.webp",
+      "imageSrc": "/vocabulary/images/085.webp",
+      "skillId": "pack-v-085"
+    },
+    {
+      "id": "v086",
+      "packId": 86,
+      "vi": "buổi chiều",
+      "en": "afternoon",
+      "category": "Time",
+      "imageFilename": "086.webp",
+      "imageSrc": "/vocabulary/images/086.webp",
+      "skillId": "pack-v-086"
+    },
+    {
+      "id": "v087",
+      "packId": 87,
+      "vi": "buổi tối",
+      "en": "evening",
+      "category": "Time",
+      "imageFilename": "087.webp",
+      "imageSrc": "/vocabulary/images/087.webp",
+      "skillId": "pack-v-087"
+    },
+    {
+      "id": "v088",
+      "packId": 88,
+      "vi": "đêm",
+      "en": "night",
+      "category": "Time",
+      "imageFilename": "088.webp",
+      "imageSrc": "/vocabulary/images/088.webp",
+      "skillId": "pack-v-088"
+    },
+    {
+      "id": "v089",
+      "packId": 89,
+      "vi": "tuần",
+      "en": "week",
+      "category": "Time",
+      "imageFilename": "089.webp",
+      "imageSrc": "/vocabulary/images/089.webp",
+      "skillId": "pack-v-089"
+    },
+    {
+      "id": "v090",
+      "packId": 90,
+      "vi": "tháng",
+      "en": "month",
+      "category": "Time",
+      "imageFilename": "090.webp",
+      "imageSrc": "/vocabulary/images/090.webp",
+      "skillId": "pack-v-090"
+    },
+    {
+      "id": "v091",
+      "packId": 91,
+      "vi": "năm",
+      "en": "year",
+      "category": "Time",
+      "imageFilename": "091.webp",
+      "imageSrc": "/vocabulary/images/091.webp",
+      "skillId": "pack-v-091"
+    },
+    {
+      "id": "v092",
+      "packId": 92,
+      "vi": "thời tiết",
+      "en": "weather",
+      "category": "Weather & descriptions",
+      "imageFilename": "092.webp",
+      "imageSrc": "/vocabulary/images/092.webp",
+      "skillId": "pack-v-092"
+    },
+    {
+      "id": "v093",
+      "packId": 93,
+      "vi": "nóng",
+      "en": "hot",
+      "category": "Weather & descriptions",
+      "imageFilename": "093.webp",
+      "imageSrc": "/vocabulary/images/093.webp",
+      "skillId": "pack-v-093"
+    },
+    {
+      "id": "v094",
+      "packId": 94,
+      "vi": "lạnh",
+      "en": "cold",
+      "category": "Weather & descriptions",
+      "imageFilename": "094.webp",
+      "imageSrc": "/vocabulary/images/094.webp",
+      "skillId": "pack-v-094"
+    },
+    {
+      "id": "v095",
+      "packId": 95,
+      "vi": "mưa",
+      "en": "rain",
+      "category": "Weather & descriptions",
+      "imageFilename": "095.webp",
+      "imageSrc": "/vocabulary/images/095.webp",
+      "skillId": "pack-v-095"
+    },
+    {
+      "id": "v096",
+      "packId": 96,
+      "vi": "nắng",
+      "en": "sunshine",
+      "category": "Weather & descriptions",
+      "imageFilename": "096.webp",
+      "imageSrc": "/vocabulary/images/096.webp",
+      "skillId": "pack-v-096"
+    },
+    {
+      "id": "v097",
+      "packId": 97,
+      "vi": "gió",
+      "en": "wind",
+      "category": "Weather & descriptions",
+      "imageFilename": "097.webp",
+      "imageSrc": "/vocabulary/images/097.webp",
+      "skillId": "pack-v-097"
+    },
+    {
+      "id": "v098",
+      "packId": 98,
+      "vi": "đẹp",
+      "en": "beautiful",
+      "category": "Weather & descriptions",
+      "imageFilename": "098.webp",
+      "imageSrc": "/vocabulary/images/098.webp",
+      "skillId": "pack-v-098"
+    },
+    {
+      "id": "v099",
+      "packId": 99,
+      "vi": "tốt",
+      "en": "good",
+      "category": "Weather & descriptions",
+      "imageFilename": "099.webp",
+      "imageSrc": "/vocabulary/images/099.webp",
+      "skillId": "pack-v-099"
+    },
+    {
+      "id": "v100",
+      "packId": 100,
+      "vi": "vui",
+      "en": "happy",
+      "category": "Weather & descriptions",
+      "imageFilename": "100.webp",
+      "imageSrc": "/vocabulary/images/100.webp",
+      "skillId": "pack-v-100"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "u4-l01",
+      "order": 1,
+      "titleEn": "Words 1–7",
+      "titleVi": "Từ 1–7",
+      "categoryHint": "People & family",
+      "newWordIds": [
+        "v001",
+        "v002",
+        "v003",
+        "v004",
+        "v005",
+        "v006",
+        "v007"
+      ],
+      "reviewWordIds": []
+    },
+    {
+      "id": "u4-l02",
+      "order": 2,
+      "titleEn": "Words 8–14",
+      "titleVi": "Từ 8–14",
+      "categoryHint": "People & family",
+      "newWordIds": [
+        "v008",
+        "v009",
+        "v010",
+        "v011",
+        "v012",
+        "v013",
+        "v014"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v003",
+        "v005"
+      ]
+    },
+    {
+      "id": "u4-l03",
+      "order": 3,
+      "titleEn": "Words 15–21",
+      "titleVi": "Từ 15–21",
+      "categoryHint": "People & family",
+      "newWordIds": [
+        "v015",
+        "v016",
+        "v017",
+        "v018",
+        "v019",
+        "v020",
+        "v021"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v005",
+        "v009"
+      ]
+    },
+    {
+      "id": "u4-l04",
+      "order": 4,
+      "titleEn": "Words 22–28",
+      "titleVi": "Từ 22–28",
+      "categoryHint": "Home",
+      "newWordIds": [
+        "v022",
+        "v023",
+        "v024",
+        "v025",
+        "v026",
+        "v027",
+        "v028"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v008",
+        "v015"
+      ]
+    },
+    {
+      "id": "u4-l05",
+      "order": 5,
+      "titleEn": "Words 29–34",
+      "titleVi": "Từ 29–34",
+      "categoryHint": "Home",
+      "newWordIds": [
+        "v029",
+        "v030",
+        "v031",
+        "v032",
+        "v033",
+        "v034"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v010",
+        "v019"
+      ]
+    },
+    {
+      "id": "u4-l06",
+      "order": 6,
+      "titleEn": "Words 35–40",
+      "titleVi": "Từ 35–40",
+      "categoryHint": "School & objects",
+      "newWordIds": [
+        "v035",
+        "v036",
+        "v037",
+        "v038",
+        "v039",
+        "v040"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v012",
+        "v023"
+      ]
+    },
+    {
+      "id": "u4-l07",
+      "order": 7,
+      "titleEn": "Words 41–46",
+      "titleVi": "Từ 41–46",
+      "categoryHint": "Food & drink",
+      "newWordIds": [
+        "v041",
+        "v042",
+        "v043",
+        "v044",
+        "v045",
+        "v046"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v014",
+        "v027"
+      ]
+    },
+    {
+      "id": "u4-l08",
+      "order": 8,
+      "titleEn": "Words 47–52",
+      "titleVi": "Từ 47–52",
+      "categoryHint": "Food & drink",
+      "newWordIds": [
+        "v047",
+        "v048",
+        "v049",
+        "v050",
+        "v051",
+        "v052"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v016",
+        "v031"
+      ]
+    },
+    {
+      "id": "u4-l09",
+      "order": 9,
+      "titleEn": "Words 53–58",
+      "titleVi": "Từ 53–58",
+      "categoryHint": "Actions",
+      "newWordIds": [
+        "v053",
+        "v054",
+        "v055",
+        "v056",
+        "v057",
+        "v058"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v018",
+        "v035"
+      ]
+    },
+    {
+      "id": "u4-l10",
+      "order": 10,
+      "titleEn": "Words 59–64",
+      "titleVi": "Từ 59–64",
+      "categoryHint": "Actions",
+      "newWordIds": [
+        "v059",
+        "v060",
+        "v061",
+        "v062",
+        "v063",
+        "v064"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v020",
+        "v039"
+      ]
+    },
+    {
+      "id": "u4-l11",
+      "order": 11,
+      "titleEn": "Words 65–70",
+      "titleVi": "Từ 65–70",
+      "categoryHint": "Actions",
+      "newWordIds": [
+        "v065",
+        "v066",
+        "v067",
+        "v068",
+        "v069",
+        "v070"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v022",
+        "v043"
+      ]
+    },
+    {
+      "id": "u4-l12",
+      "order": 12,
+      "titleEn": "Words 71–76",
+      "titleVi": "Từ 71–76",
+      "categoryHint": "Feelings & grammar",
+      "newWordIds": [
+        "v071",
+        "v072",
+        "v073",
+        "v074",
+        "v075",
+        "v076"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v024",
+        "v047"
+      ]
+    },
+    {
+      "id": "u4-l13",
+      "order": 13,
+      "titleEn": "Words 77–82",
+      "titleVi": "Từ 77–82",
+      "categoryHint": "Feelings & grammar",
+      "newWordIds": [
+        "v077",
+        "v078",
+        "v079",
+        "v080",
+        "v081",
+        "v082"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v026",
+        "v051"
+      ]
+    },
+    {
+      "id": "u4-l14",
+      "order": 14,
+      "titleEn": "Words 83–88",
+      "titleVi": "Từ 83–88",
+      "categoryHint": "Time",
+      "newWordIds": [
+        "v083",
+        "v084",
+        "v085",
+        "v086",
+        "v087",
+        "v088"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v028",
+        "v055"
+      ]
+    },
+    {
+      "id": "u4-l15",
+      "order": 15,
+      "titleEn": "Words 89–94",
+      "titleVi": "Từ 89–94",
+      "categoryHint": "Time",
+      "newWordIds": [
+        "v089",
+        "v090",
+        "v091",
+        "v092",
+        "v093",
+        "v094"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v030",
+        "v059"
+      ]
+    },
+    {
+      "id": "u4-l16",
+      "order": 16,
+      "titleEn": "Words 95–100",
+      "titleVi": "Từ 95–100",
+      "categoryHint": "Weather & descriptions",
+      "newWordIds": [
+        "v095",
+        "v096",
+        "v097",
+        "v098",
+        "v099",
+        "v100"
+      ],
+      "reviewWordIds": [
+        "v001",
+        "v032",
+        "v063"
+      ]
+    }
+  ]
+}

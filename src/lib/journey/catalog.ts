@@ -305,10 +305,33 @@ export const JOURNEY_UNITS: JourneyUnit[] = [
     order: 4,
     titleEn: "First 100 words",
     titleVi: "100 từ đầu",
-    blurb: "Everyday vocabulary — Phase 4+.",
+    blurb: "Illustrated pack — 5–7 new words per lesson + review, Deepgram Say.",
     targetLessonCount: 16,
     lessons: [
-      { id: "u4-shell", unitId: "u4", order: 1, titleEn: "Coming later", durationMin: 0, kind: "shell" },
+      {
+        id: "u4-hub",
+        unitId: "u4",
+        order: 1,
+        titleEn: "Open First 100 map",
+        titleVi: "Bản đồ 100 từ",
+        durationMin: 2,
+        kind: "live",
+        href: "/vocab/pack",
+      },
+      ...Array.from({ length: 16 }, (_, i) => {
+        const n = i + 1;
+        const id = `u4-l${String(n).padStart(2, "0")}`;
+        return {
+          id,
+          unitId: "u4" as const,
+          order: n + 1,
+          titleEn: `Pack lesson ${n}`,
+          titleVi: `Bài ${n}`,
+          durationMin: 8,
+          kind: "live" as const,
+          href: `/vocab/pack/${id}`,
+        };
+      }),
     ],
   },
   {

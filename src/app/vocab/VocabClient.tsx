@@ -61,6 +61,9 @@ export function VocabClient() {
       <p className="mt-2 text-ink/60">
         Words from Scan & Read and songs. Self-grade flashcards — no AI score.
       </p>
+      <Link href="/vocab/pack" className="teacher-btn-primary mt-4 w-full text-center">
+        First 100 illustrated words
+      </Link>
 
       <div className="mt-4 flex flex-wrap gap-2">
         <button

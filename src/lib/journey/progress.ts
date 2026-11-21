@@ -18,6 +18,7 @@ import {
   type ProgressState,
 } from "@/lib/progress";
 import { loadSingProgress } from "@/lib/sing/progress";
+import { isPackLessonComplete, loadPackProgress } from "@/lib/vocabulary";
 import { JOURNEY_UNITS, getJourneyUnit } from "./catalog";
 import type {
   ContinueLearningTarget,
@@ -110,6 +111,15 @@ export function isJourneyLessonComplete(
     }
     const sing = loadSingProgress();
     return Object.values(sing).some((p) => (p.modesCompleted?.length ?? 0) > 0);
+  }
+  // Illustrated First 100 pack lessons
+  if (lesson.id.startsWith("u4-l") && isPackLessonComplete(lesson.id)) {
+    return true;
+  }
+  if (lesson.id === "u4-hub") {
+    if (journey.completedIds.includes("u4-hub")) return true;
+    const pack = loadPackProgress();
+    return pack.completedLessonIds.length > 0 || Object.keys(pack.words).length > 0;
   }
   return false;
 }

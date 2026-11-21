@@ -10,6 +10,7 @@ import {
 } from "@/lib/phonics/learningPath";
 import { loadProgress } from "@/lib/progress";
 import { loadVocab } from "@/lib/vocab/store";
+import { duePackWordIds, getPackWord } from "@/lib/vocabulary";
 import { nextUntouchedKaraokeHook } from "./karaokeCurriculum";
 import { resolveContinueLearning, loadJourneyProgress } from "./progress";
 
@@ -38,6 +39,12 @@ export function assembleDailyJourney(): DailyJourneyPlan {
   const vocab = loadVocab();
   const recentVocab = vocab.slice(0, 3).map((v) => v.expression);
 
+  const packDue = duePackWordIds().slice(0, 3);
+  const packLabels = packDue
+    .map((id) => getPackWord(id)?.vi)
+    .filter(Boolean)
+    .join(", ");
+
   const warmup: DailyJourneyBlock =
     due.length > 0
       ? {
@@ -47,21 +54,29 @@ export function assembleDailyJourney(): DailyJourneyPlan {
           durationMin: 2,
           href: "/danh-van/review",
         }
-      : recentVocab.length > 0
+      : packDue.length > 0
         ? {
             phase: "warmup",
-            titleEn: `Warm up · ${recentVocab.join(", ")}`,
-            blurb: "About 3 words from your saved list (~2 min).",
+            titleEn: `Warm up · ${packLabels || "First 100"}`,
+            blurb: "Illustrated pack words due for spaced revisit (~2 min).",
             durationMin: 2,
-            href: "/vocab",
+            href: "/danh-van/review",
           }
-        : {
-            phase: "warmup",
-            titleEn: "Warm up · listen again",
-            blurb: "Replay yesterday’s greeting or sound (~2 min).",
-            durationMin: 2,
-            href: continueTarget.href,
-          };
+        : recentVocab.length > 0
+          ? {
+              phase: "warmup",
+              titleEn: `Warm up · ${recentVocab.join(", ")}`,
+              blurb: "About 3 words from your saved list (~2 min).",
+              durationMin: 2,
+              href: "/vocab",
+            }
+          : {
+              phase: "warmup",
+              titleEn: "Warm up · listen again",
+              blurb: "Replay yesterday’s greeting or sound (~2 min).",
+              durationMin: 2,
+              href: continueTarget.href,
+            };
 
   const learn: DailyJourneyBlock = {
     phase: "learn",

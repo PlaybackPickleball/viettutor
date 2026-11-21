@@ -88,7 +88,11 @@ export function LearnPathClient() {
           href={continueTarget.href}
           className="teacher-btn-primary mt-4 w-full text-center"
           onClick={() => {
-            if (continueTarget.lessonId === "u7-library" || continueTarget.lessonId === "u3-more") {
+            if (
+              continueTarget.lessonId === "u7-library" ||
+              continueTarget.lessonId === "u3-more" ||
+              continueTarget.lessonId === "u4-hub"
+            ) {
               markJourneyLessonComplete(continueTarget.lessonId);
             }
           }}
@@ -161,7 +165,11 @@ export function LearnPathClient() {
                                   : "bg-soft ring-transparent hover:bg-paper"
                               }`}
                               onClick={() => {
-                                if (lesson.id === "u7-library" || lesson.id === "u3-more") {
+                                if (
+                                  lesson.id === "u7-library" ||
+                                  lesson.id === "u3-more" ||
+                                  lesson.id === "u4-hub"
+                                ) {
                                   markJourneyLessonComplete(lesson.id);
                                 }
                               }}

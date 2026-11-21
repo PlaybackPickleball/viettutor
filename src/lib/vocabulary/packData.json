@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "vietnamese": "tôi",
+    "english": "I",
+    "category": "People & family",
+    "image": "/vocabulary/images/001.webp",
+    "image_filename": "001.webp"
+  },
+  {
+    "id": 2,
+    "vietnamese": "bạn",
+    "english": "you",
+    "category": "People & family",
+    "image": "/vocabulary/images/002.webp",
+    "image_filename": "002.webp"
+  },
+  {
+    "id": 3,
+    "vietnamese": "anh",
+    "english": "older brother / male address",
+    "category": "People & family",
+    "image": "/vocabulary/images/003.webp",
+    "image_filename": "003.webp"
+  },
+  {
+    "id": 4,
+    "vietnamese": "chị",
+    "english": "older sister / female address",
+    "category": "People & family",
+    "image": "/vocabulary/images/004.webp",
+    "image_filename": "004.webp"
+  },
+  {
+    "id": 5,
+    "vietnamese": "em",
+    "english": "younger sibling / younger person",
+    "category": "People & family",
+    "image": "/vocabulary/images/005.webp",
+    "image_filename": "005.webp"
+  },
+  {
+    "id": 6,
+    "vietnamese": "ba",
+    "english": "dad",
+    "category": "People & family",
+    "image": "/vocabulary/images/006.webp",
+    "image_filename": "006.webp"
+  },
+  {
+    "id": 7,
+    "vietnamese": "má",
+    "english": "mom (Southern)",
+    "category": "People & family",
+    "image": "/vocabulary/images/007.webp",
+    "image_filename": "007.webp"
+  },
+  {
+    "id": 8,
+    "vietnamese": "ông",
+    "english": "grandfather / older man",
+    "category": "People & family",
+    "image": "/vocabulary/images/008.webp",
+    "image_filename": "008.webp"
+  },
+  {
+    "id": 9,
+    "vietnamese": "bà",
+    "english": "grandmother / older woman",
+    "category": "People & family",
+    "image": "/vocabulary/images/009.webp",
+    "image_filename": "009.webp"
+  },
+  {
+    "id": 10,
+    "vietnamese": "gia đình",
+    "english": "family",
+    "category": "People & family",
+    "image": "/vocabulary/images/010.webp",
+    "image_filename": "010.webp"
+  },
+  {
+    "id": 11,
+    "vietnamese": "con",
+    "english": "child",
+    "category": "People & family",
+    "image": "/vocabulary/images/011.webp",
+    "image_filename": "011.webp"
+  },
+  {
+    "id": 12,
+    "vietnamese": "người",
+    "english": "person",
+    "category": "People & family",
+    "image": "/vocabulary/images/012.webp",
+    "image_filename": "012.webp"
+  },
+  {
+    "id": 13,
+    "vietnamese": "trẻ em",
+    "english": "children",
+    "category": "People & family",
+    "image": "/vocabulary/images/013.webp",
+    "image_filename": "013.webp"
+  },
+  {
+    "id": 14,
+    "vietnamese": "bạn bè",
+    "english": "friends",
+    "category": "People & family",
+    "image": "/vocabulary/images/014.webp",
+    "image_filename": "014.webp"
+  },
+  {
+    "id": 15,
+    "vietnamese": "thầy",
+    "english": "male teacher",
+    "category": "People & family",
+    "image": "/vocabulary/images/015.webp",
+    "image_filename": "015.webp"
+  },
+  {
+    "id": 16,
+    "vietnamese": "cô",
+    "english": "female teacher",
+    "category": "People & family",
+    "image": "/vocabulary/images/016.webp",
+    "image_filename": "016.webp"
+  },
+  {
+    "id": 17,
+    "vietnamese": "học sinh",
+    "english": "student",
+    "category": "People & family",
+    "image": "/vocabulary/images/017.webp",
+    "image_filename": "017.webp"
+  },
+  {
+    "id": 18,
+    "vietnamese": "học",
+    "english": "study / learn",
+    "category": "People & family",
+    "image": "/vocabulary/images/018.webp",
+    "image_filename": "018.webp"
+  },
+  {
+    "id": 19,
+    "vietnamese": "trường",
+    "english": "school",
+    "category": "People & family",
+    "image": "/vocabulary/images/019.webp",
+    "image_filename": "019.webp"
+  },
+  {
+    "id": 20,
+    "vietnamese": "lớp",
+    "english": "class",
+    "category": "People & family",
+    "image": "/vocabulary/images/020.webp",
+    "image_filename": "020.webp"
+  },
+  {
+    "id": 21,
+    "vietnamese": "nhà",
+    "english": "house / home",
+    "category": "Home",
+    "image": "/vocabulary/images/021.webp",
+    "image_filename": "021.webp"
+  },
+  {
+    "id": 22,
+    "vietnamese": "phòng",
+    "english": "room",
+    "category": "Home",
+    "image": "/vocabulary/images/022.webp",
+    "image_filename": "022.webp"
+  },
+  {
+    "id": 23,
+    "vietnamese": "bếp",
+    "english": "kitchen",
+    "category": "Home",
+    "image": "/vocabulary/images/023.webp",
+    "image_filename": "023.webp"
+  },
+  {
+    "id": 24,
+    "vietnamese": "phòng tắm",
+    "english": "bathroom",
+    "category": "Home",
+    "image": "/vocabulary/images/024.webp",
+    "image_filename": "024.webp"
+  },
+  {
+    "id": 25,
+    "vietnamese": "cửa",
+    "english": "door",
+    "category": "Home",
+    "image": "/vocabulary/images/025.webp",
+    "image_filename": "025.webp"
+  },
+  {
+    "id": 26,
+    "vietnamese": "bàn",
+    "english": "table",
+    "category": "Home",
+    "image": "/vocabulary/images/026.webp",
+    "image_filename": "026.webp"
+  },
+  {
+    "id": 27,
+    "vietnamese": "ghế",
+    "english": "chair",
+    "category": "Home",
+    "image": "/vocabulary/images/027.webp",
+    "image_filename": "027.webp"
+  },
+  {
+    "id": 28,
+    "vietnamese": "giường",
+    "english": "bed",
+    "category": "Home",
+    "image": "/vocabulary/images/028.webp",
+    "image_filename": "028.webp"
+  },
+  {
+    "id": 29,
+    "vietnamese": "tủ",
+    "english": "cabinet",
+    "category": "Home",
+    "image": "/vocabulary/images/029.webp",
+    "image_filename": "029.webp"
+  },
+  {
+    "id": 30,
+    "vietnamese": "đèn",
+    "english": "lamp",
+    "category": "Home",
+    "image": "/vocabulary/images/030.webp",
+    "image_filename": "030.webp"
+  },
+  {
+    "id": 31,
+    "vietnamese": "sách",
+    "english": "book",
+    "category": "School & objects",
+    "image": "/vocabulary/images/031.webp",
+    "image_filename": "031.webp"
+  },
+  {
+    "id": 32,
+    "vietnamese": "vở",
+    "english": "notebook",
+    "category": "School & objects",
+    "image": "/vocabulary/images/032.webp",
+    "image_filename": "032.webp"
+  },
+  {
+    "id": 33,
+    "vietnamese": "bút",
+    "english": "pen",
+    "category": "School & objects",
+    "image": "/vocabulary/images/033.webp",
+    "image_filename": "033.webp"
+  },
+  {
+    "id": 34,
+    "vietnamese": "bút chì",
+    "english": "pencil",
+    "category": "School & objects",
+    "image": "/vocabulary/images/034.webp",
+    "image_filename": "034.webp"
+  },
+  {
+    "id": 35,
+    "vietnamese": "thước",
+    "english": "ruler",
+    "category": "School & objects",
+    "image": "/vocabulary/images/035.webp",
+    "image_filename": "035.webp"
+  },
+  {
+    "id": 36,
+    "vietnamese": "cặp",
+    "english": "schoolbag",
+    "category": "School & objects",
+    "image": "/vocabulary/images/036.webp",
+    "image_filename": "036.webp"
+  },
+  {
+    "id": 37,
+    "vietnamese": "điện thoại",
+    "english": "phone",
+    "category": "School & objects",
+    "image": "/vocabulary/images/037.webp",
+    "image_filename": "037.webp"
+  },
+  {
+    "id": 38,
+    "vietnamese": "máy tính",
+    "english": "computer",
+    "category": "School & objects",
+    "image": "/vocabulary/images/038.webp",
+    "image_filename": "038.webp"
+  },
+  {
+    "id": 39,
+    "vietnamese": "tivi",
+    "english": "television",
+    "category": "School & objects",
+    "image": "/vocabulary/images/039.webp",
+    "image_filename": "039.webp"
+  },
+  {
+    "id": 40,
+    "vietnamese": "đồng hồ",
+    "english": "clock / watch",
+    "category": "School & objects",
+    "image": "/vocabulary/images/040.webp",
+    "image_filename": "040.webp"
+  },
+  {
+    "id": 41,
+    "vietnamese": "nước",
+    "english": "water",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/041.webp",
+    "image_filename": "041.webp"
+  },
+  {
+    "id": 42,
+    "vietnamese": "cơm",
+    "english": "cooked rice / meal",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/042.webp",
+    "image_filename": "042.webp"
+  },
+  {
+    "id": 43,
+    "vietnamese": "phở",
+    "english": "pho noodle soup",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/043.webp",
+    "image_filename": "043.webp"
+  },
+  {
+    "id": 44,
+    "vietnamese": "bánh mì",
+    "english": "bread / baguette",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/044.webp",
+    "image_filename": "044.webp"
+  },
+  {
+    "id": 45,
+    "vietnamese": "trái cây",
+    "english": "fruit",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/045.webp",
+    "image_filename": "045.webp"
+  },
+  {
+    "id": 46,
+    "vietnamese": "rau",
+    "english": "vegetables",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/046.webp",
+    "image_filename": "046.webp"
+  },
+  {
+    "id": 47,
+    "vietnamese": "thịt",
+    "english": "meat",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/047.webp",
+    "image_filename": "047.webp"
+  },
+  {
+    "id": 48,
+    "vietnamese": "cá",
+    "english": "fish",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/048.webp",
+    "image_filename": "048.webp"
+  },
+  {
+    "id": 49,
+    "vietnamese": "trứng",
+    "english": "egg",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/049.webp",
+    "image_filename": "049.webp"
+  },
+  {
+    "id": 50,
+    "vietnamese": "sữa",
+    "english": "milk",
+    "category": "Food & drink",
+    "image": "/vocabulary/images/050.webp",
+    "image_filename": "050.webp"
+  },
+  {
+    "id": 51,
+    "vietnamese": "ăn",
+    "english": "eat",
+    "category": "Actions",
+    "image": "/vocabulary/images/051.webp",
+    "image_filename": "051.webp"
+  },
+  {
+    "id": 52,
+    "vietnamese": "uống",
+    "english": "drink",
+    "category": "Actions",
+    "image": "/vocabulary/images/052.webp",
+    "image_filename": "052.webp"
+  },
+  {
+    "id": 53,
+    "vietnamese": "nấu",
+    "english": "cook",
+    "category": "Actions",
+    "image": "/vocabulary/images/053.webp",
+    "image_filename": "053.webp"
+  },
+  {
+    "id": 54,
+    "vietnamese": "mua",
+    "english": "buy",
+    "category": "Actions",
+    "image": "/vocabulary/images/054.webp",
+    "image_filename": "054.webp"
+  },
+  {
+    "id": 55,
+    "vietnamese": "bán",
+    "english": "sell",
+    "category": "Actions",
+    "image": "/vocabulary/images/055.webp",
+    "image_filename": "055.webp"
+  },
+  {
+    "id": 56,
+    "vietnamese": "đi",
+    "english": "go / walk",
+    "category": "Actions",
+    "image": "/vocabulary/images/056.webp",
+    "image_filename": "056.webp"
+  },
+  {
+    "id": 57,
+    "vietnamese": "đến",
+    "english": "arrive / come",
+    "category": "Actions",
+    "image": "/vocabulary/images/057.webp",
+    "image_filename": "057.webp"
+  },
+  {
+    "id": 58,
+    "vietnamese": "về",
+    "english": "return / go home",
+    "category": "Actions",
+    "image": "/vocabulary/images/058.webp",
+    "image_filename": "058.webp"
+  },
+  {
+    "id": 59,
+    "vietnamese": "làm",
+    "english": "do / work",
+    "category": "Actions",
+    "image": "/vocabulary/images/059.webp",
+    "image_filename": "059.webp"
+  },
+  {
+    "id": 60,
+    "vietnamese": "chơi",
+    "english": "play",
+    "category": "Actions",
+    "image": "/vocabulary/images/060.webp",
+    "image_filename": "060.webp"
+  },
+  {
+    "id": 61,
+    "vietnamese": "xem",
+    "english": "watch",
+    "category": "Actions",
+    "image": "/vocabulary/images/061.webp",
+    "image_filename": "061.webp"
+  },
+  {
+    "id": 62,
+    "vietnamese": "nghe",
+    "english": "listen",
+    "category": "Actions",
+    "image": "/vocabulary/images/062.webp",
+    "image_filename": "062.webp"
+  },
+  {
+    "id": 63,
+    "vietnamese": "nói",
+    "english": "speak",
+    "category": "Actions",
+    "image": "/vocabulary/images/063.webp",
+    "image_filename": "063.webp"
+  },
+  {
+    "id": 64,
+    "vietnamese": "đọc",
+    "english": "read",
+    "category": "Actions",
+    "image": "/vocabulary/images/064.webp",
+    "image_filename": "064.webp"
+  },
+  {
+    "id": 65,
+    "vietnamese": "viết",
+    "english": "write",
+    "category": "Actions",
+    "image": "/vocabulary/images/065.webp",
+    "image_filename": "065.webp"
+  },
+  {
+    "id": 66,
+    "vietnamese": "thích",
+    "english": "like",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/066.webp",
+    "image_filename": "066.webp"
+  },
+  {
+    "id": 67,
+    "vietnamese": "yêu",
+    "english": "love",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/067.webp",
+    "image_filename": "067.webp"
+  },
+  {
+    "id": 68,
+    "vietnamese": "muốn",
+    "english": "want",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/068.webp",
+    "image_filename": "068.webp"
+  },
+  {
+    "id": 69,
+    "vietnamese": "cần",
+    "english": "need",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/069.webp",
+    "image_filename": "069.webp"
+  },
+  {
+    "id": 70,
+    "vietnamese": "có",
+    "english": "have / exist",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/070.webp",
+    "image_filename": "070.webp"
+  },
+  {
+    "id": 71,
+    "vietnamese": "không",
+    "english": "no / not",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/071.webp",
+    "image_filename": "071.webp"
+  },
+  {
+    "id": 72,
+    "vietnamese": "là",
+    "english": "be (identification)",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/072.webp",
+    "image_filename": "072.webp"
+  },
+  {
+    "id": 73,
+    "vietnamese": "và",
+    "english": "and",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/073.webp",
+    "image_filename": "073.webp"
+  },
+  {
+    "id": 74,
+    "vietnamese": "nhưng",
+    "english": "but",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/074.webp",
+    "image_filename": "074.webp"
+  },
+  {
+    "id": 75,
+    "vietnamese": "vì",
+    "english": "because",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/075.webp",
+    "image_filename": "075.webp"
+  },
+  {
+    "id": 76,
+    "vietnamese": "nếu",
+    "english": "if",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/076.webp",
+    "image_filename": "076.webp"
+  },
+  {
+    "id": 77,
+    "vietnamese": "khi",
+    "english": "when",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/077.webp",
+    "image_filename": "077.webp"
+  },
+  {
+    "id": 78,
+    "vietnamese": "đã",
+    "english": "past / completed marker",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/078.webp",
+    "image_filename": "078.webp"
+  },
+  {
+    "id": 79,
+    "vietnamese": "sẽ",
+    "english": "future marker",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/079.webp",
+    "image_filename": "079.webp"
+  },
+  {
+    "id": 80,
+    "vietnamese": "đang",
+    "english": "ongoing marker",
+    "category": "Feelings & grammar",
+    "image": "/vocabulary/images/080.webp",
+    "image_filename": "080.webp"
+  },
+  {
+    "id": 81,
+    "vietnamese": "hôm nay",
+    "english": "today",
+    "category": "Time",
+    "image": "/vocabulary/images/081.webp",
+    "image_filename": "081.webp"
+  },
+  {
+    "id": 82,
+    "vietnamese": "ngày mai",
+    "english": "tomorrow",
+    "category": "Time",
+    "image": "/vocabulary/images/082.webp",
+    "image_filename": "082.webp"
+  },
+  {
+    "id": 83,
+    "vietnamese": "hôm qua",
+    "english": "yesterday",
+    "category": "Time",
+    "image": "/vocabulary/images/083.webp",
+    "image_filename": "083.webp"
+  },
+  {
+    "id": 84,
+    "vietnamese": "buổi sáng",
+    "english": "morning",
+    "category": "Time",
+    "image": "/vocabulary/images/084.webp",
+    "image_filename": "084.webp"
+  },
+  {
+    "id": 85,
+    "vietnamese": "buổi trưa",
+    "english": "noon / midday",
+    "category": "Time",
+    "image": "/vocabulary/images/085.webp",
+    "image_filename": "085.webp"
+  },
+  {
+    "id": 86,
+    "vietnamese": "buổi chiều",
+    "english": "afternoon",
+    "category": "Time",
+    "image": "/vocabulary/images/086.webp",
+    "image_filename": "086.webp"
+  },
+  {
+    "id": 87,
+    "vietnamese": "buổi tối",
+    "english": "evening",
+    "category": "Time",
+    "image": "/vocabulary/images/087.webp",
+    "image_filename": "087.webp"
+  },
+  {
+    "id": 88,
+    "vietnamese": "đêm",
+    "english": "night",
+    "category": "Time",
+    "image": "/vocabulary/images/088.webp",
+    "image_filename": "088.webp"
+  },
+  {
+    "id": 89,
+    "vietnamese": "tuần",
+    "english": "week",
+    "category": "Time",
+    "image": "/vocabulary/images/089.webp",
+    "image_filename": "089.webp"
+  },
+  {
+    "id": 90,
+    "vietnamese": "tháng",
+    "english": "month",
+    "category": "Time",
+    "image": "/vocabulary/images/090.webp",
+    "image_filename": "090.webp"
+  },
+  {
+    "id": 91,
+    "vietnamese": "năm",
+    "english": "year",
+    "category": "Time",
+    "image": "/vocabulary/images/091.webp",
+    "image_filename": "091.webp"
+  },
+  {
+    "id": 92,
+    "vietnamese": "thời tiết",
+    "english": "weather",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/092.webp",
+    "image_filename": "092.webp"
+  },
+  {
+    "id": 93,
+    "vietnamese": "nóng",
+    "english": "hot",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/093.webp",
+    "image_filename": "093.webp"
+  },
+  {
+    "id": 94,
+    "vietnamese": "lạnh",
+    "english": "cold",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/094.webp",
+    "image_filename": "094.webp"
+  },
+  {
+    "id": 95,
+    "vietnamese": "mưa",
+    "english": "rain",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/095.webp",
+    "image_filename": "095.webp"
+  },
+  {
+    "id": 96,
+    "vietnamese": "nắng",
+    "english": "sunshine",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/096.webp",
+    "image_filename": "096.webp"
+  },
+  {
+    "id": 97,
+    "vietnamese": "gió",
+    "english": "wind",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/097.webp",
+    "image_filename": "097.webp"
+  },
+  {
+    "id": 98,
+    "vietnamese": "đẹp",
+    "english": "beautiful",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/098.webp",
+    "image_filename": "098.webp"
+  },
+  {
+    "id": 99,
+    "vietnamese": "tốt",
+    "english": "good",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/099.webp",
+    "image_filename": "099.webp"
+  },
+  {
+    "id": 100,
+    "vietnamese": "vui",
+    "english": "happy",
+    "category": "Weather & descriptions",
+    "image": "/vocabulary/images/100.webp",
+    "image_filename": "100.webp"
+  }
+]
