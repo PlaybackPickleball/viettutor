@@ -1,6 +1,6 @@
 /**
- * Re-encode browser recordings (often WebM) to mono WAV for Azure Speech.
- * Azure Pronunciation Assessment accepts WAV/OGG/MP3 — not typical WebM.
+ * Re-encode browser recordings (often WebM) to mono WAV for Deepgram listen.
+ * Deepgram accepts WAV/OGG/MP3/WebM; WAV keeps the client path consistent.
  */
 
 function writeString(view: DataView, offset: number, value: string) {

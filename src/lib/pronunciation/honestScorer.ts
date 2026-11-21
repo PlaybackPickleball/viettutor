@@ -4,8 +4,8 @@ import { assessPronunciation } from "@/lib/services/speechService";
 import type { PronunciationScorer, ScoreRequest, ScoreResult } from "./types";
 
 /**
- * Product default: Azure vi-VN when audio + keys exist; else compare/replay tips.
- * Never invents quality scores.
+ * Product default: Deepgram transcription match when audio + key exist.
+ * Never invents pronunciation quality scores.
  */
 export class HonestCompareScorer implements PronunciationScorer {
   async score(request: ScoreRequest): Promise<ScoreResult> {
@@ -25,30 +25,35 @@ export class HonestCompareScorer implements PronunciationScorer {
         itemId: request.letterId,
         expectedText: expected,
         dialect: request.dialect ?? "southern",
-        accuracyScore: feedback.accuracyScore,
-        overallScore: feedback.overallScore,
-        toneScore: feedback.toneScore,
+        accuracyScore: null,
+        overallScore: null,
+        toneScore: null,
+        match: feedback.match,
+        recognizedText: feedback.recognizedText,
         status: feedback.status,
       });
 
-      const quality = feedback.scoringAvailable
-        ? (feedback.overallScore ?? feedback.accuracyScore)
-        : null;
-
       return {
         simulated: false,
-        scoringAvailable: feedback.scoringAvailable && quality != null,
-        dimension: feedback.status === "scored" ? "ok" : "unscoreable",
+        // Never claim a 0–100 pronunciation score from transcription.
+        scoringAvailable: false,
+        dimension: feedback.match === true ? "ok" : "unscoreable",
         tip: feedback.tip,
-        passed: !tooShort && (feedback.status === "scored" ? (quality ?? 0) >= 60 : true),
-        quality,
-        accuracyScore: feedback.accuracyScore,
+        passed: !tooShort && feedback.match !== false,
+        quality: null,
+        accuracyScore: null,
         experimentalLabel: feedback.experimentalLabel,
         toneScore: null,
         assessStatus: feedback.status,
         evidence:
           feedback.recognizedText != null
-            ? `Heard: ${feedback.recognizedText}`
+            ? `Heard: ${feedback.recognizedText}${
+                feedback.match == null
+                  ? ""
+                  : feedback.match
+                    ? " · match"
+                    : " · no match"
+              }`
             : undefined,
       };
     }

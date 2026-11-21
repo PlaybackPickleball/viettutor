@@ -1,16 +1,12 @@
 /**
- * Phase 4 — pronunciation attempt history (local).
- * Tone scores stay null until the tone model is validated.
+ * Vietnamese speech-check attempt history (local).
+ * Stores transcription match outcomes — never invents pronunciation scores.
+ * Tone scores stay null until a specialized model is validated.
  */
 
-export type AssessmentConfidence =
-  | "scored"
-  | "unavailable"
-  | "silence"
-  | "noise"
-  | "recognition_failed"
-  | "format_unsupported"
-  | "low_confidence";
+import type { ViAssessStatus } from "./feedback";
+
+export type AssessmentConfidence = ViAssessStatus | "scored";
 
 export type PronunciationAttempt = {
   userId: string;
@@ -18,9 +14,13 @@ export type PronunciationAttempt = {
   expectedText: string;
   dialect: "southern" | "northern";
   attemptedAt: string;
+  /** Always null for Deepgram path — not a pronunciation score. */
   accuracyScore: number | null;
+  /** Always null for Deepgram path — not a pronunciation score. */
   overallScore: number | null;
   toneScore: number | null;
+  match: boolean | null;
+  recognizedText: string | null;
   status: AssessmentConfidence;
   bestPreviousOverall: number | null;
 };
@@ -33,6 +33,7 @@ export type ItemPronunciationSummary = {
   bestOverall: number | null;
   bestAccuracy: number | null;
   attemptCount: number;
+  matchCount: number;
   improvement: number | null;
 };
 
@@ -75,6 +76,8 @@ export function recordPronunciationAttempt(args: {
   accuracyScore: number | null;
   overallScore: number | null;
   toneScore?: number | null;
+  match?: boolean | null;
+  recognizedText?: string | null;
   status: AssessmentConfidence;
 }): PronunciationAttempt {
   const userId = args.userId ?? "local";
@@ -94,6 +97,8 @@ export function recordPronunciationAttempt(args: {
     accuracyScore: args.accuracyScore,
     overallScore: args.overallScore,
     toneScore: args.toneScore ?? null,
+    match: args.match ?? null,
+    recognizedText: args.recognizedText ?? null,
     status: args.status,
     bestPreviousOverall,
   };
@@ -119,6 +124,7 @@ export function summarizeItem(
   const accuracies = attempts
     .map((a) => a.accuracyScore)
     .filter((n): n is number => typeof n === "number");
+  const matchCount = attempts.filter((a) => a.match === true).length;
   const bestOverall = overalls.length ? Math.max(...overalls) : null;
   const bestAccuracy = accuracies.length ? Math.max(...accuracies) : null;
   const first = overalls[0] ?? null;
@@ -135,6 +141,7 @@ export function summarizeItem(
     bestOverall,
     bestAccuracy,
     attemptCount: attempts.length,
+    matchCount,
     improvement,
   };
 }

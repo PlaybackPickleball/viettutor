@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { requireIdentity } from "../../../../../cursor/identity";
 import { takeRateLimitToken } from "@/lib/services/simpleRateLimit";
 import {
-  callAzureVietnamesePronunciation,
-  isAzureAudioMime,
-  vietnamesePronunciationConfigured,
-} from "@/lib/vi/azureAssess";
-import { feedbackUnavailable, fromAzureVietnamese } from "@/lib/vi/feedback";
+  callDeepgramVietnameseListen,
+  deepgramConfigured,
+  isDeepgramAudioMime,
+} from "@/lib/vi/deepgramAssess";
+import { feedbackUnavailable, fromDeepgramTranscript } from "@/lib/vi/feedback";
 import { analyzeToneExperimental } from "@/lib/vi/toneExperimental";
 
 export const runtime = "nodejs";
@@ -19,10 +19,11 @@ export async function POST(request: Request) {
   if (identity instanceof Response) return identity;
 
   const viewerKey =
-    "userId" in identity && identity.userId
-      ? `vi-assess:${identity.userId}`
-      : "vi-assess:anon";
-  const limited = takeRateLimitToken(viewerKey, { limit: 30, windowMs: 60_000 });
+    identity.kind === "person" ? `u:${identity.userId}` : `k:${identity.idp.sub}`;
+  const limited = takeRateLimitToken(`vi-assess:${viewerKey}`, {
+    limit: 30,
+    windowMs: 60_000,
+  });
   if (!limited.ok) {
     return NextResponse.json(
       {
@@ -71,30 +72,33 @@ export async function POST(request: Request) {
 
   if (audioBase64.length > MAX_AUDIO_CHARS) {
     return NextResponse.json(
-      { ok: false, feedback: feedbackUnavailable("Recording is too long.") },
+      { ok: false, feedback: feedbackUnavailable("Recording is too long.", "unavailable", expected) },
       { status: 413, headers: { "cache-control": "private, no-store" } },
     );
   }
 
-  if (!vietnamesePronunciationConfigured()) {
+  if (!deepgramConfigured()) {
     return NextResponse.json(
       {
         ok: true,
         feedback: feedbackUnavailable(
-          "Azure Pronunciation Assessment for Vietnamese is not configured. Recording and playback still work — we will not invent a score.",
+          "Deepgram Vietnamese transcription is not configured. Recording and playback still work — we will not invent a score.",
+          "unavailable",
+          expected,
         ),
       },
       { headers: { "cache-control": "private, no-store" } },
     );
   }
 
-  if (!audioBase64 || !isAzureAudioMime(mime)) {
+  if (!audioBase64 || !isDeepgramAudioMime(mime)) {
     return NextResponse.json(
       {
         ok: true,
         feedback: feedbackUnavailable(
-          "Unable to assess reliably — this browser audio format is not supported for Azure scoring. Try another browser, or compare by ear.",
+          "Unable to assess reliably — this browser audio format is not supported. Try again after the take converts to WAV.",
           "format_unsupported",
+          expected,
         ),
       },
       { headers: { "cache-control": "private, no-store" } },
@@ -110,18 +114,20 @@ export async function POST(request: Request) {
           feedback: feedbackUnavailable(
             "Unable to assess reliably — that take was too short or silent.",
             "silence",
+            expected,
           ),
         },
         { headers: { "cache-control": "private, no-store" } },
       );
     }
 
-    const provider = await callAzureVietnamesePronunciation({
-      audio,
-      mime,
-      reference: expected,
+    const provider = await callDeepgramVietnameseListen({ audio, mime });
+    const feedback = fromDeepgramTranscript({
+      expected,
+      httpOk: provider.httpOk,
+      transcript: provider.transcript,
+      confidence: provider.confidence,
     });
-    const feedback = fromAzureVietnamese(provider.httpOk, provider.body);
     const tone = analyzeToneExperimental({
       expectedText: expected,
       dialect,
@@ -134,10 +140,6 @@ export async function POST(request: Request) {
           ...feedback,
           toneScore: tone.toneScore,
           toneStatus: tone.status === "not_validated" ? "not_validated" : "unavailable",
-          tip:
-            feedback.scoringAvailable
-              ? feedback.tip
-              : feedback.tip,
           experimentalLabel:
             feedback.experimentalLabel ??
             (tone.status === "not_validated" ? tone.experimentalLabel : undefined),
@@ -154,6 +156,7 @@ export async function POST(request: Request) {
         feedback: feedbackUnavailable(
           "Unable to assess reliably — please try again.",
           "unavailable",
+          expected,
         ),
       },
       { headers: { "cache-control": "private, no-store" } },

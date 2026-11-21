@@ -17,9 +17,8 @@ type Props = {
   /** When true, recording still works after the set — for unlimited practice. */
   allowExtraTakes?: boolean;
   expectedText?: string;
-  bestScore?: number | null;
-  latestScore?: number | null;
-  improvement?: number | null;
+  matchCount?: number | null;
+  attemptCount?: number | null;
   onScored: (result: ScoreResult) => void;
   onReplayLast?: () => void;
 };
@@ -33,9 +32,8 @@ export function MicRecorder({
   disabled,
   allowExtraTakes,
   expectedText,
-  bestScore,
-  latestScore,
-  improvement,
+  matchCount,
+  attemptCount,
   onScored,
   onReplayLast,
 }: Props) {
@@ -251,23 +249,32 @@ export function MicRecorder({
     void start();
   }
 
-  const cardFeedback: ViPronunciationFeedback | null =
-    result && (result.scoringAvailable || result.assessStatus)
-      ? {
-          status: (result.assessStatus as ViPronunciationFeedback["status"]) ||
-            (result.scoringAvailable ? "scored" : "unavailable"),
-          scoringAvailable: result.scoringAvailable,
-          suitableForAutoGrade: result.scoringAvailable,
-          overallScore: result.quality,
-          accuracyScore: result.accuracyScore ?? null,
-          fluencyScore: null,
-          recognizedText: null,
-          tip: result.tip,
-          experimentalLabel: result.experimentalLabel,
-          toneScore: null,
-          toneStatus: "not_validated",
-        }
-      : null;
+  const cardFeedback: ViPronunciationFeedback | null = result?.assessStatus
+    ? {
+        status: (result.assessStatus as ViPronunciationFeedback["status"]) || "unavailable",
+        provider: result.assessStatus === "unavailable" ? "none" : "deepgram",
+        scoringAvailable: false,
+        suitableForAutoGrade: result.assessStatus === "match",
+        overallScore: null,
+        accuracyScore: null,
+        fluencyScore: null,
+        expectedText: expectedText ?? grapheme,
+        recognizedText:
+          result.evidence?.startsWith("Heard: ")
+            ? result.evidence.replace(/^Heard:\s*/, "").replace(/\s·.*$/, "")
+            : null,
+        match:
+          result.assessStatus === "match"
+            ? true
+            : result.assessStatus === "mismatch"
+              ? false
+              : null,
+        tip: result.tip,
+        experimentalLabel: result.experimentalLabel,
+        toneScore: null,
+        toneStatus: "not_validated",
+      }
+    : null;
 
   return (
     <div className="flex flex-col gap-4">
@@ -355,9 +362,8 @@ export function MicRecorder({
           studentUrl={blobUrl}
           onPlayNative={onReplayLast}
           onTryAgain={practiceLocked ? undefined : tryAgain}
-          bestScore={bestScore}
-          latestScore={latestScore ?? result?.quality ?? null}
-          improvement={improvement}
+          matchCount={matchCount}
+          attemptCount={attemptCount}
         />
       ) : result ? (
         <FeedbackCue

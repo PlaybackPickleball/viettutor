@@ -28,7 +28,7 @@ Artifacts: `qa-reports/playwright-html/`, `qa-reports/test-results/` (screenshot
 
 ## Features not covered / manual
 
-- Real Azure vi-VN / en-US pronunciation accuracy (manual + native-speaker review)
+- Real Deepgram VI transcription match / en-US Azure phoneme accuracy (manual + native-speaker review)
 - True WebKit Safari binary (host deps) — iPhone viewport uses Chromium sizing
 - Scan OCR with live camera / Vision APIs
 - Supabase cloud sync (if configured)
@@ -44,7 +44,7 @@ Artifacts: `qa-reports/playwright-html/`, `qa-reports/test-results/` (screenshot
 
 ## Remaining issues
 
-- Bind `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` for live pronunciation scoring validation.
+- Bind `DEEPGRAM_API_KEY` for live VI transcription match; keep Azure keys for English phoneme assess only.
 - Native-speaker review of Azure score reasonableness (Phase 5 of pronunciation brief).
 - Optional: install Playwright WebKit system deps for true Safari engine runs.
 

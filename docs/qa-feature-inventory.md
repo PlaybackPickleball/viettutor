@@ -41,7 +41,7 @@ Presence of code ≠ proven behavior — journeys must execute. Full agent resea
 |--------|------|-------|
 | POST | `/api/tts` | VI TTS; identity + rate limit |
 | POST | `/api/analyze-image`, `/api/analyze-text` | Scan/tutor AI |
-| GET/POST | `/api/vi/status`, `/api/vi/assess` | Azure vi-VN; tone not validated |
+| GET/POST | `/api/vi/status`, `/api/vi/assess` | Deepgram VI transcription match; tone not validated |
 | GET/POST | `/api/english/status`, `/assess`, `/teacher`, `/translate` | Status requires identity; rate limits per viewer |
 | * | `/api/sing/*` | Stream, lyrics, karaoke doc, align, media, dev-seed |
 

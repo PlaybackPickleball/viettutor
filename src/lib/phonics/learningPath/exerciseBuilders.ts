@@ -189,7 +189,7 @@ export function speakCompare(args: {
     targetWritten: args.written,
     targetGlossEn: args.glossEn,
     hintEn:
-      "Listen to the reference, record yourself, then replay both. Azure vi-VN scores when configured — never invented.",
+      "Listen to the reference, record yourself, then replay both. Deepgram match when configured — never a fake pronunciation score.",
     skillIds: args.skillIds,
   };
 }

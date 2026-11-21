@@ -1,8 +1,8 @@
 import type { SpeechAssessmentRequest, SpeechAssessmentResult } from "./types";
 
 /**
- * Modular pronunciation assessment (server or client without audio upload).
- * Prefer /api/vi/assess from the browser when a recording blob is available.
+ * Modular speech assessment (server or client without audio upload).
+ * Prefer /api/vi/assess (Deepgram transcription match) when a recording blob is available.
  * Never invents phoneme/tone/accuracy scores.
  */
 export async function assessPronunciation(
@@ -17,16 +17,15 @@ export async function assessPronunciation(
     };
   }
 
-  const azureKey = process.env.AZURE_SPEECH_KEY;
-  const azureRegion = process.env.AZURE_SPEECH_REGION;
+  const deepgramKey = process.env.DEEPGRAM_API_KEY;
 
-  if (azureKey && azureRegion && typeof window === "undefined") {
+  if (deepgramKey && typeof window === "undefined") {
     return {
-      provider: "azure",
+      provider: "unavailable",
       scoringAvailable: false,
       suitableForAutoGrade: false,
       practiceTip:
-        "Azure Speech is configured on the server. Submit a recording through /api/vi/assess for vi-VN Pronunciation Assessment scores.",
+        "Deepgram is configured on the server. Submit a recording through /api/vi/assess for Vietnamese transcription match (not a pronunciation score).",
       experimentalLabel: "Use assess API with audio",
     };
   }
@@ -36,7 +35,7 @@ export async function assessPronunciation(
     scoringAvailable: false,
     suitableForAutoGrade: false,
     practiceTip:
-      "Listen to the reference, compare your recording, and try again. Automatic scoring needs Azure Speech (vi-VN) — we will not invent a score.",
+      "Listen to the reference, compare your recording, and try again. Automatic checks need Deepgram transcription — we will not invent a pronunciation score.",
     experimentalLabel: "Scoring unavailable",
   };
 }

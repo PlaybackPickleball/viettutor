@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { vietnamesePronunciationConfigured } from "@/lib/vi/azureAssess";
+import { deepgramConfigured } from "@/lib/vi/deepgramAssess";
 
 export const runtime = "nodejs";
 
@@ -7,9 +7,13 @@ export const runtime = "nodejs";
 export async function GET() {
   return NextResponse.json(
     {
-      pronunciation: vietnamesePronunciationConfigured(),
-      locale: "vi-VN",
+      pronunciation: deepgramConfigured(),
+      provider: "deepgram",
+      mode: "transcription_match",
+      locale: "vi",
       dialectDefault: "southern",
+      /** Numerical pronunciation / tone scores are not claimed. */
+      scoringAvailable: false,
       toneScoringValidated: false,
     },
     { headers: { "cache-control": "private, no-store" } },

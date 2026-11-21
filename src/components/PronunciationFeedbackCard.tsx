@@ -8,14 +8,13 @@ type Props = {
   studentUrl?: string | null;
   onPlayNative?: () => void;
   onTryAgain?: () => void;
-  bestScore?: number | null;
-  latestScore?: number | null;
-  improvement?: number | null;
+  /** Match streak helpers — not numerical pronunciation scores. */
+  matchCount?: number | null;
+  attemptCount?: number | null;
 };
 
 /**
- * Phase 3 feedback card — overall score only when the provider returned one.
- * Tone numerical scores stay hidden until validation.
+ * Transcription match card — never shows invented pronunciation/tone scores.
  */
 export function PronunciationFeedbackCard({
   feedback,
@@ -23,56 +22,67 @@ export function PronunciationFeedbackCard({
   studentUrl,
   onPlayNative,
   onTryAgain,
-  bestScore,
-  latestScore,
-  improvement,
+  matchCount,
+  attemptCount,
 }: Props) {
-  const scored =
-    feedback.scoringAvailable &&
-    feedback.status === "scored" &&
-    (feedback.overallScore != null || feedback.accuracyScore != null);
-  const displayScore = feedback.overallScore ?? feedback.accuracyScore;
+  const decided = feedback.match === true || feedback.match === false;
 
   return (
     <div className="ami-card animate-riseIn px-4 py-4" role="status">
       <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="quiet-label">Pronunciation</span>
-        {!scored ? (
-          <span className="rounded-md bg-ink/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-ink/60">
-            {feedback.experimentalLabel ?? "Unable to assess"}
+        <span className="quiet-label">Speech check</span>
+        <span className="rounded-md bg-ink/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-ink/60">
+          {feedback.experimentalLabel ?? "Deepgram transcription"}
+        </span>
+        {decided ? (
+          <span
+            className={`ml-auto font-display text-xl ${
+              feedback.match ? "text-emerald-700" : "text-coral"
+            }`}
+          >
+            {feedback.match ? "Match" : "No match"}
           </span>
-        ) : null}
-        {scored && displayScore != null ? (
-          <span className="ml-auto font-display text-2xl text-coral">{displayScore}</span>
         ) : null}
       </div>
 
-      {scored ? (
-        <div className="mb-3 flex flex-wrap gap-3 text-xs text-ink/55">
-          {feedback.accuracyScore != null ? (
-            <span>Accuracy {feedback.accuracyScore}</span>
+      {feedback.expectedText || feedback.recognizedText ? (
+        <div className="mb-3 space-y-1 text-sm text-ink/70">
+          {feedback.expectedText ? (
+            <p>
+              Expected:{" "}
+              <span className="font-hand text-2xl text-ink" lang="vi">
+                {feedback.expectedText}
+              </span>
+            </p>
           ) : null}
-          {latestScore != null ? <span>Latest {latestScore}</span> : null}
-          {bestScore != null ? <span>Best {bestScore}</span> : null}
-          {improvement != null && improvement !== 0 ? (
-            <span>
-              {improvement > 0 ? `+${improvement}` : improvement} vs first scored take
-            </span>
-          ) : null}
+          {feedback.recognizedText ? (
+            <p>
+              Heard:{" "}
+              <span className="font-hand text-2xl text-ink" lang="vi">
+                {feedback.recognizedText}
+              </span>
+            </p>
+          ) : (
+            <p className="text-ink/45">Heard: —</p>
+          )}
         </div>
       ) : null}
 
-      <p className="text-base leading-relaxed text-ink">
-        {scored
-          ? feedback.tip
-          : feedback.tip || "Unable to assess reliably — please try again."}
-      </p>
-
-      {feedback.toneStatus === "not_validated" ? (
-        <p className="mt-2 text-xs text-ink/45">
-          Tone feedback is experimental and not shown as a score yet.
+      {attemptCount != null ? (
+        <p className="mb-2 text-xs text-ink/45">
+          Takes {attemptCount}
+          {matchCount != null ? ` · matches ${matchCount}` : ""}
         </p>
       ) : null}
+
+      <p className="text-base leading-relaxed text-ink">
+        {feedback.tip || "Unable to assess reliably — please try again."}
+      </p>
+
+      <p className="mt-2 text-xs text-ink/45">
+        This is a transcription match check, not a pronunciation accuracy score. Tone scores stay
+        off until a specialized model is validated.
+      </p>
 
       <div className="mt-4 space-y-3">
         {onPlayNative || nativeUrl ? (

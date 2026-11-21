@@ -183,7 +183,7 @@ export function ProgressClient() {
 
       <p className="mt-6 text-xs text-ink/40">
         Progress saves on this device. Tone accuracy % and AI pronunciation grades stay off until
-        Azure (or another validated scorer) is wired.
+        Deepgram match (or another validated scorer) is wired.
       </p>
     </div>
   );

@@ -13,7 +13,7 @@ export type ScoreRequest = {
   durationMs: number;
   /** Attempt index for this letter (0-based) */
   attemptIndex: number;
-  /** Optional student take for Azure vi-VN assessment (client → /api/vi/assess). */
+  /** Optional student take for Deepgram VI transcription match (client → /api/vi/assess). */
   audioBlob?: Blob | null;
   mime?: string | null;
   /** Reference text override; defaults to grapheme. */
@@ -27,7 +27,7 @@ export type ScoreResult = {
    * Honest compare/replay sets this false.
    */
   simulated: boolean;
-  /** False until Azure / validated acoustics are wired. */
+  /** False for VI Deepgram match — never invent pronunciation accuracy %. */
   scoringAvailable: boolean;
   dimension: ErrorDimension;
   /** Plain-language teacher cue — one primary tip */
@@ -39,7 +39,7 @@ export type ScoreResult = {
   passed: boolean;
   /** 0–100 only when scoringAvailable; otherwise null */
   quality: number | null;
-  /** Provider AccuracyScore when Azure returns it. */
+  /** Provider accuracy when a validated scorer returns it (English Azure only today). */
   accuracyScore?: number | null;
   /** Optional light evidence note */
   evidence?: string;
