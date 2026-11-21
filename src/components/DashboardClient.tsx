@@ -15,6 +15,7 @@ import {
 } from "@/lib/journey";
 import { loadProgress } from "@/lib/progress";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { masteryDueCount, pullMasteryFromServer } from "@/lib/vocabulary/mastery";
 
 type HomeStats = {
   streakDays: number;
@@ -29,15 +30,18 @@ export function DashboardClient() {
   const [nextLesson, setNextLesson] = useState<{ title: string; href: string } | null>(null);
   const [daily, setDaily] = useState<DailyJourneyPlan | null>(null);
   const [speakHref, setSpeakHref] = useState("/studio/a/say");
+  const [vocabDue, setVocabDue] = useState(0);
   usePracticeClock(true);
 
   useEffect(() => {
+    void pullMasteryFromServer().then(() => setVocabDue(masteryDueCount()));
     const refresh = () => {
       const target = resolveContinueLearning();
       setContinueTarget(target);
       setStats(journeyHomeStats());
       setNextLesson(nextLessonPreview(target));
       setDaily(assembleDailyJourney());
+      setVocabDue(masteryDueCount());
       const letter = loadProgress().currentLetterId || "a";
       setSpeakHref(`/studio/${letter}/say`);
     };
@@ -73,6 +77,23 @@ export function DashboardClient() {
           <p className="mt-1 text-ink/55">Your Vietnamese learning dashboard</p>
         </div>
       </header>
+
+      {vocabDue > 0 ? (
+        <section className="ami-card relative mt-2 overflow-hidden px-4 py-5" aria-labelledby="vocab-review-heading">
+          <p className="quiet-label" id="vocab-review-heading">
+            Daily Review
+          </p>
+          <p className="mt-1 font-display text-2xl text-ink">
+            {vocabDue} word{vocabDue === 1 ? "" : "s"} due
+          </p>
+          <p className="mt-1 text-sm text-ink/65">
+            Spaced vocabulary — Listen & Type and image recall.
+          </p>
+          <Link href="/vocab/pack/review" className="teacher-btn-primary mt-5 w-full sm:w-auto">
+            Start Daily Review
+          </Link>
+        </section>
+      ) : null}
 
       <section className="ami-card relative mt-2 overflow-hidden px-4 py-5" aria-labelledby="continue-heading">
         <p className="quiet-label" id="continue-heading">

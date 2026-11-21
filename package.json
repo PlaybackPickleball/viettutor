@@ -5,7 +5,7 @@
   "description": "ÁMi Lingua — AI Vietnamese Learning Studio (Level 1 MVP)",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && node scripts/migrate.mjs",
     "start": "next start",
     "lint": "tsc --noEmit",
     "test": "vitest run",
@@ -16,8 +16,10 @@
     "test:qa:report": "node scripts/qa-report.mjs"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.17",
     "@supabase/supabase-js": "^2.119.0",
     "next": "^16.4.6",
+    "pg": "^8.23.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tesseract.js": "^7.0.0"
@@ -26,6 +28,7 @@
     "@eslint/eslintrc": "^3",
     "@playwright/test": "^1.65.1",
     "@types/node": "^20",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
