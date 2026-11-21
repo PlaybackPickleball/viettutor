@@ -67,3 +67,7 @@ public/sing/private/
 !data/sing/masters/ngay-mai-nguoi-ta-lay-chong.mp3
 !data/sing/masters/hat-mua-vuong-van.mp3
 !data/sing/masters/xin-chao-moi-ngay.wav
+# VLA-110 First-100 vocab clips — pending Nicola audio approval
+# before enabling VOCAB_PACK_AUDIO_ENABLED / publishing as verified native.
+!public/audio/vi/vocabulary/*.mp3
+!public/audio/vi/vocabulary/source/*.mp3

@@ -13,6 +13,7 @@ import {
   loadPackProgress,
   packImageUrl,
   packLessonWordIds,
+  vocabNativePathForWord,
 } from "@/lib/vocabulary";
 import {
   buildLessonQuiz,
@@ -174,7 +175,7 @@ export function VocabQuizClient({ lessonId }: Props) {
             type="button"
             className="teacher-btn-secondary"
             onClick={() => {
-              void speakVietnamese(word.vi);
+              void speakVietnamese(word.vi, { nativePath: vocabNativePathForWord(word) });
             }}
           >
             Play audio

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess";
 import { speakVietnamese } from "@/lib/audio";
-import { packImageUrl, type PackWord } from "@/lib/vocabulary";
+import { packImageUrl, vocabNativePathForWord, type PackWord } from "@/lib/vocabulary";
 
 type Props = {
   word: PackWord;
@@ -84,7 +84,9 @@ export function VocabFlashcard({
         <button
           type="button"
           className="teacher-btn-secondary px-4 py-2 text-sm"
-          onClick={() => void speakVietnamese(word.vi)}
+          onClick={() =>
+            void speakVietnamese(word.vi, { nativePath: vocabNativePathForWord(word) })
+          }
         >
           Hear
         </button>
@@ -95,7 +97,9 @@ export function VocabFlashcard({
           <SpeakCompareAssess
             itemId={`pack-${word.id}`}
             expectedText={word.vi}
-            onPlayNative={() => void speakVietnamese(word.vi)}
+            onPlayNative={() =>
+              void speakVietnamese(word.vi, { nativePath: vocabNativePathForWord(word) })
+            }
             onPracticed={onSpoken}
           />
         </div>
