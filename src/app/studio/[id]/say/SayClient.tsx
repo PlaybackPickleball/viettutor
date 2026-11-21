@@ -101,7 +101,7 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
       letterId={letter.id}
       grapheme={letter.grapheme}
       step="say"
-      caption={`Finish ${SAY_TARGET_REPS} listen→record→compare cycles. Azure vi-VN scores when configured — never invented.`}
+      caption={`Finish ${SAY_TARGET_REPS} listen→record→compare cycles. Deepgram match when configured — never a fake pronunciation score.`}
       progressTick={tick}
     >
       {justEarned ? <CelebrateBanner message={praiseForStep("say", letter.order)} /> : null}
@@ -153,8 +153,6 @@ export function SayClient({ letter }: { letter: LetterLesson }) {
         takeTotal={SAY_TARGET_REPS}
         disabled={setDone}
         allowExtraTakes={setDone}
-        bestScore={letterProg?.sayBestScore ?? null}
-        latestScore={letterProg?.sayLatestScore ?? null}
         onScored={onScored}
         onReplayLast={replayTeacher}
       />

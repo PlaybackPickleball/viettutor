@@ -1,146 +1,153 @@
 /**
- * Vietnamese pronunciation feedback from Azure only.
- * Never invents accuracy / overall / tone scores.
+ * Vietnamese speech feedback from Deepgram transcription vs expected text.
+ * Never invents pronunciation / tone / accuracy numerical scores.
+ * Transcription confidence is never presented as pronunciation accuracy.
  */
 
 export type ViAssessStatus =
-  | "scored"
+  | "match"
+  | "mismatch"
   | "unavailable"
   | "silence"
   | "noise"
   | "recognition_failed"
-  | "format_unsupported";
+  | "format_unsupported"
+  | "low_confidence";
 
 export type ViPronunciationFeedback = {
   status: ViAssessStatus;
-  scoringAvailable: boolean;
+  provider: "deepgram" | "none";
+  /** Always false — we do not claim pronunciation accuracy scores. */
+  scoringAvailable: false;
   suitableForAutoGrade: boolean;
-  /** Provider PronScore 0–100 when present. */
-  overallScore: number | null;
-  /** Provider AccuracyScore 0–100 when present. */
-  accuracyScore: number | null;
-  fluencyScore: number | null;
+  /** Always null — not a pronunciation score. */
+  overallScore: null;
+  /** Always null — not a pronunciation score. */
+  accuracyScore: null;
+  fluencyScore: null;
+  /** Exact expected reference (diacritics preserved). */
+  expectedText: string | null;
   recognizedText: string | null;
+  /** Word match after NFC + Vietnamese lowercasing (diacritics kept). */
+  match: boolean | null;
   tip: string;
   experimentalLabel?: string;
-  /** Phase 2 — always null until tone model is validated. */
-  toneScore: number | null;
+  /** Always null until a specialized tone model is validated. */
+  toneScore: null;
   toneStatus: "not_validated" | "unavailable";
 };
 
-function asNumber(value: unknown): number | null {
-  return typeof value === "number" && Number.isFinite(value) ? Math.round(value) : null;
+/** NFC + vi locale lower — keeps tone marks; strips outer whitespace. */
+export function normalizeViWord(raw: string): string {
+  return raw.normalize("NFC").trim().toLocaleLowerCase("vi");
 }
 
-function clampScore(n: number | null): number | null {
-  if (n == null) return null;
-  return Math.max(0, Math.min(100, n));
+/** First whitespace-separated token (Deepgram may return a short phrase). */
+export function primaryViToken(raw: string): string {
+  const normalized = normalizeViWord(raw);
+  if (!normalized) return "";
+  return normalized.split(/\s+/)[0] ?? "";
 }
 
-type AzureNBest = {
-  Display?: string;
-  PronunciationAssessment?: {
-    AccuracyScore?: number;
-    FluencyScore?: number;
-    CompletenessScore?: number;
-    PronScore?: number;
-  };
-};
-
-type AzureBody = {
-  RecognitionStatus?: string;
-  DisplayText?: string;
-  NBest?: AzureNBest[];
-};
+export function wordsMatch(expected: string, recognized: string): boolean {
+  const a = primaryViToken(expected);
+  const b = primaryViToken(recognized);
+  if (!a || !b) return false;
+  return a === b;
+}
 
 export function feedbackUnavailable(
   tip: string,
   status: ViAssessStatus = "unavailable",
+  expectedText: string | null = null,
 ): ViPronunciationFeedback {
   return {
     status,
+    provider: "none",
     scoringAvailable: false,
     suitableForAutoGrade: false,
     overallScore: null,
     accuracyScore: null,
     fluencyScore: null,
+    expectedText,
     recognizedText: null,
+    match: null,
     tip,
-    experimentalLabel: "Scoring unavailable",
+    experimentalLabel: "Transcription unavailable",
     toneScore: null,
     toneStatus: "not_validated",
   };
 }
 
-export function tipFromScores(overall: number | null, accuracy: number | null): string {
-  const score = overall ?? accuracy;
-  if (score == null) {
-    return "Unable to assess reliably — please try again.";
+export function tipFromMatch(matched: boolean, expected: string, recognized: string): string {
+  if (matched) {
+    return `Match — heard “${recognized}” for “${expected}”. Listen once more to lock the tone.`;
   }
-  if (score >= 80) {
-    return "Good pronunciation! Listen once more and keep that mouth shape.";
-  }
-  if (score >= 60) {
-    return "Fairly clear — listen to the native take, then match the vowel length.";
-  }
-  return "Keep practicing — listen to the native recording, then try again slowly.";
+  return `No match — expected “${expected}”, heard “${recognized}”. Play the native take, then try again.`;
 }
 
 /**
- * Parse Azure pronunciation-assessment JSON for vi-VN.
- * If the body has no provider score, do not invent one.
+ * Build feedback from a Deepgram transcript.
+ * Low confidence → unreliable (no match claim). Confidence is never a score.
  */
-export function fromAzureVietnamese(
-  httpOk: boolean,
-  body: unknown,
-): ViPronunciationFeedback {
-  if (!httpOk || !body || typeof body !== "object") {
+export function fromDeepgramTranscript(args: {
+  expected: string;
+  httpOk: boolean;
+  transcript: string | null;
+  confidence: number | null;
+}): ViPronunciationFeedback {
+  const expected = args.expected.trim();
+  if (!args.httpOk) {
     return feedbackUnavailable(
       "Unable to assess reliably — the speech service did not return a result.",
       "unavailable",
+      expected,
     );
   }
 
-  const payload = body as AzureBody;
-  const status = payload.RecognitionStatus;
-  if (status === "InitialSilenceTimeout" || status === "BabbleTimeout") {
+  const recognized = args.transcript?.trim() || null;
+  if (!recognized) {
     return feedbackUnavailable(
-      "Unable to assess reliably — that take was too quiet or noisy. Try again in a quieter place.",
-      status === "InitialSilenceTimeout" ? "silence" : "noise",
-    );
-  }
-  if (status !== "Success") {
-    return feedbackUnavailable(
-      "Unable to assess reliably — please try again.",
-      "recognition_failed",
+      "Unable to assess reliably — that take was too quiet or unclear. Try again.",
+      "silence",
+      expected,
     );
   }
 
-  const best = payload.NBest?.[0];
-  const assessment = best?.PronunciationAssessment;
-  const overallScore = clampScore(
-    asNumber(assessment?.PronScore) ?? asNumber(assessment?.AccuracyScore),
-  );
-  const accuracyScore = clampScore(asNumber(assessment?.AccuracyScore));
-  const fluencyScore = clampScore(asNumber(assessment?.FluencyScore));
-  const recognizedText = (best?.Display || payload.DisplayText || "").trim() || null;
-
-  if (overallScore == null && accuracyScore == null) {
-    return feedbackUnavailable(
-      "Unable to assess reliably — the service returned no score. We will not invent one.",
-      "unavailable",
-    );
+  // Gate only: do not show confidence as accuracy. Very low → withhold match.
+  if (args.confidence != null && args.confidence < 0.35) {
+    return {
+      status: "low_confidence",
+      provider: "deepgram",
+      scoringAvailable: false,
+      suitableForAutoGrade: false,
+      overallScore: null,
+      accuracyScore: null,
+      fluencyScore: null,
+      expectedText: expected,
+      recognizedText: recognized,
+      match: null,
+      tip: "Unable to assess reliably — please try again (clearer, closer to the mic).",
+      experimentalLabel: "Low transcription confidence (not a pronunciation score)",
+      toneScore: null,
+      toneStatus: "not_validated",
+    };
   }
 
+  const matched = wordsMatch(expected, recognized);
   return {
-    status: "scored",
-    scoringAvailable: true,
-    suitableForAutoGrade: true,
-    overallScore: overallScore ?? accuracyScore,
-    accuracyScore,
-    fluencyScore,
-    recognizedText,
-    tip: tipFromScores(overallScore, accuracyScore),
+    status: matched ? "match" : "mismatch",
+    provider: "deepgram",
+    scoringAvailable: false,
+    suitableForAutoGrade: matched,
+    overallScore: null,
+    accuracyScore: null,
+    fluencyScore: null,
+    expectedText: expected,
+    recognizedText: primaryViToken(recognized) || recognized,
+    match: matched,
+    tip: tipFromMatch(matched, primaryViToken(expected) || expected, primaryViToken(recognized) || recognized),
+    experimentalLabel: "Deepgram transcription match (not a pronunciation score)",
     toneScore: null,
     toneStatus: "not_validated",
   };

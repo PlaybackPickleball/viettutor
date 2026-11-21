@@ -17,7 +17,7 @@ export type LetterProgress = {
   sayQualities: number[];
   /** Average after completing SAY_TARGET_REPS */
   sayAverage: number | null;
-  /** Latest Azure (or provider) overall score — null when unscored. */
+  /** Latest provider overall score when claimed — null for VI Deepgram match path. */
   sayLatestScore: number | null;
   /** Best provider overall score for this letter — null when none scored. */
   sayBestScore: number | null;

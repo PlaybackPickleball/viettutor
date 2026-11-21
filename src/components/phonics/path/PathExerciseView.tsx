@@ -207,7 +207,7 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
             onPracticed={() => {
               if (!solved) {
                 finishUngraded(
-                  "Practice saved — Azure score when configured; otherwise compare by ear.",
+                  "Practice saved — Deepgram match when configured; otherwise compare by ear.",
                 );
               }
             }}

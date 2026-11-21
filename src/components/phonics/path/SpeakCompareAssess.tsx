@@ -20,7 +20,7 @@ type Props = {
 };
 
 /**
- * Path speak-compare: record → Azure vi-VN when configured → feedback card.
+ * Path speak-compare: record → Deepgram VI transcription match → feedback card.
  * Retries do not invent scores; tone stays unvalidated.
  */
 export function SpeakCompareAssess({
@@ -127,9 +127,11 @@ export function SpeakCompareAssess({
         itemId,
         expectedText,
         dialect: "southern",
-        accuracyScore: result.accuracyScore,
-        overallScore: result.overallScore,
-        toneScore: result.toneScore,
+        accuracyScore: null,
+        overallScore: null,
+        toneScore: null,
+        match: result.match,
+        recognizedText: result.recognizedText,
         status: result.status,
       });
       setFeedback(result);
@@ -215,7 +217,7 @@ export function SpeakCompareAssess({
       ) : null}
 
       {scoring ? (
-        <p className="text-center text-sm text-ink/55">Checking pronunciation…</p>
+        <p className="text-center text-sm text-ink/55">Checking transcription…</p>
       ) : null}
 
       {error ? <p className="text-center text-sm text-coral">{error}</p> : null}
@@ -226,14 +228,14 @@ export function SpeakCompareAssess({
           studentUrl={blobUrl}
           onPlayNative={onPlayNative}
           onTryAgain={() => void start()}
-          bestScore={summary.bestOverall}
-          latestScore={summary.latest?.overallScore ?? null}
-          improvement={summary.improvement}
+          matchCount={summary.matchCount}
+          attemptCount={summary.attemptCount}
         />
       ) : (
         <p className="text-xs text-ink/45">
-          Scores come from Azure Pronunciation Assessment (vi-VN) when configured. We never invent
-          a score. Tone feedback stays experimental until validated.
+          Deepgram compares what it heard to the expected word (diacritics kept). That is a
+          transcription match — not a pronunciation accuracy score. Tone scores stay off until a
+          specialized model is validated.
         </p>
       )}
     </div>

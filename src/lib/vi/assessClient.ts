@@ -7,7 +7,7 @@ export type ViAssessClientResult = ViPronunciationFeedback & {
   dialect?: "southern" | "northern";
 };
 
-async function pronunciationConfigured(): Promise<boolean> {
+async function deepgramReady(): Promise<boolean> {
   try {
     const res = await fetch("/api/vi/status", { cache: "no-store" });
     if (!res.ok) return false;
@@ -19,8 +19,8 @@ async function pronunciationConfigured(): Promise<boolean> {
 }
 
 /**
- * Client helper: re-encode to WAV when needed, POST to backend assess.
- * Never invents scores — unavailable paths return null quality feedback.
+ * Client helper: re-encode to WAV when needed, POST to backend Deepgram assess.
+ * Never invents pronunciation scores — returns match / no-match only.
  */
 export async function assessVietnamesePronunciation(args: {
   expected: string;
@@ -29,33 +29,40 @@ export async function assessVietnamesePronunciation(args: {
   itemId?: string;
   dialect?: "southern" | "northern";
 }): Promise<ViAssessClientResult> {
-  const configured = await pronunciationConfigured();
+  const configured = await deepgramReady();
   if (!configured) {
     return feedbackUnavailable(
-      "Azure Pronunciation Assessment for Vietnamese is not configured. Recording and playback still work — we will not invent a score.",
+      "Deepgram Vietnamese transcription is not configured. Recording and playback still work — we will not invent a score.",
+      "unavailable",
+      args.expected,
     );
   }
 
   let mime = args.mime;
   let audio = args.audio;
   const lower = mime.toLowerCase();
-  const azureReady =
+  const ready =
     lower.includes("audio/wav") ||
     lower.includes("audio/wave") ||
     lower.includes("audio/ogg") ||
     lower.includes("audio/opus") ||
     lower.includes("audio/mpeg") ||
-    lower.includes("audio/mp3");
+    lower.includes("audio/mp3") ||
+    lower.includes("audio/webm") ||
+    lower.includes("audio/mp4");
 
-  if (!azureReady) {
+  if (!ready || lower.includes("audio/webm") || lower.includes("audio/mp4")) {
     try {
       audio = await blobToWavBlob(args.audio);
       mime = "audio/wav";
     } catch {
-      return feedbackUnavailable(
-        "Unable to assess reliably — this browser audio format could not be converted for scoring. Compare by ear, then try again.",
-        "format_unsupported",
-      );
+      if (!ready) {
+        return feedbackUnavailable(
+          "Unable to assess reliably — this browser audio format could not be converted. Compare by ear, then try again.",
+          "format_unsupported",
+          args.expected,
+        );
+      }
     }
   }
 
@@ -75,12 +82,15 @@ export async function assessVietnamesePronunciation(args: {
     if (res.status === 429) {
       return feedbackUnavailable(
         "Too many assessment attempts — wait a moment, then try again.",
+        "unavailable",
+        args.expected,
       );
     }
     if (!res.ok) {
       return feedbackUnavailable(
         "Unable to assess reliably — please try again.",
         "unavailable",
+        args.expected,
       );
     }
     const data = (await res.json()) as {
@@ -91,6 +101,7 @@ export async function assessVietnamesePronunciation(args: {
       return feedbackUnavailable(
         "Unable to assess reliably — please try again.",
         "unavailable",
+        args.expected,
       );
     }
     return data.feedback;
@@ -98,6 +109,7 @@ export async function assessVietnamesePronunciation(args: {
     return feedbackUnavailable(
       "Unable to assess reliably — please try again.",
       "unavailable",
+      args.expected,
     );
   }
 }

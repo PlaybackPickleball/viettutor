@@ -1,64 +1,82 @@
 import { describe, expect, it } from "vitest";
 import {
-  feedbackUnavailable,
-  fromAzureVietnamese,
-  tipFromScores,
+  fromDeepgramTranscript,
+  normalizeViWord,
+  primaryViToken,
+  tipFromMatch,
+  wordsMatch,
 } from "./feedback";
 import { analyzeToneExperimental } from "./toneExperimental";
+import { BA_TONE_SET } from "./baTones";
 
-describe("Vietnamese pronunciation feedback", () => {
-  it("never invents scores when Azure fails", () => {
-    const missing = fromAzureVietnamese(false, null);
-    expect(missing.scoringAvailable).toBe(false);
-    expect(missing.overallScore).toBeNull();
-    expect(missing.accuracyScore).toBeNull();
-    expect(missing.toneScore).toBeNull();
-    expect(missing.tip).toMatch(/Unable to assess reliably/i);
-
-    const silence = fromAzureVietnamese(true, {
-      RecognitionStatus: "InitialSilenceTimeout",
-    });
-    expect(silence.status).toBe("silence");
-    expect(silence.overallScore).toBeNull();
-
-    const noise = fromAzureVietnamese(true, { RecognitionStatus: "BabbleTimeout" });
-    expect(noise.status).toBe("noise");
-    expect(noise.overallScore).toBeNull();
+describe("Vietnamese Deepgram match feedback", () => {
+  it("preserves diacritics when normalizing and matching", () => {
+    expect(normalizeViWord("  Bá ")).toBe("bá");
+    expect(wordsMatch("bá", "Bá")).toBe(true);
+    expect(wordsMatch("ba", "bà")).toBe(false);
+    expect(wordsMatch("bả", "bã")).toBe(false);
+    expect(primaryViToken("bá nhé")).toBe("bá");
   });
 
-  it("copies provider PronScore and AccuracyScore only when present", () => {
-    const scored = fromAzureVietnamese(true, {
-      RecognitionStatus: "Success",
-      DisplayText: "ba",
-      NBest: [
-        {
-          Display: "ba",
-          PronunciationAssessment: {
-            PronScore: 82,
-            AccuracyScore: 79,
-            FluencyScore: 85,
-          },
-        },
-      ],
-    });
-    expect(scored.status).toBe("scored");
-    expect(scored.scoringAvailable).toBe(true);
-    expect(scored.overallScore).toBe(82);
-    expect(scored.accuracyScore).toBe(79);
-    expect(scored.fluencyScore).toBe(85);
-    expect(scored.recognizedText).toBe("ba");
-    expect(scored.toneScore).toBeNull();
-    expect(scored.toneStatus).toBe("not_validated");
+  it("treats the six ba-tone spellings as pairwise distinct", () => {
+    for (let i = 0; i < BA_TONE_SET.length; i++) {
+      for (let j = 0; j < BA_TONE_SET.length; j++) {
+        const a = BA_TONE_SET[i]!.written;
+        const b = BA_TONE_SET[j]!.written;
+        expect(wordsMatch(a, b), `${a} vs ${b}`).toBe(i === j);
+      }
+    }
   });
 
-  it("withholds a score when Success has no PronunciationAssessment numbers", () => {
-    const empty = fromAzureVietnamese(true, {
-      RecognitionStatus: "Success",
-      NBest: [{ Display: "ba" }],
+  it("never invents numerical pronunciation scores from a transcript", () => {
+    const matched = fromDeepgramTranscript({
+      expected: "bá",
+      httpOk: true,
+      transcript: "bá",
+      confidence: 0.92,
     });
-    expect(empty.scoringAvailable).toBe(false);
-    expect(empty.overallScore).toBeNull();
-    expect(empty.tip).toMatch(/will not invent/i);
+    expect(matched.status).toBe("match");
+    expect(matched.match).toBe(true);
+    expect(matched.scoringAvailable).toBe(false);
+    expect(matched.overallScore).toBeNull();
+    expect(matched.accuracyScore).toBeNull();
+    expect(matched.toneScore).toBeNull();
+    expect(matched.tip).not.toMatch(/\b\d{1,3}\b/);
+
+    const miss = fromDeepgramTranscript({
+      expected: "ba",
+      httpOk: true,
+      transcript: "bà",
+      confidence: 0.88,
+    });
+    expect(miss.status).toBe("mismatch");
+    expect(miss.match).toBe(false);
+    expect(miss.overallScore).toBeNull();
+  });
+
+  it("withholds a match claim when confidence is very low (not a score)", () => {
+    const low = fromDeepgramTranscript({
+      expected: "ba",
+      httpOk: true,
+      transcript: "ba",
+      confidence: 0.2,
+    });
+    expect(low.status).toBe("low_confidence");
+    expect(low.match).toBeNull();
+    expect(low.scoringAvailable).toBe(false);
+    expect(low.tip).toMatch(/Unable to assess reliably/i);
+  });
+
+  it("handles silence / empty transcript without inventing a match", () => {
+    const empty = fromDeepgramTranscript({
+      expected: "ba",
+      httpOk: true,
+      transcript: null,
+      confidence: null,
+    });
+    expect(empty.status).toBe("silence");
+    expect(empty.match).toBeNull();
+    expect(empty.recognizedText).toBeNull();
   });
 
   it("keeps tone experimental until validated", () => {
@@ -70,10 +88,8 @@ describe("Vietnamese pronunciation feedback", () => {
     expect(tone.status).toBe("not_validated");
   });
 
-  it("builds tips from real scores only", () => {
-    expect(tipFromScores(null, null)).toMatch(/Unable to assess reliably/i);
-    expect(tipFromScores(85, 80)).toMatch(/Good pronunciation/i);
-    expect(tipFromScores(65, 60)).toMatch(/Fairly clear/i);
-    expect(feedbackUnavailable("x").experimentalLabel).toBe("Scoring unavailable");
+  it("builds tips from match only", () => {
+    expect(tipFromMatch(true, "ba", "ba")).toMatch(/Match/i);
+    expect(tipFromMatch(false, "ba", "bà")).toMatch(/No match/i);
   });
 });

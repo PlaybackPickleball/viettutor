@@ -169,7 +169,7 @@ export function buildProgressSummary(
       lettersWithSayPractice,
       saySetsFinished,
       phonicsAttempts,
-      note: "Compare/replay attempts only — no automatic accuracy score until Azure is validated.",
+      note: "Compare/replay attempts only — Deepgram match when configured; no invented pronunciation score.",
     },
   };
 }

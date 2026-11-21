@@ -35,13 +35,17 @@ test.describe("Journey C — Pronunciation (mocked provider)", () => {
     await demo.click();
     // Honest path: either unavailable label or a mocked score tip — never blank crash
     await expect(
-      page.getByText(/Scoring unavailable|Unable to assess|Good pronunciation|Compare by ear|practice/i).first(),
+      page
+        .getByText(
+          /Transcription unavailable|Unable to assess|Match|No match|Compare by ear|practice|Deepgram/i,
+        )
+        .first(),
     ).toBeVisible({ timeout: 15_000 });
   });
 });
 
 /**
  * Integration note (not run in routine CI):
- * Real Azure calls require AZURE_SPEECH_* and live audio.
- * Automated fixtures prove wiring + honest failure UX — not real-world scoring accuracy.
+ * Real Deepgram calls require DEEPGRAM_API_KEY and live/native audio.
+ * Automated fixtures prove wiring + match UX — not six-tone real-world reliability.
  */
