@@ -6,10 +6,12 @@ import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 type Props = {
   text: string;
   phoneticHint?: string;
+  /** Verified native file under /public when available; 404 → TTS placeholder. */
+  nativePath?: string | null;
   onListened?: () => void;
 };
 
-export function ListenControls({ text, phoneticHint, onListened }: Props) {
+export function ListenControls({ text, phoneticHint, nativePath, onListened }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,17 +19,19 @@ export function ListenControls({ text, phoneticHint, onListened }: Props) {
     setError(null);
     setBusy(true);
     try {
-      await Promise.race([
-        speakVietnamese(text, { slow, phoneticHint }),
-        new Promise<void>((_, reject) =>
-          setTimeout(() => reject(new Error("TTS timeout")), 4500),
-        ),
-      ]);
+      // Do not race the full playback against a short timeout — that used to
+      // call stopSpeaking() mid-utterance for 2-letter syllables / slower TTS.
+      await speakVietnamese(text, {
+        slow,
+        phoneticHint,
+        nativePath: nativePath ?? undefined,
+        preferNative: Boolean(nativePath),
+      });
       onListened?.();
     } catch {
       stopSpeaking();
       setError(
-        "Browser speech unavailable or timed out — continue anyway (TTS is a placeholder).",
+        "Audio unavailable right now — continue anyway (TTS is a placeholder until a native take ships).",
       );
       onListened?.();
     } finally {
@@ -59,8 +63,8 @@ export function ListenControls({ text, phoneticHint, onListened }: Props) {
         </button>
       </div>
       <p className="text-xs text-ink/40">
-        Natural Southern Vietnamese voice when AI TTS is available; otherwise browser speech —
-        is preferred when available.
+        Native Southern recording when verified; otherwise AI TTS or browser speech — never a silent
+        “verified” fake.
       </p>
       {error ? <p className="text-sm text-amber">{error}</p> : null}
     </div>
