@@ -41,6 +41,11 @@ export function packLessonWords(lesson: PackLesson): {
   };
 }
 
+/** All word ids in a lesson (new + review), stable order. */
+export function packLessonWordIds(lesson: PackLesson): string[] {
+  return [...lesson.newWordIds, ...lesson.reviewWordIds];
+}
+
 export function packWordCount(): number {
   return WORDS.length;
 }

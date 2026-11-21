@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { VocabFlashcard } from "@/components/vocabulary/VocabFlashcard";
-import { markJourneyLessonComplete } from "@/lib/journey";
 import {
-  completePackLesson,
   getPackLesson,
   gradePackWord,
   isPackLessonUnlocked,
@@ -14,10 +13,12 @@ import {
   markPackWordSpoken,
   packLessonWords,
 } from "@/lib/vocabulary";
+import { introduceWords, loadMasteryState, saveMasteryState } from "@/lib/vocabulary/mastery";
 
 type Props = { lessonId: string };
 
 export function VocabLessonClient({ lessonId }: Props) {
+  const router = useRouter();
   const lesson = getPackLesson(lessonId);
   const { neu, review } = useMemo(
     () => (lesson ? packLessonWords(lesson) : { neu: [], review: [] }),
@@ -25,7 +26,6 @@ export function VocabLessonClient({ lessonId }: Props) {
   );
   const queue = useMemo(() => [...review, ...neu], [review, neu]);
   const [index, setIndex] = useState(0);
-  const [done, setDone] = useState(false);
   const [unlocked] = useState(() => isPackLessonUnlocked(lessonId, loadPackProgress()));
 
   if (!lesson) {
@@ -55,41 +55,22 @@ export function VocabLessonClient({ lessonId }: Props) {
 
   const word = queue[index];
 
-  function finishLesson() {
-    completePackLesson(lessonId);
-    markJourneyLessonComplete(lessonId);
-    setDone(true);
+  function goToQuiz() {
+    let state = loadMasteryState();
+    state = introduceWords(
+      state,
+      queue.map((w) => w.id),
+    );
+    saveMasteryState(state);
+    router.push(`/vocab/pack/${lessonId}/quiz`);
   }
 
   function advance() {
     if (index + 1 >= queue.length) {
-      finishLesson();
+      goToQuiz();
       return;
     }
     setIndex((i) => i + 1);
-  }
-
-  if (done) {
-    return (
-      <div className="studio-shell scene-wash animate-riseIn">
-        <BrandMark />
-        <h1 className="mt-6 font-display text-3xl text-ink">Lesson complete</h1>
-        <p className="mt-2 text-ink/60">
-          {lesson.titleEn} — spaced review will resurface words when due.
-        </p>
-        <div className="mt-6 flex flex-col gap-2">
-          <Link href="/vocab/pack" className="teacher-btn-primary w-full text-center">
-            Pack map
-          </Link>
-          <Link href="/danh-van/review" className="teacher-btn-secondary w-full text-center">
-            Daily Review
-          </Link>
-          <Link href="/learn" className="teacher-btn-secondary w-full text-center">
-            Learn path
-          </Link>
-        </div>
-      </div>
-    );
   }
 
   return (
@@ -125,6 +106,10 @@ export function VocabLessonClient({ lessonId }: Props) {
           }}
         />
       ) : null}
+
+      <p className="mt-4 text-center text-sm text-ink/45">
+        After cards: short quiz (80% to unlock next)
+      </p>
     </div>
   );
 }

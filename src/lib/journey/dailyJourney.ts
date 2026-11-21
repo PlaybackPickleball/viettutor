@@ -46,19 +46,19 @@ export function assembleDailyJourney(): DailyJourneyPlan {
     .join(", ");
 
   const warmup: DailyJourneyBlock =
-    due.length > 0
+    packDue.length > 0
       ? {
           phase: "warmup",
-          titleEn: `Warm up · ${Math.min(3, due.length)} skills due`,
-          blurb: "Spaced revisit from Đánh Vần (~2 min).",
+          titleEn: `Warm up · ${packLabels || "First 100"}`,
+          blurb: "Illustrated pack words due for spaced revisit (~2 min).",
           durationMin: 2,
-          href: "/danh-van/review",
+          href: "/vocab/pack/review",
         }
-      : packDue.length > 0
+      : due.length > 0
         ? {
             phase: "warmup",
-            titleEn: `Warm up · ${packLabels || "First 100"}`,
-            blurb: "Illustrated pack words due for spaced revisit (~2 min).",
+            titleEn: `Warm up · ${Math.min(3, due.length)} skills due`,
+            blurb: "Spaced revisit from Đánh Vần (~2 min).",
             durationMin: 2,
             href: "/danh-van/review",
           }
