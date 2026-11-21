@@ -85,6 +85,8 @@ export function isJourneyLessonComplete(
   path: PathProgressState = loadPathProgress(),
 ): boolean {
   if (journey.completedIds.includes(lesson.id)) return true;
+  // Engine lessons only complete via markJourneyLessonComplete (no soft studio stubs).
+  if (lesson.engine) return false;
   if (lesson.pathLessonId && isPathLessonComplete(path, lesson.pathLessonId)) return true;
   if (lesson.letterId && letterSatisfied(lesson, alphabet)) return true;
   if (lesson.hearWriteTouched) {
