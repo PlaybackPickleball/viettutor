@@ -5,6 +5,7 @@ const ROUTES: { path: string; expectText: RegExp }[] = [
   { path: "/", expectText: /ÁMi Lingua|Continue Learning|Learn/i },
   { path: "/learn", expectText: /Learn|Unit|Continue/i },
   { path: "/learn/u1-l01", expectText: /Xin chào|Sound a|Hear|Discover/i },
+  { path: "/learn/u2-l01", expectText: /tone|Six|locked|Meet|ba/i },
   { path: "/practice", expectText: /Practice|Hear|Speak|Review/i },
   { path: "/profile", expectText: /Profile|Progress|Streak/i },
   { path: "/danh-van", expectText: /Đánh Vần/i },
