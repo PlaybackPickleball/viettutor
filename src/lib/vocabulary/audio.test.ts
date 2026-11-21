@@ -46,10 +46,10 @@ describe("vocabulary pack audio", () => {
     expect(vocabAudioClipForPackId(59)?.vi).toBe("làm");
   });
 
-  it("gates learner native paths behind the approval flag", () => {
-    expect(VOCAB_PACK_AUDIO_ENABLED).toBe(false);
+  it("exposes learner native paths when the approval flag is on", () => {
+    expect(VOCAB_PACK_AUDIO_ENABLED).toBe(true);
     const first = listPackWords()[0]!;
-    expect(vocabNativePathForWord(first)).toBeNull();
+    expect(vocabNativePathForWord(first)).toBe("/audio/vi/vocabulary/v001.mp3");
     expect(vocabPlaybackPathForWordId(first.id)).toBe("/audio/vi/vocabulary/v001.mp3");
   });
 

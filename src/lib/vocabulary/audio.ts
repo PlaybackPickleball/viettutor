@@ -1,7 +1,7 @@
 /**
  * First-100 vocabulary native clips (male 10 + female 90).
  * Splitting is mechanical — not linguistic validation. Learner playback is
- * gated by VOCAB_PACK_AUDIO_ENABLED until Nicola approves the review page.
+ * gated by VOCAB_PACK_AUDIO_ENABLED (enabled after Nicola approved /review/vocab-audio).
  */
 
 import { listPackWords } from "./catalog";
@@ -32,10 +32,10 @@ export type VocabAudioClip = {
 };
 
 /**
- * Flip to true only after Nicola approves `/review/vocab-audio`.
- * Review page always plays clips; flashcards / quizzes use native files only when enabled.
+ * Native First-100 clips for pack Hear / quiz / Listen-and-Type.
+ * Enabled after Nicola approved `/review/vocab-audio`.
  */
-export const VOCAB_PACK_AUDIO_ENABLED = false;
+export const VOCAB_PACK_AUDIO_ENABLED = true;
 
 export const VOCAB_AUDIO_SOURCE_MALE = "/audio/vi/vocabulary/source/male-10.mp3";
 export const VOCAB_AUDIO_SOURCE_FEMALE = "/audio/vi/vocabulary/source/female-90.mp3";

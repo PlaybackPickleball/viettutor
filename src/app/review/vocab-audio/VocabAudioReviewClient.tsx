@@ -217,10 +217,22 @@ export function VocabAudioReviewClient() {
       </header>
 
       <div className="ami-card mb-5 border border-amber/40 bg-amber/10 px-4 py-3 text-sm text-ink/80">
-        <p className="font-medium text-ink">Pending Nicola approval</p>
+        <p className="font-medium text-ink">
+          {VOCAB_PACK_AUDIO_ENABLED ? "Enabled for learners" : "Pending Nicola approval"}
+        </p>
         <p className="mt-1">
-          Learners keep TTS until <code className="text-xs">VOCAB_PACK_AUDIO_ENABLED</code> is
-          flipped after you approve. Do not publish these clips as verified native audio yet.
+          {VOCAB_PACK_AUDIO_ENABLED ? (
+            <>
+              Pack Hear / quiz / Listen-and-Type use these native clips (
+              <code className="text-xs">VOCAB_PACK_AUDIO_ENABLED</code>). Keep nudging or re-flagging
+              any bad cuts here.
+            </>
+          ) : (
+            <>
+              Learners keep TTS until <code className="text-xs">VOCAB_PACK_AUDIO_ENABLED</code> is
+              flipped after you approve.
+            </>
+          )}
         </p>
         <p className="mt-2 text-ink/55">
           Flag status: {VOCAB_PACK_AUDIO_ENABLED ? "ENABLED for learners" : "disabled for learners"}{" "}
