@@ -1,5 +1,6 @@
 import {
   buildSyllable,
+  hearSound,
   listenChoose,
   missingComponent,
   readWithoutHelp,
@@ -8,6 +9,7 @@ import {
   soundMatch,
   speakCompare,
   toneDetective,
+  writeTrace,
 } from "./exerciseBuilders";
 import { getSyllable } from "./syllables";
 import type { LearningLesson, PathExercise } from "./types";
@@ -45,6 +47,14 @@ function choicesFromTargets(ids: string[]) {
   });
 }
 
+function letterIdForWritten(written: string): string | undefined {
+  if (written.length === 1) return written;
+  return undefined;
+}
+
+/**
+ * Core Hear → Write → (focus middle) → Say → Review for generated worlds.
+ */
 function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[] {
   const primary = getSyllable(spec.targets[0]);
   if (!primary) throw new Error(`Missing primary syllable ${spec.targets[0]}`);
@@ -53,56 +63,69 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
   const skills = [...new Set([...spec.introduces, ...spec.review, "listen-discriminate"])];
   const opts = choicesFromTargets(spec.targets.slice(0, Math.min(4, spec.targets.length)));
 
+  const hear = hearSound({
+    lessonKey,
+    promptEn: `Hear ${primary.written}.`,
+    audio: primary.written,
+    written: primary.written,
+    glossEn: primary.vocab?.glossEn,
+    skillIds: skills,
+  });
+  const write = writeTrace({
+    lessonKey,
+    grapheme: primary.written,
+    letterId: letterIdForWritten(primary.written),
+    promptEn: `Write ${primary.written} — Mali guide.`,
+    glossEn: primary.vocab?.glossEn,
+    skillIds: [...skills, "write-trace"],
+  });
+  const say = speakCompare({
+    lessonKey,
+    written: primary.written,
+    glossEn: primary.vocab?.glossEn,
+    promptEn: `Say ${primary.written} — Deepgram match when configured (not a score).`,
+    skillIds: [...skills, "speak-compare"],
+  });
+  const review = reviewChallenge({
+    lessonKey,
+    promptEn: `Review — pick ${primary.written}.`,
+    audio: primary.written,
+    choices: opts,
+    correctId: primary.written,
+    hintEn: `Answer is ${primary.written}.`,
+    skillIds: skills,
+  });
+
+  let middle: PathExercise[] = [];
   switch (spec.focus) {
     case "listen":
-      return [
+      middle = [
         listenChoose({
           lessonKey,
           promptEn: `Listen — which form?`,
-          audio: primary.written,
+          audio: second.written,
           choices: opts,
-          correctId: primary.written,
-          hintEn: `Match the audio to ${primary.written}.`,
+          correctId: second.written,
+          hintEn: `Match the audio to ${second.written}.`,
           skillIds: skills,
         }),
         soundMatch({
           lessonKey,
           promptEn: "Match sound to writing.",
-          audio: second.written,
-          choices: opts,
-          correctId: second.written,
-          hintEn: `That was ${second.written}.`,
-          skillIds: skills,
-        }),
-        listenChoose({
-          lessonKey,
-          promptEn: "One more listen.",
           audio: third.written,
           choices: opts,
           correctId: third.written,
-          hintEn: `Listen again for ${third.written}.`,
+          hintEn: `That was ${third.written}.`,
           skillIds: skills,
         }),
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Speak ${primary.written} — compare by ear.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
       ];
+      break;
     case "build":
-      return [
+      middle = [
         buildSyllable({
           lessonKey,
           syllableId: primary.id,
           promptEn: `Build ${primary.written}.`,
-          skillIds: [...skills, "build-open-cv"],
-        }),
-        buildSyllable({
-          lessonKey,
-          syllableId: second.id,
-          promptEn: `Build ${second.written}.`,
           skillIds: [...skills, "build-open-cv"],
         }),
         missingComponent({
@@ -116,9 +139,10 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
               glossEn: primary.sequence[0]!.glossEn,
             },
             {
-              id: second.sequence[0]!.display === primary.sequence[0]!.display
-                ? `${second.written}-alt`
-                : second.sequence[0]!.display,
+              id:
+                second.sequence[0]!.display === primary.sequence[0]!.display
+                  ? `${second.written}-alt`
+                  : second.sequence[0]!.display,
               label:
                 second.sequence[0]!.display === primary.sequence[0]!.display
                   ? second.written
@@ -132,16 +156,10 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           hintEn: `Start with ${primary.sequence[0]!.utterance}.`,
           skillIds: skills,
         }),
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Speak ${primary.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
       ];
+      break;
     case "tone":
-      return [
+      middle = [
         toneDetective({
           lessonKey,
           promptEn: "Which written form matches the tone?",
@@ -157,31 +175,10 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           promptEn: `Build ${primary.written} with its tone.`,
           skillIds: [...skills, "build-open-cv"],
         }),
-        listenChoose({
-          lessonKey,
-          promptEn: "Pick the form you hear.",
-          audio: second.written,
-          choices: opts,
-          correctId: second.written,
-          hintEn: `That was ${second.written}.`,
-          skillIds: skills,
-        }),
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Speak ${primary.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
       ];
+      break;
     case "read":
-      return [
-        readWithoutHelp({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn ?? primary.written,
-          skillIds: [...skills, "read-familiar"],
-        }),
+      middle = [
         readWithoutHelp({
           lessonKey,
           written: second.written,
@@ -194,28 +191,15 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           glossEn: third.vocab?.glossEn ?? third.written,
           skillIds: [...skills, "read-familiar"],
         }),
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Read aloud ${primary.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
       ];
+      break;
     case "speak":
-      return [
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Speak ${primary.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
+      middle = [
         speakCompare({
           lessonKey,
           written: second.written,
           glossEn: second.vocab?.glossEn,
-          promptEn: `Speak ${second.written}.`,
+          promptEn: `Also say ${second.written}.`,
           skillIds: [...skills, "speak-compare"],
         }),
         listenChoose({
@@ -227,27 +211,13 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           hintEn: `That was ${primary.written}.`,
           skillIds: skills,
         }),
-        readWithoutHelp({
-          lessonKey,
-          written: third.written,
-          glossEn: third.vocab?.glossEn ?? third.written,
-          skillIds: [...skills, "read-familiar"],
-        }),
       ];
+      break;
     case "challenge":
-      return [
+      middle = [
         reviewChallenge({
           lessonKey,
           promptEn: "Challenge — identify the form.",
-          audio: primary.written,
-          choices: opts,
-          correctId: primary.written,
-          hintEn: `Answer is ${primary.written}.`,
-          skillIds: skills,
-        }),
-        reviewChallenge({
-          lessonKey,
-          promptEn: "Challenge — next form.",
           audio: second.written,
           choices: opts,
           correctId: second.written,
@@ -260,17 +230,11 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           promptEn: `Rebuild ${primary.written}.`,
           skillIds: [...skills, "build-open-cv"],
         }),
-        speakCompare({
-          lessonKey,
-          written: third.written,
-          glossEn: third.vocab?.glossEn,
-          promptEn: `Final speak — ${third.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
       ];
+      break;
     case "mixed":
     default:
-      return [
+      middle = [
         buildSyllable({
           lessonKey,
           syllableId: primary.id,
@@ -286,30 +250,11 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
           hintEn: `That was ${second.written}.`,
           skillIds: skills,
         }),
-        readWithoutHelp({
-          lessonKey,
-          written: third.written,
-          glossEn: third.vocab?.glossEn ?? third.written,
-          skillIds: [...skills, "read-familiar"],
-        }),
-        speakCompare({
-          lessonKey,
-          written: primary.written,
-          glossEn: primary.vocab?.glossEn,
-          promptEn: `Speak ${primary.written}.`,
-          skillIds: [...skills, "speak-compare"],
-        }),
-        reviewChallenge({
-          lessonKey,
-          promptEn: "Quick review.",
-          audio: primary.written,
-          choices: opts,
-          correctId: primary.written,
-          hintEn: `Still ${primary.written}.`,
-          skillIds: skills,
-        }),
       ];
+      break;
   }
+
+  return [hear, write, ...middle, say, review];
 }
 
 export function makeWorldPack(

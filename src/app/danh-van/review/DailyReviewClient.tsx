@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ListenControls } from "@/components/ListenControls";
+import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess";
 import {
   getSkill,
   loadPathProgress,
@@ -33,12 +34,24 @@ function skillListenText(skillId: string, labelVi: string): string {
   return labelVi || skillId;
 }
 
+/** Prefer a short written form for write/say practice (not teaching-sound spellings). */
+function practiceWritten(item: QueueItem): string {
+  if (item.kind === "vocab") return item.item.expression;
+  if (item.id === "letter-a") return "a";
+  if (item.id === "letter-b") return "b";
+  if (item.id === "letter-o") return "o";
+  if (item.id === "vocab-bo") return "bò";
+  if (item.id === "vocab-ba-ma") return "ba";
+  return item.listenText;
+}
+
 export function DailyReviewClient() {
   const [progress, setProgress] = useState<PathProgressState | null>(null);
   const [vocab, setVocab] = useState<SavedVocabItem[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [doneNote, setDoneNote] = useState<string | null>(null);
+  const [said, setSaid] = useState(false);
 
   function refresh() {
     setProgress(loadPathProgress());
@@ -85,6 +98,7 @@ export function DailyReviewClient() {
   function advance() {
     setRevealed(false);
     setDoneNote(null);
+    setSaid(false);
     if (index + 1 >= queue.length) {
       setIndex(queue.length);
       return;
@@ -124,6 +138,9 @@ export function DailyReviewClient() {
           <Link href="/danh-van" className="teacher-btn-primary w-full text-center">
             Back to Đánh Vần
           </Link>
+          <Link href="/hear-write" className="teacher-btn-secondary w-full text-center">
+            Hear & Write drills
+          </Link>
           <Link href="/vocab" className="teacher-btn-secondary w-full text-center">
             Open word deck
           </Link>
@@ -132,15 +149,18 @@ export function DailyReviewClient() {
     );
   }
 
+  const written = practiceWritten(current);
+  const writeHref = `/hear-write?written=${encodeURIComponent(written)}`;
+
   return (
     <div className="studio-shell scene-wash animate-riseIn">
       <header className="mb-5 flex items-start justify-between gap-3">
         <div>
           <BrandMark />
           <p className="quiet-label mt-3">Daily Review</p>
-          <h1 className="mt-1 font-display text-2xl text-ink">Sounds & words</h1>
+          <h1 className="mt-1 font-display text-2xl text-ink">Hear → Write → Say → Review</h1>
           <p className="text-sm text-ink/50">
-            {index + 1} / {queue.length} · self-check only
+            {index + 1} / {queue.length} · spaced revisit
           </p>
         </div>
         <Link href="/danh-van" className="teacher-btn-secondary px-4 py-2 text-sm">
@@ -148,67 +168,118 @@ export function DailyReviewClient() {
         </Link>
       </header>
 
-      <div className="ami-card space-y-4 px-4 py-5">
+      <div className="ami-card space-y-5 px-4 py-5">
         {current.kind === "skill" ? (
           <>
-            <p className="quiet-label">Path skill</p>
-            <p className="font-hand text-5xl text-ink" lang="vi">
-              {current.labelVi}
-            </p>
-            <p className="text-sm text-ink/55">{current.labelEn}</p>
-            <ListenControls text={current.listenText} />
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              <button
-                type="button"
-                className="teacher-btn-secondary"
-                onClick={() => rememberSkill(false)}
-              >
-                Again
-              </button>
-              <button
-                type="button"
-                className="teacher-btn-primary"
-                onClick={() => rememberSkill(true)}
-              >
-                I remember
-              </button>
+            <div>
+              <p className="quiet-label">1 · Hear</p>
+              <p className="mt-1 font-hand text-5xl text-ink" lang="vi">
+                {current.labelVi}
+              </p>
+              <p className="text-sm text-ink/55">{current.labelEn}</p>
+              <div className="mt-3">
+                <ListenControls text={current.listenText} />
+              </div>
+            </div>
+
+            <div>
+              <p className="quiet-label">2 · Write</p>
+              <Link href={writeHref} className="teacher-btn-secondary mt-2 inline-flex text-sm">
+                Hear & Write “{written}”
+              </Link>
+            </div>
+
+            <div>
+              <p className="quiet-label mb-2">3 · Say</p>
+              <SpeakCompareAssess
+                expectedText={written}
+                itemId={`review-${current.id}`}
+                onPracticed={() => setSaid(true)}
+              />
+              {said ? (
+                <p className="mt-2 text-xs text-ink/45">Practice saved — match is not a score.</p>
+              ) : null}
+            </div>
+
+            <div>
+              <p className="quiet-label mb-2">4 · Review</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  className="teacher-btn-secondary"
+                  onClick={() => rememberSkill(false)}
+                >
+                  Again
+                </button>
+                <button
+                  type="button"
+                  className="teacher-btn-primary"
+                  onClick={() => rememberSkill(true)}
+                >
+                  I remember
+                </button>
+              </div>
             </div>
           </>
         ) : (
           <>
-            <p className="quiet-label">Song / karaoke word</p>
-            <p className="font-hand text-5xl text-ink" lang="vi">
-              {current.item.expression}
-            </p>
-            <ListenControls text={current.item.expression} />
-            {!revealed ? (
-              <button
-                type="button"
-                className="teacher-btn-secondary w-full"
-                onClick={() => setRevealed(true)}
-              >
-                Reveal meaning
-              </button>
-            ) : (
-              <p className="text-sm text-ink/70" lang="en">
-                {current.item.meaningEn}
+            <div>
+              <p className="quiet-label">1 · Hear</p>
+              <p className="mt-1 font-hand text-5xl text-ink" lang="vi">
+                {current.item.expression}
               </p>
-            )}
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              <button
-                type="button"
-                className="teacher-btn-secondary"
-                onClick={() => gradeWord("again")}
-              >
-                Again
-              </button>
-              <button
-                type="button"
-                className="teacher-btn-primary"
-                onClick={() => gradeWord("know")}
-              >
-                Know
-              </button>
+              <div className="mt-3">
+                <ListenControls text={current.item.expression} />
+              </div>
+            </div>
+
+            <div>
+              <p className="quiet-label">2 · Write</p>
+              <Link href={writeHref} className="teacher-btn-secondary mt-2 inline-flex text-sm">
+                Hear & Write “{written}”
+              </Link>
+            </div>
+
+            <div>
+              <p className="quiet-label mb-2">3 · Say</p>
+              <SpeakCompareAssess
+                expectedText={written}
+                itemId={`review-vocab-${current.item.id}`}
+                onPracticed={() => setSaid(true)}
+              />
+            </div>
+
+            <div>
+              <p className="quiet-label mb-2">4 · Review</p>
+              {!revealed ? (
+                <button
+                  type="button"
+                  className="teacher-btn-secondary mb-3 w-full"
+                  onClick={() => setRevealed(true)}
+                >
+                  Reveal meaning
+                </button>
+              ) : (
+                <p className="mb-3 text-sm text-ink/70" lang="en">
+                  {current.item.meaningEn}
+                </p>
+              )}
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  className="teacher-btn-secondary"
+                  onClick={() => gradeWord("again")}
+                >
+                  Again
+                </button>
+                <button
+                  type="button"
+                  className="teacher-btn-primary"
+                  onClick={() => gradeWord("know")}
+                >
+                  Know
+                </button>
+              </div>
             </div>
           </>
         )}
@@ -216,7 +287,7 @@ export function DailyReviewClient() {
       </div>
 
       <p className="mt-4 text-xs text-ink/45">
-        Pulls due Đánh Vần skills and karaoke/song words saved for review. No automatic scores.
+        Spaced skills + song words. Deepgram match is transcription only — never a pronunciation %.
       </p>
     </div>
   );

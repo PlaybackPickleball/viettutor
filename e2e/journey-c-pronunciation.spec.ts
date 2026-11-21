@@ -11,12 +11,18 @@ test.describe("Journey C — Pronunciation (mocked provider)", () => {
     page,
   }) => {
     await page.goto("/danh-van/path/w0-l01");
-    // Skip hear to speak-compare: complete hear first quickly
+    // Hear → Write → Say: finish Hear, skip Write, assert Say
     await page.locator("button.teacher-btn-primary", { hasText: /^Listen$/ }).click();
     await page.getByRole("button", { name: /I heard it/i }).click();
     await page.getByRole("button", { name: /^Next$/ }).click();
 
-    await expect(page.getByText(/Record pronunciation|Speak & Compare|compare/i).first()).toBeVisible();
+    await expect(page.getByRole("button", { name: /Skip trace \/ continue/i })).toBeVisible({
+      timeout: 15_000,
+    });
+    await page.getByRole("button", { name: /Skip trace \/ continue/i }).click();
+    await page.getByRole("button", { name: /^Next$/ }).click();
+
+    await expect(page.getByRole("button", { name: /Record pronunciation/i })).toBeVisible();
     await expect(page.getByRole("button", { name: /Play native|Play audio/i }).first()).toBeVisible();
 
     // Continue without recording — no invented score required to progress

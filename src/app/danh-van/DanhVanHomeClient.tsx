@@ -57,7 +57,7 @@ export function DanhVanHomeClient() {
           <BrandMark />
           <p className="quiet-label mt-3">Learn · Foundations → Worlds</p>
           <h1 className="mt-1 font-display text-3xl text-ink">Đánh Vần</h1>
-          <p className="mt-1 text-ink/60">2.0 path · Southern first · HEAR→WRITE→REVIEW</p>
+          <p className="mt-1 text-ink/60">2.0 path · Southern first · Hear → Write → Say → Review</p>
         </div>
         <Link href="/" className="teacher-btn-secondary px-4 py-2 text-sm">
           Home
