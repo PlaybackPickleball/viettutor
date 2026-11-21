@@ -337,12 +337,35 @@ export const JOURNEY_UNITS: JourneyUnit[] = [
   {
     id: "u5",
     order: 5,
-    titleEn: "Sentences",
-    titleVi: "Câu",
-    blurb: "Put words together — Phase 4+.",
-    targetLessonCount: 12,
+    titleEn: "100 Essential Sentences",
+    titleVi: "100 câu thiết yếu",
+    blurb: "After First 100 Words — greetings to directions (MVP lessons 1–5).",
+    targetLessonCount: 10,
     lessons: [
-      { id: "u5-shell", unitId: "u5", order: 1, titleEn: "Coming later", durationMin: 0, kind: "shell" },
+      {
+        id: "u5-hub",
+        unitId: "u5",
+        order: 1,
+        titleEn: "Open sentences map",
+        titleVi: "Bản đồ câu",
+        durationMin: 2,
+        kind: "live",
+        href: "/sentences",
+      },
+      ...Array.from({ length: 5 }, (_, i) => {
+        const n = i + 1;
+        const id = `s-l${String(n).padStart(2, "0")}`;
+        return {
+          id: `u5-${id}`,
+          unitId: "u5" as const,
+          order: n + 1,
+          titleEn: `Sentences lesson ${n}`,
+          titleVi: `Bài câu ${n}`,
+          durationMin: 12,
+          kind: "live" as const,
+          href: `/sentences/${id}`,
+        };
+      }),
     ],
   },
   {
