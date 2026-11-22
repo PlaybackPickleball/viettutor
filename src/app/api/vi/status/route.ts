@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
+import { requireIdentity } from "../../../../../cursor/identity";
 import { deepgramConfigured } from "@/lib/vi/deepgramAssess";
 
 export const runtime = "nodejs";
 
-/** Booleans only. Never returns key material. */
-export async function GET() {
+/** Booleans only. Never returns key material. Requires a signed-in viewer. */
+export async function GET(request: Request) {
+  const identity = await requireIdentity(request);
+  if (identity instanceof Response) return identity;
+
   return NextResponse.json(
     {
       pronunciation: deepgramConfigured(),

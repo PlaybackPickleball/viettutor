@@ -1,6 +1,6 @@
 /** Simple process-local guards for expensive alignment jobs. */
 
-const COOLDOWN_MS = 60_000;
+const COOLDOWN_MS = 120_000;
 let running = false;
 const lastBySub = new Map<string, number>();
 
@@ -21,4 +21,5 @@ export function endAlignJob(): void {
   running = false;
 }
 
-export const MAX_ALIGN_UPLOAD_BYTES = 25 * 1024 * 1024;
+/** Keep uploads modest — Demucs + align is expensive. */
+export const MAX_ALIGN_UPLOAD_BYTES = 8 * 1024 * 1024;
