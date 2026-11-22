@@ -1,4 +1,5 @@
 import { sql } from "@/lib/db";
+import { assertMasteryStateLimits } from "./limits";
 import type { MasteryState, MasteryStatus, WordMasteryRecord, XpLedgerEntry } from "./types";
 
 type WordRow = {
@@ -97,6 +98,11 @@ export async function loadMasteryForUser(userId: string): Promise<MasteryState> 
 }
 
 export async function saveMasteryForUser(userId: string, state: MasteryState): Promise<void> {
+  const limits = assertMasteryStateLimits(state);
+  if (!limits.ok) {
+    throw new Error(`mastery_limits:${limits.error}`);
+  }
+
   await sql(
     `insert into vocab_user_meta (user_id, completed_lesson_ids, total_xp, updated_at)
      values ($1, $2::jsonb, $3, $4)

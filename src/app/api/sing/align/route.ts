@@ -15,11 +15,12 @@ import { gatedAudioStreamUrl } from "@/lib/sing/masters";
 import { MASTERS_DIR } from "@/lib/sing/masters.server";
 
 export const runtime = "nodejs";
-export const maxDuration = 800;
+/** Cap wall time — alignment is expensive; prefer retry over long hangs. */
+export const maxDuration = 300;
 
 /**
  * POST multipart: audio file + verified lyrics → Demucs + forced align.
- * Admin-only (signed-in; team apps require admin role).
+ * Admin-only (team admin / private allowlisted email). Upload size capped.
  */
 export async function POST(req: Request) {
   const identity = await requireSingAdmin(req);
