@@ -77,3 +77,5 @@ public/sing/private/
 !public/audio/vi/vocabulary/source/*.mp3
 # Essential Sentences Lesson 1 voiceovers — gated by SENTENCE_NATIVE_AUDIO_ENABLED.
 !public/audio/vi/sentences/*.mp3
+# Karaoke Learn-the-Lyrics spoken line clips (not singing masters).
+!public/audio/vi/karaoke/**/*.mp3

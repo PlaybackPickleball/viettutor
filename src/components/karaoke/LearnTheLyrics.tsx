@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { LocalMicRecorder } from "@/components/LocalMicRecorder";
 import { WordLessonPanel } from "@/components/karaoke/WordLessonPanel";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
+import { learnLineNativePath } from "@/lib/karaoke/learnLineAudio";
 import { msToSec } from "@/lib/karaoke/types";
 import type { KaraokeSong, LyricLine, LyricToken } from "@/lib/karaoke/types";
 import {
@@ -63,9 +64,12 @@ export function LearnTheLyrics({ song, onReturnToSing }: Props) {
     if (!line?.textVi) return;
     setBusy(true);
     try {
+      const nativePath = learnLineNativePath(song.id, index);
       await speakVietnamese(line.textVi, {
         slow,
         rate: slow ? 0.72 : 0.9,
+        nativePath: nativePath ?? undefined,
+        preferNative: Boolean(nativePath),
       });
       setHeard(true);
     } catch {
