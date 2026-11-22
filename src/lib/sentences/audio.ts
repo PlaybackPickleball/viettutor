@@ -1,14 +1,18 @@
 /**
  * Essential Sentences native clips.
- * Lesson 1 (sentence_001–010) ships individual voiceovers; other lessons stay TTS until uploaded.
+ * Lessons 1–2 (sentence_001–020) ship individual voiceovers; later lessons stay TTS until uploaded.
  */
 
 export const SENTENCE_NATIVE_AUDIO_ENABLED = true;
 
 /** Bump when replacing public sentence MP3 bytes so browsers fetch fresh files. */
-export const SENTENCE_AUDIO_CACHE_VERSION = "l1-20261122";
+export const SENTENCE_AUDIO_CACHE_VERSION = "l2-20261122";
 
-const LESSON1_NATIVE_ORDERS = new Set([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+/** Orders with shipped native full-sentence clips. */
+const NATIVE_SENTENCE_ORDERS = new Set([
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, // Lesson 1
+  11, 12, 13, 14, 15, 16, 17, 18, 19, 20, // Lesson 2
+]);
 
 export function sentenceAudioFilename(order: number): string {
   return `sentence_${String(order).padStart(3, "0")}.mp3`;
@@ -19,7 +23,7 @@ export function sentenceAudioPathForOrder(order: number): string {
 }
 
 export function sentenceHasNativeClip(order: number): boolean {
-  return LESSON1_NATIVE_ORDERS.has(order);
+  return NATIVE_SENTENCE_ORDERS.has(order);
 }
 
 /**
