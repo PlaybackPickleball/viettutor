@@ -17,6 +17,7 @@ import {
   nextSentenceInLesson,
   SENTENCE_STAGES,
   SENTENCES_PRONOUN_NOTE,
+  sentenceNativePathForOrder,
   type SentenceStage,
 } from "@/lib/sentences";
 
@@ -73,6 +74,16 @@ export function SentenceFlowClient({ lessonId, sentenceId }: Props) {
   }
 
   const stage = SENTENCE_STAGES[stageIdx]!;
+  const sentenceVi = sentence.vi;
+  const sentenceNativePath = sentenceNativePathForOrder(sentence.order);
+
+  function playSentence(opts?: { slow?: boolean; rate?: number }) {
+    return speakVietnamese(sentenceVi, {
+      ...opts,
+      nativePath: sentenceNativePath ?? undefined,
+      preferNative: Boolean(sentenceNativePath),
+    });
+  }
 
   function advanceStage() {
     markStageDone(sentenceId, stage);
@@ -149,14 +160,14 @@ export function SentenceFlowClient({ lessonId, sentenceId }: Props) {
             <button
               type="button"
               className="teacher-btn-primary"
-              onClick={() => void speakVietnamese(sentence.vi)}
+              onClick={() => void playSentence()}
             >
               Play
             </button>
             <button
               type="button"
               className="teacher-btn-secondary"
-              onClick={() => void speakVietnamese(sentence.vi, { slow: true, rate: 0.75 })}
+              onClick={() => void playSentence({ slow: true, rate: 0.75 })}
             >
               0.75×
             </button>
@@ -253,7 +264,7 @@ export function SentenceFlowClient({ lessonId, sentenceId }: Props) {
           <SpeakCompareAssess
             itemId={sentence.id}
             expectedText={sentence.vi.replace(/[.…?!]/g, "").trim() || sentence.vi}
-            onPlayNative={() => void speakVietnamese(sentence.vi)}
+            onPlayNative={() => void playSentence()}
             onPracticed={advanceStage}
           />
           <button type="button" className="teacher-btn-secondary mt-4 w-full" onClick={advanceStage}>

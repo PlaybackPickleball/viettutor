@@ -103,7 +103,7 @@
       "en": "Hello.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -133,7 +133,7 @@
       "en": "How are you?",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -175,7 +175,7 @@
       "en": "I'm fine, thank you.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -221,7 +221,7 @@
       "en": "What's your name?",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -263,7 +263,7 @@
       "en": "My name is…",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -305,7 +305,7 @@
       "en": "Nice to meet you.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -353,7 +353,7 @@
       "en": "Thank you.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -389,7 +389,7 @@
       "en": "You're welcome.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -419,7 +419,7 @@
       "en": "Sorry / Excuse me.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {
@@ -449,7 +449,7 @@
       "en": "See you again.",
       "dialect": "southern",
       "contentStatus": "pending_review",
-      "audioMode": "tts_temporary",
+      "audioMode": "native",
       "imageSrc": null,
       "words": [
         {

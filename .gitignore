@@ -75,3 +75,5 @@ public/sing/private/
 # VOCAB_PACK_AUDIO_ENABLED in src/lib/vocabulary/audio.ts.
 !public/audio/vi/vocabulary/*.mp3
 !public/audio/vi/vocabulary/source/*.mp3
+# Essential Sentences Lesson 1 voiceovers — gated by SENTENCE_NATIVE_AUDIO_ENABLED.
+!public/audio/vi/sentences/*.mp3
