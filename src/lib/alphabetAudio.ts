@@ -1,8 +1,8 @@
 /**
- * ElevenLabs alphabet letter clips (29 traditional letters).
- * Splitting is mechanical — not linguistic validation. Studio playback is
- * Studio Hear/Say prefer these clips when ALPHABET_LETTER_AUDIO_ENABLED is true
- * (enabled after Nicola approved `/review/alphabet-audio`).
+ * Alphabet letter clips (29 traditional letters).
+ * Twenty letters (a–q set excluding l) use individual uploads; the rest still
+ * come from the Thanh Ngọc ElevenLabs master silence-detect split.
+ * Studio Hear/Say prefer these clips when ALPHABET_LETTER_AUDIO_ENABLED is true.
  */
 
 export type AlphabetAudioFlag = "short" | "silent" | "overlap" | "overlap-risk" | "wrong-sound";
@@ -175,41 +175,45 @@ export const ALPHABET_AUDIO_CLIPS: AlphabetAudioClip[] = ALPHABET_29_ORDER.map((
   };
 });
 
-/** Timing from the checked-in silence-detect pass (noise=-35dB, d=0.08). */
+/**
+ * Per-clip speech windows for the review UI.
+ * Individual uploads are full-file (0 → duration); remaining master-split letters
+ * keep silence-detect offsets from elevenlabs-alphabet-29.mp3.
+ */
 export const ALPHABET_AUDIO_DEFAULT_BOUNDS: ReadonlyArray<{
   speechStart: number;
   speechEnd: number;
   autoFlags: AlphabetAudioFlag[];
 }> = [
-  { speechStart: 0.0, speechEnd: 0.4365, autoFlags: [] },
-  { speechStart: 0.5423, speechEnd: 0.9313, autoFlags: [] },
-  { speechStart: 1.2119, speechEnd: 1.6028, autoFlags: [] },
-  { speechStart: 1.9823, speechEnd: 2.4291, autoFlags: [] },
-  { speechStart: 2.6738, speechEnd: 3.2279, autoFlags: [] },
-  { speechStart: 3.4955, speechEnd: 3.9688, autoFlags: [] },
-  { speechStart: 4.2143, speechEnd: 4.6629, autoFlags: [] },
-  { speechStart: 4.9819, speechEnd: 5.3487, autoFlags: [] },
-  { speechStart: 5.6031, speechEnd: 5.9793, autoFlags: [] },
-  { speechStart: 6.2325, speechEnd: 6.7402, autoFlags: [] },
-  { speechStart: 7.0162, speechEnd: 7.2537, autoFlags: [] },
-  { speechStart: 7.742, speechEnd: 8.0867, autoFlags: [] },
-  { speechStart: 8.3395, speechEnd: 8.7228, autoFlags: [] },
-  { speechStart: 9.0172, speechEnd: 9.596, autoFlags: [] },
-  { speechStart: 9.8474, speechEnd: 10.5073, autoFlags: [] },
-  { speechStart: 10.7356, speechEnd: 11.3992, autoFlags: [] },
-  { speechStart: 11.6659, speechEnd: 12.035, autoFlags: [] },
-  { speechStart: 12.2675, speechEnd: 12.6341, autoFlags: [] },
-  { speechStart: 12.8811, speechEnd: 13.2451, autoFlags: [] },
-  { speechStart: 13.5506, speechEnd: 13.9079, autoFlags: [] },
-  { speechStart: 14.1666, speechEnd: 14.5408, autoFlags: [] },
-  { speechStart: 14.8118, speechEnd: 15.3969, autoFlags: [] },
-  { speechStart: 15.5859, speechEnd: 15.752, autoFlags: ["short"] },
-  { speechStart: 16.2018, speechEnd: 16.5668, autoFlags: [] },
-  { speechStart: 16.8811, speechEnd: 17.2205, autoFlags: [] },
-  { speechStart: 17.4778, speechEnd: 17.8084, autoFlags: [] },
-  { speechStart: 18.0428, speechEnd: 18.532, autoFlags: [] },
-  { speechStart: 18.735, speechEnd: 18.8334, autoFlags: ["short"] },
-  { speechStart: 19.2943, speechEnd: 19.8629, autoFlags: [] },
+  { speechStart: 0.0, speechEnd: 0.5486, autoFlags: [] }, // a (individual)
+  { speechStart: 0.0, speechEnd: 0.6792, autoFlags: [] }, // ă (individual)
+  { speechStart: 0.0, speechEnd: 0.7576, autoFlags: [] }, // â (individual)
+  { speechStart: 0.0, speechEnd: 0.9143, autoFlags: [] }, // b (individual)
+  { speechStart: 0.0, speechEnd: 0.8882, autoFlags: [] }, // c (individual)
+  { speechStart: 0.0, speechEnd: 0.7576, autoFlags: [] }, // d (individual)
+  { speechStart: 0.0, speechEnd: 0.7837, autoFlags: [] }, // đ (individual)
+  { speechStart: 0.0, speechEnd: 0.7837, autoFlags: [] }, // e (individual)
+  { speechStart: 0.0, speechEnd: 0.7576, autoFlags: [] }, // ê (individual)
+  { speechStart: 0.0, speechEnd: 0.7837, autoFlags: [] }, // g (individual)
+  { speechStart: 0.0, speechEnd: 0.6792, autoFlags: [] }, // h (individual)
+  { speechStart: 0.0, speechEnd: 0.862, autoFlags: [] }, // i (individual)
+  { speechStart: 0.0, speechEnd: 0.7837, autoFlags: [] }, // k (individual)
+  { speechStart: 9.0172, speechEnd: 9.596, autoFlags: [] }, // l (master split)
+  { speechStart: 0.0, speechEnd: 0.9927, autoFlags: [] }, // m (individual)
+  { speechStart: 0.0, speechEnd: 0.9665, autoFlags: [] }, // n (individual)
+  { speechStart: 0.0, speechEnd: 0.7576, autoFlags: [] }, // o (individual)
+  { speechStart: 0.0, speechEnd: 0.7314, autoFlags: [] }, // ô (individual)
+  { speechStart: 0.0, speechEnd: 0.7314, autoFlags: [] }, // ơ (individual)
+  { speechStart: 0.0, speechEnd: 0.6792, autoFlags: [] }, // p (individual)
+  { speechStart: 0.0, speechEnd: 0.7576, autoFlags: [] }, // q (individual)
+  { speechStart: 14.8118, speechEnd: 15.3969, autoFlags: [] }, // r (master split)
+  { speechStart: 15.5859, speechEnd: 15.752, autoFlags: ["short"] }, // s
+  { speechStart: 16.2018, speechEnd: 16.5668, autoFlags: [] }, // t
+  { speechStart: 16.8811, speechEnd: 17.2205, autoFlags: [] }, // u
+  { speechStart: 17.4778, speechEnd: 17.8084, autoFlags: [] }, // ư
+  { speechStart: 18.0428, speechEnd: 18.532, autoFlags: [] }, // v
+  { speechStart: 18.735, speechEnd: 18.8334, autoFlags: ["short"] }, // x
+  { speechStart: 19.2943, speechEnd: 19.8629, autoFlags: [] }, // y
 ];
 
 export function buildAlphabetAudioClips(
@@ -276,6 +280,12 @@ export function alphabetPlaybackPathForLetter(letterId: string): string | null {
 
 export function alphabetPlaybackPathForGrapheme(grapheme: string): string | null {
   return alphabetClipForGrapheme(grapheme)?.path ?? null;
+}
+
+/** Native path for a single alphabet grapheme when the feature flag is on. */
+export function alphabetNativePathForGrapheme(grapheme: string): string | null {
+  if (!ALPHABET_LETTER_AUDIO_ENABLED) return null;
+  return alphabetPlaybackPathForGrapheme(grapheme);
 }
 
 export function isAlphabet29Grapheme(value: string): value is Alphabet29Grapheme {

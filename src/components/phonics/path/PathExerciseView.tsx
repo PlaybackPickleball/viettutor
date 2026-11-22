@@ -8,6 +8,7 @@ import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess
 import { SyllableBuilder } from "@/components/phonics/SyllableBuilder";
 import { WordArt } from "@/components/phonics/WordArt";
 import { WordGloss } from "@/components/phonics/WordGloss";
+import { alphabetNativePathForGrapheme } from "@/lib/alphabetAudio";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import {
   EXERCISE_TYPE_LABEL,
@@ -38,11 +39,14 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const stepRole = resolveStepRole(exercise);
   const asset = exercise.audioAssetId ? getAudioAsset(exercise.audioAssetId) : undefined;
   const audioText = exercise.audioUtterance;
+  const alphabetPath = audioText ? alphabetNativePathForGrapheme(audioText) : null;
   const nativePath =
     asset?.status === "native" && asset.nativePath
       ? asset.nativePath
-      : // Still try placeholder nativePath if present; 404 falls through to TTS.
-        asset?.nativePath;
+      : alphabetPath
+        ? alphabetPath
+        : // Still try placeholder nativePath if present; 404 falls through to TTS.
+          asset?.nativePath;
 
   async function playAudio(slow = false) {
     if (!audioText && !nativePath) return;

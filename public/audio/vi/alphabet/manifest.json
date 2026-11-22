@@ -1,6 +1,6 @@
 {
   "source": "/audio/vi/alphabet/source/elevenlabs-alphabet-29.mp3",
-  "sourceNote": "Thanh Ngọc ElevenLabs — original preserved. Splitting ≠ linguistic validation; ElevenLabs may mispronounce letters.",
+  "sourceNote": "Individual letter MP3s (a–q set, 20 files) replaced split clips from Thanh Ngọc master. Remaining letters (l,r,s,t,u,ư,v,x,y) still from silence-detect split of elevenlabs-alphabet-29.mp3. Splitting/uploads ≠ linguistic validation.",
   "dialect": "southern-intended",
   "voice": "Thanh Ngọc (ElevenLabs)",
   "detect": {
@@ -16,12 +16,13 @@
       "slug": "a",
       "filename": "alphabet_01_a.mp3",
       "path": "/audio/vi/alphabet/alphabet_01_a.mp3",
-      "speechStart": 0,
-      "speechEnd": 0.4365,
-      "clipStart": 0,
-      "clipEnd": 0.4765,
-      "speechDuration": 0.4365,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.5486,
+      "clipStart": 0.0,
+      "clipEnd": 0.5486,
+      "speechDuration": 0.5486,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 2,
@@ -29,12 +30,13 @@
       "slug": "aw",
       "filename": "alphabet_02_aw.mp3",
       "path": "/audio/vi/alphabet/alphabet_02_aw.mp3",
-      "speechStart": 0.5423,
-      "speechEnd": 0.9313,
-      "clipStart": 0.5023,
-      "clipEnd": 0.9713,
-      "speechDuration": 0.389,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.6792,
+      "clipStart": 0.0,
+      "clipEnd": 0.6792,
+      "speechDuration": 0.6792,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 3,
@@ -42,12 +44,13 @@
       "slug": "aa",
       "filename": "alphabet_03_aa.mp3",
       "path": "/audio/vi/alphabet/alphabet_03_aa.mp3",
-      "speechStart": 1.2119,
-      "speechEnd": 1.6028,
-      "clipStart": 1.1719,
-      "clipEnd": 1.6428,
-      "speechDuration": 0.3909,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7576,
+      "clipStart": 0.0,
+      "clipEnd": 0.7576,
+      "speechDuration": 0.7576,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 4,
@@ -55,12 +58,13 @@
       "slug": "b",
       "filename": "alphabet_04_b.mp3",
       "path": "/audio/vi/alphabet/alphabet_04_b.mp3",
-      "speechStart": 1.9823,
-      "speechEnd": 2.4291,
-      "clipStart": 1.9423,
-      "clipEnd": 2.4691,
-      "speechDuration": 0.4468,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.9143,
+      "clipStart": 0.0,
+      "clipEnd": 0.9143,
+      "speechDuration": 0.9143,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 5,
@@ -68,12 +72,13 @@
       "slug": "c",
       "filename": "alphabet_05_c.mp3",
       "path": "/audio/vi/alphabet/alphabet_05_c.mp3",
-      "speechStart": 2.6738,
-      "speechEnd": 3.2279,
-      "clipStart": 2.6338,
-      "clipEnd": 3.2679,
-      "speechDuration": 0.5541,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.8882,
+      "clipStart": 0.0,
+      "clipEnd": 0.8882,
+      "speechDuration": 0.8882,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 6,
@@ -81,12 +86,13 @@
       "slug": "d",
       "filename": "alphabet_06_d.mp3",
       "path": "/audio/vi/alphabet/alphabet_06_d.mp3",
-      "speechStart": 3.4955,
-      "speechEnd": 3.9688,
-      "clipStart": 3.4555,
-      "clipEnd": 4.0088,
-      "speechDuration": 0.4733,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7576,
+      "clipStart": 0.0,
+      "clipEnd": 0.7576,
+      "speechDuration": 0.7576,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 7,
@@ -94,12 +100,13 @@
       "slug": "dd",
       "filename": "alphabet_07_dd.mp3",
       "path": "/audio/vi/alphabet/alphabet_07_dd.mp3",
-      "speechStart": 4.2143,
-      "speechEnd": 4.6629,
-      "clipStart": 4.1743,
-      "clipEnd": 4.7029,
-      "speechDuration": 0.4486,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7837,
+      "clipStart": 0.0,
+      "clipEnd": 0.7837,
+      "speechDuration": 0.7837,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 8,
@@ -107,12 +114,13 @@
       "slug": "e",
       "filename": "alphabet_08_e.mp3",
       "path": "/audio/vi/alphabet/alphabet_08_e.mp3",
-      "speechStart": 4.9819,
-      "speechEnd": 5.3487,
-      "clipStart": 4.9419,
-      "clipEnd": 5.3887,
-      "speechDuration": 0.3668,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7837,
+      "clipStart": 0.0,
+      "clipEnd": 0.7837,
+      "speechDuration": 0.7837,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 9,
@@ -120,12 +128,13 @@
       "slug": "ee",
       "filename": "alphabet_09_ee.mp3",
       "path": "/audio/vi/alphabet/alphabet_09_ee.mp3",
-      "speechStart": 5.6031,
-      "speechEnd": 5.9793,
-      "clipStart": 5.5631,
-      "clipEnd": 6.0193,
-      "speechDuration": 0.3762,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7576,
+      "clipStart": 0.0,
+      "clipEnd": 0.7576,
+      "speechDuration": 0.7576,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 10,
@@ -133,12 +142,13 @@
       "slug": "g",
       "filename": "alphabet_10_g.mp3",
       "path": "/audio/vi/alphabet/alphabet_10_g.mp3",
-      "speechStart": 6.2325,
-      "speechEnd": 6.7402,
-      "clipStart": 6.1925,
-      "clipEnd": 6.7802,
-      "speechDuration": 0.5077,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7837,
+      "clipStart": 0.0,
+      "clipEnd": 0.7837,
+      "speechDuration": 0.7837,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 11,
@@ -146,12 +156,13 @@
       "slug": "h",
       "filename": "alphabet_11_h.mp3",
       "path": "/audio/vi/alphabet/alphabet_11_h.mp3",
-      "speechStart": 7.0162,
-      "speechEnd": 7.2537,
-      "clipStart": 6.9762,
-      "clipEnd": 7.2937,
-      "speechDuration": 0.2375,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.6792,
+      "clipStart": 0.0,
+      "clipEnd": 0.6792,
+      "speechDuration": 0.6792,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 12,
@@ -159,12 +170,13 @@
       "slug": "i",
       "filename": "alphabet_12_i.mp3",
       "path": "/audio/vi/alphabet/alphabet_12_i.mp3",
-      "speechStart": 7.742,
-      "speechEnd": 8.0867,
-      "clipStart": 7.702,
-      "clipEnd": 8.1267,
-      "speechDuration": 0.3447,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.862,
+      "clipStart": 0.0,
+      "clipEnd": 0.862,
+      "speechDuration": 0.862,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 13,
@@ -172,12 +184,13 @@
       "slug": "k",
       "filename": "alphabet_13_k.mp3",
       "path": "/audio/vi/alphabet/alphabet_13_k.mp3",
-      "speechStart": 8.3395,
-      "speechEnd": 8.7228,
-      "clipStart": 8.2995,
-      "clipEnd": 8.7628,
-      "speechDuration": 0.3833,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7837,
+      "clipStart": 0.0,
+      "clipEnd": 0.7837,
+      "speechDuration": 0.7837,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 14,
@@ -198,12 +211,13 @@
       "slug": "m",
       "filename": "alphabet_15_m.mp3",
       "path": "/audio/vi/alphabet/alphabet_15_m.mp3",
-      "speechStart": 9.8474,
-      "speechEnd": 10.5073,
-      "clipStart": 9.8074,
-      "clipEnd": 10.5473,
-      "speechDuration": 0.6599,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.9927,
+      "clipStart": 0.0,
+      "clipEnd": 0.9927,
+      "speechDuration": 0.9927,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 16,
@@ -211,12 +225,13 @@
       "slug": "n",
       "filename": "alphabet_16_n.mp3",
       "path": "/audio/vi/alphabet/alphabet_16_n.mp3",
-      "speechStart": 10.7356,
-      "speechEnd": 11.3992,
-      "clipStart": 10.6956,
-      "clipEnd": 11.4392,
-      "speechDuration": 0.6636,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.9665,
+      "clipStart": 0.0,
+      "clipEnd": 0.9665,
+      "speechDuration": 0.9665,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 17,
@@ -224,12 +239,13 @@
       "slug": "o",
       "filename": "alphabet_17_o.mp3",
       "path": "/audio/vi/alphabet/alphabet_17_o.mp3",
-      "speechStart": 11.6659,
-      "speechEnd": 12.035,
-      "clipStart": 11.6259,
-      "clipEnd": 12.075,
-      "speechDuration": 0.3691,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7576,
+      "clipStart": 0.0,
+      "clipEnd": 0.7576,
+      "speechDuration": 0.7576,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 18,
@@ -237,12 +253,13 @@
       "slug": "oo",
       "filename": "alphabet_18_oo.mp3",
       "path": "/audio/vi/alphabet/alphabet_18_oo.mp3",
-      "speechStart": 12.2675,
-      "speechEnd": 12.6341,
-      "clipStart": 12.2275,
-      "clipEnd": 12.6741,
-      "speechDuration": 0.3666,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7314,
+      "clipStart": 0.0,
+      "clipEnd": 0.7314,
+      "speechDuration": 0.7314,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 19,
@@ -250,12 +267,13 @@
       "slug": "ow",
       "filename": "alphabet_19_ow.mp3",
       "path": "/audio/vi/alphabet/alphabet_19_ow.mp3",
-      "speechStart": 12.8811,
-      "speechEnd": 13.2451,
-      "clipStart": 12.8411,
-      "clipEnd": 13.2851,
-      "speechDuration": 0.364,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7314,
+      "clipStart": 0.0,
+      "clipEnd": 0.7314,
+      "speechDuration": 0.7314,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 20,
@@ -263,12 +281,13 @@
       "slug": "p",
       "filename": "alphabet_20_p.mp3",
       "path": "/audio/vi/alphabet/alphabet_20_p.mp3",
-      "speechStart": 13.5506,
-      "speechEnd": 13.9079,
-      "clipStart": 13.5106,
-      "clipEnd": 13.9479,
-      "speechDuration": 0.3573,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.6792,
+      "clipStart": 0.0,
+      "clipEnd": 0.6792,
+      "speechDuration": 0.6792,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 21,
@@ -276,12 +295,13 @@
       "slug": "q",
       "filename": "alphabet_21_q.mp3",
       "path": "/audio/vi/alphabet/alphabet_21_q.mp3",
-      "speechStart": 14.1666,
-      "speechEnd": 14.5408,
-      "clipStart": 14.1266,
-      "clipEnd": 14.5808,
-      "speechDuration": 0.3742,
-      "autoFlags": []
+      "speechStart": 0.0,
+      "speechEnd": 0.7576,
+      "clipStart": 0.0,
+      "clipEnd": 0.7576,
+      "speechDuration": 0.7576,
+      "autoFlags": [],
+      "source": "individual-upload"
     },
     {
       "index": 22,
@@ -424,5 +444,41 @@
       ]
     }
   ],
-  "approved": false
+  "approved": false,
+  "replacedIndividual": {
+    "count": 20,
+    "graphemes": [
+      "a",
+      "â",
+      "ă",
+      "b",
+      "c",
+      "d",
+      "đ",
+      "e",
+      "ê",
+      "g",
+      "h",
+      "i",
+      "k",
+      "m",
+      "n",
+      "o",
+      "ô",
+      "ơ",
+      "p",
+      "q"
+    ],
+    "missingStillFromMaster": [
+      "l",
+      "r",
+      "s",
+      "t",
+      "u",
+      "ư",
+      "v",
+      "x",
+      "y"
+    ]
+  }
 }
