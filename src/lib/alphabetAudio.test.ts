@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   ALPHABET_29_ORDER,
+  ALPHABET_AUDIO_CACHE_VERSION,
   ALPHABET_AUDIO_CATALOG,
   ALPHABET_LETTER_AUDIO_ENABLED,
   ALPHABET_LETTER_ID_BY_GRAPHEME,
@@ -31,9 +32,10 @@ describe("alphabet audio catalog", () => {
     expect(ALPHABET_SLUG_BY_GRAPHEME["đ"]).toBe("dd");
     expect(ALPHABET_SLUG_BY_GRAPHEME["ơ"]).toBe("ow");
     expect(ALPHABET_SLUG_BY_GRAPHEME["ư"]).toBe("uw");
-    expect(alphabetClipPathForSlug("aw")).toBe("/audio/vi/alphabet/alphabet_02_aw.mp3");
-    expect(alphabetClipPathForSlug("dd")).toBe("/audio/vi/alphabet/alphabet_07_dd.mp3");
-    expect(alphabetClipPathForSlug("y")).toBe("/audio/vi/alphabet/alphabet_29_y.mp3");
+    const v = ALPHABET_AUDIO_CACHE_VERSION;
+    expect(alphabetClipPathForSlug("aw")).toBe(`/audio/vi/alphabet/alphabet_02_aw.mp3?v=${v}`);
+    expect(alphabetClipPathForSlug("dd")).toBe(`/audio/vi/alphabet/alphabet_07_dd.mp3?v=${v}`);
+    expect(alphabetClipPathForSlug("y")).toBe(`/audio/vi/alphabet/alphabet_29_y.mp3?v=${v}`);
   });
 
   it("maps studio letter ids for every clip that has a lesson", () => {
@@ -52,15 +54,21 @@ describe("alphabet audio catalog", () => {
   it("maps đ → d-bar and ă → a-breve", () => {
     expect(ALPHABET_LETTER_ID_BY_GRAPHEME["đ"]).toBe("d-bar");
     expect(alphabetClipForLetterId("d-bar")?.grapheme).toBe("đ");
+    const v = ALPHABET_AUDIO_CACHE_VERSION;
     expect(alphabetPlaybackPathForLetter("a-breve")).toBe(
-      "/audio/vi/alphabet/alphabet_02_aw.mp3",
+      `/audio/vi/alphabet/alphabet_02_aw.mp3?v=${v}`,
     );
-    expect(alphabetPlaybackPathForGrapheme("đ")).toBe("/audio/vi/alphabet/alphabet_07_dd.mp3");
+    expect(alphabetPlaybackPathForGrapheme("đ")).toBe(
+      `/audio/vi/alphabet/alphabet_07_dd.mp3?v=${v}`,
+    );
   });
 
   it("reuses q clip for digraph qu playback path", () => {
+    const v = ALPHABET_AUDIO_CACHE_VERSION;
     expect(alphabetClipForLetterId("qu")?.grapheme).toBe("q");
-    expect(alphabetPlaybackPathForLetter("qu")).toBe("/audio/vi/alphabet/alphabet_21_q.mp3");
+    expect(alphabetPlaybackPathForLetter("qu")).toBe(
+      `/audio/vi/alphabet/alphabet_21_q.mp3?v=${v}`,
+    );
   });
 
   it("does not invent clips for digraphs without a single-letter master", () => {
@@ -70,13 +78,20 @@ describe("alphabet audio catalog", () => {
   });
 
   it("exposes studio native paths when the approval flag is on", () => {
+    const v = ALPHABET_AUDIO_CACHE_VERSION;
     expect(ALPHABET_LETTER_AUDIO_ENABLED).toBe(true);
-    expect(alphabetNativePathForLetter("a")).toBe("/audio/vi/alphabet/alphabet_01_a.mp3");
-    expect(alphabetNativePathForLetter("a-breve")).toBe("/audio/vi/alphabet/alphabet_02_aw.mp3");
-    expect(alphabetNativePathForLetter("d-bar")).toBe("/audio/vi/alphabet/alphabet_07_dd.mp3");
+    expect(alphabetNativePathForLetter("a")).toBe(`/audio/vi/alphabet/alphabet_01_a.mp3?v=${v}`);
+    expect(alphabetNativePathForLetter("a-breve")).toBe(
+      `/audio/vi/alphabet/alphabet_02_aw.mp3?v=${v}`,
+    );
+    expect(alphabetNativePathForLetter("d-bar")).toBe(
+      `/audio/vi/alphabet/alphabet_07_dd.mp3?v=${v}`,
+    );
     expect(alphabetNativePathForLetter("ph")).toBeNull();
-    expect(alphabetPlaybackPathForLetter("a")).toBe("/audio/vi/alphabet/alphabet_01_a.mp3");
-    expect(alphabetNativePathForGrapheme("â")).toBe("/audio/vi/alphabet/alphabet_03_aa.mp3");
+    expect(alphabetPlaybackPathForLetter("a")).toBe(`/audio/vi/alphabet/alphabet_01_a.mp3?v=${v}`);
+    expect(alphabetNativePathForGrapheme("â")).toBe(
+      `/audio/vi/alphabet/alphabet_03_aa.mp3?v=${v}`,
+    );
     expect(alphabetNativePathForGrapheme("ba")).toBeNull();
   });
 

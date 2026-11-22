@@ -34,6 +34,12 @@ export const ALPHABET_AUDIO_SOURCE_PATH = "/audio/vi/alphabet/source/elevenlabs-
 
 export const ALPHABET_AUDIO_MANIFEST_PATH = "/audio/vi/alphabet/manifest.json";
 
+/**
+ * Bump when replacing public alphabet MP3 bytes so browsers do not keep playing
+ * a stale cached file at the same path (Hear uses fetch + Audio element caching).
+ */
+export const ALPHABET_AUDIO_CACHE_VERSION = "ind20-20261122";
+
 /** Exact traditional order for the ElevenLabs master. */
 export const ALPHABET_29_ORDER = [
   "a",
@@ -148,7 +154,7 @@ function filenameFor(index: number, slug: string): string {
 }
 
 function pathFor(filename: string): string {
-  return `/audio/vi/alphabet/${filename}`;
+  return `/audio/vi/alphabet/${filename}?v=${ALPHABET_AUDIO_CACHE_VERSION}`;
 }
 
 /**

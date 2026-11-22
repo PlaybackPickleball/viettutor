@@ -4,6 +4,8 @@
  * Placeholders use TTS utterance — never claim silent/fake verified audio.
  */
 
+import { alphabetPlaybackPathForGrapheme } from "@/lib/alphabetAudio";
+
 export type AudioAssetStatus = "native" | "tts-placeholder";
 
 export type AudioAsset = {
@@ -24,7 +26,7 @@ export const AUDIO_ASSETS: Record<string, AudioAsset> = {
     utterance: "a",
     dialect: "southern",
     status: "native",
-    nativePath: "/audio/vi/alphabet/alphabet_01_a.mp3",
+    nativePath: alphabetPlaybackPathForGrapheme("a") ?? undefined,
     noteEn: "Open ah vowel — alphabet letter clip",
   },
   "vi.south.letter.b": {
@@ -48,7 +50,7 @@ export const AUDIO_ASSETS: Record<string, AudioAsset> = {
     utterance: "o",
     dialect: "southern",
     status: "native",
-    nativePath: "/audio/vi/alphabet/alphabet_17_o.mp3",
+    nativePath: alphabetPlaybackPathForGrapheme("o") ?? undefined,
     noteEn: "Round aw vowel — alphabet letter clip",
   },
   "vi.south.syllable.bo": {
