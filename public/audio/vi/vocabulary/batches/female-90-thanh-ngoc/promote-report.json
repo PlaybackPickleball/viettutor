@@ -1,0 +1,368 @@
+{
+  "batchId": "female-90-thanh-ngoc",
+  "copied": [],
+  "skipped": [
+    {
+      "wordId": "v002",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v004",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v007",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v009",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v010",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v012",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v013",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v014",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v016",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v017",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v018",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v019",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v020",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v021",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v022",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v023",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v024",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v025",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v026",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v027",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v028",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v029",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v030",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v031",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v032",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v033",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v034",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v035",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v036",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v037",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v038",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v039",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v040",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v041",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v042",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v043",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v044",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v045",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v046",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v047",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v048",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v049",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v050",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v053",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v054",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v055",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v056",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v057",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v058",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v060",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v061",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v062",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v063",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v064",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v065",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v066",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v067",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v068",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v069",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v070",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v071",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v072",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v073",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v074",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v075",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v076",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v077",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v078",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v079",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v080",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v081",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v082",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v083",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v084",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v085",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v086",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v087",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v088",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v089",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v090",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v091",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v092",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v093",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v094",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v095",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v096",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v097",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v098",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v099",
+      "reason": "verified"
+    },
+    {
+      "wordId": "v100",
+      "reason": "verified"
+    }
+  ],
+  "forceOverwrite": false,
+  "promotedAt": "2026-11-22T02:37:03.890990+00:00"
+}

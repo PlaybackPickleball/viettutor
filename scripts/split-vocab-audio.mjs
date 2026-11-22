@@ -4,6 +4,11 @@
  * Male (10) + female (90) map to original pack IDs — not position-in-file.
  * Silence detection is an estimate — not linguistic validation.
  *
+ * Prefer the reusable Python workflow for new batches (100–150 ms pad,
+ * review flags, no overwrite of verified live clips):
+ *   python3 scripts/vocab_audio/split_batch.py --help
+ *   see scripts/vocab_audio/README.md
+ *
  * Usage:
  *   node scripts/split-vocab-audio.mjs
  *
@@ -28,7 +33,8 @@ const generatedPath = join(root, "src/lib/vocabulary/packLessons.generated.json"
 /** Spoken order in male-10.mp3 → original pack IDs. */
 const MALE_PACK_IDS = [1, 3, 5, 6, 8, 11, 15, 51, 52, 59];
 
-const PAD = 0.04;
+/** ~125 ms pad before/after speech (100–150 ms range). */
+const PAD = 0.125;
 const MALE_NOISE_DB = -35;
 const MALE_MIN_SILENCE = 0.08;
 const FEMALE_NOISE_DB = -36;

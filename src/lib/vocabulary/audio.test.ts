@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { listPackWords } from "./catalog";
 import {
@@ -69,5 +69,37 @@ describe("vocabulary pack audio", () => {
     expect(missing.map((c) => c.filename)).toEqual([]);
     expect(existsSync(join(root, "audio/vi/vocabulary/source/male-10.mp3"))).toBe(true);
     expect(existsSync(join(root, "audio/vi/vocabulary/source/female-90.mp3"))).toBe(true);
+  });
+
+  it("locks verified live clips and records the female-90 split batch", () => {
+    const root = join(process.cwd(), "public/audio/vi/vocabulary");
+    const verified = JSON.parse(readFileSync(join(root, "verified.json"), "utf8")) as {
+      wordIds: string[];
+    };
+    expect(verified.wordIds).toHaveLength(100);
+    expect(verified.wordIds).toEqual(
+      Array.from({ length: 100 }, (_, i) => `v${String(i + 1).padStart(3, "0")}`),
+    );
+
+    const batchManifest = JSON.parse(
+      readFileSync(join(root, "batches/female-90-thanh-ngoc/manifest.json"), "utf8"),
+    ) as {
+      clipCount: number;
+      expectedCount: number;
+      entries: Array<{ wordId: string; vi: string; filename: string }>;
+    };
+    expect(batchManifest.clipCount).toBe(90);
+    expect(batchManifest.expectedCount).toBe(90);
+    expect(batchManifest.entries).toHaveLength(90);
+    expect(batchManifest.entries[0]).toMatchObject({ wordId: "v002", vi: "bạn", filename: "v002.mp3" });
+    expect(batchManifest.entries.at(-1)).toMatchObject({
+      wordId: "v100",
+      vi: "vui",
+      filename: "v100.mp3",
+    });
+    // Diacritics / tones preserved in the ID→vi mapping.
+    expect(batchManifest.entries.some((e) => /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(e.vi))).toBe(
+      true,
+    );
   });
 });

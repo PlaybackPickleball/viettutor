@@ -75,6 +75,8 @@ public/sing/private/
 # VOCAB_PACK_AUDIO_ENABLED in src/lib/vocabulary/audio.ts.
 !public/audio/vi/vocabulary/*.mp3
 !public/audio/vi/vocabulary/source/*.mp3
+# Batch scratch MP3s from scripts/vocab_audio/split_batch.py — keep manifests only.
+public/audio/vi/vocabulary/batches/**/*.mp3
 # Essential Sentences Lesson 1 voiceovers — gated by SENTENCE_NATIVE_AUDIO_ENABLED.
 !public/audio/vi/sentences/*.mp3
 # Karaoke Learn-the-Lyrics spoken line clips (not singing masters).
