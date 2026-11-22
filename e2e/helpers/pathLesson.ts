@@ -4,6 +4,18 @@ import type { Page } from "@playwright/test";
 export async function completeCurrentExercise(page: Page) {
   const nextBtn = page.getByRole("button", { name: /^Next$/ });
 
+  // listen-type (Recall) — must run before generic Hear Listen (same ListenControls).
+  if (await page.getByText(/Type what you heard/i).isVisible().catch(() => false)) {
+    const listenRecall = page.locator("button.teacher-btn-primary").filter({ hasText: /^Listen$/ });
+    if (await listenRecall.isVisible().catch(() => false)) {
+      await listenRecall.click();
+    }
+    await page.getByRole("button", { name: /^Reveal$/ }).click({ timeout: 12_000 });
+    await page.getByRole("button", { name: /^Continue$/ }).click();
+    await nextBtn.click();
+    return;
+  }
+
   // Already listened on hear-sound
   const heard = page.getByRole("button", { name: /I heard it/i });
   if (await heard.isVisible().catch(() => false)) {
