@@ -2,6 +2,10 @@
  * First-100 vocabulary native clips (male 10 + female 90).
  * Splitting is mechanical — not linguistic validation. Learner playback is
  * gated by VOCAB_PACK_AUDIO_ENABLED (enabled after Nicola approved /review/vocab-audio).
+ *
+ * New masters: use `scripts/vocab_audio/split_batch.py` (FFmpeg silence detect,
+ * 100–150 ms pad, exact segment-count gate, never overwrites verified.json locks).
+ * See `scripts/vocab_audio/README.md`.
  */
 
 import { listPackWords } from "./catalog";
