@@ -14,12 +14,14 @@ describe("Đánh Vần 2.0 Foundations (w0)", () => {
     expect(boHuyen?.vocab?.glossEn.toLowerCase()).toContain("cow");
   });
 
-  it("registers pilot audio asset IDs as TTS placeholders", () => {
+  it("registers pilot audio assets (vowels a/o use alphabet clips)", () => {
+    expect(AUDIO_ASSETS["vi.south.vowel.a"]?.status).toBe("native");
+    expect(AUDIO_ASSETS["vi.south.vowel.a"]?.nativePath).toContain("alphabet_01_a");
+    expect(AUDIO_ASSETS["vi.south.vowel.o"]?.status).toBe("native");
+    expect(AUDIO_ASSETS["vi.south.vowel.o"]?.nativePath).toContain("alphabet_17_o");
     for (const id of [
-      "vi.south.vowel.a",
       "vi.south.letter.b",
       "vi.south.syllable.ba",
-      "vi.south.vowel.o",
       "vi.south.syllable.bo",
       "vi.south.syllable.bo-huyen",
     ]) {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { alphabetNativePathForGrapheme } from "@/lib/alphabetAudio";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 
 type Props = {
@@ -14,6 +15,8 @@ type Props = {
 export function ListenControls({ text, phoneticHint, nativePath, onListened }: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const resolvedNative =
+    nativePath?.trim() || alphabetNativePathForGrapheme(text) || null;
 
   async function play(slow = false) {
     setError(null);
@@ -24,8 +27,8 @@ export function ListenControls({ text, phoneticHint, nativePath, onListened }: P
       await speakVietnamese(text, {
         slow,
         phoneticHint,
-        nativePath: nativePath ?? undefined,
-        preferNative: Boolean(nativePath),
+        nativePath: resolvedNative ?? undefined,
+        preferNative: Boolean(resolvedNative),
       });
       onListened?.();
     } catch {

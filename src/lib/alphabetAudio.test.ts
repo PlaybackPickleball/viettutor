@@ -8,6 +8,7 @@ import {
   alphabetClipForGrapheme,
   alphabetClipForLetterId,
   alphabetClipPathForSlug,
+  alphabetNativePathForGrapheme,
   alphabetNativePathForLetter,
   alphabetPlaybackPathForGrapheme,
   alphabetPlaybackPathForLetter,
@@ -75,6 +76,8 @@ describe("alphabet audio catalog", () => {
     expect(alphabetNativePathForLetter("d-bar")).toBe("/audio/vi/alphabet/alphabet_07_dd.mp3");
     expect(alphabetNativePathForLetter("ph")).toBeNull();
     expect(alphabetPlaybackPathForLetter("a")).toBe("/audio/vi/alphabet/alphabet_01_a.mp3");
+    expect(alphabetNativePathForGrapheme("â")).toBe("/audio/vi/alphabet/alphabet_03_aa.mp3");
+    expect(alphabetNativePathForGrapheme("ba")).toBeNull();
   });
 
   it("flags short s and x segments from silence detect", () => {
