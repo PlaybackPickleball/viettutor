@@ -16,8 +16,8 @@ test.describe("Journey C — Pronunciation (mocked provider)", () => {
     await page.getByRole("button", { name: /I heard it/i }).click();
     await page.getByRole("button", { name: /^Next$/ }).click();
 
-    // Recognize — MCQ for vowel a on w0-l01
-    const choiceA = page.locator("button.ami-card").filter({ hasText: /^a$/i }).first();
+    // Recognize — MCQ for vowel a on w0-l01 (accessible name includes gloss)
+    const choiceA = page.getByRole("button", { name: /^a\b/i });
     await expect(choiceA).toBeVisible({ timeout: 15_000 });
     await choiceA.click();
     await page.getByRole("button", { name: /^Next$/ }).click();

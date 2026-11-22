@@ -73,8 +73,8 @@ export async function completeCurrentExercise(page: Page) {
     return;
   }
 
-  // MCQ — prefer known correct for w0-l01 review (a)
-  const choiceA = page.locator("button.ami-card").filter({ hasText: /^a$/i }).first();
+  // MCQ — prefer known correct for w0-l01 Recognize (a); name may include gloss
+  const choiceA = page.getByRole("button", { name: /^a\b/i });
   if (await choiceA.isVisible().catch(() => false)) {
     await choiceA.click();
     await nextBtn.click();
