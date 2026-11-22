@@ -136,7 +136,7 @@ export function toneDetective(args: {
   return {
     id: eid(`${args.lessonKey}-C`),
     type: "tone-detective",
-    stepRole: "hear",
+    stepRole: "recognize",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
     audioAssetId: args.audioAssetId,
@@ -259,7 +259,7 @@ export function reviewChallenge(args: {
   return {
     id: eid(`${args.lessonKey}-H`),
     type: "review-challenge",
-    stepRole: "review",
+    stepRole: "recognize",
     promptEn: args.promptEn,
     audioUtterance: args.audio,
     audioAssetId: args.audioAssetId,
@@ -268,6 +268,34 @@ export function reviewChallenge(args: {
     hintEn: args.hintEn,
     skillIds: args.skillIds,
     reviewBonus: true,
+  };
+}
+
+export function listenType(args: {
+  lessonKey: string;
+  promptEn: string;
+  promptVi?: string;
+  audio: string;
+  audioAssetId?: string;
+  written: string;
+  glossEn?: string;
+  hintEn?: string;
+  skillIds: string[];
+}): PathExercise {
+  return {
+    id: eid(`${args.lessonKey}-RECALL`),
+    type: "listen-type",
+    stepRole: "recall",
+    promptEn: args.promptEn,
+    promptVi: args.promptVi,
+    audioUtterance: args.audio,
+    audioAssetId: args.audioAssetId,
+    targetWritten: args.written,
+    targetGlossEn: args.glossEn,
+    hintEn:
+      args.hintEn ??
+      "Listen, then type what you heard — no peeking. Diacritics matter.",
+    skillIds: args.skillIds,
   };
 }
 
@@ -280,8 +308,9 @@ export const EXERCISE_TYPE_LABEL: Record<ExerciseType, string> = {
   "speak-compare": "Speak & Compare",
   "missing-component": "Missing Component",
   "read-without-help": "Read Without Help",
-  "write-trace": "Write (Mali)",
-  "review-challenge": "Review Challenge",
+  "write-trace": "Handwriting (optional)",
+  "review-challenge": "Recognize",
+  "listen-type": "Recall (type)",
 };
 
 export const STEP_ROLE_LABEL: Record<StepRole, string> = {
@@ -292,20 +321,22 @@ export const STEP_ROLE_LABEL: Record<StepRole, string> = {
   recognize: "RECOGNIZE",
   read: "READ",
   write: "WRITE",
-  review: "REVIEW",
+  review: "RECOGNIZE",
+  recall: "RECALL",
 };
 
 const TYPE_DEFAULT_ROLE: Record<ExerciseType, StepRole> = {
   "hear-sound": "hear",
   "listen-choose": "recognize",
   "build-syllable": "blend",
-  "tone-detective": "hear",
+  "tone-detective": "recognize",
   "sound-match": "recognize",
   "speak-compare": "repeat",
   "missing-component": "recognize",
   "read-without-help": "read",
   "write-trace": "write",
-  "review-challenge": "review",
+  "review-challenge": "recognize",
+  "listen-type": "recall",
 };
 
 export function resolveStepRole(exercise: PathExercise): StepRole {

@@ -14,7 +14,7 @@ export const LEARNING_WORLDS: LearningWorld[] = [
   ...WORLDS_4_TO_12,
 ];
 
-/** Every playable lesson is wired with Hear → Write → Say → Review. */
+/** Every playable lesson is wired with Hear → Recognize → Say → Recall. */
 export const LEARNING_LESSONS: LearningLesson[] = [
   ...WORLD_0_LESSONS,
   ...WORLD_1_LESSONS,

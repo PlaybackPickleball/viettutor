@@ -62,10 +62,10 @@ describe("Đánh Vần learning path catalog", () => {
     ]);
     const types = pilots.flatMap((l) => l.exercises.map((e) => e.type));
     expect(types).toContain("hear-sound");
-    expect(types).toContain("write-trace");
+    expect(types).not.toContain("write-trace");
     expect(types).toContain("build-syllable");
     expect(types).toContain("speak-compare");
-    expect(types).toContain("review-challenge");
+    expect(types).toContain("listen-type");
     expect(getPathLesson("w0-l04")?.targetSyllableIds).toContain("bo-huyen");
   });
 

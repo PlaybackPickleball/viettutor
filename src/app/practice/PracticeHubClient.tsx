@@ -30,7 +30,7 @@ export function PracticeHubClient() {
         <p className="quiet-label mt-3">Drills</p>
         <h1 className="mt-1 font-display text-3xl text-ink">Practice</h1>
         <p className="mt-1 text-ink/60">
-          Reuse Hear · Write · Say · Review — Deepgram match only, no invented scores.
+          Hear · Recognize · Say · Recall — Deepgram match only, no invented scores.
         </p>
       </header>
 
@@ -38,8 +38,13 @@ export function PracticeHubClient() {
         <PracticeLink
           href={writeHref}
           title="Hear & Write"
-          blurb="Dictation combos — Mali handwriting ready."
+          blurb="Dictation recall — type what you hear (optional Mali pad)."
           onOpen={() => markJourneyLessonComplete("u1-l06")}
+        />
+        <PracticeLink
+          href="/practice/handwriting"
+          title="Handwriting"
+          blurb="Optional Mali letter tracing — shape practice, not scored."
         />
         <PracticeLink
           href={speakHref}
@@ -59,7 +64,7 @@ export function PracticeHubClient() {
         <PracticeLink
           href={pathHref}
           title="Đánh Vần lesson"
-          blurb="Continue Hear → Write → Say → Review on the path."
+          blurb="Continue Hear → Recognize → Say → Recall on the path."
         />
         <PracticeLink href="/scan" title="Photograph Vietnamese" blurb="Scan and read in context." />
         <PracticeLink

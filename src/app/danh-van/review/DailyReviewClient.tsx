@@ -184,7 +184,7 @@ export function DailyReviewClient() {
         <div>
           <BrandMark />
           <p className="quiet-label mt-3">Daily Review</p>
-          <h1 className="mt-1 font-display text-2xl text-ink">Hear → Write → Say → Review</h1>
+          <h1 className="mt-1 font-display text-2xl text-ink">Hear → Recognize → Say → Recall</h1>
           <p className="text-sm text-ink/50">
             {index + 1} / {queue.length} · spaced revisit
           </p>

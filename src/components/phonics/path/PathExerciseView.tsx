@@ -8,6 +8,7 @@ import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess
 import { SyllableBuilder } from "@/components/phonics/SyllableBuilder";
 import { WordArt } from "@/components/phonics/WordArt";
 import { WordGloss } from "@/components/phonics/WordGloss";
+import { ViDiacriticHelper } from "@/components/vi/ViDiacriticHelper";
 import { alphabetNativePathForGrapheme } from "@/lib/alphabetAudio";
 import { speakVietnamese, stopSpeaking } from "@/lib/audio";
 import {
@@ -18,6 +19,7 @@ import {
   type PathExercise,
 } from "@/lib/phonics/learningPath";
 import { resolveWordArt } from "@/lib/phonics/wordArt";
+import { gradeTypedVi } from "@/lib/vocabulary/mastery/typing";
 
 type Props = {
   exercise: PathExercise;
@@ -35,6 +37,7 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const [buildReady, setBuildReady] = useState(false);
   const [heard, setHeard] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [typed, setTyped] = useState("");
 
   const stepRole = resolveStepRole(exercise);
   const asset = exercise.audioAssetId ? getAudioAsset(exercise.audioAssetId) : undefined;
@@ -94,7 +97,24 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
   const showListenReplay =
     Boolean(audioText) &&
     exercise.type !== "build-syllable" &&
-    exercise.type !== "hear-sound";
+    exercise.type !== "hear-sound" &&
+    exercise.type !== "listen-type";
+
+  function checkTypedRecall() {
+    if (solved) return;
+    const expected = exercise.targetWritten || exercise.audioUtterance || "";
+    const grade = gradeTypedVi(typed, expected);
+    if (grade.ok) {
+      onResult(true);
+      setSolved(true);
+      setShowHint(false);
+      setFeedback("Correct — recalled from listening.");
+      return;
+    }
+    onResult(false);
+    setShowHint(true);
+    setFeedback(grade.hint);
+  }
 
   return (
     <div className="animate-riseIn space-y-4">
@@ -245,10 +265,83 @@ export function PathExerciseView({ exercise, index, total, onResult, onContinue 
         </div>
       ) : null}
 
+      {exercise.type === "listen-type" ? (
+        <div className="space-y-3">
+          <ListenControls
+            text={audioText || exercise.targetWritten || ""}
+            nativePath={nativePath}
+            onListened={() => setHeard(true)}
+          />
+          <p className="text-sm text-ink/55">
+            Type what you heard — the answer stays hidden until you check.
+          </p>
+          <label className="block">
+            <span className="quiet-label">Your answer</span>
+            <input
+              type="text"
+              inputMode="text"
+              lang="vi"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+              value={typed}
+              disabled={(!heard && !revealed) || solved}
+              onChange={(e) => setTyped(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") checkTypedRecall();
+              }}
+              placeholder={heard ? "Type with diacritics…" : "Listen first…"}
+              className="mt-2 w-full rounded-2xl border border-[#e8d9c8] bg-paper px-4 py-3 font-hand text-3xl text-ink outline-none ring-coral/40 focus:ring-2"
+            />
+          </label>
+          <ViDiacriticHelper
+            disabled={(!heard && !revealed) || solved}
+            onInsert={(ch) => setTyped((t) => t + ch)}
+          />
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              className="teacher-btn-primary flex-1"
+              disabled={!heard || !typed.trim() || solved}
+              onClick={checkTypedRecall}
+            >
+              Check
+            </button>
+            {!solved ? (
+              <button
+                type="button"
+                className="teacher-btn-secondary text-sm"
+                onClick={() => {
+                  setRevealed(true);
+                  setTyped(exercise.targetWritten || exercise.audioUtterance || "");
+                  setShowHint(true);
+                }}
+              >
+                Reveal
+              </button>
+            ) : null}
+          </div>
+          {revealed && !solved ? (
+            <>
+              <p className="text-center font-hand text-4xl text-coral" lang="vi">
+                {exercise.targetWritten}
+              </p>
+              <button
+                type="button"
+                className="teacher-btn-secondary w-full"
+                onClick={() => finishUngraded("Revealed — continue and try recall again later.")}
+              >
+                Continue
+              </button>
+            </>
+          ) : null}
+        </div>
+      ) : null}
+
       {exercise.type === "write-trace" && exercise.traceGrapheme ? (
         <div className="space-y-3">
           <p className="text-center text-xs text-ink/45">
-            Mali handwriting · shape practice — no accuracy claim
+            Optional Mali handwriting · shape practice — no accuracy claim
           </p>
           {(exercise.traceStrokes?.length ?? 0) > 0 ? (
             <StrokeDemo

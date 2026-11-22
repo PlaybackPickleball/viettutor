@@ -1,6 +1,6 @@
 /**
  * Unit 1 · Discover — validated Southern-first lessons.
- * Reuses path exercise builders + Hear→Write→Say→Review.
+ * Reuses path exercise builders + Hear→Recognize→Say→Recall.
  * Early communicative wins: greet, introduce, order a drink, ask questions.
  * No invented pronunciation scores — Deepgram match only on speak-compare.
  */
@@ -30,7 +30,7 @@ const raw: LearningLesson[] = [
     titleEn: "Xin chào · Sound a",
     titleVi: "Xin chào · Âm a",
     summaryEn:
-      "Hear and write open a, then say Xin chào (hello) — your first real greeting.",
+      "Hear and recognize open a, then say Xin chào (hello) — your first real greeting.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: [],
@@ -406,7 +406,7 @@ const raw: LearningLesson[] = [
     order: 6,
     titleEn: "Sounds e · ê",
     titleVi: "Âm e · ê",
-    summaryEn: "Open e vs closed ê — hear, write, say, and match.",
+    summaryEn: "Open e vs closed ê — hear, recognize, say, and recall.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: ["letter-e-circumflex"],
@@ -637,7 +637,7 @@ const raw: LearningLesson[] = [
   },
 ];
 
-/** Unit 1 Discover — every lesson has Hear → Write → Say → Review. */
+/** Unit 1 Discover — every lesson has Hear → Recognize → Say → Recall. */
 export const UNIT1_PLAYABLE_LESSONS: LearningLesson[] = raw.map(ensureHearWriteSayReview);
 
 export function getUnit1Lesson(id: string): LearningLesson | undefined {

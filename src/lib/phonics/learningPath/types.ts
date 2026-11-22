@@ -5,7 +5,7 @@
 
 import type { Dialect, PhonicsStep, ToneId } from "../types";
 
-/** Pedagogical role in the Đánh Vần 2.0 HEAR→…→REVIEW engine. */
+/** Pedagogical role in the Đánh Vần engine (product loop: Hear→Recognize→Say→Recall). */
 export type StepRole =
   | "hear"
   | "repeat"
@@ -13,19 +13,21 @@ export type StepRole =
   | "recognize"
   | "read"
   | "write"
-  | "review";
+  | "review"
+  | "recall";
 
 export type ExerciseType =
   | "hear-sound" // HEAR — listen / slow / replay
-  | "listen-choose" // A — HEAR/RECOGNIZE by ear
+  | "listen-choose" // A — RECOGNIZE by ear
   | "build-syllable" // B — BLEND
   | "tone-detective" // C — HEAR tones
   | "sound-match" // D — RECOGNIZE sound→letter
-  | "speak-compare" // E — REPEAT (ear compare, no fake score)
+  | "speak-compare" // E — SAY (ear compare / Deepgram when configured)
   | "missing-component" // F — RECOGNIZE missing piece
   | "read-without-help" // G — READ
-  | "write-trace" // WRITE — Mali trace (no accuracy claim)
-  | "review-challenge"; // H — REVIEW
+  | "write-trace" // Optional Mali trace (Practice → Handwriting)
+  | "review-challenge" // Legacy MCQ — counts as Recognize in the product loop
+  | "listen-type"; // RECALL — type from audio without peeking
 
 export type SkillKind = "letter" | "tone" | "pattern" | "vocab" | "listening";
 
