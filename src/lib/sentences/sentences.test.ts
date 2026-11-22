@@ -23,7 +23,7 @@ describe("Essential Sentences MVP curriculum", () => {
       expect(s.id).toMatch(/^sentence_\d{3}$/);
       expect(s.dialect).toBe("southern");
       expect(s.contentStatus).toBe("pending_review");
-      if (s.lessonId === "s-l01") {
+      if (s.lessonId === "s-l01" || s.lessonId === "s-l02") {
         expect(s.audioMode).toBe("native");
       } else {
         expect(s.audioMode).toBe("tts_temporary");
