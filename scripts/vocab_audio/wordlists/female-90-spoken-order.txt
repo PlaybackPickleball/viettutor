@@ -1,0 +1,93 @@
+# Spoken order for the female-90 ElevenLabs master (Thanh Ngọc).
+# One Vietnamese headword per line; tones/diacritics required.
+# Maps in order to female pack IDs (all First-100 except male 1,3,5,6,8,11,15,51,52,59).
+bạn
+chị
+má
+bà
+gia đình
+người
+trẻ em
+bạn bè
+cô
+học sinh
+học
+trường
+lớp
+nhà
+phòng
+bếp
+phòng tắm
+cửa
+bàn
+ghế
+giường
+tủ
+đèn
+sách
+vở
+bút
+bút chì
+thước
+cặp
+điện thoại
+máy tính
+tivi
+đồng hồ
+nước
+cơm
+phở
+bánh mì
+trái cây
+rau
+thịt
+cá
+trứng
+sữa
+nấu
+mua
+bán
+đi
+đến
+về
+chơi
+xem
+nghe
+nói
+đọc
+viết
+thích
+yêu
+muốn
+cần
+có
+không
+là
+và
+nhưng
+vì
+nếu
+khi
+đã
+sẽ
+đang
+hôm nay
+ngày mai
+hôm qua
+buổi sáng
+buổi trưa
+buổi chiều
+buổi tối
+đêm
+tuần
+tháng
+năm
+thời tiết
+nóng
+lạnh
+mưa
+nắng
+gió
+đẹp
+tốt
+vui

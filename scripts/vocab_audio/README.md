@@ -19,6 +19,13 @@ Spoken order = every First-100 pack ID **except** the male set
 `1, 3, 5, 6, 8, 11, 15, 51, 52, 59` (90 entries). Vietnamese spellings
 (including tones) come from `src/lib/vocabulary/packData.json`.
 
+Canonical spoken script (locked to Nicola’s list):
+
+`scripts/vocab_audio/wordlists/female-90-spoken-order.txt`
+
+`split_batch.py` validates that file against pack headwords before splitting.
+Pass `--spoken-order path.txt` for future batches.
+
 ### Split into a review batch
 
 ```bash

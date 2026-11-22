@@ -231,6 +231,47 @@ def pack_ids_for_voice(words: list[PackWord], voice: Voice) -> list[int]:
     return [w.pack_id for w in words if w.pack_id not in male]
 
 
+def load_spoken_order(path: Path) -> list[str]:
+    lines = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        lines.append(line.rstrip(".").strip())
+    return lines
+
+
+def validate_spoken_order(
+    spoken: list[str],
+    pack_ids: list[int],
+    by_pack: dict[int, PackWord],
+) -> None:
+    """Ensure the recording script matches pack Vietnamese headwords in spoken order."""
+    if len(spoken) != len(pack_ids):
+        die(
+            f"Spoken-order list has {len(spoken)} words; expected {len(pack_ids)} "
+            f"for this voice/pack mapping."
+        )
+    mismatches = []
+    for i, (vi, pack_id) in enumerate(zip(spoken, pack_ids)):
+        meta = by_pack[pack_id]
+        if vi != meta.vi:
+            mismatches.append(
+                {
+                    "spokenIndex": i + 1,
+                    "spokenVi": vi,
+                    "packId": pack_id,
+                    "packVi": meta.vi,
+                    "wordId": meta.word_id,
+                }
+            )
+    if mismatches:
+        die(
+            "Spoken-order list does not match packData Vietnamese (tones must match). "
+            f"First conflicts: {mismatches[:5]}"
+        )
+
+
 def auto_flags(clips: list[ClipRow], index: int) -> list[str]:
     c = clips[index]
     flags: list[str] = []
@@ -486,6 +527,15 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--pack-data", type=Path, default=DEFAULT_PACK)
     p.add_argument("--generated", type=Path, default=DEFAULT_GENERATED)
     p.add_argument(
+        "--spoken-order",
+        type=Path,
+        help=(
+            "Optional text file: one Vietnamese headword per line in recording order. "
+            "Validated against packData before splitting (default for female-90: "
+            "scripts/vocab_audio/wordlists/female-90-spoken-order.txt)."
+        ),
+    )
+    p.add_argument(
         "--install-source-as",
         type=str,
         help="Copy --source into public/.../source/<name> before splitting (e.g. female-90.mp3)",
@@ -576,6 +626,16 @@ def main() -> None:
         pack_ids = list(MALE_PACK_IDS)
     if len(pack_ids) != expected:
         die(f"Voice {voice} has {len(pack_ids)} pack ids but --expected={expected}")
+
+    spoken_order_path = args.spoken_order
+    if spoken_order_path is None and voice == "female" and expected == 90:
+        default_list = Path(__file__).resolve().parent / "wordlists/female-90-spoken-order.txt"
+        if default_list.exists():
+            spoken_order_path = default_list
+    if spoken_order_path is not None:
+        spoken = load_spoken_order(spoken_order_path)
+        validate_spoken_order(spoken, pack_ids, by_pack)
+        print(f"Spoken-order check OK ({len(spoken)} words) ← {spoken_order_path}")
 
     print(
         f"Splitting {source.name} → batch {batch_id} "
