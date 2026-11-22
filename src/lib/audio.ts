@@ -99,19 +99,27 @@ async function playObjectUrl(url: string, opts?: SpeakOpts): Promise<void> {
   });
 }
 
-/** Probe a public native file; returns false on 404 / network error. */
+function looksLikeAudioResponse(res: Response): boolean {
+  if (!(res.ok || res.status === 206)) return false;
+  const type = (res.headers.get("content-type") || "").toLowerCase();
+  // Require an audio/* type so login HTML / SPA shells (200 text/html) never count.
+  return type.includes("audio/");
+}
+
+/** Probe a public native file; returns false on 404 / network error / non-audio body. */
 export async function nativeAudioAvailable(nativePath: string): Promise<boolean> {
   if (typeof window === "undefined") return false;
   try {
-    const res = await fetch(nativePath, { method: "HEAD", cache: "force-cache" });
-    if (res.ok) return true;
+    // Avoid force-cache: replaced MP3s at the same path must be revalidated.
+    const res = await fetch(nativePath, { method: "HEAD", cache: "no-cache" });
+    if (looksLikeAudioResponse(res)) return true;
     // Some hosts reject HEAD — try a tiny ranged GET
     const get = await fetch(nativePath, {
       method: "GET",
-      headers: { Range: "bytes=0-0" },
-      cache: "force-cache",
+      headers: { Range: "bytes=0-1" },
+      cache: "no-cache",
     });
-    return get.ok || get.status === 206;
+    return looksLikeAudioResponse(get);
   } catch {
     return false;
   }

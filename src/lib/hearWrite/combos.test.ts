@@ -38,7 +38,9 @@ describe("hear-write combos", () => {
     expect(level1.length).toBeGreaterThan(0);
     for (const item of level1) {
       const path = alphabetPlaybackPathForGrapheme(item.listenText);
-      expect(path, item.listenText).toMatch(/^\/audio\/vi\/alphabet\/alphabet_\d{2}_.+\.mp3$/);
+      expect(path, item.listenText).toMatch(
+        /^\/audio\/vi\/alphabet\/alphabet_\d{2}_.+\.mp3(\?v=.+)?$/,
+      );
     }
   });
 });
