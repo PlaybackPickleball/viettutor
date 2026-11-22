@@ -49,8 +49,9 @@ export async function chatJson(args: {
   });
 
   if (!res.ok) {
-    const text = await res.text();
-    return { ok: false, message: `AI provider error (${res.status}): ${text.slice(0, 240)}` };
+    // Do not forward provider response bodies to clients (may contain internals).
+    await res.text().catch(() => "");
+    return { ok: false, message: `AI provider error (${res.status})` };
   }
 
   const payload = (await res.json()) as {

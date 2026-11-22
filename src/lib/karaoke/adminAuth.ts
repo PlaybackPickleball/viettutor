@@ -5,18 +5,19 @@ import {
 } from "../../../cursor/identity";
 
 /**
- * Karaoke admin emails (comma-separated). Private-app invitees not on this
- * list cannot run align / approve. Override via SING_ADMIN_EMAILS secret.
+ * Karaoke admin Cursor user ids (comma-separated numbers from identity.userId).
+ * Private-app invitees not on this list cannot align / approve.
+ * Override via SING_ADMIN_USER_IDS secret. Default = app owner (Nicola).
  */
-const DEFAULT_SING_ADMIN_EMAILS = "musadoproductions@gmail.com";
+const DEFAULT_SING_ADMIN_USER_IDS = "54786101";
 
-function adminEmailAllowlist(): Set<string> {
-  const raw = (process.env.SING_ADMIN_EMAILS || DEFAULT_SING_ADMIN_EMAILS).trim();
+function adminUserIdAllowlist(): Set<number> {
+  const raw = (process.env.SING_ADMIN_USER_IDS || DEFAULT_SING_ADMIN_USER_IDS).trim();
   return new Set(
     raw
       .split(",")
-      .map((e) => e.trim().toLowerCase())
-      .filter(Boolean),
+      .map((s) => Number(s.trim()))
+      .filter((n) => Number.isFinite(n) && n > 0),
   );
 }
 
@@ -29,9 +30,9 @@ function forbidden(): Response {
 
 /**
  * Karaoke mutate routes (align / approve):
- * - Team apps: Cursor team admin only
- * - Private apps: signed-in person whose email is on SING_ADMIN_EMAILS
- *   (not every invited viewer)
+ * - Team apps: Cursor team admin role only
+ * - Private apps: signed-in person whose verified Cursor userId is allowlisted
+ *   (not every invited viewer; not email-string matching)
  * - API keys: refused
  */
 export async function requireSingAdmin(
@@ -48,12 +49,11 @@ export async function requireSingAdmin(
     return requireTeamRole(identity, ["admin"]);
   }
 
-  // Private (or unexpected visibility): explicit allowlist — not every invitee.
+  // Private: verified numeric Cursor userId allowlist only.
   if (identity.simulated) {
     return identity;
   }
-  const email = identity.email.trim().toLowerCase();
-  if (!email || !adminEmailAllowlist().has(email)) {
+  if (!identity.userId || !adminUserIdAllowlist().has(identity.userId)) {
     return forbidden();
   }
   return identity;
