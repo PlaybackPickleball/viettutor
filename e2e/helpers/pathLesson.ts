@@ -73,27 +73,31 @@ export async function completeCurrentExercise(page: Page) {
     return;
   }
 
-  // MCQ — prefer known correct for w0-l01 Recognize (a); name may include gloss
-  const choiceA = page.getByRole("button", { name: /^a\b/i });
-  if (await choiceA.isVisible().catch(() => false)) {
-    await choiceA.click();
-    await nextBtn.click();
-    return;
-  }
-
-  const anyChoice = page.locator("button.ami-card").first();
-  if (await anyChoice.isVisible().catch(() => false)) {
-    await anyChoice.click();
-    if (await nextBtn.isVisible().catch(() => false)) {
-      await nextBtn.click();
-      return;
+  // MCQ — wrong picks do not unlock Next; try each card until solved.
+  // (Do not prefer /^a/ — on w0-l02 “a” is a distractor and Next never appears.)
+  const choices = page.locator("button.ami-card");
+  if (await choices.first().isVisible().catch(() => false)) {
+    const n = await choices.count();
+    for (let i = 0; i < n; i++) {
+      const card = choices.nth(i);
+      if (await card.isDisabled().catch(() => false)) continue;
+      await card.click();
+      if (await nextBtn.isVisible().catch(() => false)) {
+        await nextBtn.click();
+        return;
+      }
     }
     const hint = page.getByRole("button", { name: /Need a hint/i });
     if (await hint.isVisible().catch(() => false)) await hint.click();
-    const second = page.locator("button.ami-card").nth(1);
-    if (await second.isVisible().catch(() => false)) await second.click();
-    await nextBtn.click();
-    return;
+    for (let i = 0; i < n; i++) {
+      const card = choices.nth(i);
+      if (await card.isDisabled().catch(() => false)) continue;
+      await card.click();
+      if (await nextBtn.isVisible().catch(() => false)) {
+        await nextBtn.click();
+        return;
+      }
+    }
   }
 
   throw new Error("Could not complete current path exercise — unknown UI state");
