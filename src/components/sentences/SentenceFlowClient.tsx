@@ -74,10 +74,11 @@ export function SentenceFlowClient({ lessonId, sentenceId }: Props) {
   }
 
   const stage = SENTENCE_STAGES[stageIdx]!;
+  const sentenceVi = sentence.vi;
   const sentenceNativePath = sentenceNativePathForOrder(sentence.order);
 
   function playSentence(opts?: { slow?: boolean; rate?: number }) {
-    return speakVietnamese(sentence.vi, {
+    return speakVietnamese(sentenceVi, {
       ...opts,
       nativePath: sentenceNativePath ?? undefined,
       preferNative: Boolean(sentenceNativePath),
