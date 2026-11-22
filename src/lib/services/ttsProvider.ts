@@ -133,10 +133,11 @@ async function requestSpeech(
     });
 
     if (!res.ok) {
-      const errText = await res.text().catch(() => "");
+      // Do not forward provider response bodies to clients.
+      await res.text().catch(() => "");
       return {
         ok: false,
-        message: `TTS provider error (${res.status}): ${errText.slice(0, 200)}`,
+        message: `TTS provider error (${res.status})`,
         status: res.status >= 500 ? 502 : 400,
       };
     }
