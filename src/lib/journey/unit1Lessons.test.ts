@@ -10,9 +10,10 @@ describe("Unit 1 Discover lessons", () => {
     expect(lessons.every((l) => l.playable)).toBe(true);
   });
 
-  it("every lesson has Hear → Write → Say → Review", () => {
+  it("every lesson has Hear → Recognize → Say → Recall", () => {
     for (const lesson of lessons) {
       expect(lessonHasFullLoop(lesson), lesson.id).toBe(true);
+      expect(lesson.exercises.every((e) => e.type !== "write-trace"), lesson.id).toBe(true);
     }
   });
 

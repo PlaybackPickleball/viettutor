@@ -230,7 +230,7 @@ export const JOURNEY_UNITS: JourneyUnit[] = [
     order: 3,
     titleEn: "Đánh Vần",
     titleVi: "Đánh Vần",
-    blurb: "Build syllables — Hear → Write → Say → Review on the Foundations path.",
+    blurb: "Build syllables — Hear → Recognize → Say → Recall on the Foundations path.",
     targetLessonCount: 14,
     lessons: [
       {

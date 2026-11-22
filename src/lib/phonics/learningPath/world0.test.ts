@@ -30,15 +30,16 @@ describe("Đánh Vần 2.0 Foundations (w0)", () => {
     }
   });
 
-  it("maps pilot exercises onto Hear → Write → Say → Review", () => {
+  it("maps pilot exercises onto Hear → Recognize → Say → Recall", () => {
     const lesson = getPathLesson("w0-l01");
     expect(lesson).toBeTruthy();
     const roles = lesson!.exercises.map((e) => resolveStepRole(e));
     expect(roles[0]).toBe("hear");
-    expect(roles).toContain("write");
+    expect(roles).not.toContain("write");
+    expect(roles).toContain("recognize");
     expect(roles).toContain("repeat");
-    expect(roles).toContain("review");
-    expect(roles.indexOf("write")).toBeLessThan(roles.indexOf("repeat"));
+    expect(roles).toContain("recall");
+    expect(roles.indexOf("recognize")).toBeLessThan(roles.indexOf("repeat"));
   });
 
   it("attaches audio asset ids on Foundations hear/speak steps", () => {

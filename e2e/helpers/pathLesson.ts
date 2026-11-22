@@ -4,6 +4,18 @@ import type { Page } from "@playwright/test";
 export async function completeCurrentExercise(page: Page) {
   const nextBtn = page.getByRole("button", { name: /^Next$/ });
 
+  // listen-type (Recall) — must run before generic Hear Listen (same ListenControls).
+  if (await page.getByText(/Type what you heard/i).isVisible().catch(() => false)) {
+    const listenRecall = page.locator("button.teacher-btn-primary").filter({ hasText: /^Listen$/ });
+    if (await listenRecall.isVisible().catch(() => false)) {
+      await listenRecall.click();
+    }
+    await page.getByRole("button", { name: /^Reveal$/ }).click({ timeout: 12_000 });
+    await page.getByRole("button", { name: /^Continue$/ }).click();
+    await nextBtn.click();
+    return;
+  }
+
   // Already listened on hear-sound
   const heard = page.getByRole("button", { name: /I heard it/i });
   if (await heard.isVisible().catch(() => false)) {
@@ -61,27 +73,31 @@ export async function completeCurrentExercise(page: Page) {
     return;
   }
 
-  // MCQ — prefer known correct for w0-l01 review (a)
-  const choiceA = page.locator("button.ami-card").filter({ hasText: /^a$/i }).first();
-  if (await choiceA.isVisible().catch(() => false)) {
-    await choiceA.click();
-    await nextBtn.click();
-    return;
-  }
-
-  const anyChoice = page.locator("button.ami-card").first();
-  if (await anyChoice.isVisible().catch(() => false)) {
-    await anyChoice.click();
-    if (await nextBtn.isVisible().catch(() => false)) {
-      await nextBtn.click();
-      return;
+  // MCQ — wrong picks do not unlock Next; try each card until solved.
+  // (Do not prefer /^a/ — on w0-l02 “a” is a distractor and Next never appears.)
+  const choices = page.locator("button.ami-card");
+  if (await choices.first().isVisible().catch(() => false)) {
+    const n = await choices.count();
+    for (let i = 0; i < n; i++) {
+      const card = choices.nth(i);
+      if (await card.isDisabled().catch(() => false)) continue;
+      await card.click();
+      if (await nextBtn.isVisible().catch(() => false)) {
+        await nextBtn.click();
+        return;
+      }
     }
     const hint = page.getByRole("button", { name: /Need a hint/i });
     if (await hint.isVisible().catch(() => false)) await hint.click();
-    const second = page.locator("button.ami-card").nth(1);
-    if (await second.isVisible().catch(() => false)) await second.click();
-    await nextBtn.click();
-    return;
+    for (let i = 0; i < n; i++) {
+      const card = choices.nth(i);
+      if (await card.isDisabled().catch(() => false)) continue;
+      await card.click();
+      if (await nextBtn.isVisible().catch(() => false)) {
+        await nextBtn.click();
+        return;
+      }
+    }
   }
 
   throw new Error("Could not complete current path exercise — unknown UI state");

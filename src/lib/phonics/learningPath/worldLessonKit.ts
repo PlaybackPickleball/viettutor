@@ -2,6 +2,7 @@ import {
   buildSyllable,
   hearSound,
   listenChoose,
+  listenType,
   missingComponent,
   readWithoutHelp,
   resetExerciseIds,
@@ -9,7 +10,6 @@ import {
   soundMatch,
   speakCompare,
   toneDetective,
-  writeTrace,
 } from "./exerciseBuilders";
 import { getSyllable } from "./syllables";
 import type { LearningLesson, PathExercise } from "./types";
@@ -47,13 +47,8 @@ function choicesFromTargets(ids: string[]) {
   });
 }
 
-function letterIdForWritten(written: string): string | undefined {
-  if (written.length === 1) return written;
-  return undefined;
-}
-
 /**
- * Core Hear → Write → (focus middle) → Say → Review for generated worlds.
+ * Core Hear → Recognize → (focus middle) → Say → Recall for generated worlds.
  */
 function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[] {
   const primary = getSyllable(spec.targets[0]);
@@ -71,13 +66,14 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
     glossEn: primary.vocab?.glossEn,
     skillIds: skills,
   });
-  const write = writeTrace({
+  const recognize = listenChoose({
     lessonKey,
-    grapheme: primary.written,
-    letterId: letterIdForWritten(primary.written),
-    promptEn: `Write ${primary.written} — Mali guide.`,
-    glossEn: primary.vocab?.glossEn,
-    skillIds: [...skills, "write-trace"],
+    promptEn: `Recognize — which form did you hear?`,
+    audio: primary.written,
+    choices: opts,
+    correctId: primary.written,
+    hintEn: `Match the audio to ${primary.written}.`,
+    skillIds: skills,
   });
   const say = speakCompare({
     lessonKey,
@@ -86,13 +82,12 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
     promptEn: `Say ${primary.written} — Deepgram match when configured (not a score).`,
     skillIds: [...skills, "speak-compare"],
   });
-  const review = reviewChallenge({
+  const recall = listenType({
     lessonKey,
-    promptEn: `Review — pick ${primary.written}.`,
+    promptEn: `Recall — type what you hear (no peeking).`,
     audio: primary.written,
-    choices: opts,
-    correctId: primary.written,
-    hintEn: `Answer is ${primary.written}.`,
+    written: primary.written,
+    glossEn: primary.vocab?.glossEn,
     skillIds: skills,
   });
 
@@ -254,7 +249,7 @@ function buildExercises(lessonKey: string, spec: WorldLessonSpec): PathExercise[
       break;
   }
 
-  return [hear, write, ...middle, say, review];
+  return [hear, recognize, ...middle, say, recall];
 }
 
 export function makeWorldPack(

@@ -11,15 +11,15 @@ test.describe("Journey C — Pronunciation (mocked provider)", () => {
     page,
   }) => {
     await page.goto("/danh-van/path/w0-l01");
-    // Hear → Write → Say: finish Hear, skip Write, assert Say
+    // Hear → Recognize → Say: finish Hear, pick Recognize, assert Say
     await page.locator("button.teacher-btn-primary", { hasText: /^Listen$/ }).click();
     await page.getByRole("button", { name: /I heard it/i }).click();
     await page.getByRole("button", { name: /^Next$/ }).click();
 
-    await expect(page.getByRole("button", { name: /Skip trace \/ continue/i })).toBeVisible({
-      timeout: 15_000,
-    });
-    await page.getByRole("button", { name: /Skip trace \/ continue/i }).click();
+    // Recognize — MCQ for vowel a on w0-l01 (accessible name includes gloss)
+    const choiceA = page.getByRole("button", { name: /^a\b/i });
+    await expect(choiceA).toBeVisible({ timeout: 15_000 });
+    await choiceA.click();
     await page.getByRole("button", { name: /^Next$/ }).click();
 
     await expect(page.getByRole("button", { name: /Record pronunciation/i })).toBeVisible();

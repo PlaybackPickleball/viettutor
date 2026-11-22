@@ -1,6 +1,7 @@
 /**
  * Đánh Vần 2.0 Foundations — five pilot lessons (a → b/ba → o/bo → bò → review).
- * Each lesson follows Hear → Write → Say → Review (optional Blend/Read in the middle).
+ * Each lesson follows Hear → Recognize → Say → Recall (optional Blend/Read in the middle).
+ * Handwriting tracing is optional under Practice → Handwriting.
  */
 import {
   buildSyllable,
@@ -31,7 +32,7 @@ export const WORLD_0: LearningWorld = {
   order: 0,
   titleEn: "Foundations — a, b, o",
   titleVi: "Nền tảng — a, b, o",
-  summaryEn: "Hear, write, say, and review a / b / o with ba, bo, and bò (cow).",
+  summaryEn: "Hear, recognize, say, and recall a / b / o with ba, bo, and bò (cow).",
   playable: true,
   badgeId: "badge-w0",
   lessonIds: ["w0-l01", "w0-l02", "w0-l03", "w0-l04", "w0-l05"],
@@ -44,7 +45,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
     order: 1,
     titleEn: "Sound a",
     titleVi: "Âm a",
-    summaryEn: "Hear → write → say → review the open ah vowel a.",
+    summaryEn: "Hear → recognize → say → recall the open ah vowel a.",
     durationMin: 3,
     playable: true,
     prerequisiteSkillIds: [],
@@ -80,14 +81,14 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
       }),
       listenChoose({
         lessonKey: "w0l01",
-        promptEn: "Review — which vowel did you hear?",
+        promptEn: "Recognize — which vowel did you hear?",
         audio: "a",
         audioAssetId: "vi.south.vowel.a",
         choices: vowelChoices,
         correctId: "a",
         hintEn: "Open mouth — ah → a.",
         skillIds: ["letter-a", "listen-discriminate"],
-        stepRole: "review",
+        stepRole: "recognize",
       }),
     ],
   },
@@ -97,7 +98,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
     order: 2,
     titleEn: "Letter b → ba",
     titleVi: "Chữ b → ba",
-    summaryEn: "Hear bờ, write ba, say ba, then a short review.",
+    summaryEn: "Hear bờ, recognize ba, say ba, then recall.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: ["letter-a"],
@@ -139,7 +140,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
       }),
       listenChoose({
         lessonKey: "w0l02",
-        promptEn: "Review — which form did you practice?",
+        promptEn: "Recognize — which form did you practice?",
         audio: "ba",
         audioAssetId: "vi.south.syllable.ba",
         choices: [
@@ -150,7 +151,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
         correctId: "ba",
         hintEn: "bờ + a → ba.",
         skillIds: ["vocab-ba-ma", "listen-discriminate"],
-        stepRole: "review",
+        stepRole: "recognize",
       }),
     ],
   },
@@ -160,7 +161,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
     order: 3,
     titleEn: "Sound o → bo",
     titleVi: "Âm o → bo",
-    summaryEn: "Hear o, write o, say bo, then review the o / bò contrast.",
+    summaryEn: "Hear o, recognize o / bò, say bo, then recall.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: ["letter-b", "build-open-cv"],
@@ -215,14 +216,14 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
       }),
       soundMatch({
         lessonKey: "w0l03",
-        promptEn: "Review — match the sound to the letter.",
+        promptEn: "Recognize — match the sound to the letter.",
         audio: "o",
         audioAssetId: "vi.south.vowel.o",
         choices: vowelChoices,
         correctId: "o",
         hintEn: "Round lips — aw → o.",
         skillIds: ["letter-o", "listen-discriminate"],
-        stepRole: "review",
+        stepRole: "recognize",
       }),
     ],
   },
@@ -232,7 +233,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
     order: 4,
     titleEn: "Word bò",
     titleVi: "Từ bò",
-    summaryEn: "Hear → write → say → review bò (cow) with falling huyền.",
+    summaryEn: "Hear → recognize → say → recall bò (cow) with falling huyền.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: ["letter-o", "tone-huyen"],
@@ -274,7 +275,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
       }),
       listenChoose({
         lessonKey: "w0l04",
-        promptEn: "Review — which word means cow?",
+        promptEn: "Recognize — which word means cow?",
         audio: "bò",
         audioAssetId: "vi.south.syllable.bo-huyen",
         choices: [
@@ -285,7 +286,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
         correctId: "bò",
         hintEn: "Picture the cow — falling tone bò.",
         skillIds: ["vocab-bo", "listen-discriminate"],
-        stepRole: "review",
+        stepRole: "recognize",
       }),
     ],
   },
@@ -295,7 +296,7 @@ export const WORLD_0_LESSONS: LearningLesson[] = [
     order: 5,
     titleEn: "Review — a, b, o",
     titleVi: "Ôn — a, b, o",
-    summaryEn: "Hear → write → say → review check on a / ba / bò.",
+    summaryEn: "Hear → recognize → say → recall check on a / ba / bò.",
     durationMin: 4,
     playable: true,
     prerequisiteSkillIds: ["letter-a", "letter-b", "letter-o", "vocab-bo"],

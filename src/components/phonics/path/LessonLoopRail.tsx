@@ -22,7 +22,7 @@ export function LessonLoopRail({ lesson, currentIndex }: Props) {
   return (
     <ol
       className="mb-4 flex flex-wrap items-center gap-1.5"
-      aria-label="Hear, Write, Say, Review progress"
+      aria-label="Hear, Recognize, Say, Recall progress"
     >
       {LOOP_PHASES.map((phase, i) => {
         const active = current === phase;
