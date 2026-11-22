@@ -1,0 +1,383 @@
+{
+  "songId": "ngay-mai-nguoi-ta-lay-chong",
+  "source": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/source/quang-toan-learn-lines.mp3",
+  "voice": "Quang Toan - Deep Vietnamese Storyteller (ElevenLabs)",
+  "detect": {
+    "noiseDb": -32,
+    "minSilence": 0.8
+  },
+  "durationSec": 180.610563,
+  "clipCount": 37,
+  "clips": [
+    {
+      "index": 1,
+      "lineId": "l0",
+      "textVi": "Ai tìm ai trên phố vắng ngược lối cơn mưa chiều giăng giăng",
+      "filename": "line_01.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_01.mp3",
+      "speechStart": 0.0,
+      "speechEnd": 3.45,
+      "speechDuration": 3.45
+    },
+    {
+      "index": 2,
+      "lineId": "l1",
+      "textVi": "Ai tìm ai dưới trăng nghiêng bóng ngõ dài vằng vặc",
+      "filename": "line_02.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_02.mp3",
+      "speechStart": 4.3032,
+      "speechEnd": 6.8364,
+      "speechDuration": 2.5332
+    },
+    {
+      "index": 3,
+      "lineId": "l2",
+      "textVi": "Ai đặt tên cho ký ức là nỗi đau của ngày hôm qua",
+      "filename": "line_03.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_03.mp3",
+      "speechStart": 7.9172,
+      "speechEnd": 10.9876,
+      "speechDuration": 3.0704
+    },
+    {
+      "index": 4,
+      "lineId": "l3",
+      "textVi": "Ai đặt tên chúng ta là người lạ",
+      "filename": "line_04.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_04.mp3",
+      "speechStart": 12.0471,
+      "speechEnd": 13.6759,
+      "speechDuration": 1.6288
+    },
+    {
+      "index": 5,
+      "lineId": "l4",
+      "textVi": "Có phải đêm qua thức trắng để gấp con tim làm hai ngăn",
+      "filename": "line_05.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_05.mp3",
+      "speechStart": 14.7726,
+      "speechEnd": 22.0799,
+      "speechDuration": 7.3073
+    },
+    {
+      "index": 6,
+      "lineId": "l5",
+      "textVi": "Ngăn phải ôm nỗi đau còn ngăn trái chứa hạt nhiệm màu",
+      "filename": "line_06.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_06.mp3",
+      "speechStart": 23.2562,
+      "speechEnd": 29.5974,
+      "speechDuration": 6.3412
+    },
+    {
+      "index": 7,
+      "lineId": "l6",
+      "textVi": "Kịp sáng mang đến làm quà cô dâu sợ mai kia sương phai hoa úa áo nhàu",
+      "filename": "line_07.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_07.mp3",
+      "speechStart": 30.6518,
+      "speechEnd": 32.8241,
+      "speechDuration": 2.1723
+    },
+    {
+      "index": 8,
+      "lineId": "l7",
+      "textVi": "Anh đợi em anh chọn ngăn nỗi đau",
+      "filename": "line_08.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_08.mp3",
+      "speechStart": 33.8793,
+      "speechEnd": 38.4563,
+      "speechDuration": 4.577
+    },
+    {
+      "index": 9,
+      "lineId": "l8",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "filename": "line_09.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_09.mp3",
+      "speechStart": 39.5089,
+      "speechEnd": 43.98,
+      "speechDuration": 4.4711
+    },
+    {
+      "index": 10,
+      "lineId": "l9",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "filename": "line_10.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_10.mp3",
+      "speechStart": 45.0535,
+      "speechEnd": 49.7843,
+      "speechDuration": 4.7308
+    },
+    {
+      "index": 11,
+      "lineId": "l10",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "filename": "line_11.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_11.mp3",
+      "speechStart": 51.1724,
+      "speechEnd": 56.3141,
+      "speechDuration": 5.1417
+    },
+    {
+      "index": 12,
+      "lineId": "l11",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu",
+      "filename": "line_12.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_12.mp3",
+      "speechStart": 57.1755,
+      "speechEnd": 62.9937,
+      "speechDuration": 5.8182
+    },
+    {
+      "index": 13,
+      "lineId": "l12",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "filename": "line_13.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_13.mp3",
+      "speechStart": 63.8262,
+      "speechEnd": 67.7987,
+      "speechDuration": 3.9725
+    },
+    {
+      "index": 14,
+      "lineId": "l13",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "filename": "line_14.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_14.mp3",
+      "speechStart": 68.658,
+      "speechEnd": 73.9899,
+      "speechDuration": 5.3319
+    },
+    {
+      "index": 15,
+      "lineId": "l14",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "filename": "line_15.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_15.mp3",
+      "speechStart": 75.1495,
+      "speechEnd": 78.3242,
+      "speechDuration": 3.1747
+    },
+    {
+      "index": 16,
+      "lineId": "l15",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "filename": "line_16.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_16.mp3",
+      "speechStart": 79.2023,
+      "speechEnd": 82.9177,
+      "speechDuration": 3.7154
+    },
+    {
+      "index": 17,
+      "lineId": "l16",
+      "textVi": "Có phải đêm qua thức trắng để gấp con tim làm hai ngăn",
+      "filename": "line_17.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_17.mp3",
+      "speechStart": 84.0905,
+      "speechEnd": 85.6198,
+      "speechDuration": 1.5293
+    },
+    {
+      "index": 18,
+      "lineId": "l17",
+      "textVi": "Ngăn phải ôm nỗi đau còn ngăn trái chứa hạt nhiệm màu",
+      "filename": "line_18.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_18.mp3",
+      "speechStart": 86.427,
+      "speechEnd": 90.2031,
+      "speechDuration": 3.7761
+    },
+    {
+      "index": 19,
+      "lineId": "l18",
+      "textVi": "Kịp sáng mang đến làm quà cô dâu sợ mai kia sương phai hoa úa áo nhàu",
+      "filename": "line_19.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_19.mp3",
+      "speechStart": 91.2683,
+      "speechEnd": 93.4032,
+      "speechDuration": 2.1349
+    },
+    {
+      "index": 20,
+      "lineId": "l19",
+      "textVi": "Anh đợi em anh chọn ngăn nỗi đau",
+      "filename": "line_20.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_20.mp3",
+      "speechStart": 94.3437,
+      "speechEnd": 99.2712,
+      "speechDuration": 4.9275
+    },
+    {
+      "index": 21,
+      "lineId": "l20",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "filename": "line_21.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_21.mp3",
+      "speechStart": 100.324,
+      "speechEnd": 104.908,
+      "speechDuration": 4.584
+    },
+    {
+      "index": 22,
+      "lineId": "l21",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "filename": "line_22.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_22.mp3",
+      "speechStart": 106.011,
+      "speechEnd": 110.946,
+      "speechDuration": 4.935
+    },
+    {
+      "index": 23,
+      "lineId": "l22",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "filename": "line_23.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_23.mp3",
+      "speechStart": 112.007,
+      "speechEnd": 114.508,
+      "speechDuration": 2.501
+    },
+    {
+      "index": 24,
+      "lineId": "l23",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu",
+      "filename": "line_24.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_24.mp3",
+      "speechStart": 115.332,
+      "speechEnd": 117.34,
+      "speechDuration": 2.008
+    },
+    {
+      "index": 25,
+      "lineId": "l24",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "filename": "line_25.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_25.mp3",
+      "speechStart": 118.248,
+      "speechEnd": 126.199,
+      "speechDuration": 7.951
+    },
+    {
+      "index": 26,
+      "lineId": "l25",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "filename": "line_26.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_26.mp3",
+      "speechStart": 127.016,
+      "speechEnd": 132.141,
+      "speechDuration": 5.125
+    },
+    {
+      "index": 27,
+      "lineId": "l26",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "filename": "line_27.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_27.mp3",
+      "speechStart": 133.091,
+      "speechEnd": 135.657,
+      "speechDuration": 2.566
+    },
+    {
+      "index": 28,
+      "lineId": "l27",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "filename": "line_28.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_28.mp3",
+      "speechStart": 136.895,
+      "speechEnd": 141.811,
+      "speechDuration": 4.916
+    },
+    {
+      "index": 29,
+      "lineId": "l28",
+      "textVi": "Ngày hôm ấy em đi trong mưa thế nhưng lại quên tim không khoá cửa",
+      "filename": "line_29.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_29.mp3",
+      "speechStart": 142.772,
+      "speechEnd": 147.318,
+      "speechDuration": 4.546
+    },
+    {
+      "index": 30,
+      "lineId": "l29",
+      "textVi": "Để cho mưa lân la hỏi thăm lẻn vào trộm đi khế ước trăm năm",
+      "filename": "line_30.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_30.mp3",
+      "speechStart": 148.36,
+      "speechEnd": 153.333,
+      "speechDuration": 4.973
+    },
+    {
+      "index": 31,
+      "lineId": "l30",
+      "textVi": "Ngày em đi theo cơn mưa ngâu bầy chim lạc cánh khóc hoảng tìm nhau",
+      "filename": "line_31.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_31.mp3",
+      "speechStart": 154.294,
+      "speechEnd": 156.87,
+      "speechDuration": 2.576
+    },
+    {
+      "index": 32,
+      "lineId": "l31",
+      "textVi": "Ai đong ai đếm hết bao giọt sầu hết bao giọt sầu",
+      "filename": "line_32.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_32.mp3",
+      "speechStart": 157.855,
+      "speechEnd": 161.879,
+      "speechDuration": 4.024
+    },
+    {
+      "index": 33,
+      "lineId": "l32",
+      "textVi": "Hỏi mùa thu đang ru miên man mỗi năm mùa rơi bao chiếc lá vàng",
+      "filename": "line_33.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_33.mp3",
+      "speechStart": 162.781,
+      "speechEnd": 165.094,
+      "speechDuration": 2.313
+    },
+    {
+      "index": 34,
+      "lineId": "l33",
+      "textVi": "Liệu có biết ở nơi nào không có lá nào trông như lá diêu bông",
+      "filename": "line_34.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_34.mp3",
+      "speechStart": 165.95,
+      "speechEnd": 170.783,
+      "speechDuration": 4.833
+    },
+    {
+      "index": 35,
+      "lineId": "l34",
+      "textVi": "Hỡi diêu bông ơi hỡi diêu bông bình minh chưa hé tôi phải tìm xong",
+      "filename": "line_35.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_35.mp3",
+      "speechStart": 171.823,
+      "speechEnd": 173.972,
+      "speechDuration": 2.149
+    },
+    {
+      "index": 36,
+      "lineId": "l35",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "filename": "line_36.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_36.mp3",
+      "speechStart": 174.775,
+      "speechEnd": 177.113,
+      "speechDuration": 2.338
+    },
+    {
+      "index": 37,
+      "lineId": "l36",
+      "textVi": "Vì mai người ta đã đi lấy chồng",
+      "filename": "line_37.mp3",
+      "path": "/audio/vi/karaoke/ngay-mai-nguoi-ta-lay-chong/line_37.mp3",
+      "speechStart": 178.0,
+      "speechEnd": 180.6106,
+      "speechDuration": 2.6106
+    }
+  ]
+}
