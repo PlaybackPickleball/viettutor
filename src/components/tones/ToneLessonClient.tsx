@@ -16,8 +16,8 @@ import {
   gradeToneChoice,
   loadToneProgress,
   recordToneLessonQuiz,
+  TONE_CARDS,
   TONE_MASTERY_THRESHOLD,
-  TONE_PLACEMENT_NOTES,
   type ToneLessonPhase,
   type ToneQuizQuestion,
 } from "@/lib/tones";
@@ -32,10 +32,12 @@ const PHASE_LABEL: Record<ToneLessonPhase, string> = {
   quiz: "Quiz",
 };
 
+type Surface = "intro" | "practice";
 type Props = { toneId: string };
 
 export function ToneLessonClient({ toneId }: Props) {
   const card = getToneCard(toneId);
+  const [surface, setSurface] = useState<Surface>("intro");
   const [phase, setPhase] = useState<ToneLessonPhase>("listen");
   const [heard, setHeard] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
@@ -45,6 +47,7 @@ export function ToneLessonClient({ toneId }: Props) {
     typeof window === "undefined" ? null : loadToneProgress(),
   );
   const dialect = progress?.dialect ?? "southern";
+  const ngang = getToneCard("ngang")!;
 
   const quiz = useMemo(
     () => (card ? buildToneLessonQuiz(card.id, dialect) : []),
@@ -71,6 +74,7 @@ export function ToneLessonClient({ toneId }: Props) {
 
   const phaseIdx = PHASES.indexOf(phase);
   const question: ToneQuizQuestion | undefined = quiz[qIndex];
+  const markDisplay = card.id === "ngang" ? "—" : card.markChar;
 
   function goNextPhase() {
     const i = PHASES.indexOf(phase);
@@ -82,7 +86,6 @@ export function ToneLessonClient({ toneId }: Props) {
     const state = recordToneLessonQuiz(card!.id, nextCorrect, nextGraded);
     setProgress(state);
     markJourneyLessonComplete(card!.journeyLessonId);
-    // Feed mistakes / attempts into path SRS for Daily Review.
     const path = loadPathProgress();
     const ratio = nextGraded === 0 ? 1 : nextCorrect / nextGraded;
     recordExerciseResult(path, [card!.skillId, "tone-six-ma", "listen-discriminate"], ratio >= 0.8);
@@ -128,19 +131,166 @@ export function ToneLessonClient({ toneId }: Props) {
   }
 
   function stampTrace() {
-    // Trace is practice — counts toward completion, not against accuracy.
     setFeedback("Trace stamped — shape practice only.");
   }
 
   const ratio = gradedCount === 0 ? 0 : correctCount / gradedCount;
   const lessonRec = progress?.lessons[card.id];
 
+  if (surface === "intro") {
+    return (
+      <div className="studio-shell scene-wash animate-riseIn">
+        <header className="mb-4">
+          <div className="flex items-center justify-between gap-2">
+            <Link href="/dau-thanh" className="text-sm text-ink/45 hover:text-ink">
+              ← Vietnamese Tones
+            </Link>
+            <p className="text-xs font-semibold text-ink/45">{card.order} of 6</p>
+          </div>
+          <div className="mt-2 flex gap-1.5" aria-hidden>
+            {TONE_CARDS.map((c) => (
+              <span
+                key={c.id}
+                className={`h-1.5 flex-1 rounded-full ${
+                  c.order <= card.order ? "bg-coral" : "bg-ink/10"
+                }`}
+              />
+            ))}
+          </div>
+          <div className="mt-4 flex items-center gap-2">
+            <h1 className="font-display text-2xl text-ink sm:text-3xl">
+              <span className="capitalize text-coral">{card.nameVi}</span>
+              <span className="text-ink/70">
+                {" "}
+                ({markDisplay}) – {card.nameEn.charAt(0).toUpperCase() + card.nameEn.slice(1)} Tone
+              </span>
+            </h1>
+            <ListenControls text={card.utterance} compact />
+          </div>
+        </header>
+
+        <section className={`mb-3 grid grid-cols-2 gap-3 rounded-2xl px-4 py-4 ${card.rowClass}`}>
+          <div>
+            <p className="font-hand text-5xl text-ink" lang="vi">
+              {card.written}
+            </p>
+            <p className="mt-1 text-sm text-ink/55">{card.meaningEn}</p>
+            <p className="mt-2 text-xs text-ink/50">{card.voiceCueEn}</p>
+          </div>
+          <div>
+            <p className="quiet-label">Your voice (pitch)</p>
+            <TonePitchContour path={card.pitchPath} label={card.contourHintEn} playKey={pitchKey} />
+            <button
+              type="button"
+              className="mt-1 text-xs font-semibold text-coral"
+              onClick={() => setPitchKey((k) => k + 1)}
+            >
+              Replay
+            </button>
+          </div>
+        </section>
+
+        <section className="ami-card mb-3 px-4 py-4">
+          <p className="quiet-label">How to write the mark</p>
+          <div className="mt-2 flex items-center gap-4">
+            <span className="font-hand text-5xl text-coral" aria-hidden>
+              {markDisplay}
+            </span>
+            <div className="min-w-0 flex-1">
+              {card.markStrokePath ? (
+                <svg viewBox="0 0 100 100" className="h-14 w-full" aria-hidden>
+                  <circle cx="28" cy="72" r="4" fill="#c4b5a5" />
+                  <path
+                    d={card.markStrokePath}
+                    fill="none"
+                    stroke="var(--coral)"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    className="tone-pitch-draw"
+                  />
+                </svg>
+              ) : (
+                <p className="text-sm text-ink/55">No written mark for ngang.</p>
+              )}
+              <p className="mt-1 text-sm text-ink/65">{card.strokeGuideEn}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="ami-card mb-3 px-4 py-4">
+          <p className="quiet-label">Hear the difference</p>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <div className="flex items-center justify-between gap-2 rounded-2xl bg-soft/80 px-3 py-3">
+              <span className="text-sm font-semibold text-ink" lang="vi">
+                {ngang.written}{" "}
+                <span className="font-normal text-ink/45">({ngang.meaningEn.split(" ")[0]})</span>
+              </span>
+              <ListenControls text={ngang.utterance} compact />
+            </div>
+            <div
+              className={`flex items-center justify-between gap-2 rounded-2xl px-3 py-3 ring-2 ring-coral ${card.rowClass}`}
+            >
+              <span className="text-sm font-semibold text-ink" lang="vi">
+                {card.written}{" "}
+                <span className="font-normal text-ink/45">
+                  ({card.meaningEn.split(/[·(]/)[0]?.trim()})
+                </span>
+              </span>
+              <ListenControls text={card.utterance} compact />
+            </div>
+          </div>
+        </section>
+
+        <section className="ami-card mb-4 px-4 py-4">
+          <p className="quiet-label">Practice this tone</p>
+          <div className="mt-3 space-y-2">
+            {(
+              [
+                ["say", "Say it (Pronunciation)"],
+                ["trace", "Trace it (Writing)"],
+                ["listen", "Listen & Choose (Recognition)"],
+              ] as const
+            ).map(([target, label]) => (
+              <button
+                key={target}
+                type="button"
+                className="flex w-full items-center gap-3 rounded-2xl bg-soft/70 px-4 py-3 text-left text-sm font-semibold text-ink transition hover:bg-coral/10"
+                onClick={() => {
+                  setPhase(target);
+                  setSurface("practice");
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-ink/45">
+            {dialect === "southern" ? card.southernNoteEn : card.northernNoteEn}
+          </p>
+        </section>
+
+        <button
+          type="button"
+          className="teacher-btn-primary w-full"
+          onClick={() => {
+            setPhase("listen");
+            setSurface("practice");
+          }}
+        >
+          Practice This Tone →
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="studio-shell scene-wash animate-riseIn">
       <header className="mb-4 flex items-start justify-between gap-3">
         <div>
           <BrandMark />
-          <p className="quiet-label mt-3">Dấu Thanh · Tone {card.order} / 6</p>
+          <p className="quiet-label mt-3">
+            Dấu Thanh · {card.nameVi} · Tone {card.order} / 6
+          </p>
           <h1 className="mt-1 font-display text-3xl text-ink">
             {card.nameVi}
             <span className="text-xl font-sans font-normal text-ink/45"> · {card.nameEn}</span>
@@ -150,9 +300,13 @@ export function ToneLessonClient({ toneId }: Props) {
           </p>
           <p className="text-sm text-ink/55">{card.meaningEn}</p>
         </div>
-        <Link href="/dau-thanh" className="teacher-btn-secondary px-3 py-2 text-sm">
-          Hub
-        </Link>
+        <button
+          type="button"
+          className="teacher-btn-secondary px-3 py-2 text-sm"
+          onClick={() => setSurface("intro")}
+        >
+          Overview
+        </button>
       </header>
 
       <ol className="mb-4 flex flex-wrap gap-1.5" aria-label="Lesson phases">
@@ -179,10 +333,7 @@ export function ToneLessonClient({ toneId }: Props) {
           <p className="text-sm text-ink/60">
             Play native audio (Southern default). Identify the tone before peeking at the mark.
           </p>
-          <ListenControls
-            text={card.utterance}
-            onListened={() => setHeard(true)}
-          />
+          <ListenControls text={card.utterance} onListened={() => setHeard(true)} />
           <div className="grid grid-cols-2 gap-2">
             {(["ngang", "sac", "huyen", "hoi", "nga", "nang"] as const).map((id) => {
               const c = getToneCard(id)!;
@@ -254,7 +405,7 @@ export function ToneLessonClient({ toneId }: Props) {
             </p>
             <p className="mt-1 text-sm text-ink/55">{card.meaningEn}</p>
             <p className="mt-3 text-3xl text-coral" aria-hidden>
-              {card.markChar}
+              {markDisplay}
             </p>
           </div>
           <TonePitchContour
@@ -272,11 +423,6 @@ export function ToneLessonClient({ toneId }: Props) {
           <p className="text-xs text-ink/50">
             {dialect === "southern" ? card.southernNoteEn : card.northernNoteEn}
           </p>
-          <ul className="space-y-1 text-xs text-ink/45">
-            {TONE_PLACEMENT_NOTES.map((n) => (
-              <li key={n}>· {n}</li>
-            ))}
-          </ul>
           <button type="button" className="teacher-btn-primary w-full" onClick={goNextPhase}>
             Continue to trace
           </button>
@@ -301,8 +447,7 @@ export function ToneLessonClient({ toneId }: Props) {
         <section className="space-y-4">
           <p className="text-sm text-ink/60">
             Record and compare by ear. Deepgram match when configured — never a fabricated tone
-            score. Side-by-side pitch graphs appear only when a validated detector is available
-            (not yet).
+            score.
           </p>
           <p className="text-center font-hand text-5xl text-ink" lang="vi">
             {card.written}
@@ -322,8 +467,8 @@ export function ToneLessonClient({ toneId }: Props) {
       {phase === "quiz" && !quizDone && question ? (
         <section className="space-y-4">
           <p className="quiet-label">
-            Mini-quiz · {qIndex + 1} / {quiz.length} · need {Math.round(TONE_MASTERY_THRESHOLD * 100)}
-            % for mastery · retries OK
+            Mini-quiz · {qIndex + 1} / {quiz.length} · need{" "}
+            {Math.round(TONE_MASTERY_THRESHOLD * 100)}% for mastery · retries OK
           </p>
           <p className="font-display text-xl text-ink">{question.promptEn}</p>
 
