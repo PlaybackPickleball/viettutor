@@ -157,9 +157,9 @@ export function DashboardClient() {
       )}
 
       <section className="mt-5 grid grid-cols-3 gap-2.5" aria-label="Shortcuts">
+        <Shortcut href="/dau-thanh" label="Tones" hint="Dấu Thanh" />
         <Shortcut href="/practice" label="Practice" />
         <Shortcut href={speakHref} label="Speak" hint="Deepgram Say" />
-        <Shortcut href="/sing" label="Karaoke" />
       </section>
 
       <section className="ami-card mt-6 px-4 py-5" aria-labelledby="daily-journey-heading">

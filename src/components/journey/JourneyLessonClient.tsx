@@ -56,7 +56,7 @@ export function JourneyLessonClient({ lesson }: { lesson: LearningLesson }) {
 
   const next = nextJourneyEngineLesson(lesson.id);
   const exercise = lesson.exercises[exIndex];
-  const unitLabel = unitId === "u2" ? "Unit 2 · Six tones" : "Unit 1 · Discover";
+  const unitLabel = unitId === "u2" ? "Unit 2 · Dấu Thanh" : "Unit 1 · Discover";
 
   if (!ready) {
     return (

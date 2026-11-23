@@ -42,6 +42,11 @@ export function PracticeHubClient() {
           onOpen={() => markJourneyLessonComplete("u1-l06")}
         />
         <PracticeLink
+          href="/dau-thanh"
+          title="Dấu Thanh · Tones"
+          blurb="Six tones before Đánh Vần — listen, trace marks, quiz ≥80%."
+        />
+        <PracticeLink
           href="/practice/handwriting"
           title="Handwriting"
           blurb="Optional Mali letter tracing — shape practice, not scored."

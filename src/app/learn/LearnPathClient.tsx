@@ -136,7 +136,7 @@ export function LearnPathClient() {
                 {!unlocked ? (
                   <p className="mt-3 text-sm text-ink/50">
                     {unit.id === "u7"
-                      ? "Finish Unit 2 · Six tones to unlock karaoke hooks."
+                      ? "Finish Unit 2 · Dấu Thanh to unlock karaoke hooks."
                       : "Finish the previous unit’s live lessons to unlock."}
                   </p>
                 ) : (
