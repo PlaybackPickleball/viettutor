@@ -10,9 +10,19 @@ type Props = {
   /** Verified native file under /public when available; 404 → TTS placeholder. */
   nativePath?: string | null;
   onListened?: () => void;
+  /** Single speaker button for dense lists (tone rows, compare pairs). */
+  compact?: boolean;
+  className?: string;
 };
 
-export function ListenControls({ text, phoneticHint, nativePath, onListened }: Props) {
+export function ListenControls({
+  text,
+  phoneticHint,
+  nativePath,
+  onListened,
+  compact = false,
+  className,
+}: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const resolvedNative =
@@ -42,8 +52,28 @@ export function ListenControls({ text, phoneticHint, nativePath, onListened }: P
     }
   }
 
+  if (compact) {
+    return (
+      <button
+        type="button"
+        className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-paper/80 text-coral shadow-sm ring-1 ring-[#e8d9c8] disabled:opacity-50 ${className ?? ""}`}
+        disabled={busy}
+        aria-label={`Play ${text}`}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          void play(false);
+        }}
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden>
+          <path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+        </svg>
+      </button>
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-3">
+    <div className={`flex flex-col gap-3 ${className ?? ""}`}>
       <div className="flex flex-wrap gap-3">
         <button
           type="button"
@@ -73,3 +103,4 @@ export function ListenControls({ text, phoneticHint, nativePath, onListened }: P
     </div>
   );
 }
+

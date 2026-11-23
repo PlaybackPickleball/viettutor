@@ -22,6 +22,7 @@ export function defaultToneProgress(): ToneProgressState {
   return {
     version: 1,
     dialect: "southern",
+    fundamentalsDone: false,
     lessons: Object.fromEntries(TONE_CARDS.map((c) => [c.id, emptyLesson()])),
     masteryTest: {
       attempts: 0,
@@ -61,6 +62,13 @@ export function saveToneProgress(state: ToneProgressState): void {
 export function setToneDialect(dialect: ToneDialect): ToneProgressState {
   const state = loadToneProgress();
   const next = { ...state, dialect };
+  saveToneProgress(next);
+  return next;
+}
+
+export function markToneFundamentalsDone(): ToneProgressState {
+  const state = loadToneProgress();
+  const next = { ...state, fundamentalsDone: true };
   saveToneProgress(next);
   return next;
 }

@@ -27,12 +27,18 @@ export type ToneCard = {
   strokeGuideEn: string;
   /** Pitch contour teaching hint (animated separately). */
   contourHintEn: string;
+  /** Short voice cue for overview rows (mockup-style). */
+  voiceCueEn: string;
   /** SVG path in 0..100 viewBox for pitch animation. */
   pitchPath: string;
   /** SVG path for mark stroke practice (viewBox 0 0 100 100). Empty for ngang. */
   markStrokePath: string;
   northernNoteEn: string;
   southernNoteEn: string;
+  /** Soft row tint + accent for overview cards (ÁMi palette). */
+  rowClass: string;
+  /** Hex stroke for pitch mini-contour (not Tailwind — dynamic). */
+  accentStroke: string;
   /** Skill id for path SRS / Daily Review. */
   skillId: string;
 };
@@ -63,6 +69,8 @@ export type ToneLessonRecord = {
 export type ToneProgressState = {
   version: 1;
   dialect: ToneDialect;
+  /** Learner finished the marks fundamentals intro. */
+  fundamentalsDone: boolean;
   lessons: Record<string, ToneLessonRecord>;
   masteryTest: {
     attempts: number;
