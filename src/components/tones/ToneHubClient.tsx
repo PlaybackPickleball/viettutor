@@ -145,7 +145,7 @@ export function ToneHubClient() {
               className="teacher-btn-primary flex-1"
               onClick={() => setFundIdx((i) => i + 1)}
             >
-              Next
+              Continue
             </button>
           ) : (
             <button type="button" className="teacher-btn-primary flex-1" onClick={finishFundamentals}>

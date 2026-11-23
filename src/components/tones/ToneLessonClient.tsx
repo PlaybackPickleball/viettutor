@@ -169,15 +169,15 @@ export function ToneLessonClient({ toneId }: Props) {
           </div>
         </header>
 
-        <section className={`mb-3 grid grid-cols-2 gap-3 rounded-2xl px-4 py-4 ${card.rowClass}`}>
-          <div>
+        <section className={`mb-3 flex flex-col gap-3 rounded-2xl px-4 py-4 sm:flex-row ${card.rowClass}`}>
+          <div className="sm:w-2/5">
             <p className="font-hand text-5xl text-ink" lang="vi">
               {card.written}
             </p>
             <p className="mt-1 text-sm text-ink/55">{card.meaningEn}</p>
             <p className="mt-2 text-xs text-ink/50">{card.voiceCueEn}</p>
           </div>
-          <div>
+          <div className="min-w-0 flex-1">
             <p className="quiet-label">Your voice (pitch)</p>
             <TonePitchContour path={card.pitchPath} label={card.contourHintEn} playKey={pitchKey} />
             <button
