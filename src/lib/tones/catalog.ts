@@ -32,7 +32,7 @@ export const TONE_CARDS: ToneCard[] = [
     northernNoteEn: "Clear level mid pitch.",
     southernNoteEn: "Also level; stay steady — don’t add a fall.",
     rowClass: "bg-[#f3ebe0]",
-    accentClass: "stroke-[#8a6b4a]",
+    accentStroke: "#8a6b4a",
     skillId: "tone-ngang",
   },
   {
@@ -55,7 +55,7 @@ export const TONE_CARDS: ToneCard[] = [
     northernNoteEn: "Sharp high rise.",
     southernNoteEn: "Rising; often a bit softer than Northern — still clearly up.",
     rowClass: "bg-[#fce8dc]",
-    accentClass: "stroke-[#e07a4a]",
+    accentStroke: "#e07a4a",
     skillId: "tone-sac",
   },
   {
@@ -78,7 +78,7 @@ export const TONE_CARDS: ToneCard[] = [
     northernNoteEn: "Smooth falling pitch.",
     southernNoteEn: "Falling; keep it continuous — not a hard stop.",
     rowClass: "bg-[#efe6dc]",
-    accentClass: "stroke-[#c45c38]",
+    accentStroke: "#c45c38",
     skillId: "tone-huyen",
   },
   {
@@ -102,7 +102,7 @@ export const TONE_CARDS: ToneCard[] = [
     southernNoteEn:
       "Often merges with ngã in Southern speech — we never mark a legitimate merge as wrong.",
     rowClass: "bg-[#f6e9e0]",
-    accentClass: "stroke-[#d9784f]",
+    accentStroke: "#d9784f",
     skillId: "tone-hoi",
   },
   {
@@ -126,7 +126,7 @@ export const TONE_CARDS: ToneCard[] = [
     southernNoteEn:
       "Often merges with hỏi — listening quizzes accept either when dialect is Southern.",
     rowClass: "bg-[#f8ebe2]",
-    accentClass: "stroke-[#e08a45]",
+    accentStroke: "#e08a45",
     skillId: "tone-nga",
   },
   {
@@ -149,7 +149,7 @@ export const TONE_CARDS: ToneCard[] = [
     northernNoteEn: "Short, heavy, often constricted ending.",
     southernNoteEn: "Heavy low finish — keep it short.",
     rowClass: "bg-[#ebe4da]",
-    accentClass: "stroke-[#3d2e24]",
+    accentStroke: "#3d2e24",
     skillId: "tone-nang",
   },
 ];

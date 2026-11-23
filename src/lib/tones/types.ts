@@ -37,7 +37,8 @@ export type ToneCard = {
   southernNoteEn: string;
   /** Soft row tint + accent for overview cards (ÁMi palette). */
   rowClass: string;
-  accentClass: string;
+  /** Hex stroke for pitch mini-contour (not Tailwind — dynamic). */
+  accentStroke: string;
   /** Skill id for path SRS / Daily Review. */
   skillId: string;
 };

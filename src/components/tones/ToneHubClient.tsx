@@ -21,13 +21,13 @@ import {
 
 type HubStep = "fundamentals" | "overview";
 
-function ToneRowContour({ path, className }: { path: string; className: string }) {
+function ToneRowContour({ path, stroke }: { path: string; stroke: string }) {
   return (
     <svg viewBox="0 0 100 100" className="h-8 w-14 shrink-0" aria-hidden>
       <path
         d={path}
         fill="none"
-        className={className}
+        stroke={stroke}
         strokeWidth="5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -233,7 +233,7 @@ export function ToneHubClient() {
                 <span className="font-hand text-2xl text-ink" lang="vi">
                   {card.written}
                 </span>
-                <ToneRowContour path={card.pitchPath} className={card.accentClass} />
+                <ToneRowContour path={card.pitchPath} stroke={card.accentStroke} />
                 <span className="min-w-0 flex-1 text-[11px] leading-snug text-ink/55">
                   {card.voiceCueEn}
                 </span>
