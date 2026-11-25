@@ -4,7 +4,12 @@
  */
 
 import { TONE_CARDS, TONE_MASTERY_THRESHOLD } from "./catalog";
-import type { ToneDialect, ToneLessonRecord, ToneProgressState } from "./types";
+import type {
+  ToneChapterId,
+  ToneDialect,
+  ToneLessonRecord,
+  ToneProgressState,
+} from "./types";
 
 const STORAGE_KEY = "ami-lingua.tones.v1";
 
@@ -23,6 +28,8 @@ export function defaultToneProgress(): ToneProgressState {
     version: 1,
     dialect: "southern",
     fundamentalsDone: false,
+    chaptersDone: {},
+    baselinePitchHz: null,
     lessons: Object.fromEntries(TONE_CARDS.map((c) => [c.id, emptyLesson()])),
     masteryTest: {
       attempts: 0,
@@ -41,12 +48,13 @@ export function loadToneProgress(): ToneProgressState {
     if (!raw) return defaultToneProgress();
     const parsed = JSON.parse(raw) as ToneProgressState;
     if (parsed.version !== 1) return defaultToneProgress();
-    const lessons = { ...defaultToneProgress().lessons, ...parsed.lessons };
+    const base = defaultToneProgress();
     return {
-      ...defaultToneProgress(),
+      ...base,
       ...parsed,
-      lessons,
-      masteryTest: { ...defaultToneProgress().masteryTest, ...parsed.masteryTest },
+      chaptersDone: { ...base.chaptersDone, ...parsed.chaptersDone },
+      lessons: { ...base.lessons, ...parsed.lessons },
+      masteryTest: { ...base.masteryTest, ...parsed.masteryTest },
     };
   } catch {
     return defaultToneProgress();
@@ -68,7 +76,29 @@ export function setToneDialect(dialect: ToneDialect): ToneProgressState {
 
 export function markToneFundamentalsDone(): ToneProgressState {
   const state = loadToneProgress();
-  const next = { ...state, fundamentalsDone: true };
+  const next = {
+    ...state,
+    fundamentalsDone: true,
+    chaptersDone: { ...state.chaptersDone, intro: true },
+  };
+  saveToneProgress(next);
+  return next;
+}
+
+export function markToneChapterDone(chapter: ToneChapterId): ToneProgressState {
+  const state = loadToneProgress();
+  const next = {
+    ...state,
+    fundamentalsDone: chapter === "intro" ? true : state.fundamentalsDone,
+    chaptersDone: { ...state.chaptersDone, [chapter]: true },
+  };
+  saveToneProgress(next);
+  return next;
+}
+
+export function setToneBaselinePitch(hz: number | null): ToneProgressState {
+  const state = loadToneProgress();
+  const next = { ...state, baselinePitchHz: hz };
   saveToneProgress(next);
   return next;
 }
@@ -124,9 +154,11 @@ export function allTonesMastered(state = loadToneProgress()): boolean {
 }
 
 export function continueToneHref(state = loadToneProgress()): string {
+  if (!state.chaptersDone.intro) return "/dau-thanh";
+  if (!state.chaptersDone.pitch) return "/dau-thanh?chapter=pitch";
   for (const card of TONE_CARDS) {
     if (!state.lessons[card.id]?.mastered) return `/dau-thanh/${card.id}`;
   }
   if (!state.masteryTest.passed) return "/dau-thanh/mastery";
-  return "/dau-thanh";
+  return "/dau-thanh?chapter=practice";
 }

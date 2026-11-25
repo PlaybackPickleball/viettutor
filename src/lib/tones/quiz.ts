@@ -14,7 +14,7 @@ function distractorTones(target: ToneId, n: number): ToneId[] {
   return shuffle(TONE_CARDS.map((c) => c.id).filter((id) => id !== target)).slice(0, n);
 }
 
-/** 4–5 short items for a single-tone lesson mini-quiz. */
+/** Mini-quiz for a single-tone lesson. */
 export function buildToneLessonQuiz(toneId: ToneId, dialect: ToneDialect): ToneQuizQuestion[] {
   const card = getToneCard(toneId);
   if (!card) return [];
@@ -50,7 +50,15 @@ export function buildToneLessonQuiz(toneId: ToneId, dialect: ToneDialect): ToneQ
     }),
   ]);
 
-  const qs: ToneQuizQuestion[] = [
+  const graphChoices = shuffle([
+    { id: toneId, label: card.nameVi, glossEn: "pitch graph" },
+    ...others.map((id) => {
+      const c = getToneCard(id)!;
+      return { id, label: c.nameVi, glossEn: "pitch graph" };
+    }),
+  ]);
+
+  return [
     {
       id: `${toneId}-listen`,
       kind: "listen-choose",
@@ -93,6 +101,15 @@ export function buildToneLessonQuiz(toneId: ToneId, dialect: ToneDialect): ToneQ
       hintEn: `${card.written} · ${card.meaningEn}`,
     },
     {
+      id: `${toneId}-graph`,
+      kind: "match-graph",
+      promptEn: `Which pitch graph matches ${card.nameVi}?`,
+      toneId,
+      options: graphChoices,
+      correctOptionId: toneId,
+      hintEn: card.contourHintEn,
+    },
+    {
       id: `${toneId}-trace`,
       kind: "trace-stamp",
       promptEn: `Trace the ${card.nameVi} mark (shape practice — not scored for accuracy).`,
@@ -100,19 +117,18 @@ export function buildToneLessonQuiz(toneId: ToneId, dialect: ToneDialect): ToneQ
       hintEn: card.strokeGuideEn,
     },
   ];
-  return qs;
 }
 
-/** Final mastery test — five listening/select items across the six tones. */
+/** Final mastery — 12 randomized items. */
 export function buildMasteryQuiz(dialect: ToneDialect): ToneQuizQuestion[] {
-  const picks = shuffle(TONE_CARDS).slice(0, 5);
-  return picks.map((card, i) => {
+  const pool: ToneQuizQuestion[] = [];
+  for (const card of TONE_CARDS) {
     const others = distractorTones(card.id, 2);
     const accept =
       dialect === "southern" ? southernListeningAccepts(card.id) : [card.id];
-    return {
-      id: `mastery-${i}-${card.id}`,
-      kind: "listen-choose" as const,
+    pool.push({
+      id: `mastery-listen-${card.id}`,
+      kind: "listen-choose",
       promptEn: "Listen — identify the tone.",
       toneId: card.id,
       audioUtterance: card.utterance,
@@ -126,8 +142,55 @@ export function buildMasteryQuiz(dialect: ToneDialect): ToneQuizQuestion[] {
       correctOptionId: card.id,
       acceptOptionIds: accept,
       hintEn: `${card.written} · ${card.nameVi}`,
-    };
-  });
+    });
+    pool.push({
+      id: `mastery-mark-${card.id}`,
+      kind: "select-mark",
+      promptEn: `Which mark is ${card.nameVi}?`,
+      toneId: card.id,
+      options: shuffle([
+        {
+          id: card.id,
+          label: card.markChar === "—" ? "(none)" : card.markChar,
+          glossEn: card.markNameEn,
+        },
+        ...others.map((id) => {
+          const c = getToneCard(id)!;
+          return {
+            id,
+            label: c.markChar === "—" ? "(none)" : c.markChar,
+            glossEn: c.markNameEn,
+          };
+        }),
+      ]),
+      correctOptionId: card.id,
+      hintEn: card.strokeGuideEn,
+    });
+    pool.push({
+      id: `mastery-graph-${card.id}`,
+      kind: "match-graph",
+      promptEn: "Match the pitch pattern to the tone.",
+      toneId: card.id,
+      options: shuffle([
+        { id: card.id, label: card.nameVi, glossEn: card.written },
+        ...others.map((id) => {
+          const c = getToneCard(id)!;
+          return { id, label: c.nameVi, glossEn: c.written };
+        }),
+      ]),
+      correctOptionId: card.id,
+      hintEn: card.contourHintEn,
+    });
+    pool.push({
+      id: `mastery-type-${card.id}`,
+      kind: "type-form",
+      promptEn: `Type the ${card.nameVi} form.`,
+      toneId: card.id,
+      expectedWritten: card.written,
+      hintEn: `Answer: ${card.written}`,
+    });
+  }
+  return shuffle(pool).slice(0, 12);
 }
 
 export function gradeToneChoice(
