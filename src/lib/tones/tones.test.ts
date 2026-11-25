@@ -2,12 +2,18 @@ import { describe, expect, it } from "vitest";
 import {
   buildMasteryQuiz,
   buildToneLessonQuiz,
+  contourToSvgPath,
+  estimateFramePitch,
   getToneCard,
   gradeToneChoice,
+  normalizeToBaseline,
   southernListeningAccepts,
   TONE_CARDS,
+  TONE_CHAPTERS,
   TONE_IDS,
   TONE_MASTERY_THRESHOLD,
+  COMBINED_DIACRITICS,
+  TONE_RECORDING_WISHLIST,
 } from "./index";
 
 describe("Dấu Thanh catalog", () => {
@@ -16,7 +22,9 @@ describe("Dấu Thanh catalog", () => {
     expect(TONE_CARDS.map((c) => c.written)).toEqual(["ma", "má", "mà", "mả", "mã", "mạ"]);
     expect(getToneCard("ngang")?.markChar).toBe("—");
     expect(getToneCard("nang")?.markChar).toBe(".");
+    expect(getToneCard("sac")?.teachEn.length).toBeGreaterThan(20);
     expect(TONE_MASTERY_THRESHOLD).toBe(0.8);
+    expect(TONE_CHAPTERS).toHaveLength(6);
   });
 
   it("documents Southern hỏi/ngã listening merger", () => {
@@ -35,11 +43,54 @@ describe("Dấu Thanh catalog", () => {
     expect(gradeToneChoice(northern, "nga").ok).toBe(false);
   });
 
-  it("builds lesson and mastery quizzes with 3–5 items", () => {
+  it("builds lesson quizzes with match-graph and 12-item mastery", () => {
     const lesson = buildToneLessonQuiz("sac", "southern");
-    expect(lesson.length).toBeGreaterThanOrEqual(3);
-    expect(lesson.length).toBeLessThanOrEqual(5);
+    expect(lesson.length).toBeGreaterThanOrEqual(5);
+    expect(lesson.some((q) => q.kind === "match-graph")).toBe(true);
     const mastery = buildMasteryQuiz("southern");
-    expect(mastery).toHaveLength(5);
+    expect(mastery).toHaveLength(12);
+  });
+
+  it("lists native recording wishlist categories", () => {
+    expect(TONE_RECORDING_WISHLIST.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it("teaches the combined diacritic set ắ ầ ế ộ ớ ữ", () => {
+    expect(COMBINED_DIACRITICS.map((c) => c.letter)).toEqual([
+      "ắ",
+      "ầ",
+      "ế",
+      "ộ",
+      "ớ",
+      "ữ",
+    ]);
+  });
+});
+
+describe("local pitch helpers", () => {
+  it("returns null for silence frames", () => {
+    const silence = new Float32Array(512);
+    expect(estimateFramePitch(silence, 16000)).toBeNull();
+  });
+
+  it("maps normalized contour to an SVG path", () => {
+    const path = contourToSvgPath([
+      { t: 0, y: 0.5 },
+      { t: 1, y: 0.2 },
+    ]);
+    expect(path.startsWith("M")).toBe(true);
+    expect(path.includes("L")).toBe(true);
+  });
+
+  it("normalizes samples around baseline", () => {
+    const pts = normalizeToBaseline(
+      [
+        { t: 0, hz: 200 },
+        { t: 0.1, hz: 220 },
+      ],
+      200,
+    );
+    expect(pts[0]!.y).toBeCloseTo(0.5, 1);
+    expect(pts[1]!.y).toBeLessThan(0.5);
   });
 });

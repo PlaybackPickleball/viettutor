@@ -6,7 +6,21 @@ export type ToneDialect = "northern" | "southern";
 
 export type ToneLessonPhase = "listen" | "view" | "trace" | "say" | "quiz";
 
-export type ToneQuizKind = "listen-choose" | "select-mark" | "type-form" | "trace-stamp";
+export type ToneQuizKind =
+  | "listen-choose"
+  | "select-mark"
+  | "type-form"
+  | "trace-stamp"
+  | "match-graph";
+
+/** Course chapters — interactive teacher flow. */
+export type ToneChapterId =
+  | "intro"
+  | "pitch"
+  | "tones"
+  | "regional"
+  | "diacritics"
+  | "practice";
 
 export type ToneCard = {
   id: ToneId;
@@ -29,15 +43,19 @@ export type ToneCard = {
   contourHintEn: string;
   /** Short voice cue for overview rows (mockup-style). */
   voiceCueEn: string;
-  /** SVG path in 0..100 viewBox for pitch animation. */
+  /** Simple English teaching paragraph for Chapter 3. */
+  teachEn: string;
+  /** SVG path in 0..100 viewBox for illustrative pitch (southern default). */
   pitchPath: string;
+  /** Optional northern contour when it differs (ngã / hỏi). */
+  pitchPathNorthern?: string;
   /** SVG path for mark stroke practice (viewBox 0 0 100 100). Empty for ngang. */
   markStrokePath: string;
   northernNoteEn: string;
   southernNoteEn: string;
-  /** Soft row tint + accent for overview cards (ÁMi palette). */
+  /** Soft row tint for overview cards (ÁMi palette). */
   rowClass: string;
-  /** Hex stroke for pitch mini-contour (not Tailwind — dynamic). */
+  /** Hex stroke / accent for this tone (consistent across UI). */
   accentStroke: string;
   /** Skill id for path SRS / Daily Review. */
   skillId: string;
@@ -69,8 +87,12 @@ export type ToneLessonRecord = {
 export type ToneProgressState = {
   version: 1;
   dialect: ToneDialect;
-  /** Learner finished the marks fundamentals intro. */
+  /** Learner finished the marks fundamentals intro (legacy hub). */
   fundamentalsDone: boolean;
+  /** Chapters completed in the interactive course. */
+  chaptersDone: Partial<Record<ToneChapterId, boolean>>;
+  /** Estimated natural speaking pitch (Hz) from calibration. */
+  baselinePitchHz: number | null;
   lessons: Record<string, ToneLessonRecord>;
   masteryTest: {
     attempts: number;

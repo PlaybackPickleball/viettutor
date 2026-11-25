@@ -1,11 +1,11 @@
-import { ToneHubClient } from "@/components/tones/ToneHubClient";
+import { ToneCourseClient } from "@/components/tones/ToneCourseClient";
 
 export const metadata = {
   title: "Dấu Thanh · Vietnamese Tones · ÁMi Lingua",
   description:
-    "Learn all six Vietnamese tones (ngang sắc huyền hỏi ngã nặng) before Đánh Vần — Northern and Southern notes, mark tracing, listening quizzes.",
+    "Interactive Vietnamese tones lesson — pitch graphs, native audio, writing, and pronunciation before Đánh Vần.",
 };
 
 export default function DauThanhPage() {
-  return <ToneHubClient />;
+  return <ToneCourseClient />;
 }

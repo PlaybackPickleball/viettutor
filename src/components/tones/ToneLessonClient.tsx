@@ -5,8 +5,10 @@ import { useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { ListenControls } from "@/components/ListenControls";
 import { SpeakCompareAssess } from "@/components/phonics/path/SpeakCompareAssess";
+import { ToneMarkAnimation } from "@/components/tones/ToneMarkAnimation";
 import { ToneMarkTrace } from "@/components/tones/ToneMarkTrace";
-import { TonePitchContour } from "@/components/tones/TonePitchContour";
+import { TonePitchGraph } from "@/components/tones/TonePitchGraph";
+import { TonePronunciationPractice } from "@/components/tones/TonePronunciationPractice";
 import { ViDiacriticHelper } from "@/components/vi/ViDiacriticHelper";
 import { markJourneyLessonComplete } from "@/lib/journey";
 import { recordExerciseResult, loadPathProgress } from "@/lib/phonics/learningPath";
@@ -15,6 +17,7 @@ import {
   getToneCard,
   gradeToneChoice,
   loadToneProgress,
+  pitchPathFor,
   recordToneLessonQuiz,
   TONE_CARDS,
   TONE_MASTERY_THRESHOLD,
@@ -169,53 +172,44 @@ export function ToneLessonClient({ toneId }: Props) {
           </div>
         </header>
 
-        <section className={`mb-3 flex flex-col gap-3 rounded-2xl px-4 py-4 sm:flex-row ${card.rowClass}`}>
-          <div className="sm:w-2/5">
+        <section className={`mb-3 flex flex-col gap-3 rounded-2xl px-4 py-4 ${card.rowClass}`}>
+          <div>
             <p className="font-hand text-5xl text-ink" lang="vi">
               {card.written}
             </p>
             <p className="mt-1 text-sm text-ink/55">{card.meaningEn}</p>
-            <p className="mt-2 text-xs text-ink/50">{card.voiceCueEn}</p>
+            <p className="mt-2 text-sm text-ink/70">{card.teachEn}</p>
           </div>
-          <div className="min-w-0 flex-1">
-            <p className="quiet-label">Your voice (pitch)</p>
-            <TonePitchContour path={card.pitchPath} label={card.contourHintEn} playKey={pitchKey} />
-            <button
-              type="button"
-              className="mt-1 text-xs font-semibold text-coral"
-              onClick={() => setPitchKey((k) => k + 1)}
-            >
-              Replay
-            </button>
-          </div>
+          <TonePitchGraph
+            playKey={pitchKey}
+            showNaturalPitch
+            curves={[
+              {
+                path: pitchPathFor(card, dialect),
+                color: card.accentStroke,
+                label: card.nameVi,
+              },
+            ]}
+          />
+          <button
+            type="button"
+            className="self-start text-xs font-semibold text-coral"
+            onClick={() => setPitchKey((k) => k + 1)}
+          >
+            Replay contour
+          </button>
         </section>
 
-        <section className="ami-card mb-3 px-4 py-4">
-          <p className="quiet-label">How to write the mark</p>
-          <div className="mt-2 flex items-center gap-4">
-            <span className="font-hand text-5xl text-coral" aria-hidden>
-              {markDisplay}
-            </span>
-            <div className="min-w-0 flex-1">
-              {card.markStrokePath ? (
-                <svg viewBox="0 0 100 100" className="h-14 w-full" aria-hidden>
-                  <circle cx="28" cy="72" r="4" fill="#c4b5a5" />
-                  <path
-                    d={card.markStrokePath}
-                    fill="none"
-                    stroke="var(--coral)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    className="tone-pitch-draw"
-                  />
-                </svg>
-              ) : (
-                <p className="text-sm text-ink/55">No written mark for ngang.</p>
-              )}
-              <p className="mt-1 text-sm text-ink/65">{card.strokeGuideEn}</p>
-            </div>
-          </div>
-        </section>
+        <div className="mb-3">
+          <ToneMarkAnimation
+            strokePath={card.markStrokePath}
+            markChar={card.markChar}
+            guideEn={card.strokeGuideEn}
+            accent={card.accentStroke}
+            empty={card.id === "ngang"}
+            playKey={pitchKey}
+          />
+        </div>
 
         <section className="ami-card mb-3 px-4 py-4">
           <p className="quiet-label">Hear the difference</p>
@@ -408,10 +402,16 @@ export function ToneLessonClient({ toneId }: Props) {
               {markDisplay}
             </p>
           </div>
-          <TonePitchContour
-            path={card.pitchPath}
-            label={card.contourHintEn}
+          <TonePitchGraph
             playKey={pitchKey}
+            showNaturalPitch
+            curves={[
+              {
+                path: pitchPathFor(card, dialect),
+                color: card.accentStroke,
+                label: card.contourHintEn,
+              },
+            ]}
           />
           <button
             type="button"
@@ -445,13 +445,11 @@ export function ToneLessonClient({ toneId }: Props) {
 
       {phase === "say" ? (
         <section className="space-y-4">
-          <p className="text-sm text-ink/60">
-            Record and compare by ear. Deepgram match when configured — never a fabricated tone
-            score.
-          </p>
-          <p className="text-center font-hand text-5xl text-ink" lang="vi">
-            {card.written}
-          </p>
+          <TonePronunciationPractice
+            toneId={card.id}
+            dialect={dialect}
+            baselineHz={progress?.baselinePitchHz ?? null}
+          />
           <SpeakCompareAssess
             itemId={`tone-${card.id}`}
             expectedText={card.utterance}
@@ -513,6 +511,38 @@ export function ToneLessonClient({ toneId }: Props) {
                 setFeedback("Practice stamped.");
               }}
             />
+          ) : null}
+
+          {question.kind === "match-graph" && question.options ? (
+            <div className="grid grid-cols-1 gap-2">
+              {question.options.map((opt) => {
+                const oc = getToneCard(opt.id)!;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    disabled={Boolean(feedback)}
+                    className={`rounded-2xl px-3 py-2 text-left ${oc.rowClass}`}
+                    onClick={() => {
+                      setPicked(opt.id);
+                      submitChoice(opt.id);
+                    }}
+                  >
+                    <TonePitchGraph
+                      height={80}
+                      showNaturalPitch={false}
+                      curves={[
+                        {
+                          path: pitchPathFor(oc, dialect),
+                          color: oc.accentStroke,
+                        },
+                      ]}
+                    />
+                    <span className="text-xs text-ink/45">{oc.nameVi}</span>
+                  </button>
+                );
+              })}
+            </div>
           ) : null}
 
           {(question.kind === "listen-choose" || question.kind === "select-mark") &&
