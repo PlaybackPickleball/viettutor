@@ -9,6 +9,19 @@ export const VOWEL_DIACRITICS = [
   { letter: "ư", glossEn: "ư" },
 ] as const;
 
+/**
+ * Combined vowel + tone marks (recording wishlist / teaching set).
+ * Each syllable still has at most one tone mark.
+ */
+export const COMBINED_DIACRITICS = [
+  { letter: "ắ", vowel: "ă", toneEn: "sắc", glossEn: "ă + sắc" },
+  { letter: "ầ", vowel: "â", toneEn: "huyền", glossEn: "â + huyền" },
+  { letter: "ế", vowel: "ê", toneEn: "sắc", glossEn: "ê + sắc" },
+  { letter: "ộ", vowel: "ô", toneEn: "nặng", glossEn: "ô + nặng (dot below)" },
+  { letter: "ớ", vowel: "ơ", toneEn: "sắc", glossEn: "ơ + sắc" },
+  { letter: "ữ", vowel: "ư", toneEn: "ngã", glossEn: "ư + ngã" },
+] as const;
+
 /** Chains showing vowel quality mark + tone mark stacking. */
 export const DIACRITIC_CHAINS = [
   { steps: ["a", "ă", "ắ"], noteEn: "ă (vowel) + sắc (tone)" },

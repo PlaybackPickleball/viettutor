@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { ListenControls } from "@/components/ListenControls";
 import { PitchCalibration } from "@/components/tones/PitchCalibration";
 import { ToneListeningQuiz } from "@/components/tones/ToneListeningQuiz";
 import { ToneMarkAnimation } from "@/components/tones/ToneMarkAnimation";
@@ -13,6 +14,7 @@ import { ToneTracingPractice } from "@/components/tones/ToneTracingPractice";
 import { markJourneyLessonComplete } from "@/lib/journey";
 import { recordExerciseResult, loadPathProgress } from "@/lib/phonics/learningPath";
 import {
+  COMBINED_DIACRITICS,
   DIACRITIC_CHAINS,
   DIACRITIC_RULES,
   VOWEL_DIACRITICS,
@@ -308,23 +310,57 @@ export function ToneCourseClient() {
             <h1 className="mt-1 font-display text-3xl text-ink">Tone marks vs vowel marks</h1>
             <p className="mt-2 text-sm text-ink/70">
               Tone marks change the tone. Vowel diacritics are part of the vowel and change its sound.
+              They can appear together on the same letter.
             </p>
           </header>
-          <div className="flex flex-wrap gap-2">
-            {VOWEL_DIACRITICS.map((v) => (
-              <span
-                key={v.letter}
-                className="rounded-xl bg-soft px-3 py-2 font-hand text-2xl text-ink"
-                lang="vi"
-                title={v.glossEn}
-              >
-                {v.letter}
-              </span>
-            ))}
-          </div>
+
+          <section className="ami-card px-4 py-4">
+            <p className="quiet-label">Vowel diacritics</p>
+            <p className="mt-1 text-xs text-ink/50">These change the vowel sound — not the tone.</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {VOWEL_DIACRITICS.map((v) => (
+                <span
+                  key={v.letter}
+                  className="inline-flex items-center gap-2 rounded-xl bg-soft px-3 py-2"
+                  title={v.glossEn}
+                >
+                  <span className="font-hand text-2xl text-ink" lang="vi">
+                    {v.letter}
+                  </span>
+                  <ListenControls text={v.letter} compact />
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="ami-card px-4 py-4">
+            <p className="quiet-label">Combined diacritics</p>
+            <p className="mt-1 text-xs text-ink/50">
+              Vowel mark + tone mark on one letter — still only one tone per syllable.
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-6">
+              {COMBINED_DIACRITICS.map((c) => (
+                <div
+                  key={c.letter}
+                  className="flex flex-col items-center gap-1.5 rounded-2xl bg-soft/80 px-2 py-3"
+                >
+                  <span className="font-hand text-3xl text-coral" lang="vi">
+                    {c.letter}
+                  </span>
+                  <span className="text-center text-[10px] leading-tight text-ink/45">{c.glossEn}</span>
+                  <ListenControls text={c.letter} compact />
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <p className="quiet-label">How they stack</p>
           <ul className="space-y-2">
             {DIACRITIC_CHAINS.map((chain) => (
-              <li key={chain.steps.join("-")} className="ami-card flex flex-wrap items-center gap-2 px-4 py-3">
+              <li
+                key={chain.steps.join("-")}
+                className="ami-card flex flex-wrap items-center gap-2 px-4 py-3"
+              >
                 {chain.steps.map((s, i) => (
                   <span key={s} className="inline-flex items-center gap-2">
                     <span className="font-hand text-3xl text-ink" lang="vi">

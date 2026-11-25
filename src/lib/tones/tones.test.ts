@@ -12,6 +12,7 @@ import {
   TONE_CHAPTERS,
   TONE_IDS,
   TONE_MASTERY_THRESHOLD,
+  COMBINED_DIACRITICS,
   TONE_RECORDING_WISHLIST,
 } from "./index";
 
@@ -52,6 +53,17 @@ describe("Dấu Thanh catalog", () => {
 
   it("lists native recording wishlist categories", () => {
     expect(TONE_RECORDING_WISHLIST.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it("teaches the combined diacritic set ắ ầ ế ộ ớ ữ", () => {
+    expect(COMBINED_DIACRITICS.map((c) => c.letter)).toEqual([
+      "ắ",
+      "ầ",
+      "ế",
+      "ộ",
+      "ớ",
+      "ữ",
+    ]);
   });
 });
 
